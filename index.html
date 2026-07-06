@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sonorathy — Product & UI/UX Designer</title>
+<meta name="description" content="Sonorathy — Product designer & frontend developer. UI/UX, web apps, branding." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Custom cursor -->
+<div class="cursor" id="cursor">
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+  <span class="cursor-label">VIEW</span>
+</div>
+
+<!-- Preloader -->
+<div class="preloader" id="preloader">
+  <div class="preloader-top">
+    <span class="preloader-logo">SNRT</span>
+    <span class="preloader-count"><span id="counter">0</span>%</span>
+  </div>
+  <div class="preloader-bar"><div class="preloader-bar-fill" id="preloaderFill"></div></div>
+  <div class="preloader-bottom">
+    <span>Personal Portfolio</span>
+    <span>2026</span>
+  </div>
+</div>
+
+<!-- noise overlay -->
+<div class="noise"></div>
+
+<!-- Header — centered logo only -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="#top" class="logo" id="navLogo" data-hover>Sonorathy</a>
+  </div>
+</header>
+
+<!-- Floating bottom dock nav -->
+<nav class="dock-nav" id="dockNav">
+  <a href="#about" data-hover data-magnetic>About</a>
+  <a href="#work" data-hover data-magnetic>Work</a>
+  <a href="#services" data-hover data-magnetic>Services</a>
+  <a href="#contact" data-hover data-magnetic>Contact</a>
+  <span class="dock-indicator" id="dockIndicator"></span>
+</nav>
+
+<main id="top">
+
+  <!-- HERO — pinned project-stack + wordmark that scales into the nav logo -->
+  <section class="hero-pin" id="hero">
+    <div class="hero-stage" id="heroStage">
+      <div class="hero-media" id="heroMedia">
+        <div class="hero-image-row" id="projectStack">
+          <div class="hero-img-item hero-img-lda" data-hover>
+            <img src="assets/hero/hero-lda.jpg" alt="Legion D'Antares — Vietnamese luxury fashion campaign">
+          </div>
+          <div class="hero-img-item hero-img-parkview" data-hover>
+            <img src="assets/hero/hero-parkview.jpg" alt="Park View — boutique hotel brand identity">
+          </div>
+          <div class="hero-img-item hero-img-luvenus" data-hover>
+            <img src="assets/work/30care-cover.jpg" alt="30S Care — leather care brand identity">
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-crosses" aria-hidden="true">
+        <span style="top:9%;left:5%;">+</span>
+        <span style="top:9%;left:47%;">+</span>
+        <span style="top:9%;right:5%;">+</span>
+        <span style="top:37%;left:5%;">+</span>
+        <span style="top:37%;left:47%;">+</span>
+        <span style="top:37%;right:5%;">+</span>
+        <span style="top:63%;left:5%;">+</span>
+        <span style="top:63%;left:47%;">+</span>
+        <span style="top:63%;right:5%;">+</span>
+      </div>
+
+      <div class="hero-copy">
+        <div class="hero-meta-grid">
+          <div class="hero-meta">
+            <span class="dot"></span>
+            <div class="hero-meta-text">
+              <span class="hero-meta-label">Role</span>
+              <span class="hero-meta-value">Product &amp; UI/UX Designer</span>
+            </div>
+          </div>
+          <div class="hero-meta">
+            <div class="hero-meta-text">
+              <span class="hero-meta-label">Expertise</span>
+              <span class="hero-meta-value">Web Apps, Branding, SaaS</span>
+            </div>
+          </div>
+          <div class="hero-meta hero-meta-tagline-wrap">
+            <span class="hero-meta-tagline">I design products people love to use.</span>
+          </div>
+        </div>
+      </div>
+
+      <h1 class="hero-wordmark" id="heroWordmark">Sonorathy<span class="tm">R</span></h1>
+    </div>
+  </section>
+
+  <!-- HERO INDEX — solid-background spacer that closes the opening cover
+       screen right under the pinned hero (intentionally empty) -->
+  <section class="hero-index" id="heroIndex"></section>
+
+  <section class="hero-followup">
+    <p class="reveal-lines">I'm Sonorathy — a product designer &amp; frontend developer helping startups turn early ideas into interfaces people trust, from first sketch to shipped UI.</p>
+    <a href="#work" class="btn-solid" data-hover data-magnetic><span>View My Work</span> <i>→</i></a>
+  </section>
+
+  <!-- OVERVIEW / ABOUT — two-photo layout with intro copy + services/tools/domain rows -->
+  <section class="overview" id="about">
+    <div class="overview-grid">
+
+      <div class="overview-left">
+        <div class="overview-intro">
+          <div class="overview-photo">
+            <img src="assets/about/thy-portrait.jpg" alt="Sonorathy — studio portrait">
+          </div>
+          <div class="overview-intro-copy">
+            <span class="overview-eyebrow reveal-word">I'm Sonorathy</span>
+            <h2 class="overview-heading reveal-lines">Designing meaningful experiences that connect brands and people.</h2>
+            <p class="reveal-lines">I'm a UI/UX Designer &amp; Brand Designer based in Ho Chi Minh City, Vietnam. I help businesses transform ideas into visually compelling, user‑centered designs that communicate clearly and leave a lasting impression.</p>
+            <p class="reveal-lines">With a strong focus on strategy and storytelling, I craft digital experiences and brand identities that are not only beautiful, but also purposeful and impactful.</p>
+            <a href="#work" class="overview-cta" data-hover data-magnetic><span>View my work</span><i>→</i></a>
+          </div>
+        </div>
+
+        <div class="about-panel">
+          <div class="about-row">
+            <span class="about-row-label">Services</span>
+            <div class="about-row-value">UI/UX Design <span class="slash">/</span> Design Systems <span class="slash">/</span> Brand Identity <span class="slash">/</span> User Research <span class="slash">/</span> AI‑assisted Workflows</div>
+          </div>
+
+          <div class="about-row">
+            <span class="about-row-label">Skill &amp; Tool</span>
+            <div class="about-row-tools">
+              <div class="tool-tile" data-tool="Figma">
+                <span class="tool-tile-icon"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/figma/default.svg" alt="Figma" loading="lazy"></span>
+              </div>
+              <div class="tool-tile" data-tool="Claude">
+                <span class="tool-tile-icon"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/claude/default.svg" alt="Claude" loading="lazy"></span>
+              </div>
+              <div class="tool-tile" data-tool="ChatGPT">
+                <span class="tool-tile-icon"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/openai-chatgpt/default.svg" alt="ChatGPT" loading="lazy"></span>
+              </div>
+              <div class="tool-tile" data-tool="Notion">
+                <span class="tool-tile-icon"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/notion/default.svg" alt="Notion" loading="lazy"></span>
+              </div>
+              <div class="tool-tile" data-tool="VS Code">
+                <span class="tool-tile-icon"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/visual-studio-code/default.svg" alt="VS Code" loading="lazy"></span>
+              </div>
+              <div class="tool-tile" data-tool="Illustrator">
+                <span class="tool-tile-icon"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/illustrator/default.svg" alt="Illustrator" loading="lazy"></span>
+              </div>
+              <div class="tool-tile" data-tool="Photoshop">
+                <span class="tool-tile-icon"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/photoshop/default.svg" alt="Photoshop" loading="lazy"></span>
+              </div>
+              <div class="tool-tile" data-tool="CapCut">
+                <span class="tool-tile-icon"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/capcut/default.svg" alt="CapCut" loading="lazy"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-row">
+            <span class="about-row-label">Domain</span>
+            <div class="about-row-value">Hospitality <span class="slash">/</span> Fashion &amp; Luxury <span class="slash">/</span> Jewelry &amp; Retail <span class="slash">/</span> Fintech <span class="slash">/</span> SaaS &amp; Web Apps</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="overview-photo-full">
+        <img src="assets/about/thy-walk.jpg" alt="Sonorathy — studio portrait, walking">
+        <span class="overview-scroll-tag reveal-word">Scroll to Explore <i>↓</i></span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROJECTS OVERVIEW — 3D coverflow preview reel, between About and Featured Projects -->
+  <section class="projects-overview" id="projectsOverview">
+    <div class="projects-overview-head reveal-word">
+      <span>© Projects</span>
+      <span>(SNRT — 02)</span>
+      <span>Selected Work Preview</span>
+    </div>
+
+    <div class="overview-carousel" id="overviewCarousel">
+      <div class="carousel-track" id="carouselTrack">
+        <div class="carousel-slide" data-hover>
+          <div class="carousel-media"><img src="assets/work/mvillage-cover.jpg" alt="M Village hotel booking platform" loading="lazy"></div>
+          <span class="carousel-caption">M Village</span>
+        </div>
+        <div class="carousel-slide" data-hover>
+          <div class="carousel-media"><img src="assets/work/parkview-cover.jpg" alt="Park View hotel brand identity" loading="lazy"></div>
+          <span class="carousel-caption">Park View</span>
+        </div>
+        <div class="carousel-slide" data-hover>
+          <div class="carousel-media"><img src="assets/work/lda-cover.jpg" alt="Legion D'Antares fashion ecommerce" loading="lazy"></div>
+          <span class="carousel-caption">Legion D'Antares</span>
+        </div>
+        <div class="carousel-slide" data-hover>
+          <div class="carousel-media"><img src="assets/work/30care-cover.jpg" alt="30S Care leather care brand identity" loading="lazy"></div>
+          <span class="carousel-caption">30S Care</span>
+        </div>
+        <div class="carousel-slide" data-hover>
+          <div class="carousel-media carousel-media-grad" style="background:linear-gradient(135deg,#4fa9ff,#0a0a0b)"></div>
+          <span class="carousel-caption">GeoMap</span>
+        </div>
+        <div class="carousel-slide" data-hover>
+          <div class="carousel-media carousel-media-grad" style="background:linear-gradient(135deg,#7c5cff,#0a0a0b)"></div>
+          <span class="carousel-caption">FinB&amp;B</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="projects-overview-statement reveal-lines">I don't just design interfaces — I design systems that help businesses grow and people succeed. The best products aren't the ones with the most beautiful UI; they're the ones that solve the right problem in the simplest way.</p>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <span>UI / UX DESIGN</span><span class="mq-dot">✦</span>
+      <span>WEB APP DEVELOPMENT</span><span class="mq-dot">✦</span>
+      <span>BRAND IDENTITY</span><span class="mq-dot">✦</span>
+      <span>FRONTEND ENGINEERING</span><span class="mq-dot">✦</span>
+      <span>MOTION &amp; INTERACTION</span><span class="mq-dot">✦</span>
+      <span>UI / UX DESIGN</span><span class="mq-dot">✦</span>
+      <span>WEB APP DEVELOPMENT</span><span class="mq-dot">✦</span>
+      <span>BRAND IDENTITY</span><span class="mq-dot">✦</span>
+      <span>FRONTEND ENGINEERING</span><span class="mq-dot">✦</span>
+      <span>MOTION &amp; INTERACTION</span><span class="mq-dot">✦</span>
+    </div>
+  </div>
+
+  <!-- WORK -->
+  <section class="work" id="work">
+    <div class="section-head work-scroll-head">
+      <span class="section-eyebrow reveal-word">© Selected Work — 02</span>
+      <h2 class="section-title split-lines">
+        <span>Featured</span>
+        <span>Projects</span>
+      </h2>
+      <div class="work-scroll-count reveal-word"><span id="workScrollActive">01–02</span> / 06</div>
+    </div>
+
+    <!-- Pinned wrapper: detail panel + card row are pinned TOGETHER, so the
+         description of the active project always stays in the same screen
+         frame as the cards while the horizontal scroll plays out. -->
+    <div class="work-pin-wrap" id="workPinWrap">
+
+      <!-- Case-study detail panel — content follows whichever project is
+           currently active (scroll progress, or hover). Copy is placeholder
+           scaffolding; swap in the real role/problem/result specifics. -->
+      <div class="work-detail" id="workDetail">
+        <div class="work-detail-top">
+          <h3 class="work-detail-title" id="workDetailTitle">M Village</h3>
+          <div class="work-detail-cols">
+            <div class="work-detail-col">
+              <span class="work-detail-label">Role</span>
+              <span class="work-detail-value" id="workDetailRole">Product &amp; UI/UX Designer</span>
+            </div>
+            <div class="work-detail-col">
+              <span class="work-detail-label">Highlights</span>
+              <ul class="work-detail-list" id="workDetailHighlights"></ul>
+            </div>
+          </div>
+        </div>
+        <div class="work-detail-desc">
+          <span class="work-detail-label">Problem</span>
+          <p id="workDetailProblem"></p>
+        </div>
+      </div>
+
+      <!-- Horizontal-scroll gallery: section stays pinned while the track
+           translates sideways — full width must be scrolled before the
+           page continues down. -->
+      <div class="work-scroll-pin" id="workScrollPin">
+      <div class="work-scroll-track" id="workScrollTrack">
+
+        <a href="project-mvillage.html" class="work-card" data-hover
+           data-title="M Village"
+           data-role="Product &amp; UI/UX Designer"
+           data-highlights="Redesigned the end-to-end booking flow|Built a reusable component library|Shipped responsive web + mobile views"
+           data-problem="Guests were dropping off mid-booking because of a cluttered, multi-step flow with unclear pricing and availability. I simplified the journey into a clear, guided flow so guests can find, compare, and book rooms with confidence.">
+          <div class="work-card-media"><img src="assets/work/mvillage-cover.jpg" alt="M Village — hotel booking platform" loading="lazy"></div>
+          <div class="work-card-meta">
+            <span class="work-card-index">01</span>
+            <span class="work-card-title">M Village</span>
+            <span class="work-card-tag">Hotel Booking · Web App</span>
+          </div>
+        </a>
+
+        <a href="project-parkview.html" class="work-card" data-hover
+           data-title="Park View"
+           data-role="Brand &amp; Art Director"
+           data-highlights="Full visual identity system|Photography &amp; set direction|Brand guidelines for print + digital"
+           data-problem="The hotel's existing identity felt generic and didn't reflect its boutique character. I developed a distinctive visual language — from logotype to photography direction — that positions it as a premium, memorable stay.">
+          <div class="work-card-media"><img src="assets/work/parkview-cover.jpg" alt="Park View — boutique hotel brand identity" loading="lazy"></div>
+          <div class="work-card-meta">
+            <span class="work-card-index">02</span>
+            <span class="work-card-title">Park View</span>
+            <span class="work-card-tag">Brand Identity · Art Direction</span>
+          </div>
+        </a>
+
+        <a href="project-lda.html" class="work-card" data-hover
+           data-title="Legion D'Antares"
+           data-role="Web Designer &amp; Developer"
+           data-highlights="Custom storefront design &amp; build|Editorial-style product storytelling|Optimized checkout experience"
+           data-problem="The brand needed an ecommerce presence that matched its high-fashion positioning instead of a generic template look. I designed and built a custom storefront with editorial pacing that lets the collections breathe.">
+          <div class="work-card-media"><img src="assets/work/lda-cover.jpg" alt="Legion D'Antares — luxury fashion ecommerce" loading="lazy"></div>
+          <div class="work-card-meta">
+            <span class="work-card-index">03</span>
+            <span class="work-card-title">Legion D'Antares</span>
+            <span class="work-card-tag">Web Design &amp; Dev · Ecommerce</span>
+          </div>
+        </a>
+
+        <a href="project-luvenus.html" class="work-card" data-hover
+           data-title="30S Care"
+           data-role="Brand &amp; UI/UX Designer"
+           data-highlights="Full brand identity &amp; logo system|Conversion-focused landing page|Mini design system for product UI"
+           data-problem="30S Care needed a premium identity and a landing page that could earn trust for a car-interior leather-care product in a crowded accessories market. I built the brand from logo to launch page in one consistent system.">
+          <div class="work-card-media"><img src="assets/work/30care-cover.jpg" alt="30S Care — leather care brand identity" loading="lazy"></div>
+          <div class="work-card-meta">
+            <span class="work-card-index">04</span>
+            <span class="work-card-title">30S Care</span>
+            <span class="work-card-tag">Brand Identity · Landing Page</span>
+          </div>
+        </a>
+
+        <a href="project-geomap.html" class="work-card" data-hover
+           data-title="GeoMap"
+           data-role="Product Designer &amp; Frontend Developer"
+           data-highlights="Map-based data visualization UI|Design system for a data-dense app|Built with performance in mind"
+           data-problem="The existing tool buried useful location data behind dense tables that were hard to scan. I designed a map-first interface that surfaces the same data visually, making patterns obvious at a glance.">
+          <div class="work-card-media work-card-grad" style="background:linear-gradient(155deg,#4fa9ff,#0a0a0b)"></div>
+          <div class="work-card-meta">
+            <span class="work-card-index">05</span>
+            <span class="work-card-title">GeoMap</span>
+            <span class="work-card-tag">Web App Design &amp; Dev</span>
+          </div>
+        </a>
+
+        <a href="project-finbnb.html" class="work-card" data-hover
+           data-title="FinB&amp;B"
+           data-role="Product &amp; UI/UX Designer"
+           data-highlights="Simplified onboarding flow|Dashboard &amp; reporting UI|Accessible, trustworthy visual language"
+           data-problem="Early users found the product hard to trust and navigate, with onboarding that felt like a typical finance app. I designed a calmer, clearer interface that builds trust from the first screen.">
+          <div class="work-card-media work-card-grad" style="background:linear-gradient(155deg,#7c5cff,#0a0a0b)"></div>
+          <div class="work-card-meta">
+            <span class="work-card-index">06</span>
+            <span class="work-card-title">FinB&amp;B</span>
+            <span class="work-card-tag">Fintech · Web App</span>
+          </div>
+        </a>
+
+      </div>
+      </div>
+
+    </div>
+
+    <p class="work-note reveal-word">Some additional projects are covered under client NDAs and can't be shown publicly here.</p>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="section-head">
+      <span class="section-eyebrow reveal-word">© What I Do — 03</span>
+      <h2 class="section-title split-lines">
+        <span>Services &amp;</span>
+        <span>capabilities</span>
+      </h2>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card" data-hover>
+        <span class="service-num">01</span>
+        <h3>UI / UX Design</h3>
+        <p>User research, wireframes, design systems, prototyping and micro‑interactions built for clarity and conversion.</p>
+        <ul><li>User Research</li><li>Design Systems</li><li>Prototyping</li><li>Micro‑interactions</li></ul>
+      </div>
+      <div class="service-card" data-hover>
+        <span class="service-num">02</span>
+        <h3>Web App Development</h3>
+        <p>End‑to‑end frontend builds — from design handoff to production‑ready, animated, responsive interfaces.</p>
+        <ul><li>React / Frontend</li><li>Interaction Design</li><li>Performance Tuning</li><li>Responsive Builds</li></ul>
+      </div>
+      <div class="service-card" data-hover>
+        <span class="service-num">03</span>
+        <h3>Brand Identity</h3>
+        <p>Strategy‑led identity systems — logos, type, color, and assets that stay consistent across every surface.</p>
+        <ul><li>Identity Design</li><li>Design Tokens</li><li>Brand Assets</li><li>Style Guides</li></ul>
+      </div>
+      <div class="service-card" data-hover>
+        <span class="service-num">04</span>
+        <h3>Motion &amp; Interaction</h3>
+        <p>Scroll‑driven storytelling, page transitions and micro‑motion that make products feel alive.</p>
+        <ul><li>Scroll Animation</li><li>Page Transitions</li><li>Cursor Interaction</li><li>Motion Systems</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="section-head">
+      <span class="section-eyebrow reveal-word">© Good to Know — 05</span>
+      <h2 class="section-title split-lines">
+        <span>Frequently</span>
+        <span>asked questions</span>
+      </h2>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item" data-hover>
+        <button class="faq-q">
+          <span>What kind of projects do you take on?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><p>Web apps, product design systems, landing pages and brand identity — solo or alongside a small team.</p></div>
+      </div>
+      <div class="faq-item" data-hover>
+        <button class="faq-q">
+          <span>What's your typical process?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><p>Discovery → wireframes → visual design → prototype → dev handoff or full build, with review checkpoints at each stage.</p></div>
+      </div>
+      <div class="faq-item" data-hover>
+        <button class="faq-q">
+          <span>How long does a project take?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><p>Landing pages: 1–2 weeks. Full product design + build: 4–8 weeks depending on scope.</p></div>
+      </div>
+      <div class="faq-item" data-hover>
+        <button class="faq-q">
+          <span>Do you work with startups?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><p>Yes — most of my recent work has been with early‑stage fintech, edtech and consumer‑social startups.</p></div>
+      </div>
+      <div class="faq-item" data-hover>
+        <button class="faq-q">
+          <span>How can we get started?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><p>Reach out via the contact section — I usually reply within 1–2 business days with next steps.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="contact-glow"></div>
+    <span class="section-eyebrow reveal-word">© Get in Touch — 06</span>
+    <h2 class="contact-title split-lines">
+      <span>Let's build something</span>
+      <span>great together.</span>
+    </h2>
+    <p class="contact-sub reveal-word">Have a project in mind? Tell me about it — I typically respond within 1–2 business days.</p>
+
+    <a href="mailto:sonorathy@studio.com" class="contact-email" data-hover data-magnetic>
+      sonorathy@studio.com
+    </a>
+
+    <div class="contact-socials">
+      <a href="#" data-hover>Instagram</a>
+      <a href="#" data-hover>LinkedIn</a>
+      <a href="#" data-hover>Behance</a>
+      <a href="#" data-hover>Dribbble</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-top">
+    <span class="footer-logo">sonorathy<span class="dot">.</span></span>
+    <a href="#top" class="footer-back" data-hover data-magnetic>Back to top ↑</a>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Sonorathy — Product &amp; UI/UX Designer</span>
+    <span>Designed &amp; built with motion, by Sonorathy</span>
+  </div>
+
+  <div class="footer-wordmark-wrap">
+    <h2 class="footer-wordmark reveal-word">Sonorathy<span class="tm">R</span></h2>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
