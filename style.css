@@ -697,14 +697,36 @@ img{max-width:100%;display:block;}
   /* below this width the pin+scrub JS is skipped (see script.js) in favor
      of a plain native horizontal swipe, so the detail text above it is
      free to wrap onto as many lines as it needs without pushing the
-     cards off the bottom of the screen */
+     cards off the bottom of the screen. Card width matches the scroll
+     container's visible area exactly (100vw minus its own 6vw+6vw
+     padding) so only ever one project is on screen at a time, with the
+     next/prev one fully off-frame rather than peeking in at the edge. */
   .work-scroll-pin{overflow-x:auto;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;}
   .work-scroll-track{will-change:auto;}
-  .work-card{flex:0 0 78vw;scroll-snap-align:start;}
+  .work-card{flex:0 0 calc(100vw - 12vw);scroll-snap-align:start;scroll-snap-stop:always;}
 }
 @media (max-width:520px){
-  .work-card{flex:0 0 86vw;}
   .work-scroll-track{gap:8px;}
+}
+
+/* prev/next buttons for the mobile swipe strip — hidden on desktop, where
+   the pin+scrub already handles navigation */
+.work-mobile-nav{display:none;}
+@media (max-width:860px){
+  .work-mobile-nav{
+    display:flex;justify-content:center;gap:1rem;
+    margin-top:1.4rem;padding:0 6vw;
+  }
+  .work-nav-btn{
+    width:46px;height:46px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    border:1px solid var(--line);background:var(--bg-soft);color:var(--fg);
+    font-size:1.05rem;
+    transition:opacity .25s,border-color .25s,background .25s;
+  }
+  .work-nav-btn i{font-style:normal;}
+  .work-nav-btn:active{background:var(--fg);color:var(--bg);}
+  .work-nav-btn:disabled{opacity:.35;pointer-events:none;}
 }
 
 .work-note{

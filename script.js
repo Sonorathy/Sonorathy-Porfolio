@@ -591,6 +591,29 @@ document.addEventListener('DOMContentLoaded', () => {
       }, { root: workScrollPin, threshold: [0.5, 0.75, 0.9] });
       cards.forEach(card => io.observe(card));
     }
+
+    // mobile prev/next buttons — explicit alternative to swiping, since a
+    // card fills the whole frame at this width (see CSS: flex:0 0 100vw-ish)
+    if (isNarrow) {
+      const navPrev = document.getElementById('workNavPrev');
+      const navNext = document.getElementById('workNavNext');
+      if (navPrev && navNext) {
+        const gapPx = parseFloat(getComputedStyle(workScrollTrack).gap) || 8;
+        function updateNavButtons() {
+          const maxScroll = workScrollPin.scrollWidth - workScrollPin.clientWidth;
+          navPrev.disabled = workScrollPin.scrollLeft <= 4;
+          navNext.disabled = workScrollPin.scrollLeft >= maxScroll - 4;
+        }
+        function goTo(dir) {
+          const cardW = (cards[0] ? cards[0].getBoundingClientRect().width : workScrollPin.clientWidth) + gapPx;
+          workScrollPin.scrollBy({ left: dir * cardW, behavior: 'smooth' });
+        }
+        navPrev.addEventListener('click', () => goTo(-1));
+        navNext.addEventListener('click', () => goTo(1));
+        workScrollPin.addEventListener('scroll', updateNavButtons, { passive: true });
+        updateNavButtons();
+      }
+    }
   }
 
   /* ---------------- About section: parallax on both photos ---------------- */
