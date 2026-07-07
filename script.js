@@ -201,7 +201,14 @@ document.addEventListener('DOMContentLoaded', () => {
      different properties of the same <img>, so they compose instead of fight. */
   const heroStageForParallax = document.getElementById('heroStage');
   const heroImgItems = document.querySelectorAll('.hero-img-item');
-  if (heroStageForParallax && heroImgItems.length && hasGSAP) {
+  // touch browsers sometimes synthesize a single `mousemove` at the tap
+  // coordinates for legacy compatibility — with no matching mouseleave to
+  // follow it, that one-off event would permanently shift the images
+  // sideways within their oversized crop. This is a mouse-only hover
+  // effect, so only wire it up on devices that actually have a real
+  // pointer + hover (matches the same check used to hide the custom cursor).
+  const supportsHoverParallax = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (heroStageForParallax && heroImgItems.length && hasGSAP && supportsHoverParallax) {
     const depths = [14, 24, 18]; // px drift range, staggered per still
     heroImgItems.forEach(item => {
       const img = item.querySelector('img');
