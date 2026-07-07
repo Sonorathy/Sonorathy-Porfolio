@@ -321,11 +321,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // card sits from center, the more it swings out, drops down, and tilts —
     // like a Ferris wheel rotating in place, not a flat left-right slide.
     const ANGLE_STEP = 24; // degrees between each slide position
-    const RADIUS = 300; // px "radius" of the sphere the cards ride on
+    // radius scales off the actual rendered slide width (~0.72x it) instead
+    // of a fixed px value, so the coverflow geometry looks consistent at
+    // any viewport instead of over-overlapping on narrow phone screens
+    function getRadius() {
+      const w = slides[0] ? slides[0].getBoundingClientRect().width : 420;
+      return w * 0.72;
+    }
 
     let activeFloat = 0; // continuous position, driven by scroll (or click)
 
     function render() {
+      const RADIUS = getRadius();
       slides.forEach((slide, i) => {
         let offset = i - activeFloat;
         offset = ((offset % n) + n) % n; // 0..n
@@ -360,10 +367,25 @@ document.addEventListener('DOMContentLoaded', () => {
       slide.addEventListener('click', () => { activeFloat = i; render(); });
     });
 
+    // re-measure/re-render on resize so rotating a phone or resizing a
+    // window doesn't leave the geometry keyed to a stale slide width
+    let carouselResizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(carouselResizeTimer);
+      carouselResizeTimer = setTimeout(render, 120);
+    });
+
     render();
 
-    // scroll through the section = rotate through the images
-    if (hasGSAP) {
+    // Below the breakpoint where slides go near-full-width (matches the
+    // .overview-carousel mobile rule), tying rotation to vertical page
+    // scroll feels disconnected from a component that visually reads as a
+    // horizontal carousel — swipe left/right on it directly instead, and
+    // let vertical scroll just move past the section like normal.
+    const isMobileCarousel = window.matchMedia('(max-width:700px)').matches;
+
+    if (hasGSAP && !isMobileCarousel) {
+      // scroll through the section = rotate through the images
       ScrollTrigger.create({
         trigger: '.projects-overview',
         start: 'top bottom',
@@ -374,7 +396,7 @@ document.addEventListener('DOMContentLoaded', () => {
           render();
         }
       });
-    } else {
+    } else if (!hasGSAP && !isMobileCarousel) {
       window.addEventListener('scroll', () => {
         const section = document.querySelector('.projects-overview');
         if (!section) return;
@@ -385,6 +407,63 @@ document.addEventListener('DOMContentLoaded', () => {
         activeFloat = progress * n * 1.5;
         render();
       });
+    }
+
+    if (isMobileCarousel) {
+      const swipeEl = document.getElementById('overviewCarousel');
+      if (swipeEl) {
+        let dragging = false;
+        let axisLock = null; // 'x' once a horizontal drag is detected, 'y' if vertical (let page scroll)
+        let startX = 0, startY = 0, startFloat = 0;
+
+        function slideWidthPx() {
+          return (slides[0] ? slides[0].getBoundingClientRect().width : 300) * 0.9;
+        }
+        function settle(target) {
+          if (hasGSAP) {
+            gsap.to({ v: activeFloat }, {
+              v: target, duration: 0.4, ease: 'power2.out',
+              onUpdate() { activeFloat = this.targets()[0].v; render(); }
+            });
+          } else {
+            activeFloat = target;
+            render();
+          }
+        }
+
+        swipeEl.addEventListener('touchstart', (e) => {
+          const t = e.touches[0];
+          dragging = true; axisLock = null;
+          startX = t.clientX; startY = t.clientY; startFloat = activeFloat;
+        }, { passive: true });
+
+        swipeEl.addEventListener('touchmove', (e) => {
+          if (!dragging) return;
+          const t = e.touches[0];
+          const dx = t.clientX - startX;
+          const dy = t.clientY - startY;
+          if (!axisLock) {
+            if (Math.abs(dx) > 6 || Math.abs(dy) > 6) {
+              axisLock = Math.abs(dx) > Math.abs(dy) ? 'x' : 'y';
+            }
+          }
+          if (axisLock === 'x') {
+            e.preventDefault(); // own the gesture once it reads as horizontal
+            activeFloat = startFloat - dx / slideWidthPx();
+            render();
+          }
+          // axisLock === 'y' (or undecided): do nothing, let the page scroll
+        }, { passive: false });
+
+        function onTouchEnd() {
+          if (!dragging) return;
+          dragging = false;
+          if (axisLock === 'x') settle(Math.round(activeFloat));
+          axisLock = null;
+        }
+        swipeEl.addEventListener('touchend', onTouchEnd);
+        swipeEl.addEventListener('touchcancel', onTouchEnd);
+      }
     }
   }
 
@@ -402,7 +481,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const detailListEl = document.getElementById('workDetailHighlights');
   const detailProblemEl = document.getElementById('workDetailProblem');
 
-  if (workPinWrap && workScrollPin && workScrollTrack && hasGSAP) {
+  if (workPinWrap && workScrollPin && workScrollTrack) {
     const cards = Array.from(workScrollTrack.querySelectorAll('.work-card'));
     const total = cards.length;
     let activeIdx = -1;
@@ -436,46 +515,75 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setActive(0, false);
 
-    // cards are sized so exactly N fit inside the pin's width (N=2 on
-    // desktop, fewer on smaller breakpoints) — scroll snaps a full page
-    // (one pin-width) at a time, so it always shows a clean N-up grid,
-    // never a partial card mid-transition. The whole wrapper (detail panel
-    // + card row) is pinned as one unit, so the two never separate.
-    ScrollTrigger.create({
-      trigger: workPinWrap,
-      start: 'top top+=88',
-      end: () => {
-        const maxX = Math.max(workScrollTrack.scrollWidth - workScrollPin.clientWidth, 0);
-        return '+=' + (maxX + window.innerHeight * 0.4);
-      },
-      pin: true,
-      pinSpacing: true,
-      scrub: 0.6,
-      invalidateOnRefresh: true,
-      snap: (progress) => {
-        const maxX = Math.max(workScrollTrack.scrollWidth - workScrollPin.clientWidth, 0);
-        if (maxX <= 0) return 0;
-        const step = workScrollPin.clientWidth / maxX; // one page-width, as a fraction of progress
-        return Math.min(1, Math.round(progress / step) * step);
-      },
-      onUpdate(self) {
-        const maxX = Math.max(workScrollTrack.scrollWidth - workScrollPin.clientWidth, 0);
-        gsap.set(workScrollTrack, { x: -maxX * self.progress });
-        if (cards.length) {
-          const cardW = cards[0].getBoundingClientRect().width || 1;
-          const perPage = Math.max(1, Math.round(workScrollPin.clientWidth / cardW));
-          const startIdx = Math.min(total - 1, Math.round((maxX * self.progress) / cardW));
-          const endIdx = Math.min(total, startIdx + perPage);
-          if (workScrollActiveEl) {
-            const label = perPage <= 1
-              ? String(startIdx + 1).padStart(2, '0')
-              : `${String(startIdx + 1).padStart(2, '0')}–${String(endIdx).padStart(2, '0')}`;
-            workScrollActiveEl.textContent = label;
+    // Below the breakpoint where cards drop to ~1-per-view, the detail
+    // text (role/highlights/problem) wraps onto many more lines than it
+    // does on a wide desktop column. Pinning detail+cards together as one
+    // fixed-height frame (as on desktop) would then push the cards mostly
+    // off the bottom of a phone screen — so on narrow viewports this skips
+    // the pin/scrub entirely and falls back to a plain native horizontal
+    // swipe strip, with the detail panel just updating from whichever card
+    // is most visible.
+    const isNarrow = window.matchMedia('(max-width:860px)').matches;
+
+    if (hasGSAP && !isNarrow) {
+      // cards are sized so exactly N fit inside the pin's width (N=2 on
+      // desktop) — scroll snaps a full page (one pin-width) at a time, so
+      // it always shows a clean N-up grid, never a partial card mid-
+      // transition. The whole wrapper (detail panel + card row) is pinned
+      // as one unit, so the two never separate.
+      ScrollTrigger.create({
+        trigger: workPinWrap,
+        start: 'top top+=88',
+        end: () => {
+          const maxX = Math.max(workScrollTrack.scrollWidth - workScrollPin.clientWidth, 0);
+          return '+=' + (maxX + window.innerHeight * 0.4);
+        },
+        pin: true,
+        pinSpacing: true,
+        scrub: 0.6,
+        invalidateOnRefresh: true,
+        snap: (progress) => {
+          const maxX = Math.max(workScrollTrack.scrollWidth - workScrollPin.clientWidth, 0);
+          if (maxX <= 0) return 0;
+          const step = workScrollPin.clientWidth / maxX; // one page-width, as a fraction of progress
+          return Math.min(1, Math.round(progress / step) * step);
+        },
+        onUpdate(self) {
+          const maxX = Math.max(workScrollTrack.scrollWidth - workScrollPin.clientWidth, 0);
+          gsap.set(workScrollTrack, { x: -maxX * self.progress });
+          if (cards.length) {
+            const cardW = cards[0].getBoundingClientRect().width || 1;
+            const perPage = Math.max(1, Math.round(workScrollPin.clientWidth / cardW));
+            const startIdx = Math.min(total - 1, Math.round((maxX * self.progress) / cardW));
+            const endIdx = Math.min(total, startIdx + perPage);
+            if (workScrollActiveEl) {
+              const label = perPage <= 1
+                ? String(startIdx + 1).padStart(2, '0')
+                : `${String(startIdx + 1).padStart(2, '0')}–${String(endIdx).padStart(2, '0')}`;
+              workScrollActiveEl.textContent = label;
+            }
+            setActive(startIdx, false);
           }
-          setActive(startIdx, false);
         }
-      }
-    });
+      });
+    } else if ('IntersectionObserver' in window) {
+      // native swipe: whichever card is most visible inside the scroll
+      // strip drives the detail panel + counter
+      const io = new IntersectionObserver((entries) => {
+        let best = null;
+        entries.forEach(entry => {
+          if (!best || entry.intersectionRatio > best.intersectionRatio) best = entry;
+        });
+        if (best && best.intersectionRatio > 0.5) {
+          const idx = cards.indexOf(best.target);
+          if (idx !== -1) {
+            setActive(idx, true);
+            if (workScrollActiveEl) workScrollActiveEl.textContent = String(idx + 1).padStart(2, '0');
+          }
+        }
+      }, { root: workScrollPin, threshold: [0.5, 0.75, 0.9] });
+      cards.forEach(card => io.observe(card));
+    }
   }
 
   /* ---------------- About section: parallax on both photos ---------------- */
