@@ -39,8 +39,8 @@
           "Every AI answer cites its source in the catalog"
         ],
         "problem": "Selling B2B software takes seven hand-offs. I designed one flow from first chat to paid invoice where AI drafts the needs, quote, contract and invoice — and people approve every price change.",
-        "cover": "assets/work/nexa-ai-sales-agent/01-overview.jpg",
-        "coverAlt": "Nexa AI Sales Agent — updated quote on mobile and desktop",
+        "cover": "assets/work/nexa-ai-sales-agent/cover.jpg",
+        "coverAlt": "Nexa AI Sales Agent — AI plan recommendation and quote on mobile",
         "coverGradient": "linear-gradient(155deg,#6d3bd6,#0a0a0b)"
       },
       "blocks": [
