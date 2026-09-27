@@ -310,9 +310,8 @@ document.addEventListener('DOMContentLoaded', () => {
     heroStageEl.classList.add('is-pinned');
 
     function init() {
-      // anchor the scale origin at wherever the nav logo actually sits, so the
-      // wordmark reads as shrinking directly into that exact spot — no separate
-      // translate needed, and it adapts automatically to any layout/viewport.
+      // measure where the wordmark rests and where the nav logo sits, so the
+      // wordmark lands exactly on that spot on any layout/viewport.
       // Safe to measure now (rather than at true scroll position 0): heroStage
       // has been sitting in its pinned (fixed, top:0) state since page load
       // (see the pre-pin right after preloader hides, below) precisely so a
@@ -323,11 +322,16 @@ document.addEventListener('DOMContentLoaded', () => {
       // visibly running downward instead of tucking into the nav, but only
       // reproducible if you happened to scroll early — e.g. on a return visit
       // where you're quicker to scroll than on a first, unhurried load).
+      // Scale from the wordmark's own center while translating that center
+      // onto the logo's center, in the same tween. (Scaling around an origin
+      // placed at the logo only converges at scale 0 — at the real end scale
+      // the wordmark stopped ~40px short, then the logo swap snapped it up,
+      // which read as "shrink first, move after".)
       const wordmarkRect = heroWordmark.getBoundingClientRect();
       const logoRect = navLogo.getBoundingClientRect();
-      const originX = logoRect.left + logoRect.width / 2 - wordmarkRect.left;
-      const originY = logoRect.top + logoRect.height / 2 - wordmarkRect.top;
-      heroWordmark.style.transformOrigin = `${originX}px ${originY}px`;
+      const moveX = (logoRect.left + logoRect.width / 2) - (wordmarkRect.left + wordmarkRect.width / 2);
+      const moveY = (logoRect.top + logoRect.height / 2) - (wordmarkRect.top + wordmarkRect.height / 2);
+      heroWordmark.style.transformOrigin = '50% 50%';
 
       const wordmarkFontSize = parseFloat(getComputedStyle(heroWordmark).fontSize);
       const logoFontSize = parseFloat(getComputedStyle(navLogo).fontSize);
@@ -375,22 +379,25 @@ document.addEventListener('DOMContentLoaded', () => {
           trigger: '.hero-pin',
           start: 'top top',
           end: 'bottom top',
-          scrub: 0.7,
-          onUpdate(self) {
-            if (self.progress > SWAP_AT) {
-              navLogo.style.visibility = 'visible';
-              heroWordmark.style.opacity = 0;
-            } else {
-              navLogo.style.visibility = 'hidden';
-              heroWordmark.style.opacity = 1;
-            }
+          scrub: 0.7
+        },
+        // swap on the timeline's own (scrub-smoothed) progress, not raw scroll
+        // progress — otherwise a fast scroll hides the wordmark before the
+        // lagging scrub has actually carried it into the logo slot
+        onUpdate() {
+          if (heroTl.progress() > SWAP_AT) {
+            navLogo.style.visibility = 'visible';
+            heroWordmark.style.opacity = 0;
+          } else {
+            navLogo.style.visibility = 'hidden';
+            heroWordmark.style.opacity = 1;
           }
         }
       });
       heroTl
-        // layer 1 — scale toward the nav logo slot, eased so it settles
-        // into place instead of stopping dead
-        .to(heroWordmark, { scale: scaleEnd, ease: 'power1.inOut', duration: P1_DUR }, P1_START)
+        // layer 1 — scale and travel into the nav logo slot together, eased
+        // so it settles into place instead of stopping dead
+        .to(heroWordmark, { scale: scaleEnd, x: moveX, y: moveY, ease: 'power1.inOut', duration: P1_DUR }, P1_START)
         // decorative crosses drift up and fade at their own, slower rate
         // across the whole pin — an extra depth plane behind the copy/media
         .to('.hero-crosses', { y: -60, opacity: 0.25, ease: 'none', duration: TOTAL }, 0)
