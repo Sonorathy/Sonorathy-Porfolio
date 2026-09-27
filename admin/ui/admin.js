@@ -4,7 +4,7 @@
 'use strict';
 
 const $ = (s, r = document) => r.querySelector(s);
-const state = { data: null, sel: -1, dirty: false, saving: false };
+const state = { data: null, sel: -1, view: 'project', dirty: false, saving: false };
 
 // fallback when content/projects.json has no "filters" list yet
 const CATEGORIES = [
@@ -14,6 +14,24 @@ const CATEGORIES = [
   ['content-strategy', 'Content Strategy'],
   ['ai-workflow', 'AI Workflow'],
 ];
+// [type, name, placeholder for the link field]
+const CONTACT_TYPES = [
+  ['email', 'Email', 'ten@gmail.com'],
+  ['phone', 'Số điện thoại', '0901 234 567'],
+  ['zalo', 'Zalo', 'Số Zalo hoặc https://zalo.me/…'],
+  ['instagram', 'Instagram', 'https://instagram.com/…'],
+  ['linkedin', 'LinkedIn', 'https://linkedin.com/in/…'],
+  ['behance', 'Behance', 'https://behance.net/…'],
+  ['dribbble', 'Dribbble', 'https://dribbble.com/…'],
+  ['facebook', 'Facebook', 'https://facebook.com/…'],
+  ['tiktok', 'TikTok', 'https://tiktok.com/@…'],
+  ['threads', 'Threads', 'https://threads.net/@…'],
+  ['youtube', 'YouTube', 'https://youtube.com/@…'],
+  ['github', 'GitHub', 'https://github.com/…'],
+  ['website', 'Website', 'https://…'],
+  ['other', 'Khác', 'https://…'],
+];
+const contactType = (t) => CONTACT_TYPES.find((x) => x[0] === t) || CONTACT_TYPES[CONTACT_TYPES.length - 1];
 const categories = () => state.data.filters.map((f) => [f.id, f.label]);
 const BLOCK_TYPES = [['text', 'Đoạn văn / danh sách'], ['chips', 'Chips (Deliverables)'], ['stats', 'Số liệu'], ['table', 'Bảng']];
 
@@ -105,6 +123,7 @@ function markSaved(err, snap) {
 /* ---------------- data ---------------- */
 async function load() {
   state.data = await (await fetch('/api/content')).json();
+  if (!Array.isArray(state.data.contacts)) state.data.contacts = [];
   if (!Array.isArray(state.data.filters)) state.data.filters = CATEGORIES.map(([id, label]) => ({ id, label, visible: true }));
   state.sel = state.data.projects.length ? 0 : -1;
   renderList(); renderEditor(); renderPreviewOptions(); setPreview('index.html');
@@ -192,16 +211,23 @@ function renderFilters() {
   });
 }
 
+function renderContactsSummary() {
+  const shown = state.data.contacts.filter((c) => c.visible !== false);
+  const empty = shown.filter((c) => !String(c.link || '').trim()).length;
+  $('#contactsSummary').textContent = `${shown.length} đang hiện` + (empty ? ` · ${empty} chưa có link` : '');
+  $('#contactsBtn').classList.toggle('on', state.view === 'contacts');
+}
+
 function renderList() {
-  renderFilters();
+  renderFilters(); renderContactsSummary();
   const ul = $('#projectList'); ul.innerHTML = '';
   let visibleNo = 0;
   state.data.projects.forEach((p, i) => {
     const vis = p.visible !== false;
     if (vis) visibleNo++;
     const li = el('li', {
-      class: `project-item${i === state.sel ? ' active' : ''}${vis ? '' : ' hidden-proj'}`, draggable: 'true',
-      onclick: () => { state.sel = i; renderList(); renderEditor(); setPreview(`project-${p.slug}.html`); },
+      class: `project-item${i === state.sel && state.view === 'project' ? ' active' : ''}${vis ? '' : ' hidden-proj'}`, draggable: 'true',
+      onclick: () => { state.sel = i; state.view = 'project'; renderList(); renderEditor(); setPreview(`project-${p.slug}.html`); },
     },
     el('span', { class: 'p-handle', title: 'Kéo để sắp xếp' }, '⋮⋮'),
     el('span', { class: 'p-num' }, vis ? String(visibleNo).padStart(2, '0') : '—'),
@@ -252,7 +278,7 @@ function newProject() {
     ],
     shots: [], passwordHash: '', passwordStorageKey: '',
   });
-  state.sel = state.data.projects.length - 1;
+  state.sel = state.data.projects.length - 1; state.view = 'project';
   markDirty(); renderList(); renderEditor();
   toast('Đã tạo project ở chế độ ẨN — bật 👁 khi sẵn sàng');
 }
@@ -340,12 +366,58 @@ async function sha256(str) {
   return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, '0')).join('');
 }
 
+/* ---------------- contacts ---------------- */
+function renderContacts(ed) {
+  const list = state.data.contacts;
+  const rr = () => { renderEditor(); renderContactsSummary(); };
+  const firstEmail = list.find((c) => c.visible !== false && c.type === 'email' && String(c.link || '').trim());
+  ed.append(el('div', { class: 'editor-head' }, el('h1', {}, 'Liên hệ')));
+
+  const box = el('div', { class: 'row-list' },
+    el('div', { class: 'contact-head' }, el('span', {}, 'Hiện'), el('span', {}, 'Loại'), el('span', {}, 'Chữ hiển thị'), el('span', {}, 'Đường dẫn / địa chỉ')));
+  list.forEach((c, i) => {
+    const on = c.visible !== false;
+    const vis = el('input', { type: 'checkbox', title: on ? 'Đang hiện — bỏ chọn để ẩn' : 'Đang ẩn — chọn để hiện' }); vis.checked = on;
+    vis.addEventListener('change', () => { c.visible = vis.checked; markDirty(); rr(); });
+    const type = el('select', {}, CONTACT_TYPES.map(([v, t]) => el('option', { value: v }, t)));
+    type.value = contactType(c.type)[0];
+    type.addEventListener('change', () => {
+      // keep a custom label, but follow the type when the label was just the old type's name
+      if (!c.label || c.label === contactType(c.type)[1]) c.label = contactType(type.value)[1];
+      c.type = type.value; markDirty(); rr();
+    });
+    const label = el('input', { type: 'text', placeholder: contactType(c.type)[1] }); label.value = c.label || '';
+    label.addEventListener('input', () => { c.label = label.value; markDirty(); });
+    const link = el('input', { type: 'text', placeholder: contactType(c.type)[2] }); link.value = c.link || '';
+    link.addEventListener('input', () => { c.link = link.value; markDirty(); });
+    link.addEventListener('change', () => rr());
+    box.append(el('div', { class: 'contact-row' + (on ? '' : ' off') }, vis, type, label, link,
+      el('button', { class: 'icon-btn', type: 'button', title: 'Lên', onclick: () => { if (moveIn(list, i, -1)) { markDirty(); rr(); } } }, '↑'),
+      el('button', { class: 'icon-btn', type: 'button', title: 'Xuống', onclick: () => { if (moveIn(list, i, 1)) { markDirty(); rr(); } } }, '↓'),
+      el('button', { class: 'icon-btn', type: 'button', title: 'Xoá', onclick: () => { list.splice(i, 1); markDirty(); rr(); } }, '✕')));
+    if (on && !String(c.link || '').trim()) box.append(el('div', { class: 'contact-warn' }, 'Chưa có đường dẫn — trên web bấm vào sẽ không đi đâu.'));
+    else if (c === firstEmail) box.append(el('div', { class: 'contact-warn', style: 'color:#77736a' }, 'Email này hiện chữ lớn ở cuối trang và cuối mỗi case study.'));
+  });
+
+  const newType = el('select', {}, CONTACT_TYPES.map(([v, t]) => el('option', { value: v }, t)));
+  box.append(el('div', { class: 'add-row' }, newType,
+    el('button', { class: 'btn small', type: 'button', onclick: () => {
+      list.push({ type: newType.value, label: contactType(newType.value)[1], link: '', visible: true });
+      markDirty(); rr();
+    } }, '+ Thêm liên hệ')));
+
+  ed.append(card('Các kênh liên hệ', true,
+    el('p', { class: 'hint' }, 'Hiện ở cuối trang chủ và cuối mỗi case study. Email đầu tiên đang bật sẽ hiện chữ lớn, các kênh còn lại xếp thành hàng link nhỏ theo thứ tự ở đây. Email và số điện thoại chỉ cần nhập địa chỉ/số, admin tự tạo link.'),
+    box));
+}
+
 /* ---------------- editor ---------------- */
 function renderEditor() {
   const ed = $('#editor');
   const scroll = ed.scrollTop;
   const openState = [...ed.querySelectorAll('details.card')].map((d) => d.open);
   ed.innerHTML = '';
+  if (state.view === 'contacts') { renderContacts(ed); ed.scrollTop = scroll; return; }
   if (state.sel < 0) { ed.append(el('div', { class: 'empty' }, 'Chưa có project nào. Bấm “+ Thêm”.')); return; }
   const p = cur();
   p.card = p.card || {}; p.meta = p.meta || []; p.blocks = p.blocks || []; p.shots = p.shots || [];
@@ -585,6 +657,11 @@ $('#saveBtn').addEventListener('click', save);
 $('#undoBtn').addEventListener('click', undo);
 $('#redoBtn').addEventListener('click', redo);
 $('#newProjectBtn').addEventListener('click', newProject);
+$('#contactsBtn').addEventListener('click', () => {
+  state.view = 'contacts'; state.sel = state.data.projects.length ? state.sel : -1;
+  document.querySelectorAll('.project-item.active').forEach((n) => n.classList.remove('active'));
+  $('#editor').scrollTop = 0; renderEditor(); renderContactsSummary(); setPreview('index.html');
+});
 $('#publishBtn').addEventListener('click', openPublish);
 $('#doPublish').addEventListener('click', doPublish);
 $('#reloadPreview').addEventListener('click', reloadPreview);

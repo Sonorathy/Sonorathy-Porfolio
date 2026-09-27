@@ -147,3 +147,10 @@ dialog:has(.wide){width:min(900px,92vw)}
 .filter-list .switch:hover{background:rgba(0,0,0,.04)}
 .filter-list .f-count{margin-left:auto;color:#77736a;font-size:.75rem}
 .filter-list .off{color:#9a958b}
+#contactsBtn.on{background:var(--fg);color:#fff;border-color:var(--fg)}
+.contact-row{display:grid;grid-template-columns:auto 150px 1fr 1.6fr auto auto auto;gap:.4rem;align-items:center}
+.contact-row.off input[type=text],.contact-row.off select{opacity:.5}
+.contact-warn{grid-column:3 / -1;font-size:.72rem;color:#b26b00;margin-top:-.2rem}
+.contact-head{display:grid;grid-template-columns:auto 150px 1fr 1.6fr auto auto auto;gap:.4rem;font-size:.72rem;color:#77736a}
+@media (max-width:900px){.contact-row,.contact-head{grid-template-columns:auto 1fr 1fr}}
+.add-row select{width:auto}

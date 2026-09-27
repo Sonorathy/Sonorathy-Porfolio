@@ -12,7 +12,6 @@ const path = require('path');
 const ROOT = path.resolve(__dirname, '..');
 const CONTENT = path.join(ROOT, 'content', 'projects.json');
 const MANIFEST = path.join(ROOT, 'content', '.generated.json');
-const MAIL = 'https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=maianhthyvo@gmail.com';
 
 /* ---------------- helpers ---------------- */
 const esc = (s) => String(s == null ? '' : s)
@@ -200,12 +199,8 @@ ${(p.blocks || []).map(renderBlock).join('')}
     <div class="pd-block pd-reach">
       <h2 class="pd-reach-title">Reach out.</h2>
       <p class="pd-reach-sub">Let&rsquo;s work together to bring your ideas to life.</p>
-      <a href="${MAIL}" class="pd-reach-link" data-hover target="_blank" rel="noopener">maianhthyvo@gmail.com</a>
-      <div class="pd-reach-socials">
-        <a href="#" data-hover>Instagram</a>
-        <a href="#" data-hover>LinkedIn</a>
-        <a href="#" data-hover>Behance</a>
-        <a href="#" data-hover>Dribbble</a>
+${contactEmail('pd-reach-link', '', 6)}
+      <div class="pd-reach-socials">${contactSocials(8)}
       </div>
     </div>
 
@@ -274,6 +269,46 @@ function renderSlide(p) {
 
 /* replace everything between two marker comments (inserting the markers
    the first time, around the given start/end anchors) */
+/* ---------------- contacts ----------------
+   The first visible email is the big link; every other visible contact goes
+   in the row of small links. An empty link renders as "#" so the row keeps
+   its shape until a real URL is filled in. */
+const DEFAULT_CONTACTS = [
+  { type: 'email', label: 'Email', link: 'maianhthyvo@gmail.com', visible: true },
+  { type: 'instagram', label: 'Instagram', link: '', visible: true },
+  { type: 'linkedin', label: 'LinkedIn', link: '', visible: true },
+  { type: 'behance', label: 'Behance', link: '', visible: true },
+  { type: 'dribbble', label: 'Dribbble', link: '', visible: true },
+];
+let CONTACTS = DEFAULT_CONTACTS;
+function contactHref(c) {
+  const v = String(c.link || '').trim();
+  if (!v) return '#';
+  if (/^[a-z][a-z0-9+.-]*:/i.test(v)) return v;
+  if (c.type === 'email') return `https://mail.google.com/mail/?view=cm&fs=1&to=${v}`;
+  if (c.type === 'phone') return 'tel:' + v.replace(/[^\d+]/g, '');
+  if (c.type === 'zalo') return 'https://zalo.me/' + v.replace(/[^\d]/g, '');
+  return 'https://' + v.replace(/^\/+/, '');
+}
+const isExternal = (href) => /^https?:/i.test(href);
+const shownContacts = () => CONTACTS.filter((c) => c.visible !== false);
+const mainEmail = () => shownContacts().find((c) => c.type === 'email' && String(c.link || '').trim());
+function contactEmail(cls, extra, indent) {
+  const c = mainEmail();
+  if (!c) return '';
+  const href = contactHref(c);
+  const tgt = isExternal(href) ? ' target="_blank" rel="noopener"' : '';
+  return `${' '.repeat(indent)}<a href="${esc(href)}" class="${cls}" data-hover${extra}${tgt}>${esc(String(c.link).replace(/^mailto:/i, ''))}</a>`;
+}
+function contactSocials(indent) {
+  const main = mainEmail();
+  return shownContacts().filter((c) => c !== main).map((c) => {
+    const href = contactHref(c);
+    const tgt = href !== '#' && isExternal(href) ? ' target="_blank" rel="noopener"' : '';
+    return `\n${' '.repeat(indent)}<a href="${esc(href)}" data-hover${tgt}>${esc(c.label || c.type)}</a>`;
+  }).join('');
+}
+
 // capability tabs above the Work list; "All" is always shown first
 const DEFAULT_FILTERS = [
   { id: 'product-uiux', label: 'Product & UI/UX Design', visible: true },
@@ -308,6 +343,7 @@ function replaceRegion(htmlStr, name, content, openAnchor, closeAnchor) {
 function build() {
   const data = JSON.parse(fs.readFileSync(CONTENT, 'utf8'));
   const all = data.projects || [];
+  CONTACTS = Array.isArray(data.contacts) ? data.contacts : DEFAULT_CONTACTS;
   const slugs = new Set();
   all.forEach((p) => {
     if (!/^[a-z0-9-]+$/.test(p.slug || '')) throw new Error(`Invalid slug "${p.slug}" (use a-z, 0-9, -)`);
@@ -344,12 +380,16 @@ function build() {
     '<div class="carousel-track" id="carouselTrack">', '\n      </div>\n    </div>');
   idx = replaceRegion(idx, 'FILTERS', renderFilters(data.filters || DEFAULT_FILTERS),
     '<div class="work-filter reveal-word" id="workFilter" role="tablist">', '\n      </div>');
+  idx = replaceRegion(idx, 'CONTACT_EMAIL', '\n' + contactEmail('footer-connect-email', ' data-magnetic', 6),
+    'business days.</p>', '\n    </div>\n    <div class="footer-connect-socials">');
+  idx = replaceRegion(idx, 'CONTACT_LINKS', contactSocials(6),
+    '<div class="footer-connect-socials">', '\n    </div>\n  </div>\n\n  <div class="footer-bottom">');
   fs.writeFileSync(indexPath, idx);
 
   return { pages: written.length, visible: visible.length, removed };
 }
 
-module.exports = { build, DEFAULT_FILTERS };
+module.exports = { build, DEFAULT_FILTERS, DEFAULT_CONTACTS };
 
 if (require.main === module) {
   try {

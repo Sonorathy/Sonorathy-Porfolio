@@ -27,6 +27,26 @@
       "visible": false
     }
   ],
+  "contacts": [
+    {
+      "type": "email",
+      "label": "Email",
+      "link": "maianhthyvo@gmail.com",
+      "visible": true
+    },
+    {
+      "type": "linkedin",
+      "label": "LinkedIn",
+      "link": "https://www.linkedin.com/in/v%C3%B5-mai-anh-thy/",
+      "visible": true
+    },
+    {
+      "type": "dribbble",
+      "label": "Dribbble",
+      "link": "https://dribbble.com/mai-anh-thy-vo",
+      "visible": true
+    }
+  ],
   "projects": [
     {
       "slug": "jf-design-system",
@@ -978,7 +998,7 @@
     },
     {
       "slug": "jmaps",
-      "visible": true,
+      "visible": false,
       "featured": true,
       "category": "product-uiux",
       "title": "jMaps & jFa",
