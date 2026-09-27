@@ -56,7 +56,7 @@
         }
       ],
       "card": {
-        "title": "jF Design System 4.1",
+        "title": "Design System",
         "tag": "Design System · Multi-brand",
         "role": "Design System Designer",
         "highlights": [
@@ -66,7 +66,7 @@
         ],
         "problem": "Six products were drifting into their own buttons, tables and alerts. I built one Figma library where each product switches brand, shape and density by mode — from core components to Chat, AI and legal patterns.",
         "cover": "assets/work/jf-ds/cover.jpg",
-        "coverAlt": "jF Design System — six brand colours over shared weather, chat, task and alert components",
+        "coverAlt": "Design System — six brand colours over shared weather, chat, task and alert components",
         "coverGradient": ""
       },
       "blocks": [
@@ -209,7 +209,7 @@
           "type": "image",
           "src": "assets/work/jf-ds/01-cover.jpg",
           "caption": "",
-          "alt": "jF Design System — one component library for desktop, mobile, chat and AI products",
+          "alt": "Design System — one component library for desktop, mobile, chat and AI products",
           "mobile": false,
           "section": "Overview"
         },
@@ -354,7 +354,7 @@
             },
             {
               "value": "36",
-              "label": "jF components reused"
+              "label": "Design System components reused"
             },
             {
               "value": "12",
@@ -413,7 +413,7 @@
           "type": "text",
           "heading": "Design system",
           "section": "Design system",
-          "body": "Built on jF Design System 4.1 in brand mode Midnight Purple: 36 jF components reused, 12 kit components added. Components bind only to semantic tokens.\n\n- **AI components** — every AI output shows its source and what is still missing; agent fields are filled with a source chip or “Not stated”, never a guess.\n- **Status** — colour sits on the dot and left bar only; banners are inline with a left bar, never a solid fill.\n- **Buttons** — one primary action per screen; the gradient button is reserved for the hero CTA on mobile."
+          "body": "Built on the Design System in brand mode Midnight Purple: 36 Design System components reused, 12 kit components added. Components bind only to semantic tokens.\n\n- **AI components** — every AI output shows its source and what is still missing; agent fields are filled with a source chip or “Not stated”, never a guess.\n- **Status** — colour sits on the dot and left bar only; banners are inline with a left bar, never a solid fill.\n- **Buttons** — one primary action per screen; the gradient button is reserved for the hero CTA on mobile."
         },
         {
           "type": "chips",
@@ -712,7 +712,7 @@
           "type": "image",
           "src": "assets/work/tvpl/02-ui-kit.jpg",
           "caption": "",
-          "alt": "Design system / UI kit — Pastel colour and type on jF tokens, 36 legal components, six ground rules",
+          "alt": "Design system / UI kit — Pastel colour and type on Design System tokens, 36 legal components, six ground rules",
           "mobile": false,
           "section": "UI kit"
         },
@@ -1054,7 +1054,7 @@
               "nda": false
             },
             {
-              "text": "Platform kit in jF DS",
+              "text": "Platform kit in the Design System",
               "nda": false
             }
           ]
