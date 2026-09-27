@@ -8,26 +8,15 @@ Drop each file at the exact path below (JPG, ≤ 2400px wide). Missing files sho
 
 ## TVPL Legal AI  (`project-tvpl-legal-ai.html`)
 
-- `assets/work/tvpl/tvpl-d03.jpg` — S3 · Answer with legal basis — conclusion first, citations with validity status **(cover)**
-- `assets/work/tvpl/tvpl-d01.jpg` — S1 · Start a session — situation-based suggestions, attach a case file
-- `assets/work/tvpl/tvpl-d02.jpg` — S2 · AI running — visible progress and a stop button
-- `assets/work/tvpl/tvpl-d04.jpg` — S4 · Expert returns the answer — reviewed and signed by a named lawyer
-- `assets/work/tvpl/tvpl-d05.jpg` — S5 · Cases — every question grouped by matter
-- `assets/work/tvpl/tvpl-d06.jpg` — S6 · Pinned legal basis — a personal cabinet of verified clauses
-- `assets/work/tvpl/tvpl-d08.jpg` — S8 · AI tasks board — long-running jobs with status
-- `assets/work/tvpl/tvpl-d10.jpg` — S10 · Lawyer side — request inbox by urgency
-- `assets/work/tvpl/tvpl-d11.jpg` — S11 · Lawyer side — composing the reviewed answer
-- 📱 `assets/work/tvpl/tvpl-m01.jpg` — M1 · Mobile — ask
-- 📱 `assets/work/tvpl/tvpl-m02.jpg` — M2 · Mobile — AI answering
-- 📱 `assets/work/tvpl/tvpl-m03.jpg` — M3 · Mobile — answer with legal basis
-- 📱 `assets/work/tvpl/tvpl-m05.jpg` — M5 · Mobile — full text of the clause
-- `assets/work/tvpl/tvpl-audit.jpg` — Solution audit — existing tools and references from outside legal
-- `assets/work/tvpl/tvpl-hmw.jpg` — Three “How might we” questions, one per pain point
-- `assets/work/tvpl/tvpl-sol1.jpg` — Decision 1 · Ask by situation
-- `assets/work/tvpl/tvpl-sol2.jpg` — Decision 2 · Verify the legal basis
-- `assets/work/tvpl/tvpl-sol3.jpg` — Decision 3 · Hand off to a lawyer
-- `assets/work/tvpl/tvpl-wireframe.jpg` — Wireframes — two-role flow, AI task flow and four layout skeletons
-- `assets/work/tvpl/tvpl-index.jpg` — Kit index — 7 pages, 33 components, 6 ground rules
+Exported from the Figma showcase `Showcase · Thư Viện Pháp Luật Legal AI` (node 13884:16), one image per section. Cover comes from the frame `Legal AI - Cover` (13879:61801).
+
+- `assets/work/tvpl/cover.jpg` — homepage card + carousel **(cover)**
+- `assets/work/tvpl/01-cover.jpg` — Overview
+- `assets/work/tvpl/02-ui-kit.jpg` — UI kit
+- `assets/work/tvpl/03-core-task-flow.jpg` — Core task flow
+- `assets/work/tvpl/04-three-bets.jpg` — Three bets
+- `assets/work/tvpl/05-showcase.jpg` — Showcase
+- `assets/work/tvpl/06-lets-talk.jpg` — Let’s talk
 
 ## jF Design System 4.1  (`project-jf-design-system.html`)
 

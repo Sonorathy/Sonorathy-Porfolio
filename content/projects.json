@@ -320,8 +320,8 @@
           "Escalation to a named lawyer, on both sides"
         ],
         "problem": "Legal AI is only useful if people can check it. I designed how lawyers, in-house legal teams and businesses ask by situation, verify every citation against its validity, and hand a case to a named lawyer — 23 screens, 33 components.",
-        "cover": "assets/work/tvpl/tvpl-d03.jpg",
-        "coverAlt": "TVPL Legal AI — answer with legal basis and validity status",
+        "cover": "assets/work/tvpl/cover.jpg",
+        "coverAlt": "Legal AI — mobile screens for the answer, home and lawyer desk",
         "coverGradient": ""
       },
       "blocks": [
@@ -413,147 +413,56 @@
       "shots": [
         {
           "type": "image",
-          "src": "assets/work/tvpl/tvpl-d03.jpg",
+          "src": "assets/work/tvpl/01-cover.jpg",
           "caption": "",
+          "alt": "Legal AI — how a legal team hands a question to AI, verifies the basis and escalates to a lawyer",
           "mobile": false,
-          "alt": "S3 · Answer with legal basis — conclusion first, citations with validity status"
+          "section": "Overview"
         },
         {
           "type": "image",
-          "src": "assets/work/tvpl/tvpl-d01.jpg",
+          "src": "assets/work/tvpl/02-ui-kit.jpg",
           "caption": "",
+          "alt": "Design system / UI kit — Pastel colour and type on jF tokens, 36 legal components, six ground rules",
           "mobile": false,
-          "alt": "S1 · Start a session — situation-based suggestions, attach a case file"
+          "section": "UI kit"
         },
         {
           "type": "image",
-          "src": "assets/work/tvpl/tvpl-d02.jpg",
+          "src": "assets/work/tvpl/03-core-task-flow.jpg",
           "caption": "",
+          "alt": "Core task flow — six steps from the job description, three pain points at assign, verify and escalate",
           "mobile": false,
-          "alt": "S2 · AI running — visible progress and a stop button"
+          "section": "Core task flow"
         },
         {
           "type": "image",
-          "src": "assets/work/tvpl/tvpl-d04.jpg",
+          "src": "assets/work/tvpl/04-three-bets.jpg",
           "caption": "",
+          "alt": "Three bets — each How might we built on something TVPL already has",
           "mobile": false,
-          "alt": "S4 · Expert returns the answer — reviewed and signed by a named lawyer"
+          "section": "Three bets"
         },
         {
           "type": "image",
-          "src": "assets/work/tvpl/tvpl-d05.jpg",
+          "src": "assets/work/tvpl/05-showcase.jpg",
           "caption": "",
+          "alt": "Showcase — desktop workspace, document templates and the mobile home and lawyer desk",
           "mobile": false,
-          "alt": "S5 · Cases — every question grouped by matter"
+          "section": "Showcase"
         },
         {
           "type": "image",
-          "src": "assets/work/tvpl/tvpl-d06.jpg",
+          "src": "assets/work/tvpl/06-lets-talk.jpg",
           "caption": "",
+          "alt": "Let’s talk — design system, BA and Dev collaboration, to go deeper in the interview",
           "mobile": false,
-          "alt": "S6 · Pinned legal basis — a personal cabinet of verified clauses"
-        },
-        {
-          "type": "image",
-          "src": "assets/work/tvpl/tvpl-d08.jpg",
-          "caption": "",
-          "mobile": false,
-          "alt": "S8 · AI tasks board — long-running jobs with status"
-        },
-        {
-          "type": "image",
-          "src": "assets/work/tvpl/tvpl-d10.jpg",
-          "caption": "",
-          "mobile": false,
-          "alt": "S10 · Lawyer side — request inbox by urgency"
-        },
-        {
-          "type": "image",
-          "src": "assets/work/tvpl/tvpl-d11.jpg",
-          "caption": "",
-          "mobile": false,
-          "alt": "S11 · Lawyer side — composing the reviewed answer"
-        },
-        {
-          "type": "image",
-          "src": "assets/work/tvpl/tvpl-m01.jpg",
-          "caption": "",
-          "mobile": true,
-          "alt": "M1 · Mobile — ask"
-        },
-        {
-          "type": "image",
-          "src": "assets/work/tvpl/tvpl-m02.jpg",
-          "caption": "",
-          "mobile": true,
-          "alt": "M2 · Mobile — AI answering"
-        },
-        {
-          "type": "image",
-          "src": "assets/work/tvpl/tvpl-m03.jpg",
-          "caption": "",
-          "mobile": true,
-          "alt": "M3 · Mobile — answer with legal basis"
-        },
-        {
-          "type": "image",
-          "src": "assets/work/tvpl/tvpl-m05.jpg",
-          "caption": "",
-          "mobile": true,
-          "alt": "M5 · Mobile — full text of the clause"
-        },
-        {
-          "type": "image",
-          "src": "assets/work/tvpl/tvpl-audit.jpg",
-          "caption": "",
-          "mobile": false,
-          "alt": "Solution audit — existing tools and references from outside legal"
-        },
-        {
-          "type": "image",
-          "src": "assets/work/tvpl/tvpl-hmw.jpg",
-          "caption": "",
-          "mobile": false,
-          "alt": "Three “How might we” questions, one per pain point"
-        },
-        {
-          "type": "image",
-          "src": "assets/work/tvpl/tvpl-sol1.jpg",
-          "caption": "",
-          "mobile": false,
-          "alt": "Decision 1 · Ask by situation"
-        },
-        {
-          "type": "image",
-          "src": "assets/work/tvpl/tvpl-sol2.jpg",
-          "caption": "",
-          "mobile": false,
-          "alt": "Decision 2 · Verify the legal basis"
-        },
-        {
-          "type": "image",
-          "src": "assets/work/tvpl/tvpl-sol3.jpg",
-          "caption": "",
-          "mobile": false,
-          "alt": "Decision 3 · Hand off to a lawyer"
-        },
-        {
-          "type": "image",
-          "src": "assets/work/tvpl/tvpl-wireframe.jpg",
-          "caption": "",
-          "mobile": false,
-          "alt": "Wireframes — two-role flow, AI task flow and four layout skeletons"
-        },
-        {
-          "type": "image",
-          "src": "assets/work/tvpl/tvpl-index.jpg",
-          "caption": "",
-          "mobile": false,
-          "alt": "Kit index — 7 pages, 33 components, 6 ground rules"
+          "section": "Let’s talk"
         }
       ],
       "passwordHash": "",
-      "passwordStorageKey": ""
+      "passwordStorageKey": "",
+      "sectionNav": true
     },
     {
       "slug": "jf-design-system",
