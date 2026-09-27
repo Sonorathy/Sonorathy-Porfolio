@@ -667,9 +667,25 @@
         },
         {
           "type": "image",
-          "src": "assets/work/jf-ds/04-brand-switching.jpg",
+          "src": "assets/work/jf-ds/04a-brand-switching.jpg",
           "caption": "",
-          "alt": "Brand switching — the same frame in six brand modes",
+          "alt": "Brand switching — switch the brand, not the components",
+          "mobile": false,
+          "section": "Brand switching"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/jf-ds/04b-brand-switching.gif",
+          "caption": "",
+          "alt": "Screen recording — one mode change on the 1.Brand collection re-themes four screens live in Figma",
+          "mobile": false,
+          "section": "Brand switching"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/jf-ds/04c-brand-switching-modes.jpg",
+          "caption": "",
+          "alt": "The same frame in six brand modes",
           "mobile": false,
           "section": "Brand switching"
         },
