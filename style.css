@@ -1274,30 +1274,37 @@ img{max-width:100%;display:block;}
 .pd-table td{color:var(--fg-dim);line-height:1.5;}
 .pd-table td:first-child{color:var(--fg);font-weight:500;}
 
-/* vertical section breadcrumb — pinned to the left edge of the showcase
-   column (pd-grid is .85fr / 1.4fr, so the column starts at ~37.8vw).
-   Inactive: short line only. Active: long line + section name. Hovering
-   the nav reveals every name so it doubles as a table of contents. */
+/* vertical section breadcrumb — a quiet rail in the empty right padding of
+   the text column (pd-grid is .85fr / 1.4fr, so the showcase starts at
+   ~37.8vw), so it never covers the images or narrows the showcase.
+   At rest: dimmed lines only, the active one longer. Hover or keyboard
+   focus: the rail brightens and a panel with every section name slides
+   out over the showcase, so it doubles as a table of contents. */
 .pd-secnav{
-  position:fixed;top:50%;left:calc(37.78vw + 22px);transform:translateY(-50%);z-index:40;
+  position:fixed;top:50%;left:calc(37.78vw - 40px);transform:translateY(-50%);z-index:40;
   display:flex;flex-direction:column;gap:.35rem;
-  padding:.9rem 1rem .9rem .9rem;border-radius:14px;
-  background:color-mix(in srgb, var(--bg) 78%, transparent);
-  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-  border:1px solid color-mix(in srgb, var(--line) 70%, transparent);
+  padding:.7rem .6rem;border-radius:14px;border:1px solid transparent;
+  opacity:.45;
+  transition:opacity .3s var(--ease),background .3s var(--ease),border-color .3s var(--ease);
 }
-.pd-secnav-item{display:flex;align-items:center;gap:.8rem;height:22px;color:var(--fg);text-decoration:none}
-.pd-secnav-line{display:block;height:3px;width:28px;border-radius:2px;background:var(--line);transition:width .35s var(--ease),background .35s var(--ease)}
+.pd-secnav:hover,.pd-secnav:focus-within{
+  opacity:1;
+  background:color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-color:color-mix(in srgb, var(--line) 70%, transparent);
+}
+.pd-secnav-item{display:flex;align-items:center;gap:.8rem;height:20px;color:var(--fg);text-decoration:none}
+.pd-secnav-line{display:block;flex:none;height:2px;width:14px;border-radius:2px;background:var(--fg-dim);transition:width .35s var(--ease),background .35s var(--ease)}
+.pd-secnav-item.is-active .pd-secnav-line{width:26px;background:var(--fg)}
 .pd-secnav-label{
-  font-family:var(--font-display);font-size:.8rem;font-weight:600;letter-spacing:.01em;white-space:nowrap;
+  font-family:var(--font-display);font-size:.78rem;font-weight:600;letter-spacing:.01em;white-space:nowrap;
   max-width:0;opacity:0;overflow:hidden;transition:max-width .35s var(--ease),opacity .25s var(--ease);
 }
-.pd-secnav-item.is-active .pd-secnav-line{width:64px;background:var(--fg)}
-.pd-secnav-item.is-active .pd-secnav-label{max-width:220px;opacity:1}
-.pd-secnav:hover .pd-secnav-label{max-width:220px;opacity:.55}
-.pd-secnav:hover .pd-secnav-item:hover .pd-secnav-label,
-.pd-secnav:hover .pd-secnav-item.is-active .pd-secnav-label{opacity:1}
-.pd-secnav-item:hover .pd-secnav-line{background:var(--fg-dim)}
+.pd-secnav:hover .pd-secnav-label,.pd-secnav:focus-within .pd-secnav-label{max-width:200px;opacity:.55}
+.pd-secnav-item:hover .pd-secnav-label,.pd-secnav-item:focus-visible .pd-secnav-label,
+.pd-secnav:hover .pd-secnav-item.is-active .pd-secnav-label,
+.pd-secnav:focus-within .pd-secnav-item.is-active .pd-secnav-label{opacity:1}
+.pd-secnav-item:hover .pd-secnav-line{background:var(--fg)}
 @media (max-width:900px){.pd-secnav{display:none}}
 
 /* caption strip under a showcase image */
