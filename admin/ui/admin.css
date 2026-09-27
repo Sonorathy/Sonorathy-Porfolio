@@ -140,3 +140,10 @@ dialog:has(.wide){width:min(900px,92vw)}
   .layout{grid-template-columns:220px 1fr}
   .preview{display:none}
 }
+
+.filters-head{margin-top:1.6rem;padding-top:1rem;border-top:1px solid var(--line)}
+.filter-list{list-style:none;margin-top:.6rem;display:flex;flex-direction:column;gap:.2rem}
+.filter-list .switch{padding:.35rem .4rem;border-radius:6px}
+.filter-list .switch:hover{background:rgba(0,0,0,.04)}
+.filter-list .f-count{margin-left:auto;color:#77736a;font-size:.75rem}
+.filter-list .off{color:#9a958b}

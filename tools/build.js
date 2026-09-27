@@ -274,6 +274,20 @@ function renderSlide(p) {
 
 /* replace everything between two marker comments (inserting the markers
    the first time, around the given start/end anchors) */
+// capability tabs above the Work list; "All" is always shown first
+const DEFAULT_FILTERS = [
+  { id: 'product-uiux', label: 'Product & UI/UX Design', visible: true },
+  { id: 'branding', label: 'Branding', visible: true },
+  { id: 'product-marketing', label: 'Product Marketing', visible: true },
+  { id: 'content-strategy', label: 'Content Strategy', visible: true },
+  { id: 'ai-workflow', label: 'AI Workflow', visible: true },
+];
+const filterBtn = (id, label, active) =>
+  `\n        <button class="work-filter-btn${active ? ' is-active' : ''}" type="button" data-filter="${esc(id)}" data-hover role="tab" aria-selected="${active}">${esc(label)}<span class="work-filter-count"></span></button>`;
+function renderFilters(filters) {
+  return filterBtn('all', 'All', true) + filters.filter((f) => f.visible !== false).map((f) => filterBtn(f.id, f.label, false)).join('');
+}
+
 function replaceRegion(htmlStr, name, content, openAnchor, closeAnchor) {
   const START = `<!-- BUILD:${name}:START -->`;
   const END = `<!-- BUILD:${name}:END -->`;
@@ -328,12 +342,14 @@ function build() {
     '<div class="work-scroll-track" id="workScrollTrack">', '        <!-- Generic "coming soon" placeholder');
   idx = replaceRegion(idx, 'CAROUSEL', visible.filter((p) => p.featured !== false).map(renderSlide).join(''),
     '<div class="carousel-track" id="carouselTrack">', '\n      </div>\n    </div>');
+  idx = replaceRegion(idx, 'FILTERS', renderFilters(data.filters || DEFAULT_FILTERS),
+    '<div class="work-filter reveal-word" id="workFilter" role="tablist">', '\n      </div>');
   fs.writeFileSync(indexPath, idx);
 
   return { pages: written.length, visible: visible.length, removed };
 }
 
-module.exports = { build };
+module.exports = { build, DEFAULT_FILTERS };
 
 if (require.main === module) {
   try {

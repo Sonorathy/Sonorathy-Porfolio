@@ -12,6 +12,8 @@
   <div class="brand">Sonorathy <span>Admin</span></div>
   <div class="save-state" id="saveState">Đã lưu</div>
   <div class="topbar-actions">
+    <button class="btn ghost" id="undoBtn" type="button" title="Hoàn tác (⌘Z)" disabled>↶ Hoàn tác</button>
+    <button class="btn ghost" id="redoBtn" type="button" title="Làm lại (⌘⇧Z)" disabled>↷ Làm lại</button>
     <button class="btn ghost" id="togglePreview" type="button">Ẩn preview</button>
     <button class="btn" id="saveBtn" type="button">Lưu &amp; build <kbd>⌘S</kbd></button>
     <button class="btn primary" id="publishBtn" type="button">Publish lên web</button>
@@ -27,6 +29,10 @@
     </div>
     <p class="hint">Kéo để sắp xếp thứ tự hiển thị trên trang chủ.</p>
     <ul class="project-list" id="projectList"></ul>
+
+    <div class="sidebar-head filters-head"><h2>Tab lọc ở trang chủ</h2></div>
+    <p class="hint">Tắt để ẩn tab khỏi trang chủ. Project trong tab đó vẫn hiện ở “All”.</p>
+    <ul class="filter-list" id="filterList"></ul>
   </aside>
 
   <!-- editor -->

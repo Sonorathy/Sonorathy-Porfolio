@@ -6,6 +6,7 @@
 const $ = (s, r = document) => r.querySelector(s);
 const state = { data: null, sel: -1, dirty: false, saving: false };
 
+// fallback when content/projects.json has no "filters" list yet
 const CATEGORIES = [
   ['product-uiux', 'Product & UI/UX Design'],
   ['branding', 'Branding'],
@@ -13,6 +14,7 @@ const CATEGORIES = [
   ['content-strategy', 'Content Strategy'],
   ['ai-workflow', 'AI Workflow'],
 ];
+const categories = () => state.data.filters.map((f) => [f.id, f.label]);
 const BLOCK_TYPES = [['text', 'Đoạn văn / danh sách'], ['chips', 'Chips (Deliverables)'], ['stats', 'Số liệu'], ['table', 'Bảng']];
 
 /* ---------------- tiny DOM helper ---------------- */
@@ -35,31 +37,89 @@ function toast(msg, err) {
   const t = $('#toast'); t.textContent = msg; t.className = 'toast show' + (err ? ' err' : '');
   clearTimeout(toast.t); toast.t = setTimeout(() => (t.className = 'toast'), err ? 6000 : 2600);
 }
-function markDirty() {
-  state.dirty = true;
-  const s = $('#saveState'); s.textContent = 'Chưa lưu'; s.className = 'save-state dirty';
+/* ---------------- undo / redo ----------------
+   Every edit goes through markDirty(), so that is where history is recorded:
+   a JSON snapshot of the state *before* the edit goes on the undo stack.
+   Keystrokes in the same text field within 1s are merged into one step. */
+const hist = { undo: [], redo: [], last: '', saved: '', at: 0, field: null, LIMIT: 200 };
+
+function resetHistory() {
+  hist.undo = []; hist.redo = [];
+  hist.last = hist.saved = JSON.stringify(state.data);
+  updateHistoryButtons();
 }
-function markSaved(err) {
+function isTyping() {
+  const a = document.activeElement;
+  return a && (a.tagName === 'TEXTAREA' || (a.tagName === 'INPUT' && /^(text|search|url|)$/.test(a.type)));
+}
+function recordHistory() {
+  const now = JSON.stringify(state.data);
+  if (now === hist.last) return;
+  const field = isTyping() ? document.activeElement : null;
+  const merge = field && field === hist.field && Date.now() - hist.at < 1000;
+  if (!merge) {
+    hist.undo.push(hist.last);
+    if (hist.undo.length > hist.LIMIT) hist.undo.shift();
+  }
+  hist.redo = [];
+  hist.last = now; hist.at = Date.now(); hist.field = field;
+  updateHistoryButtons();
+}
+function updateHistoryButtons() {
+  $('#undoBtn').disabled = !hist.undo.length;
+  $('#redoBtn').disabled = !hist.redo.length;
+}
+function restore(from, to, label) {
+  if (!from.length) return;
+  to.push(hist.last);
+  const snap = from.pop();
+  const slug = cur() && cur().slug;
+  state.data = JSON.parse(snap);
+  hist.last = snap; hist.field = null;
+  const idx = state.data.projects.findIndex((p) => p.slug === slug);
+  state.sel = idx >= 0 ? idx : Math.min(Math.max(state.sel, 0), state.data.projects.length - 1);
+  renderList(); renderEditor(); renderPreviewOptions();
+  updateSaveState(); updateHistoryButtons();
+  toast(label);
+}
+const undo = () => restore(hist.undo, hist.redo, 'Đã hoàn tác');
+const redo = () => restore(hist.redo, hist.undo, 'Đã làm lại');
+
+function updateSaveState() {
+  state.dirty = hist.last !== hist.saved;
+  const s = $('#saveState');
+  s.textContent = state.dirty ? 'Chưa lưu' : 'Đã lưu';
+  s.className = 'save-state' + (state.dirty ? ' dirty' : '');
+}
+function markDirty() {
+  recordHistory();
+  updateSaveState();
+}
+function markSaved(err, snap) {
   const s = $('#saveState');
   if (err) { s.textContent = 'Lỗi build'; s.className = 'save-state error'; return; }
-  state.dirty = false; s.textContent = 'Đã lưu'; s.className = 'save-state';
+  hist.saved = snap;
+  updateSaveState();
 }
 
 /* ---------------- data ---------------- */
 async function load() {
   state.data = await (await fetch('/api/content')).json();
+  if (!Array.isArray(state.data.filters)) state.data.filters = CATEGORIES.map(([id, label]) => ({ id, label, visible: true }));
   state.sel = state.data.projects.length ? 0 : -1;
   renderList(); renderEditor(); renderPreviewOptions(); setPreview('index.html');
+  resetHistory();
 }
 
 async function save() {
   if (state.saving) return;
   state.saving = true; $('#saveBtn').disabled = true;
   try {
-    const r = await fetch('/api/content', { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(state.data) });
+    const body = JSON.stringify(state.data);
+    const r = await fetch('/api/content', { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body });
     const j = await r.json();
     if (!r.ok) throw new Error(j.error || 'Save failed');
-    markSaved(); toast(`Đã lưu & build ${j.result.pages} trang`);
+    markSaved(false, body); toast(`Đã lưu & build ${j.result.pages} trang`);
     renderPreviewOptions(); reloadPreview();
   } catch (e) { markSaved(true); toast('Lỗi: ' + e.message, true); }
   finally { state.saving = false; $('#saveBtn').disabled = false; }
@@ -121,7 +181,19 @@ async function pickExisting() {
 }
 
 /* ---------------- sidebar ---------------- */
+function renderFilters() {
+  const ul = $('#filterList'); ul.innerHTML = '';
+  state.data.filters.forEach((f) => {
+    const n = state.data.projects.filter((p) => p.visible !== false && p.category === f.id).length;
+    const cb = el('input', { type: 'checkbox' }); cb.checked = f.visible !== false;
+    cb.addEventListener('change', () => { f.visible = cb.checked; markDirty(); renderFilters(); });
+    ul.append(el('li', {}, el('label', { class: 'switch' + (cb.checked ? '' : ' off'), title: cb.checked ? 'Đang hiện — bỏ chọn để ẩn tab' : 'Đang ẩn — chọn để hiện tab' },
+      cb, f.label, el('span', { class: 'f-count' }, `${n} project`))));
+  });
+}
+
 function renderList() {
+  renderFilters();
   const ul = $('#projectList'); ul.innerHTML = '';
   let visibleNo = 0;
   state.data.projects.forEach((p, i) => {
@@ -297,7 +369,7 @@ function renderEditor() {
       field('Tên project', input(p, 'title', { onchange: () => renderList() })),
       field('Đường dẫn (slug) → project-<slug>.html', slugInput)),
     el('div', { class: 'grid2' },
-      field('Nhóm (tab năng lực)', select(p, 'category', CATEGORIES)),
+      field('Nhóm (tab năng lực)', select(p, 'category', categories(), renderFilters)),
       field('Nhãn nhỏ dưới tên (tuỳ chọn, vd: Self-initiated concept)', input(p, 'badge'))),
     field('Tagline — 1 câu dưới tên trên trang chi tiết', input(p, 'tagline', { type: 'textarea', rows: 2 })),
     field('Mô tả SEO (meta description)', input(p, 'metaDescription', { type: 'textarea', rows: 2 })),
@@ -510,6 +582,8 @@ async function doPublish() {
 
 /* ---------------- wiring ---------------- */
 $('#saveBtn').addEventListener('click', save);
+$('#undoBtn').addEventListener('click', undo);
+$('#redoBtn').addEventListener('click', redo);
 $('#newProjectBtn').addEventListener('click', newProject);
 $('#publishBtn').addEventListener('click', openPublish);
 $('#doPublish').addEventListener('click', doPublish);
@@ -526,6 +600,10 @@ $('#previewSize').addEventListener('click', (e) => {
 });
 document.addEventListener('keydown', (e) => {
   if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 's') { e.preventDefault(); save(); }
+  // ⌘Z inside a text field keeps the browser's own per-field undo
+  if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'z' && !isTyping()) {
+    e.preventDefault(); e.shiftKey ? redo() : undo();
+  }
 });
 window.addEventListener('beforeunload', (e) => { if (state.dirty) { e.preventDefault(); e.returnValue = ''; } });
 

@@ -1,6 +1,295 @@
 {
   "version": 1,
+  "filters": [
+    {
+      "id": "product-uiux",
+      "label": "Product & UI/UX Design",
+      "visible": true
+    },
+    {
+      "id": "branding",
+      "label": "Branding",
+      "visible": true
+    },
+    {
+      "id": "product-marketing",
+      "label": "Product Marketing",
+      "visible": true
+    },
+    {
+      "id": "content-strategy",
+      "label": "Content Strategy",
+      "visible": true
+    },
+    {
+      "id": "ai-workflow",
+      "label": "AI Workflow",
+      "visible": true
+    }
+  ],
   "projects": [
+    {
+      "slug": "jf-design-system",
+      "visible": true,
+      "featured": true,
+      "category": "product-uiux",
+      "title": "Design System",
+      "badge": "",
+      "tagline": "One library, six products, five brands — from a button to an AI legal answer.",
+      "metaDescription": "Design System — one Figma library serving six products across six brands: 1,265 variables, 328 component sets, Chat & AI kits. Case study by Sonorathy.",
+      "meta": [
+        {
+          "label": "Year",
+          "value": "2023 – 2026"
+        },
+        {
+          "label": "Role",
+          "value": "Design System Designer"
+        },
+        {
+          "label": "Scope",
+          "value": "Tokens · Theming · Components · Docs"
+        },
+        {
+          "label": "Serves",
+          "value": "NDA"
+        }
+      ],
+      "card": {
+        "title": "jF Design System 4.1",
+        "tag": "Design System · Multi-brand",
+        "role": "Design System Designer",
+        "highlights": [
+          "1,265 variables across 10 collections",
+          "328 component sets, 2,817 variants",
+          "6 brand modes, Light/Dark, 4 shape modes"
+        ],
+        "problem": "Six products were drifting into their own buttons, tables and alerts. I built one Figma library where each product switches brand, shape and density by mode — from core components to Chat, AI and legal patterns.",
+        "cover": "assets/work/jf-ds/cover.jpg",
+        "coverAlt": "jF Design System — six brand colours over shared weather, chat, task and alert components",
+        "coverGradient": ""
+      },
+      "blocks": [
+        {
+          "type": "text",
+          "heading": "The problem",
+          "body": "Six products were being designed in parallel — an internal platform, a chat app, an IoT/GIS dashboard, a farm-operations app, a consumer brand and an AI legal assistant. Each started drifting into its own buttons, tables and alert styles, so every new screen meant re-deciding things that were already decided elsewhere.\n\nThe goal: one Figma library where a product changes brand, shape and density by switching a mode — not by detaching components.",
+          "section": "Overview"
+        },
+        {
+          "type": "stats",
+          "heading": "By the numbers",
+          "items": [
+            {
+              "value": "116",
+              "label": "pages"
+            },
+            {
+              "value": "328",
+              "label": "component sets"
+            },
+            {
+              "value": "2,817",
+              "label": "variants"
+            },
+            {
+              "value": "1,265",
+              "label": "variables in 10 collections"
+            },
+            {
+              "value": "7,800+",
+              "label": "icons"
+            },
+            {
+              "value": "196",
+              "label": "text, colour & effect styles"
+            }
+          ],
+          "section": "In numbers"
+        },
+        {
+          "type": "table",
+          "heading": "Token architecture",
+          "intro": "Three layers. Components only ever bind to the semantic layer, so brand, theme and layout changes never reach inside a component.",
+          "columns": [
+            "Collection",
+            "Modes",
+            "Vars"
+          ],
+          "rows": [
+            [
+              "Primitive colours / dimensions",
+              "1",
+              "210 / 27"
+            ],
+            [
+              "Brand",
+              "jFoundation, jChat, jMaps, jFa, Pastel",
+              "255"
+            ],
+            [
+              "Theme",
+              "Standard, Premium",
+              "34"
+            ],
+            [
+              "Semantic colour",
+              "Light, Dark",
+              "478"
+            ],
+            [
+              "Semantic dimension",
+              "1",
+              "123"
+            ],
+            [
+              "Shape",
+              "Default, Rounded, Pill, Sharp",
+              "18"
+            ],
+            [
+              "Responsive",
+              "Desktop, Tablet, Mobile",
+              "44"
+            ],
+            [
+              "Density",
+              "Compact, Comfortable, Spacious",
+              "11"
+            ],
+            [
+              "System",
+              "1",
+              "29"
+            ]
+          ],
+          "note": "",
+          "section": "Token architecture"
+        },
+        {
+          "type": "text",
+          "heading": "What’s in the library",
+          "body": "- **Desktop** — 37 pages, 87 component sets, 910 variants: navigation, data entry, data display, feedback.\n- **Mobile** — 20 pages, 39 sets, 311 variants: pickers, bottom sheets, action bars, keypads. The difference lives in the overlay layer: status bar, keyboard, safe area.\n- **Chat & AI** — 11 pages, 68 sets, 296 variants: message parts, composer, heavy AI tasks, in-chat commerce (product recommendations, cart drafts, quotations, contract review).\n- **Platform** — data tables, charts, GIS & map, operations, alerts & logs — shared by jMaps and jFa, split only by brand mode.\n- **AI · Legal** — citation cards (8 validity states), validity timeline, clause compare, 4-level risk flags, 5-state expert review.",
+          "section": "Coverage"
+        },
+        {
+          "type": "text",
+          "heading": "Handoff",
+          "body": "- Every component set carries a description: when to use it, when not to.\n- Every component group has its own doc page with anatomy, variants and usage rules.\n- Contrast is checked by script against WCAG for every mode, not by eye.\n- A decision log records why each non-obvious choice was made."
+        },
+        {
+          "type": "chips",
+          "heading": "Deliverables",
+          "items": [
+            {
+              "text": "Figma library",
+              "nda": false
+            },
+            {
+              "text": "Variables & modes",
+              "nda": false
+            },
+            {
+              "text": "Desktop & mobile kits",
+              "nda": false
+            },
+            {
+              "text": "Chat & AI kits",
+              "nda": false
+            },
+            {
+              "text": "Documentation",
+              "nda": false
+            }
+          ]
+        }
+      ],
+      "shots": [
+        {
+          "type": "image",
+          "src": "assets/work/jf-ds/01-cover.jpg",
+          "caption": "",
+          "alt": "jF Design System — one component library for desktop, mobile, chat and AI products",
+          "mobile": false,
+          "section": "Overview"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/jf-ds/02-in-numbers.jpg",
+          "caption": "",
+          "alt": "In numbers — 328 component sets, 2,817 variants, 1,265 variables, 6 brand modes",
+          "mobile": false,
+          "section": "In numbers"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/jf-ds/03-token-architecture.jpg",
+          "caption": "",
+          "alt": "Token architecture — four layers, one token traced across six brands",
+          "mobile": false,
+          "section": "Token architecture"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/jf-ds/04a-brand-switching.jpg",
+          "caption": "",
+          "alt": "Brand switching — switch the brand, not the components",
+          "mobile": false,
+          "section": "Brand switching"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/jf-ds/04b-brand-switching.gif",
+          "caption": "",
+          "alt": "Screen recording — one mode change on the 1.Brand collection re-themes four screens live in Figma",
+          "mobile": false,
+          "section": "Brand switching"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/jf-ds/04c-brand-switching-modes.jpg",
+          "caption": "",
+          "alt": "The same frame in six brand modes",
+          "mobile": false,
+          "section": "Brand switching"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/jf-ds/05-properties.jpg",
+          "caption": "",
+          "alt": "Component properties — variants, booleans, text and instance swaps",
+          "mobile": false,
+          "section": "Properties"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/jf-ds/06-variant-matrix.jpg",
+          "caption": "",
+          "alt": "Variant matrix — every state drawn",
+          "mobile": false,
+          "section": "Variant matrix"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/jf-ds/07-coverage.jpg",
+          "caption": "",
+          "alt": "Coverage — foundations under product kits for chat, AI, commerce and platform",
+          "mobile": false,
+          "section": "Coverage"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/jf-ds/08-thanks.jpg",
+          "caption": "",
+          "alt": "Thank you",
+          "mobile": false,
+          "section": "Thanks"
+        }
+      ],
+      "passwordHash": "",
+      "passwordStorageKey": "",
+      "sectionNav": true
+    },
     {
       "slug": "nexa-ai-sales-agent",
       "visible": true,
@@ -458,268 +747,6 @@
           "alt": "Let’s talk — design system, BA and Dev collaboration, to go deeper in the interview",
           "mobile": false,
           "section": "Let’s talk"
-        }
-      ],
-      "passwordHash": "",
-      "passwordStorageKey": "",
-      "sectionNav": true
-    },
-    {
-      "slug": "jf-design-system",
-      "visible": true,
-      "featured": true,
-      "category": "product-uiux",
-      "title": "jF Design System 4.1",
-      "badge": "",
-      "tagline": "One library, six products, five brands — from a button to an AI legal answer.",
-      "metaDescription": "jF Design System 4.1 — one Figma library serving six products across six brands: 1,265 variables, 328 component sets, Chat & AI kits. Case study by Sonorathy.",
-      "meta": [
-        {
-          "label": "Year",
-          "value": "2023 – 2026"
-        },
-        {
-          "label": "Role",
-          "value": "Design System Designer"
-        },
-        {
-          "label": "Scope",
-          "value": "Tokens · Theming · Components · Docs"
-        },
-        {
-          "label": "Serves",
-          "value": "jFoundation, jChat, jMaps, jFa, Pastel, TVPL Legal AI"
-        }
-      ],
-      "card": {
-        "title": "jF Design System 4.1",
-        "tag": "Design System · Multi-brand",
-        "role": "Design System Designer",
-        "highlights": [
-          "1,265 variables across 10 collections",
-          "328 component sets, 2,817 variants",
-          "6 brand modes, Light/Dark, 4 shape modes"
-        ],
-        "problem": "Six products were drifting into their own buttons, tables and alerts. I built one Figma library where each product switches brand, shape and density by mode — from core components to Chat, AI and legal patterns.",
-        "cover": "assets/work/jf-ds/cover.jpg",
-        "coverAlt": "jF Design System — six brand colours over shared weather, chat, task and alert components",
-        "coverGradient": ""
-      },
-      "blocks": [
-        {
-          "type": "text",
-          "heading": "The problem",
-          "body": "Six products were being designed in parallel — an internal platform, a chat app, an IoT/GIS dashboard, a farm-operations app, a consumer brand and an AI legal assistant. Each started drifting into its own buttons, tables and alert styles, so every new screen meant re-deciding things that were already decided elsewhere.\n\nThe goal: one Figma library where a product changes brand, shape and density by switching a mode — not by detaching components.",
-          "section": "Overview"
-        },
-        {
-          "type": "stats",
-          "heading": "By the numbers",
-          "items": [
-            {
-              "value": "116",
-              "label": "pages"
-            },
-            {
-              "value": "328",
-              "label": "component sets"
-            },
-            {
-              "value": "2,817",
-              "label": "variants"
-            },
-            {
-              "value": "1,265",
-              "label": "variables in 10 collections"
-            },
-            {
-              "value": "7,800+",
-              "label": "icons"
-            },
-            {
-              "value": "196",
-              "label": "text, colour & effect styles"
-            }
-          ],
-          "section": "In numbers"
-        },
-        {
-          "type": "table",
-          "heading": "Token architecture",
-          "intro": "Three layers. Components only ever bind to the semantic layer, so brand, theme and layout changes never reach inside a component.",
-          "columns": [
-            "Collection",
-            "Modes",
-            "Vars"
-          ],
-          "rows": [
-            [
-              "Primitive colours / dimensions",
-              "1",
-              "210 / 27"
-            ],
-            [
-              "Brand",
-              "jFoundation, jChat, jMaps, jFa, Pastel",
-              "255"
-            ],
-            [
-              "Theme",
-              "Standard, Premium",
-              "34"
-            ],
-            [
-              "Semantic colour",
-              "Light, Dark",
-              "478"
-            ],
-            [
-              "Semantic dimension",
-              "1",
-              "123"
-            ],
-            [
-              "Shape",
-              "Default, Rounded, Pill, Sharp",
-              "18"
-            ],
-            [
-              "Responsive",
-              "Desktop, Tablet, Mobile",
-              "44"
-            ],
-            [
-              "Density",
-              "Compact, Comfortable, Spacious",
-              "11"
-            ],
-            [
-              "System",
-              "1",
-              "29"
-            ]
-          ],
-          "note": "",
-          "section": "Token architecture"
-        },
-        {
-          "type": "text",
-          "heading": "What’s in the library",
-          "body": "- **Desktop** — 37 pages, 87 component sets, 910 variants: navigation, data entry, data display, feedback.\n- **Mobile** — 20 pages, 39 sets, 311 variants: pickers, bottom sheets, action bars, keypads. The difference lives in the overlay layer: status bar, keyboard, safe area.\n- **Chat & AI** — 11 pages, 68 sets, 296 variants: message parts, composer, heavy AI tasks, in-chat commerce (product recommendations, cart drafts, quotations, contract review).\n- **Platform** — data tables, charts, GIS & map, operations, alerts & logs — shared by jMaps and jFa, split only by brand mode.\n- **AI · Legal** — citation cards (8 validity states), validity timeline, clause compare, 4-level risk flags, 5-state expert review.",
-          "section": "Coverage"
-        },
-        {
-          "type": "text",
-          "heading": "Handoff",
-          "body": "- Every component set carries a description: when to use it, when not to.\n- Every component group has its own doc page with anatomy, variants and usage rules.\n- Contrast is checked by script against WCAG for every mode, not by eye.\n- A decision log records why each non-obvious choice was made."
-        },
-        {
-          "type": "chips",
-          "heading": "Deliverables",
-          "items": [
-            {
-              "text": "Figma library",
-              "nda": false
-            },
-            {
-              "text": "Variables & modes",
-              "nda": false
-            },
-            {
-              "text": "Desktop & mobile kits",
-              "nda": false
-            },
-            {
-              "text": "Chat & AI kits",
-              "nda": false
-            },
-            {
-              "text": "Documentation",
-              "nda": false
-            }
-          ]
-        }
-      ],
-      "shots": [
-        {
-          "type": "image",
-          "src": "assets/work/jf-ds/01-cover.jpg",
-          "caption": "",
-          "alt": "jF Design System — one component library for desktop, mobile, chat and AI products",
-          "mobile": false,
-          "section": "Overview"
-        },
-        {
-          "type": "image",
-          "src": "assets/work/jf-ds/02-in-numbers.jpg",
-          "caption": "",
-          "alt": "In numbers — 328 component sets, 2,817 variants, 1,265 variables, 6 brand modes",
-          "mobile": false,
-          "section": "In numbers"
-        },
-        {
-          "type": "image",
-          "src": "assets/work/jf-ds/03-token-architecture.jpg",
-          "caption": "",
-          "alt": "Token architecture — four layers, one token traced across six brands",
-          "mobile": false,
-          "section": "Token architecture"
-        },
-        {
-          "type": "image",
-          "src": "assets/work/jf-ds/04a-brand-switching.jpg",
-          "caption": "",
-          "alt": "Brand switching — switch the brand, not the components",
-          "mobile": false,
-          "section": "Brand switching"
-        },
-        {
-          "type": "image",
-          "src": "assets/work/jf-ds/04b-brand-switching.gif",
-          "caption": "",
-          "alt": "Screen recording — one mode change on the 1.Brand collection re-themes four screens live in Figma",
-          "mobile": false,
-          "section": "Brand switching"
-        },
-        {
-          "type": "image",
-          "src": "assets/work/jf-ds/04c-brand-switching-modes.jpg",
-          "caption": "",
-          "alt": "The same frame in six brand modes",
-          "mobile": false,
-          "section": "Brand switching"
-        },
-        {
-          "type": "image",
-          "src": "assets/work/jf-ds/05-properties.jpg",
-          "caption": "",
-          "alt": "Component properties — variants, booleans, text and instance swaps",
-          "mobile": false,
-          "section": "Properties"
-        },
-        {
-          "type": "image",
-          "src": "assets/work/jf-ds/06-variant-matrix.jpg",
-          "caption": "",
-          "alt": "Variant matrix — every state drawn",
-          "mobile": false,
-          "section": "Variant matrix"
-        },
-        {
-          "type": "image",
-          "src": "assets/work/jf-ds/07-coverage.jpg",
-          "caption": "",
-          "alt": "Coverage — foundations under product kits for chat, AI, commerce and platform",
-          "mobile": false,
-          "section": "Coverage"
-        },
-        {
-          "type": "image",
-          "src": "assets/work/jf-ds/08-thanks.jpg",
-          "caption": "",
-          "alt": "Thank you",
-          "mobile": false,
-          "section": "Thanks"
         }
       ],
       "passwordHash": "",
@@ -1737,7 +1764,7 @@
     },
     {
       "slug": "luvenus",
-      "visible": true,
+      "visible": false,
       "featured": true,
       "category": "product-uiux",
       "title": "30S Care",
@@ -1865,7 +1892,7 @@
     },
     {
       "slug": "geomap",
-      "visible": true,
+      "visible": false,
       "featured": true,
       "category": "product-uiux",
       "title": "GeoMap",
@@ -1947,7 +1974,7 @@
     },
     {
       "slug": "finbnb",
-      "visible": true,
+      "visible": false,
       "featured": true,
       "category": "product-uiux",
       "title": "FinB&B",
@@ -2029,7 +2056,7 @@
     },
     {
       "slug": "gamble",
-      "visible": true,
+      "visible": false,
       "featured": true,
       "category": "product-uiux",
       "title": "GAMBLE",

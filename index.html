@@ -190,16 +190,16 @@
       <div class="carousel-track" id="carouselTrack">
         <!-- BUILD:CAROUSEL:START -->
         <div class="carousel-slide" data-hover>
+          <div class="carousel-media"><img src="assets/work/jf-ds/cover.jpg" alt="jF Design System — six brand colours over shared weather, chat, task and alert components" loading="lazy"></div>
+          <span class="carousel-caption">jF Design System 4.1</span>
+        </div>
+        <div class="carousel-slide" data-hover>
           <div class="carousel-media"><img src="assets/work/nexa-ai-sales-agent/cover.jpg" alt="Nexa AI Sales Agent — AI plan recommendation and quote on mobile" loading="lazy"></div>
           <span class="carousel-caption">Nexa AI Sales Agent</span>
         </div>
         <div class="carousel-slide" data-hover>
           <div class="carousel-media"><img src="assets/work/tvpl/cover.jpg" alt="Legal AI — mobile screens for the answer, home and lawyer desk" loading="lazy"></div>
           <span class="carousel-caption">TVPL Legal AI</span>
-        </div>
-        <div class="carousel-slide" data-hover>
-          <div class="carousel-media"><img src="assets/work/jf-ds/cover.jpg" alt="jF Design System — six brand colours over shared weather, chat, task and alert components" loading="lazy"></div>
-          <span class="carousel-caption">jF Design System 4.1</span>
         </div>
         <div class="carousel-slide" data-hover>
           <div class="carousel-media"><img src="assets/work/edpay/cover.jpg" alt="EdPay Shop Billing — debit note, POS system, semi e-commerce and wallet on mobile" loading="lazy"></div>
@@ -220,22 +220,6 @@
         <div class="carousel-slide" data-hover>
           <div class="carousel-media"><img src="assets/work/luvenus-cover.jpg" alt="Luvenus — fine jewelry brand identity" loading="lazy"></div>
           <span class="carousel-caption">Luvenus</span>
-        </div>
-        <div class="carousel-slide" data-hover>
-          <div class="carousel-media"><img src="assets/work/30care-cover.jpg" alt="30S Care — leather care brand identity" loading="lazy"></div>
-          <span class="carousel-caption">30S Care</span>
-        </div>
-        <div class="carousel-slide" data-hover>
-          <div class="carousel-media carousel-media-grad" style="background:linear-gradient(155deg,#4fa9ff,#0a0a0b)"></div>
-          <span class="carousel-caption">GeoMap</span>
-        </div>
-        <div class="carousel-slide" data-hover>
-          <div class="carousel-media carousel-media-grad" style="background:linear-gradient(155deg,#7c5cff,#0a0a0b)"></div>
-          <span class="carousel-caption">FinB&amp;B</span>
-        </div>
-        <div class="carousel-slide" data-hover>
-          <div class="carousel-media carousel-media-locked"><img src="assets/work/gamble-cover.jpg" alt="GAMBLE — password-protected case study" loading="lazy"><i class="carousel-lock">&#128274;</i></div>
-          <span class="carousel-caption">GAMBLE</span>
         </div>
         <!-- BUILD:CAROUSEL:END -->
 
@@ -284,12 +268,15 @@
            below it and the image below THAT both start from the same
            baseline instead of the title sitting flush with the tabs. -->
       <div class="work-filter reveal-word" id="workFilter" role="tablist">
+        <!-- BUILD:FILTERS:START -->
         <button class="work-filter-btn is-active" type="button" data-filter="all" data-hover role="tab" aria-selected="true">All<span class="work-filter-count"></span></button>
         <button class="work-filter-btn" type="button" data-filter="product-uiux" data-hover role="tab" aria-selected="false">Product &amp; UI/UX Design<span class="work-filter-count"></span></button>
         <button class="work-filter-btn" type="button" data-filter="branding" data-hover role="tab" aria-selected="false">Branding<span class="work-filter-count"></span></button>
         <button class="work-filter-btn" type="button" data-filter="product-marketing" data-hover role="tab" aria-selected="false">Product Marketing<span class="work-filter-count"></span></button>
         <button class="work-filter-btn" type="button" data-filter="content-strategy" data-hover role="tab" aria-selected="false">Content Strategy<span class="work-filter-count"></span></button>
         <button class="work-filter-btn" type="button" data-filter="ai-workflow" data-hover role="tab" aria-selected="false">AI Workflow<span class="work-filter-count"></span></button>
+        <!-- BUILD:FILTERS:END -->
+
       </div>
 
       <!-- Case-study detail panel — content follows whichever project is
@@ -321,6 +308,20 @@
       <div class="work-scroll-pin" id="workScrollPin">
       <div class="work-scroll-track" id="workScrollTrack">
         <!-- BUILD:WORK:START -->
+        <a href="project-jf-design-system.html" class="work-card" data-hover
+           data-category="product-uiux"
+           data-title="jF Design System 4.1"
+           data-role="Design System Designer"
+           data-highlights="1,265 variables across 10 collections|328 component sets, 2,817 variants|6 brand modes, Light/Dark, 4 shape modes"
+           data-problem="Six products were drifting into their own buttons, tables and alerts. I built one Figma library where each product switches brand, shape and density by mode — from core components to Chat, AI and legal patterns.">
+          <div class="work-card-media"><img src="assets/work/jf-ds/cover.jpg" alt="jF Design System — six brand colours over shared weather, chat, task and alert components" loading="lazy"></div>
+          <div class="work-card-meta">
+            <span class="work-card-index">01</span>
+            <span class="work-card-title">jF Design System 4.1</span>
+            <span class="work-card-tag">Design System · Multi-brand</span>
+          </div>
+        </a>
+
         <a href="project-nexa-ai-sales-agent.html" class="work-card" data-hover
            data-category="product-uiux"
            data-title="Nexa AI Sales Agent"
@@ -329,7 +330,7 @@
            data-problem="Selling B2B software takes seven hand-offs. I designed one flow from first chat to paid invoice where AI drafts the needs, quote, contract and invoice — and people approve every price change.">
           <div class="work-card-media"><img src="assets/work/nexa-ai-sales-agent/cover.jpg" alt="Nexa AI Sales Agent — AI plan recommendation and quote on mobile" loading="lazy"></div>
           <div class="work-card-meta">
-            <span class="work-card-index">01</span>
+            <span class="work-card-index">02</span>
             <span class="work-card-title">Nexa AI Sales Agent</span>
             <span class="work-card-tag">AI Agent · B2B SaaS · Desktop + Mobile</span>
           </div>
@@ -343,23 +344,9 @@
            data-problem="Legal AI is only useful if people can check it. I designed how lawyers, in-house legal teams and businesses ask by situation, verify every citation against its validity, and hand a case to a named lawyer — 23 screens, 33 components.">
           <div class="work-card-media"><img src="assets/work/tvpl/cover.jpg" alt="Legal AI — mobile screens for the answer, home and lawyer desk" loading="lazy"></div>
           <div class="work-card-meta">
-            <span class="work-card-index">02</span>
+            <span class="work-card-index">03</span>
             <span class="work-card-title">TVPL Legal AI</span>
             <span class="work-card-tag">AI · LegalTech · Concept</span>
-          </div>
-        </a>
-
-        <a href="project-jf-design-system.html" class="work-card" data-hover
-           data-category="product-uiux"
-           data-title="jF Design System 4.1"
-           data-role="Design System Designer"
-           data-highlights="1,265 variables across 10 collections|328 component sets, 2,817 variants|6 brand modes, Light/Dark, 4 shape modes"
-           data-problem="Six products were drifting into their own buttons, tables and alerts. I built one Figma library where each product switches brand, shape and density by mode — from core components to Chat, AI and legal patterns.">
-          <div class="work-card-media"><img src="assets/work/jf-ds/cover.jpg" alt="jF Design System — six brand colours over shared weather, chat, task and alert components" loading="lazy"></div>
-          <div class="work-card-meta">
-            <span class="work-card-index">03</span>
-            <span class="work-card-title">jF Design System 4.1</span>
-            <span class="work-card-tag">Design System · Multi-brand</span>
           </div>
         </a>
 
@@ -430,62 +417,6 @@
             <span class="work-card-index">08</span>
             <span class="work-card-title">Luvenus</span>
             <span class="work-card-tag">Brand Identity · Packaging</span>
-          </div>
-        </a>
-
-        <a href="project-luvenus.html" class="work-card" data-hover
-           data-category="product-uiux"
-           data-title="30S Care"
-           data-role="Brand &amp; UI/UX Designer"
-           data-highlights="Full brand identity &amp; logo system|Conversion-focused landing page|Mini design system for product UI"
-           data-problem="30S Care needed a premium identity and a landing page that could earn trust for a car-interior leather-care product in a crowded accessories market. I built the brand from logo to launch page in one consistent system.">
-          <div class="work-card-media"><img src="assets/work/30care-cover.jpg" alt="30S Care — leather care brand identity" loading="lazy"></div>
-          <div class="work-card-meta">
-            <span class="work-card-index">09</span>
-            <span class="work-card-title">30S Care</span>
-            <span class="work-card-tag">Brand Identity · Landing Page</span>
-          </div>
-        </a>
-
-        <a href="project-geomap.html" class="work-card" data-hover
-           data-category="product-uiux"
-           data-title="GeoMap"
-           data-role="Product Designer &amp; Frontend Developer"
-           data-highlights="Map-based data visualization UI|Design system for a data-dense app|Built with performance in mind"
-           data-problem="The existing tool buried useful location data behind dense tables that were hard to scan. I designed a map-first interface that surfaces the same data visually, making patterns obvious at a glance.">
-          <div class="work-card-media work-card-grad" style="background:linear-gradient(155deg,#4fa9ff,#0a0a0b)"></div>
-          <div class="work-card-meta">
-            <span class="work-card-index">10</span>
-            <span class="work-card-title">GeoMap</span>
-            <span class="work-card-tag">Web App Design &amp; Dev</span>
-          </div>
-        </a>
-
-        <a href="project-finbnb.html" class="work-card" data-hover
-           data-category="product-uiux"
-           data-title="FinB&amp;B"
-           data-role="Product &amp; UI/UX Designer"
-           data-highlights="Simplified onboarding flow|Dashboard &amp; reporting UI|Accessible, trustworthy visual language"
-           data-problem="Early users found the product hard to trust and navigate, with onboarding that felt like a typical finance app. I designed a calmer, clearer interface that builds trust from the first screen.">
-          <div class="work-card-media work-card-grad" style="background:linear-gradient(155deg,#7c5cff,#0a0a0b)"></div>
-          <div class="work-card-meta">
-            <span class="work-card-index">11</span>
-            <span class="work-card-title">FinB&amp;B</span>
-            <span class="work-card-tag">Fintech · Web App</span>
-          </div>
-        </a>
-
-        <a href="project-gamble.html" class="work-card work-card-locked" data-hover
-           data-category="product-uiux"
-           data-title="GAMBLE"
-           data-role="Product &amp; UI/UX Designer"
-           data-highlights="Casino lobby &amp; live-game UI design|Responsive web + mobile app system|Password-protected case study (NDA)"
-           data-problem="A real-money gaming platform needed a lobby, live-game and wallet experience that felt fast, trustworthy and premium across web and mobile. Full case study details are under NDA — enter the password to view.">
-          <div class="work-card-media work-card-media-locked"><img src="assets/work/gamble-cover.jpg" alt="GAMBLE — password-protected case study" loading="lazy"><i class="work-card-lock">&#128274;</i></div>
-          <div class="work-card-meta">
-            <span class="work-card-index">12</span>
-            <span class="work-card-title">GAMBLE</span>
-            <span class="work-card-tag">Product Design · NDA</span>
           </div>
         </a>
 
