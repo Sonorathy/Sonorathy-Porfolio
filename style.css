@@ -1340,7 +1340,7 @@ img{max-width:100%;display:block;}
 /* multi-item showcase: cover / mockups / video shown in sequence, stacked */
 .pd-showcase.pd-showcase-stack{display:flex;flex-direction:column;}
 .pd-showcase-item{position:relative;width:100%;margin:0;}
-.pd-showcase-item + .pd-showcase-item{border-top:1px solid var(--line);}
+
 .pd-showcase-item img,
 .pd-showcase-item video{width:100%;height:auto;display:block;object-fit:cover;background:var(--bg-soft);}
 

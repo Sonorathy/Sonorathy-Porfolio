@@ -162,7 +162,7 @@
         {
           "type": "image",
           "src": "assets/work/nexa-ai-sales-agent/01-overview.jpg",
-          "caption": "Overview — updated quote, mobile and desktop",
+          "caption": "",
           "alt": "Nexa AI Sales Agent — Overview — updated quote, mobile and desktop",
           "mobile": false,
           "section": "Overview"
@@ -170,7 +170,7 @@
         {
           "type": "image",
           "src": "assets/work/nexa-ai-sales-agent/02-about.jpg",
-          "caption": "About",
+          "caption": "",
           "alt": "Nexa AI Sales Agent — About",
           "mobile": false,
           "section": "About"
@@ -178,7 +178,7 @@
         {
           "type": "image",
           "src": "assets/work/nexa-ai-sales-agent/03-in-numbers.jpg",
-          "caption": "In numbers",
+          "caption": "",
           "alt": "Nexa AI Sales Agent — In numbers",
           "mobile": false,
           "section": "In numbers"
@@ -186,7 +186,7 @@
         {
           "type": "image",
           "src": "assets/work/nexa-ai-sales-agent/04-problem-solution.jpg",
-          "caption": "Problem & solution — detected changes, v2 draft, approval gate",
+          "caption": "",
           "alt": "Nexa AI Sales Agent — Problem & solution — detected changes, v2 draft, approval gate",
           "mobile": false,
           "section": "Problem & Solution"
@@ -194,7 +194,7 @@
         {
           "type": "image",
           "src": "assets/work/nexa-ai-sales-agent/05-personas.jpg",
-          "caption": "Three people, one deal",
+          "caption": "",
           "alt": "Nexa AI Sales Agent — Three people, one deal",
           "mobile": false,
           "section": "Personas"
@@ -202,7 +202,7 @@
         {
           "type": "image",
           "src": "assets/work/nexa-ai-sales-agent/06-flow.jpg",
-          "caption": "Eight steps. AI drafts, people decide.",
+          "caption": "",
           "alt": "Nexa AI Sales Agent — Eight steps. AI drafts, people decide.",
           "mobile": false,
           "section": "Flow"
@@ -210,7 +210,7 @@
         {
           "type": "image",
           "src": "assets/work/nexa-ai-sales-agent/07a-key-screens.jpg",
-          "caption": "Key screens",
+          "caption": "",
           "alt": "Nexa AI Sales Agent — Key screens",
           "mobile": false,
           "section": "Key screens"
@@ -218,7 +218,7 @@
         {
           "type": "image",
           "src": "assets/work/nexa-ai-sales-agent/07b-understand.jpg",
-          "caption": "01 · Understand — AI listens, you ask",
+          "caption": "",
           "alt": "Nexa AI Sales Agent — 01 · Understand — AI listens, you ask",
           "mobile": false,
           "section": "Key screens"
@@ -226,7 +226,7 @@
         {
           "type": "image",
           "src": "assets/work/nexa-ai-sales-agent/07c-negotiate.jpg",
-          "caption": "05 · Negotiate — a human gate on every discount",
+          "caption": "",
           "alt": "Nexa AI Sales Agent — 05 · Negotiate — a human gate on every discount",
           "mobile": false,
           "section": "Key screens"
@@ -234,7 +234,7 @@
         {
           "type": "image",
           "src": "assets/work/nexa-ai-sales-agent/07d-customer-ai.jpg",
-          "caption": "09 · Customer — the customer sees why, not how",
+          "caption": "",
           "alt": "Nexa AI Sales Agent — 09 · Customer — the customer sees why, not how",
           "mobile": false,
           "section": "Key screens"
@@ -242,7 +242,7 @@
         {
           "type": "image",
           "src": "assets/work/nexa-ai-sales-agent/07e-catalog.jpg",
-          "caption": "14 · Cite — every answer has a source",
+          "caption": "",
           "alt": "Nexa AI Sales Agent — 14 · Cite — every answer has a source",
           "mobile": false,
           "section": "Key screens"
@@ -250,7 +250,7 @@
         {
           "type": "image",
           "src": "assets/work/nexa-ai-sales-agent/07f-sign-pay.jpg",
-          "caption": "10 · Close — from updated quote to paid, on one phone",
+          "caption": "",
           "alt": "Nexa AI Sales Agent — 10 · Close — from updated quote to paid, on one phone",
           "mobile": false,
           "section": "Key screens"
@@ -258,7 +258,7 @@
         {
           "type": "image",
           "src": "assets/work/nexa-ai-sales-agent/07g-management.jpg",
-          "caption": "11–13 · Manage — quotes, orders and contracts in one place",
+          "caption": "",
           "alt": "Nexa AI Sales Agent — 11–13 · Manage — quotes, orders and contracts in one place",
           "mobile": false,
           "section": "Key screens"
@@ -266,7 +266,7 @@
         {
           "type": "image",
           "src": "assets/work/nexa-ai-sales-agent/08-design-system.jpg",
-          "caption": "Design system — Midnight Purple brand mode, AI components",
+          "caption": "",
           "alt": "Nexa AI Sales Agent — Design system — Midnight Purple brand mode, AI components",
           "mobile": false,
           "section": "Design system"
@@ -274,7 +274,7 @@
         {
           "type": "image",
           "src": "assets/work/nexa-ai-sales-agent/09-thanks.jpg",
-          "caption": "Thank you",
+          "caption": "",
           "alt": "Nexa AI Sales Agent — Thank you",
           "mobile": false,
           "section": "Thanks"
@@ -414,140 +414,140 @@
         {
           "type": "image",
           "src": "assets/work/tvpl/tvpl-d03.jpg",
-          "caption": "S3 · Answer with legal basis — conclusion first, citations with validity status",
+          "caption": "",
           "mobile": false,
           "alt": "S3 · Answer with legal basis — conclusion first, citations with validity status"
         },
         {
           "type": "image",
           "src": "assets/work/tvpl/tvpl-d01.jpg",
-          "caption": "S1 · Start a session — situation-based suggestions, attach a case file",
+          "caption": "",
           "mobile": false,
           "alt": "S1 · Start a session — situation-based suggestions, attach a case file"
         },
         {
           "type": "image",
           "src": "assets/work/tvpl/tvpl-d02.jpg",
-          "caption": "S2 · AI running — visible progress and a stop button",
+          "caption": "",
           "mobile": false,
           "alt": "S2 · AI running — visible progress and a stop button"
         },
         {
           "type": "image",
           "src": "assets/work/tvpl/tvpl-d04.jpg",
-          "caption": "S4 · Expert returns the answer — reviewed and signed by a named lawyer",
+          "caption": "",
           "mobile": false,
           "alt": "S4 · Expert returns the answer — reviewed and signed by a named lawyer"
         },
         {
           "type": "image",
           "src": "assets/work/tvpl/tvpl-d05.jpg",
-          "caption": "S5 · Cases — every question grouped by matter",
+          "caption": "",
           "mobile": false,
           "alt": "S5 · Cases — every question grouped by matter"
         },
         {
           "type": "image",
           "src": "assets/work/tvpl/tvpl-d06.jpg",
-          "caption": "S6 · Pinned legal basis — a personal cabinet of verified clauses",
+          "caption": "",
           "mobile": false,
           "alt": "S6 · Pinned legal basis — a personal cabinet of verified clauses"
         },
         {
           "type": "image",
           "src": "assets/work/tvpl/tvpl-d08.jpg",
-          "caption": "S8 · AI tasks board — long-running jobs with status",
+          "caption": "",
           "mobile": false,
           "alt": "S8 · AI tasks board — long-running jobs with status"
         },
         {
           "type": "image",
           "src": "assets/work/tvpl/tvpl-d10.jpg",
-          "caption": "S10 · Lawyer side — request inbox by urgency",
+          "caption": "",
           "mobile": false,
           "alt": "S10 · Lawyer side — request inbox by urgency"
         },
         {
           "type": "image",
           "src": "assets/work/tvpl/tvpl-d11.jpg",
-          "caption": "S11 · Lawyer side — composing the reviewed answer",
+          "caption": "",
           "mobile": false,
           "alt": "S11 · Lawyer side — composing the reviewed answer"
         },
         {
           "type": "image",
           "src": "assets/work/tvpl/tvpl-m01.jpg",
-          "caption": "M1 · Mobile — ask",
+          "caption": "",
           "mobile": true,
           "alt": "M1 · Mobile — ask"
         },
         {
           "type": "image",
           "src": "assets/work/tvpl/tvpl-m02.jpg",
-          "caption": "M2 · Mobile — AI answering",
+          "caption": "",
           "mobile": true,
           "alt": "M2 · Mobile — AI answering"
         },
         {
           "type": "image",
           "src": "assets/work/tvpl/tvpl-m03.jpg",
-          "caption": "M3 · Mobile — answer with legal basis",
+          "caption": "",
           "mobile": true,
           "alt": "M3 · Mobile — answer with legal basis"
         },
         {
           "type": "image",
           "src": "assets/work/tvpl/tvpl-m05.jpg",
-          "caption": "M5 · Mobile — full text of the clause",
+          "caption": "",
           "mobile": true,
           "alt": "M5 · Mobile — full text of the clause"
         },
         {
           "type": "image",
           "src": "assets/work/tvpl/tvpl-audit.jpg",
-          "caption": "Solution audit — existing tools and references from outside legal",
+          "caption": "",
           "mobile": false,
           "alt": "Solution audit — existing tools and references from outside legal"
         },
         {
           "type": "image",
           "src": "assets/work/tvpl/tvpl-hmw.jpg",
-          "caption": "Three “How might we” questions, one per pain point",
+          "caption": "",
           "mobile": false,
           "alt": "Three “How might we” questions, one per pain point"
         },
         {
           "type": "image",
           "src": "assets/work/tvpl/tvpl-sol1.jpg",
-          "caption": "Decision 1 · Ask by situation",
+          "caption": "",
           "mobile": false,
           "alt": "Decision 1 · Ask by situation"
         },
         {
           "type": "image",
           "src": "assets/work/tvpl/tvpl-sol2.jpg",
-          "caption": "Decision 2 · Verify the legal basis",
+          "caption": "",
           "mobile": false,
           "alt": "Decision 2 · Verify the legal basis"
         },
         {
           "type": "image",
           "src": "assets/work/tvpl/tvpl-sol3.jpg",
-          "caption": "Decision 3 · Hand off to a lawyer",
+          "caption": "",
           "mobile": false,
           "alt": "Decision 3 · Hand off to a lawyer"
         },
         {
           "type": "image",
           "src": "assets/work/tvpl/tvpl-wireframe.jpg",
-          "caption": "Wireframes — two-role flow, AI task flow and four layout skeletons",
+          "caption": "",
           "mobile": false,
           "alt": "Wireframes — two-role flow, AI task flow and four layout skeletons"
         },
         {
           "type": "image",
           "src": "assets/work/tvpl/tvpl-index.jpg",
-          "caption": "Kit index — 7 pages, 33 components, 6 ground rules",
+          "caption": "",
           "mobile": false,
           "alt": "Kit index — 7 pages, 33 components, 6 ground rules"
         }
@@ -731,49 +731,49 @@
         {
           "type": "image",
           "src": "assets/work/jf-ds/ds-scope.jpg",
-          "caption": "System scope — pages and variant counts per kit",
+          "caption": "",
           "mobile": false,
           "alt": "System scope — pages and variant counts per kit"
         },
         {
           "type": "image",
           "src": "assets/work/jf-ds/ds-token.jpg",
-          "caption": "Token architecture — 10 collections, 1,229 variables",
+          "caption": "",
           "mobile": false,
           "alt": "Token architecture — 10 collections, 1,229 variables"
         },
         {
           "type": "image",
           "src": "assets/work/jf-ds/ds-theming.jpg",
-          "caption": "Theming — the same component set in three brand modes",
+          "caption": "",
           "mobile": false,
           "alt": "Theming — the same component set in three brand modes"
         },
         {
           "type": "image",
           "src": "assets/work/jf-ds/ds-overview.jpg",
-          "caption": "Component overview — foundation, navigation, data entry, display, feedback",
+          "caption": "",
           "mobile": false,
           "alt": "Component overview — foundation, navigation, data entry, display, feedback"
         },
         {
           "type": "image",
           "src": "assets/work/jf-ds/ds-ai-commerce.jpg",
-          "caption": "AI kit · commerce & advisory — recommendations, cart draft, quotation, contract review",
+          "caption": "",
           "mobile": false,
           "alt": "AI kit · commerce & advisory — recommendations, cart draft, quotation, contract review"
         },
         {
           "type": "image",
           "src": "assets/work/jf-ds/ds-citation.jpg",
-          "caption": "Legal pattern · how legal basis is shown — citation card, validity timeline, clause compare",
+          "caption": "",
           "mobile": false,
           "alt": "Legal pattern · how legal basis is shown — citation card, validity timeline, clause compare"
         },
         {
           "type": "image",
           "src": "assets/work/jf-ds/ds-risk.jpg",
-          "caption": "Legal pattern · risk flags and hand-off to a real person",
+          "caption": "",
           "mobile": false,
           "alt": "Legal pattern · risk flags and hand-off to a real person"
         }
@@ -869,91 +869,91 @@
         {
           "type": "image",
           "src": "assets/work/jmaps/jmaps-ops.jpg",
-          "caption": "Operations overview — unclaimed incident first, site map, camera, open alerts, trends",
+          "caption": "",
           "mobile": false,
           "alt": "Operations overview — unclaimed incident first, site map, camera, open alerts, trends"
         },
         {
           "type": "image",
           "src": "assets/work/jmaps/jmaps-map.jpg",
-          "caption": "Site map — assets and devices on the map",
+          "caption": "",
           "mobile": false,
           "alt": "Site map — assets and devices on the map"
         },
         {
           "type": "image",
           "src": "assets/work/jmaps/jmaps-alert.jpg",
-          "caption": "Alert detail — threshold, timeline and who has it",
+          "caption": "",
           "mobile": false,
           "alt": "Alert detail — threshold, timeline and who has it"
         },
         {
           "type": "image",
           "src": "assets/work/jmaps/jmaps-roles.jpg",
-          "caption": "Users & permissions — per-site access",
+          "caption": "",
           "mobile": false,
           "alt": "Users & permissions — per-site access"
         },
         {
           "type": "image",
           "src": "assets/work/jmaps/jmaps-loading.jpg",
-          "caption": "State · loading",
+          "caption": "",
           "mobile": false,
           "alt": "State · loading"
         },
         {
           "type": "image",
           "src": "assets/work/jmaps/jmaps-error.jpg",
-          "caption": "State · data-source error",
+          "caption": "",
           "mobile": false,
           "alt": "State · data-source error"
         },
         {
           "type": "image",
           "src": "assets/work/jmaps/jfa-overview.jpg",
-          "caption": "jFa · farm operations overview",
+          "caption": "",
           "mobile": false,
           "alt": "jFa · farm operations overview"
         },
         {
           "type": "image",
           "src": "assets/work/jmaps/jfa-m-today.jpg",
-          "caption": "jFa mobile · today's tasks",
+          "caption": "",
           "mobile": true,
           "alt": "jFa mobile · today's tasks"
         },
         {
           "type": "image",
           "src": "assets/work/jmaps/jfa-m-log.jpg",
-          "caption": "jFa mobile · logging work in the field",
+          "caption": "",
           "mobile": true,
           "alt": "jFa mobile · logging work in the field"
         },
         {
           "type": "image",
           "src": "assets/work/jmaps/jmaps-persona.jpg",
-          "caption": "Research · user persona",
+          "caption": "",
           "mobile": false,
           "alt": "Research · user persona"
         },
         {
           "type": "image",
           "src": "assets/work/jmaps/jmaps-journey.jpg",
-          "caption": "Research · user journey map",
+          "caption": "",
           "mobile": false,
           "alt": "Research · user journey map"
         },
         {
           "type": "image",
           "src": "assets/work/jmaps/jmaps-competitor.jpg",
-          "caption": "Research · competitor analysis",
+          "caption": "",
           "mobile": false,
           "alt": "Research · competitor analysis"
         },
         {
           "type": "image",
           "src": "assets/work/jmaps/jmaps-context.jpg",
-          "caption": "Research · background & context",
+          "caption": "",
           "mobile": false,
           "alt": "Research · background & context"
         }
@@ -1049,98 +1049,98 @@
         {
           "type": "image",
           "src": "assets/work/edpay/edpay-flowmap.jpg",
-          "caption": "jWallet MVP — full flow: onboarding, transfers, limits, notifications, profile",
+          "caption": "",
           "mobile": false,
           "alt": "jWallet MVP — full flow: onboarding, transfers, limits, notifications, profile"
         },
         {
           "type": "image",
           "src": "assets/work/edpay/edpay-m-home.jpg",
-          "caption": "jWallet · home",
+          "caption": "",
           "mobile": true,
           "alt": "jWallet · home"
         },
         {
           "type": "image",
           "src": "assets/work/edpay/edpay-m-home2.jpg",
-          "caption": "jWallet · home with activity",
+          "caption": "",
           "mobile": true,
           "alt": "jWallet · home with activity"
         },
         {
           "type": "image",
           "src": "assets/work/edpay/edpay-m-pos.jpg",
-          "caption": "jWallet · pay at campus POS",
+          "caption": "",
           "mobile": true,
           "alt": "jWallet · pay at campus POS"
         },
         {
           "type": "image",
           "src": "assets/work/edpay/edpay-m-setting.jpg",
-          "caption": "jWallet · settings",
+          "caption": "",
           "mobile": true,
           "alt": "jWallet · settings"
         },
         {
           "type": "image",
           "src": "assets/work/edpay/edpay-m-help.jpg",
-          "caption": "jWallet · help centre",
+          "caption": "",
           "mobile": true,
           "alt": "jWallet · help centre"
         },
         {
           "type": "image",
           "src": "assets/work/edpay/edpay-admin-student.jpg",
-          "caption": "Admin · students",
+          "caption": "",
           "mobile": false,
           "alt": "Admin · students"
         },
         {
           "type": "image",
           "src": "assets/work/edpay/edpay-admin-student2.jpg",
-          "caption": "Admin · student detail",
+          "caption": "",
           "mobile": false,
           "alt": "Admin · student detail"
         },
         {
           "type": "image",
           "src": "assets/work/edpay/edpay-admin-card.jpg",
-          "caption": "Admin · card settings",
+          "caption": "",
           "mobile": false,
           "alt": "Admin · card settings"
         },
         {
           "type": "image",
           "src": "assets/work/edpay/edpay-admin-filter.jpg",
-          "caption": "Admin · filters",
+          "caption": "",
           "mobile": false,
           "alt": "Admin · filters"
         },
         {
           "type": "image",
           "src": "assets/work/edpay/edpay-debt-list.jpg",
-          "caption": "Debit notes · debt management",
+          "caption": "",
           "mobile": false,
           "alt": "Debit notes · debt management"
         },
         {
           "type": "image",
           "src": "assets/work/edpay/edpay-debt-status.jpg",
-          "caption": "Debit notes · payment status",
+          "caption": "",
           "mobile": false,
           "alt": "Debit notes · payment status"
         },
         {
           "type": "image",
           "src": "assets/work/edpay/edpay-debt-pdf.jpg",
-          "caption": "Debit notes · PDF invoice",
+          "caption": "",
           "mobile": false,
           "alt": "Debit notes · PDF invoice"
         },
         {
           "type": "image",
           "src": "assets/work/edpay/edpay-debt-empty.jpg",
-          "caption": "Debit notes · empty state",
+          "caption": "",
           "mobile": false,
           "alt": "Debit notes · empty state"
         }
