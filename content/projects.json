@@ -563,7 +563,7 @@
       "title": "jF Design System 4.1",
       "badge": "",
       "tagline": "One library, six products, five brands — from a button to an AI legal answer.",
-      "metaDescription": "jF Design System 4.1 — one Figma library serving six products across five brands: 1,229 variables, 354 component sets, Chat & AI kits. Case study by Sonorathy.",
+      "metaDescription": "jF Design System 4.1 — one Figma library serving six products across six brands: 1,265 variables, 328 component sets, Chat & AI kits. Case study by Sonorathy.",
       "meta": [
         {
           "label": "Year",
@@ -587,20 +587,21 @@
         "tag": "Design System · Multi-brand",
         "role": "Design System Designer",
         "highlights": [
-          "1,229 variables across 10 collections",
-          "354 component sets, 2,660 variants",
-          "5 brand modes, Light/Dark, 3 densities"
+          "1,265 variables across 10 collections",
+          "328 component sets, 2,817 variants",
+          "6 brand modes, Light/Dark, 4 shape modes"
         ],
         "problem": "Six products were drifting into their own buttons, tables and alerts. I built one Figma library where each product switches brand, shape and density by mode — from core components to Chat, AI and legal patterns.",
-        "cover": "assets/work/jf-ds/ds-theming.jpg",
-        "coverAlt": "jF Design System — theming across brand modes",
+        "cover": "assets/work/jf-ds/cover.jpg",
+        "coverAlt": "jF Design System — one component library for desktop, mobile, chat and AI products",
         "coverGradient": ""
       },
       "blocks": [
         {
           "type": "text",
           "heading": "The problem",
-          "body": "Six products were being designed in parallel — an internal platform, a chat app, an IoT/GIS dashboard, a farm-operations app, a consumer brand and an AI legal assistant. Each started drifting into its own buttons, tables and alert styles, so every new screen meant re-deciding things that were already decided elsewhere.\n\nThe goal: one Figma library where a product changes brand, shape and density by switching a mode — not by detaching components."
+          "body": "Six products were being designed in parallel — an internal platform, a chat app, an IoT/GIS dashboard, a farm-operations app, a consumer brand and an AI legal assistant. Each started drifting into its own buttons, tables and alert styles, so every new screen meant re-deciding things that were already decided elsewhere.\n\nThe goal: one Figma library where a product changes brand, shape and density by switching a mode — not by detaching components.",
+          "section": "Overview"
         },
         {
           "type": "stats",
@@ -611,26 +612,27 @@
               "label": "pages"
             },
             {
-              "value": "354",
+              "value": "328",
               "label": "component sets"
             },
             {
-              "value": "2,660",
+              "value": "2,817",
               "label": "variants"
             },
             {
-              "value": "1,229",
+              "value": "1,265",
               "label": "variables in 10 collections"
             },
             {
-              "value": "7,628",
+              "value": "7,800+",
               "label": "icons"
             },
             {
-              "value": "195",
+              "value": "196",
               "label": "text, colour & effect styles"
             }
-          ]
+          ],
+          "section": "In numbers"
         },
         {
           "type": "table",
@@ -688,12 +690,14 @@
               "29"
             ]
           ],
-          "note": ""
+          "note": "",
+          "section": "Token architecture"
         },
         {
           "type": "text",
           "heading": "What’s in the library",
-          "body": "- **Desktop** — 37 pages, 87 component sets, 910 variants: navigation, data entry, data display, feedback.\n- **Mobile** — 20 pages, 39 sets, 311 variants: pickers, bottom sheets, action bars, keypads. The difference lives in the overlay layer: status bar, keyboard, safe area.\n- **Chat & AI** — 11 pages, 68 sets, 296 variants: message parts, composer, heavy AI tasks, in-chat commerce (product recommendations, cart drafts, quotations, contract review).\n- **Platform** — data tables, charts, GIS & map, operations, alerts & logs — shared by jMaps and jFa, split only by brand mode.\n- **AI · Legal** — citation cards (8 validity states), validity timeline, clause compare, 4-level risk flags, 5-state expert review."
+          "body": "- **Desktop** — 37 pages, 87 component sets, 910 variants: navigation, data entry, data display, feedback.\n- **Mobile** — 20 pages, 39 sets, 311 variants: pickers, bottom sheets, action bars, keypads. The difference lives in the overlay layer: status bar, keyboard, safe area.\n- **Chat & AI** — 11 pages, 68 sets, 296 variants: message parts, composer, heavy AI tasks, in-chat commerce (product recommendations, cart drafts, quotations, contract review).\n- **Platform** — data tables, charts, GIS & map, operations, alerts & logs — shared by jMaps and jFa, split only by brand mode.\n- **AI · Legal** — citation cards (8 validity states), validity timeline, clause compare, 4-level risk flags, 5-state expert review.",
+          "section": "Coverage"
         },
         {
           "type": "text",
@@ -730,56 +734,72 @@
       "shots": [
         {
           "type": "image",
-          "src": "assets/work/jf-ds/ds-scope.jpg",
+          "src": "assets/work/jf-ds/01-cover.jpg",
           "caption": "",
+          "alt": "jF Design System — one component library for desktop, mobile, chat and AI products",
           "mobile": false,
-          "alt": "System scope — pages and variant counts per kit"
+          "section": "Overview"
         },
         {
           "type": "image",
-          "src": "assets/work/jf-ds/ds-token.jpg",
+          "src": "assets/work/jf-ds/02-in-numbers.jpg",
           "caption": "",
+          "alt": "In numbers — 328 component sets, 2,817 variants, 1,265 variables, 6 brand modes",
           "mobile": false,
-          "alt": "Token architecture — 10 collections, 1,229 variables"
+          "section": "In numbers"
         },
         {
           "type": "image",
-          "src": "assets/work/jf-ds/ds-theming.jpg",
+          "src": "assets/work/jf-ds/03-token-architecture.jpg",
           "caption": "",
+          "alt": "Token architecture — four layers, one token traced across six brands",
           "mobile": false,
-          "alt": "Theming — the same component set in three brand modes"
+          "section": "Token architecture"
         },
         {
           "type": "image",
-          "src": "assets/work/jf-ds/ds-overview.jpg",
+          "src": "assets/work/jf-ds/04-brand-switching.jpg",
           "caption": "",
+          "alt": "Brand switching — the same frame in six brand modes",
           "mobile": false,
-          "alt": "Component overview — foundation, navigation, data entry, display, feedback"
+          "section": "Brand switching"
         },
         {
           "type": "image",
-          "src": "assets/work/jf-ds/ds-ai-commerce.jpg",
+          "src": "assets/work/jf-ds/05-properties.jpg",
           "caption": "",
+          "alt": "Component properties — variants, booleans, text and instance swaps",
           "mobile": false,
-          "alt": "AI kit · commerce & advisory — recommendations, cart draft, quotation, contract review"
+          "section": "Properties"
         },
         {
           "type": "image",
-          "src": "assets/work/jf-ds/ds-citation.jpg",
+          "src": "assets/work/jf-ds/06-variant-matrix.jpg",
           "caption": "",
+          "alt": "Variant matrix — every state drawn",
           "mobile": false,
-          "alt": "Legal pattern · how legal basis is shown — citation card, validity timeline, clause compare"
+          "section": "Variant matrix"
         },
         {
           "type": "image",
-          "src": "assets/work/jf-ds/ds-risk.jpg",
+          "src": "assets/work/jf-ds/07-coverage.jpg",
           "caption": "",
+          "alt": "Coverage — foundations under product kits for chat, AI, commerce and platform",
           "mobile": false,
-          "alt": "Legal pattern · risk flags and hand-off to a real person"
+          "section": "Coverage"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/jf-ds/08-thanks.jpg",
+          "caption": "",
+          "alt": "Thank you",
+          "mobile": false,
+          "section": "Thanks"
         }
       ],
       "passwordHash": "",
-      "passwordStorageKey": ""
+      "passwordStorageKey": "",
+      "sectionNav": true
     },
     {
       "slug": "jmaps",

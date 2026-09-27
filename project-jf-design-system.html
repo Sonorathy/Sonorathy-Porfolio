@@ -6,7 +6,7 @@
 <script>(function(){try{var t=localStorage.getItem('snrt:theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>jF Design System 4.1 — Sonorathy</title>
-<meta name="description" content="jF Design System 4.1 — one Figma library serving six products across five brands: 1,229 variables, 354 component sets, Chat &amp; AI kits. Case study by Sonorathy." />
+<meta name="description" content="jF Design System 4.1 — one Figma library serving six products across six brands: 1,265 variables, 328 component sets, Chat &amp; AI kits. Case study by Sonorathy." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
@@ -39,25 +39,25 @@
       <div class="pd-meta-row"><span>Serves</span><span>jFoundation, jChat, jMaps, jFa, Pastel, TVPL Legal AI</span></div>
     </div>
 
-    <div class="pd-block">
+    <div class="pd-block" data-section="sec-overview">
       <h2>The problem</h2>
       <p>Six products were being designed in parallel — an internal platform, a chat app, an IoT/GIS dashboard, a farm-operations app, a consumer brand and an AI legal assistant. Each started drifting into its own buttons, tables and alert styles, so every new screen meant re-deciding things that were already decided elsewhere.</p>
       <p>The goal: one Figma library where a product changes brand, shape and density by switching a mode — not by detaching components.</p>
     </div>
 
-    <div class="pd-block">
+    <div class="pd-block" data-section="sec-in-numbers">
       <h2>By the numbers</h2>
       <div class="pd-stats">
         <div class="pd-stat"><strong>116</strong><span>pages</span></div>
-        <div class="pd-stat"><strong>354</strong><span>component sets</span></div>
-        <div class="pd-stat"><strong>2,660</strong><span>variants</span></div>
-        <div class="pd-stat"><strong>1,229</strong><span>variables in 10 collections</span></div>
-        <div class="pd-stat"><strong>7,628</strong><span>icons</span></div>
-        <div class="pd-stat"><strong>195</strong><span>text, colour &amp; effect styles</span></div>
+        <div class="pd-stat"><strong>328</strong><span>component sets</span></div>
+        <div class="pd-stat"><strong>2,817</strong><span>variants</span></div>
+        <div class="pd-stat"><strong>1,265</strong><span>variables in 10 collections</span></div>
+        <div class="pd-stat"><strong>7,800+</strong><span>icons</span></div>
+        <div class="pd-stat"><strong>196</strong><span>text, colour &amp; effect styles</span></div>
       </div>
     </div>
 
-    <div class="pd-block">
+    <div class="pd-block" data-section="sec-token-architecture">
       <h2>Token architecture</h2>
       <p>Three layers. Components only ever bind to the semantic layer, so brand, theme and layout changes never reach inside a component.</p>
       <table class="pd-table">
@@ -74,7 +74,7 @@
       </table>
     </div>
 
-    <div class="pd-block">
+    <div class="pd-block" data-section="sec-coverage">
       <h2>What’s in the library</h2>
       <ul class="pd-objectives">
         <li><strong>Desktop</strong> — 37 pages, 87 component sets, 910 variants: navigation, data entry, data display, feedback.</li>
@@ -125,29 +125,43 @@
   </div>
 
   <div class="pd-showcase pd-showcase-stack">
-    <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/jf-ds/ds-scope.jpg" alt="System scope — pages and variant counts per kit">
+    <figure class="pd-showcase-item" data-section="sec-overview" id="sec-overview" data-hover>
+      <img src="assets/work/jf-ds/01-cover.jpg" alt="jF Design System — one component library for desktop, mobile, chat and AI products">
     </figure>
-    <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/jf-ds/ds-token.jpg" alt="Token architecture — 10 collections, 1,229 variables" loading="lazy">
+    <figure class="pd-showcase-item" data-section="sec-in-numbers" id="sec-in-numbers" data-hover>
+      <img src="assets/work/jf-ds/02-in-numbers.jpg" alt="In numbers — 328 component sets, 2,817 variants, 1,265 variables, 6 brand modes" loading="lazy">
     </figure>
-    <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/jf-ds/ds-theming.jpg" alt="Theming — the same component set in three brand modes" loading="lazy">
+    <figure class="pd-showcase-item" data-section="sec-token-architecture" id="sec-token-architecture" data-hover>
+      <img src="assets/work/jf-ds/03-token-architecture.jpg" alt="Token architecture — four layers, one token traced across six brands" loading="lazy">
     </figure>
-    <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/jf-ds/ds-overview.jpg" alt="Component overview — foundation, navigation, data entry, display, feedback" loading="lazy">
+    <figure class="pd-showcase-item" data-section="sec-brand-switching" id="sec-brand-switching" data-hover>
+      <img src="assets/work/jf-ds/04-brand-switching.jpg" alt="Brand switching — the same frame in six brand modes" loading="lazy">
     </figure>
-    <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/jf-ds/ds-ai-commerce.jpg" alt="AI kit · commerce &amp; advisory — recommendations, cart draft, quotation, contract review" loading="lazy">
+    <figure class="pd-showcase-item" data-section="sec-properties" id="sec-properties" data-hover>
+      <img src="assets/work/jf-ds/05-properties.jpg" alt="Component properties — variants, booleans, text and instance swaps" loading="lazy">
     </figure>
-    <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/jf-ds/ds-citation.jpg" alt="Legal pattern · how legal basis is shown — citation card, validity timeline, clause compare" loading="lazy">
+    <figure class="pd-showcase-item" data-section="sec-variant-matrix" id="sec-variant-matrix" data-hover>
+      <img src="assets/work/jf-ds/06-variant-matrix.jpg" alt="Variant matrix — every state drawn" loading="lazy">
     </figure>
-    <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/jf-ds/ds-risk.jpg" alt="Legal pattern · risk flags and hand-off to a real person" loading="lazy">
+    <figure class="pd-showcase-item" data-section="sec-coverage" id="sec-coverage" data-hover>
+      <img src="assets/work/jf-ds/07-coverage.jpg" alt="Coverage — foundations under product kits for chat, AI, commerce and platform" loading="lazy">
+    </figure>
+    <figure class="pd-showcase-item" data-section="sec-thanks" id="sec-thanks" data-hover>
+      <img src="assets/work/jf-ds/08-thanks.jpg" alt="Thank you" loading="lazy">
     </figure>
   </div>
 </div>
+
+<nav class="pd-secnav" aria-label="Sections">
+  <a href="#sec-overview" class="pd-secnav-item is-active" data-target="sec-overview" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">Overview</span></a>
+  <a href="#sec-in-numbers" class="pd-secnav-item" data-target="sec-in-numbers" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">In numbers</span></a>
+  <a href="#sec-token-architecture" class="pd-secnav-item" data-target="sec-token-architecture" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">Token architecture</span></a>
+  <a href="#sec-brand-switching" class="pd-secnav-item" data-target="sec-brand-switching" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">Brand switching</span></a>
+  <a href="#sec-properties" class="pd-secnav-item" data-target="sec-properties" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">Properties</span></a>
+  <a href="#sec-variant-matrix" class="pd-secnav-item" data-target="sec-variant-matrix" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">Variant matrix</span></a>
+  <a href="#sec-coverage" class="pd-secnav-item" data-target="sec-coverage" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">Coverage</span></a>
+  <a href="#sec-thanks" class="pd-secnav-item" data-target="sec-thanks" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">Thanks</span></a>
+</nav>
 
 <a href="project-tvpl-legal-ai.html" class="pd-prev-float" data-hover>
   <i>&larr;</i><span>Previous</span>
