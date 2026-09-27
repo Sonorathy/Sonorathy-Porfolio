@@ -1,0 +1,12 @@
+{
+  "name": "sonorathy-portfolio",
+  "private": true,
+  "description": "Static portfolio site + local admin",
+  "scripts": {
+    "admin": "node admin/server.js",
+    "build": "node tools/build.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sonorathy Admin</title>
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">Sonorathy <span>Admin</span></div>
+  <div class="save-state" id="saveState">Đã lưu</div>
+  <div class="topbar-actions">
+    <button class="btn ghost" id="togglePreview" type="button">Ẩn preview</button>
+    <button class="btn" id="saveBtn" type="button">Lưu &amp; build <kbd>⌘S</kbd></button>
+    <button class="btn primary" id="publishBtn" type="button">Publish lên web</button>
+  </div>
+</header>
+
+<div class="layout" id="layout">
+  <!-- project list -->
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <h2>Projects</h2>
+      <button class="btn small" id="newProjectBtn" type="button">+ Thêm</button>
+    </div>
+    <p class="hint">Kéo để sắp xếp thứ tự hiển thị trên trang chủ.</p>
+    <ul class="project-list" id="projectList"></ul>
+  </aside>
+
+  <!-- editor -->
+  <main class="editor" id="editor">
+    <div class="empty">Chọn một project bên trái để chỉnh sửa.</div>
+  </main>
+
+  <!-- live preview -->
+  <section class="preview" id="preview">
+    <div class="preview-bar">
+      <select id="previewPage"></select>
+      <div class="seg" id="previewSize">
+        <button type="button" data-w="100%" class="on">Desktop</button>
+        <button type="button" data-w="390px">Mobile</button>
+      </div>
+      <button class="btn small ghost" id="reloadPreview" type="button">↻</button>
+      <a class="btn small ghost" id="openPreview" target="_blank" rel="noopener">Mở tab ↗</a>
+    </div>
+    <div class="preview-frame-wrap"><iframe id="previewFrame" title="Preview"></iframe></div>
+  </section>
+</div>
+
+<!-- publish dialog -->
+<dialog id="publishDialog">
+  <form method="dialog" class="dialog-body">
+    <h2>Publish lên web</h2>
+    <p class="hint" id="publishBranch"></p>
+    <div class="changed" id="changedFiles"></div>
+    <label>Ghi chú commit
+      <input type="text" id="commitMsg" value="Update portfolio content" />
+    </label>
+    <pre class="log" id="publishLog" hidden></pre>
+    <div class="dialog-actions">
+      <button class="btn ghost" value="cancel">Đóng</button>
+      <button class="btn primary" id="doPublish" type="button">Commit &amp; Push</button>
+    </div>
+  </form>
+</dialog>
+
+<!-- image picker -->
+<dialog id="pickerDialog">
+  <form method="dialog" class="dialog-body wide">
+    <h2>Chọn ảnh có sẵn</h2>
+    <div class="picker-grid" id="pickerGrid"></div>
+    <div class="dialog-actions"><button class="btn ghost" value="cancel">Đóng</button></div>
+  </form>
+</dialog>
+
+<div class="toast" id="toast"></div>
+
+<script src="admin.js"></script>
+</body>
+</html>

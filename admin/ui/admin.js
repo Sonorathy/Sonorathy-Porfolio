@@ -1,0 +1,532 @@
+/* Sonorathy admin — edits content/projects.json, uploads images into
+   assets/work/<slug>/, rebuilds the static pages on every save, and
+   publishes with git. No framework, no build step. */
+'use strict';
+
+const $ = (s, r = document) => r.querySelector(s);
+const state = { data: null, sel: -1, dirty: false, saving: false };
+
+const CATEGORIES = [
+  ['product-uiux', 'Product & UI/UX Design'],
+  ['branding', 'Branding'],
+  ['product-marketing', 'Product Marketing'],
+  ['content-strategy', 'Content Strategy'],
+  ['ai-workflow', 'AI Workflow'],
+];
+const BLOCK_TYPES = [['text', 'Đoạn văn / danh sách'], ['chips', 'Chips (Deliverables)'], ['stats', 'Số liệu'], ['table', 'Bảng']];
+
+/* ---------------- tiny DOM helper ---------------- */
+function el(tag, attrs = {}, ...kids) {
+  const n = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs || {})) {
+    if (v == null || v === false) continue;
+    if (k === 'class') n.className = v;
+    else if (k.startsWith('on')) n.addEventListener(k.slice(2), v);
+    else if (k === 'html') n.innerHTML = v;
+    else if (k in n && typeof v !== 'string') n[k] = v;
+    else n.setAttribute(k, v === true ? '' : v);
+  }
+  for (const k of kids.flat()) if (k != null && k !== false) n.append(k.nodeType ? k : document.createTextNode(k));
+  return n;
+}
+const cur = () => state.data.projects[state.sel];
+
+function toast(msg, err) {
+  const t = $('#toast'); t.textContent = msg; t.className = 'toast show' + (err ? ' err' : '');
+  clearTimeout(toast.t); toast.t = setTimeout(() => (t.className = 'toast'), err ? 6000 : 2600);
+}
+function markDirty() {
+  state.dirty = true;
+  const s = $('#saveState'); s.textContent = 'Chưa lưu'; s.className = 'save-state dirty';
+}
+function markSaved(err) {
+  const s = $('#saveState');
+  if (err) { s.textContent = 'Lỗi build'; s.className = 'save-state error'; return; }
+  state.dirty = false; s.textContent = 'Đã lưu'; s.className = 'save-state';
+}
+
+/* ---------------- data ---------------- */
+async function load() {
+  state.data = await (await fetch('/api/content')).json();
+  state.sel = state.data.projects.length ? 0 : -1;
+  renderList(); renderEditor(); renderPreviewOptions(); setPreview('index.html');
+}
+
+async function save() {
+  if (state.saving) return;
+  state.saving = true; $('#saveBtn').disabled = true;
+  try {
+    const r = await fetch('/api/content', { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(state.data) });
+    const j = await r.json();
+    if (!r.ok) throw new Error(j.error || 'Save failed');
+    markSaved(); toast(`Đã lưu & build ${j.result.pages} trang`);
+    renderPreviewOptions(); reloadPreview();
+  } catch (e) { markSaved(true); toast('Lỗi: ' + e.message, true); }
+  finally { state.saving = false; $('#saveBtn').disabled = false; }
+}
+
+const slugify = (s) => String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
+  .replace(/đ/g, 'd').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'project';
+function uniqueSlug(base, ignoreIndex) {
+  let s = base, i = 2;
+  while (state.data.projects.some((p, idx) => idx !== ignoreIndex && p.slug === s)) s = `${base}-${i++}`;
+  return s;
+}
+
+/* ---------------- uploads ---------------- */
+const readAsDataURL = (blob) => new Promise((res, rej) => { const r = new FileReader(); r.onload = () => res(r.result); r.onerror = rej; r.readAsDataURL(blob); });
+
+async function prepareFile(file) {
+  // big raster images get downscaled to 2400px wide JPEG before upload,
+  // so the live site never ships 10MB screenshots
+  if (!/^image\/(jpeg|png|webp)$/.test(file.type)) return { name: file.name, data: await readAsDataURL(file) };
+  const bmp = await createImageBitmap(file);
+  const MAX = 2400;
+  if (bmp.width <= MAX && file.type === 'image/jpeg' && file.size < 1.5e6) return { name: file.name, data: await readAsDataURL(file) };
+  const scale = Math.min(1, MAX / bmp.width);
+  const c = document.createElement('canvas');
+  c.width = Math.round(bmp.width * scale); c.height = Math.round(bmp.height * scale);
+  const ctx = c.getContext('2d'); ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, c.width, c.height);
+  ctx.drawImage(bmp, 0, 0, c.width, c.height);
+  return { name: file.name.replace(/\.\w+$/, '') + '.jpg', data: c.toDataURL('image/jpeg', 0.86) };
+}
+
+async function upload(file) {
+  const p = cur();
+  const { name, data } = await prepareFile(file);
+  const r = await fetch('/api/upload', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ slug: p.slug, name, data }) });
+  const j = await r.json();
+  if (!r.ok) throw new Error(j.error || 'Upload failed');
+  return j.path;
+}
+
+function filePicker(multiple, accept = 'image/*,video/mp4,video/webm') {
+  return new Promise((resolve) => {
+    const i = el('input', { type: 'file', accept, multiple });
+    i.onchange = () => resolve([...i.files]); i.click();
+  });
+}
+
+async function pickExisting() {
+  const j = await (await fetch('/api/images')).json();
+  const grid = $('#pickerGrid'); grid.innerHTML = '';
+  const dlg = $('#pickerDialog');
+  return new Promise((resolve) => {
+    j.images.forEach((src) => grid.append(el('button', { type: 'button', onclick: () => { dlg.close(); resolve(src); } },
+      /\.(mp4|webm)$/i.test(src) ? el('div', { style: 'aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;background:#eee' }, '▶ video') : el('img', { src: '/site/' + src, loading: 'lazy' }),
+      el('span', {}, src.replace('assets/work/', '')))));
+    dlg.onclose = () => resolve(null);
+    dlg.showModal();
+  });
+}
+
+/* ---------------- sidebar ---------------- */
+function renderList() {
+  const ul = $('#projectList'); ul.innerHTML = '';
+  let visibleNo = 0;
+  state.data.projects.forEach((p, i) => {
+    const vis = p.visible !== false;
+    if (vis) visibleNo++;
+    const li = el('li', {
+      class: `project-item${i === state.sel ? ' active' : ''}${vis ? '' : ' hidden-proj'}`, draggable: 'true',
+      onclick: () => { state.sel = i; renderList(); renderEditor(); setPreview(`project-${p.slug}.html`); },
+    },
+    el('span', { class: 'p-handle', title: 'Kéo để sắp xếp' }, '⋮⋮'),
+    el('span', { class: 'p-num' }, vis ? String(visibleNo).padStart(2, '0') : '—'),
+    el('span', { class: 'p-title', title: p.title }, p.title || '(chưa đặt tên)'),
+    p.passwordHash ? el('span', { class: 'p-lock', title: 'Có mật khẩu' }, '🔒') : null,
+    el('button', {
+      class: 'icon-btn', type: 'button', title: vis ? 'Đang hiển thị — bấm để ẩn' : 'Đang ẩn — bấm để hiện',
+      onclick: (e) => { e.stopPropagation(); p.visible = !vis; markDirty(); renderList(); if (i === state.sel) renderEditor(); },
+    }, vis ? '👁' : '⌀'));
+
+    li.addEventListener('dragstart', (e) => { e.dataTransfer.setData('text/plain', String(i)); li.classList.add('dragging'); });
+    li.addEventListener('dragend', () => li.classList.remove('dragging'));
+    li.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      const below = e.offsetY > li.offsetHeight / 2;
+      li.classList.toggle('drop-below', below); li.classList.toggle('drop-above', !below);
+    });
+    li.addEventListener('dragleave', () => li.classList.remove('drop-above', 'drop-below'));
+    li.addEventListener('drop', (e) => {
+      e.preventDefault();
+      const from = Number(e.dataTransfer.getData('text/plain'));
+      let to = i + (li.classList.contains('drop-below') ? 1 : 0);
+      li.classList.remove('drop-above', 'drop-below');
+      if (from === to || from + 1 === to) return;
+      const selected = cur();
+      const [moved] = state.data.projects.splice(from, 1);
+      if (from < to) to--;
+      state.data.projects.splice(to, 0, moved);
+      state.sel = state.data.projects.indexOf(selected);
+      markDirty(); renderList();
+    });
+    ul.append(li);
+  });
+}
+
+function newProject() {
+  const title = prompt('Tên project mới?');
+  if (!title) return;
+  const slug = uniqueSlug(slugify(title));
+  state.data.projects.push({
+    slug, visible: false, featured: true, category: 'product-uiux', title, badge: '', tagline: '', metaDescription: '',
+    meta: [{ label: 'Year', value: String(new Date().getFullYear()) }, { label: 'Role', value: '' }, { label: 'Scope', value: '' }],
+    card: { title, tag: '', role: '', highlights: [], problem: '', cover: '', coverAlt: '', coverGradient: '' },
+    blocks: [
+      { type: 'text', heading: 'The Scenario & Business Problem', body: '' },
+      { type: 'text', heading: 'The Design & Strategy Challenge', body: '' },
+      { type: 'chips', heading: 'Deliverables', items: [] },
+    ],
+    shots: [], passwordHash: '', passwordStorageKey: '',
+  });
+  state.sel = state.data.projects.length - 1;
+  markDirty(); renderList(); renderEditor();
+  toast('Đã tạo project ở chế độ ẨN — bật 👁 khi sẵn sàng');
+}
+
+/* ---------------- editor helpers ---------------- */
+function input(obj, key, { type = 'text', rows, placeholder, onchange, counter } = {}) {
+  const tag = type === 'textarea' ? 'textarea' : 'input';
+  const n = el(tag, { type: tag === 'input' ? type : null, rows, placeholder });
+  n.value = obj[key] == null ? '' : obj[key];
+  let cnt = null;
+  if (counter) {
+    cnt = el('div', { class: 'counter' });
+    const upd = () => {
+      const len = n.value.length;
+      cnt.textContent = `${len} ký tự · nên ${counter[0]}–${counter[1]}`;
+      cnt.classList.toggle('warn', len < counter[0] || len > counter[1]);
+    };
+    n.addEventListener('input', upd); upd();
+  }
+  n.addEventListener('input', () => { obj[key] = n.value; markDirty(); if (onchange) onchange(n.value); });
+  return cnt ? [n, cnt] : n;
+}
+const field = (label, ...control) => el('label', {}, label, ...control);
+function toggle(label, obj, key, onchange) {
+  const cb = el('input', { type: 'checkbox' });
+  // visible / featured / sectionNav default to ON when the field is missing
+  cb.checked = ['visible', 'featured', 'sectionNav'].includes(key) ? obj[key] !== false : !!obj[key];
+  cb.addEventListener('change', () => { obj[key] = cb.checked; markDirty(); if (onchange) onchange(); });
+  return el('label', { class: 'switch' }, cb, label);
+}
+function select(obj, key, options, onchange) {
+  const s = el('select', {}, options.map(([v, t]) => el('option', { value: v }, t)));
+  s.value = obj[key] || options[0][0];
+  s.addEventListener('change', () => { obj[key] = s.value; markDirty(); if (onchange) onchange(); });
+  return s;
+}
+const card = (title, open, ...body) => el('details', { class: 'card', open }, el('summary', {}, title), el('div', { class: 'card-body' }, ...body));
+function moveIn(arr, i, d) { const j = i + d; if (j < 0 || j >= arr.length) return false; [arr[i], arr[j]] = [arr[j], arr[i]]; return true; }
+
+/* list of plain strings (highlights) or objects with fields */
+function listEditor(arr, fields, makeNew, rerender) {
+  const box = el('div', { class: 'row-list' });
+  arr.forEach((item, i) => {
+    const row = el('div', { class: 'row' });
+    if (typeof fields === 'string') {
+      const inp = el('input', { type: 'text', placeholder: fields }); inp.value = item;
+      inp.addEventListener('input', () => { arr[i] = inp.value; markDirty(); });
+      row.append(inp);
+    } else {
+      fields.forEach(([k, ph, kind]) => {
+        if (kind === 'check') {
+          const cb = el('input', { type: 'checkbox' }); cb.checked = !!item[k];
+          cb.addEventListener('change', () => { item[k] = cb.checked; markDirty(); });
+          row.append(el('label', { class: 'switch', style: 'font-size:.75rem' }, cb, ph));
+        } else {
+          const inp = el('input', { type: 'text', placeholder: ph }); inp.value = item[k] || '';
+          inp.addEventListener('input', () => { item[k] = inp.value; markDirty(); });
+          row.append(inp);
+        }
+      });
+    }
+    row.append(
+      el('button', { class: 'icon-btn', type: 'button', title: 'Lên', onclick: () => { if (moveIn(arr, i, -1)) { markDirty(); rerender(); } } }, '↑'),
+      el('button', { class: 'icon-btn', type: 'button', title: 'Xuống', onclick: () => { if (moveIn(arr, i, 1)) { markDirty(); rerender(); } } }, '↓'),
+      el('button', { class: 'icon-btn', type: 'button', title: 'Xoá', onclick: () => { arr.splice(i, 1); markDirty(); rerender(); } }, '✕'));
+    box.append(row);
+  });
+  box.append(el('button', { class: 'btn small', type: 'button', onclick: () => { arr.push(makeNew()); markDirty(); rerender(); } }, '+ Thêm dòng'));
+  return box;
+}
+
+/* media thumb that shows a hatched placeholder if the file is missing */
+function thumb(src) {
+  const wrap = el('div', { class: 'shot-media' });
+  if (!src) { wrap.append(el('span', { class: 'missing' }, 'Chưa có ảnh')); return wrap; }
+  const url = '/site/' + src + '?t=' + Date.now();
+  const media = /\.(mp4|webm)$/i.test(src) ? el('video', { src: url, muted: true }) : el('img', { src: url, loading: 'lazy' });
+  media.addEventListener('error', () => { media.remove(); wrap.append(el('span', { class: 'missing' }, 'Thiếu file: ' + src)); });
+  wrap.append(media);
+  return wrap;
+}
+
+async function sha256(str) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+  return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, '0')).join('');
+}
+
+/* ---------------- editor ---------------- */
+function renderEditor() {
+  const ed = $('#editor');
+  const scroll = ed.scrollTop;
+  const openState = [...ed.querySelectorAll('details.card')].map((d) => d.open);
+  ed.innerHTML = '';
+  if (state.sel < 0) { ed.append(el('div', { class: 'empty' }, 'Chưa có project nào. Bấm “+ Thêm”.')); return; }
+  const p = cur();
+  p.card = p.card || {}; p.meta = p.meta || []; p.blocks = p.blocks || []; p.shots = p.shots || [];
+  p.card.highlights = p.card.highlights || [];
+  const rr = () => renderEditor();
+  ed.append(el('datalist', { id: 'sectionNames' }, [...new Set(p.shots.map((x) => x.section).filter(Boolean))].map((n) => el('option', { value: n }))));
+
+  ed.append(el('div', { class: 'editor-head' },
+    el('h1', {}, p.title || '(chưa đặt tên)'),
+    el('span', { class: 'pill' + (p.visible !== false ? ' on' : '') }, p.visible !== false ? 'Đang hiển thị' : 'Đang ẩn'),
+    p.passwordHash ? el('span', { class: 'pill on' }, '🔒 Có mật khẩu') : null));
+
+  /* basics */
+  const slugInput = el('input', { type: 'text' }); slugInput.value = p.slug;
+  slugInput.addEventListener('change', () => {
+    const s = uniqueSlug(slugify(slugInput.value), state.sel);
+    slugInput.value = s; p.slug = s; markDirty(); renderList();
+  });
+  ed.append(card('Thông tin chung', true,
+    el('div', { class: 'grid2' },
+      field('Tên project', input(p, 'title', { onchange: () => renderList() })),
+      field('Đường dẫn (slug) → project-<slug>.html', slugInput)),
+    el('div', { class: 'grid2' },
+      field('Nhóm (tab năng lực)', select(p, 'category', CATEGORIES)),
+      field('Nhãn nhỏ dưới tên (tuỳ chọn, vd: Self-initiated concept)', input(p, 'badge'))),
+    field('Tagline — 1 câu dưới tên trên trang chi tiết', input(p, 'tagline', { type: 'textarea', rows: 2 })),
+    field('Mô tả SEO (meta description)', input(p, 'metaDescription', { type: 'textarea', rows: 2 })),
+    el('div', { class: 'row' },
+      toggle('Hiển thị trên web', p, 'visible', () => { renderList(); rr(); }),
+      toggle('Có trong carousel “Projects overview”', p, 'featured'),
+      toggle('Breadcrumb section dọc', p, 'sectionNav'))));
+
+  /* meta rows */
+  ed.append(card('Thông số (Year, Role, Scope…)', false,
+    listEditor(p.meta, [['label', 'Tên (vd: Year)'], ['value', 'Giá trị']], () => ({ label: '', value: '' }), rr)));
+
+  /* homepage card */
+  const coverBox = el('div', { class: 'cover-row' },
+    thumb(p.card.cover),
+    el('div', { class: 'row-list' },
+      el('div', { class: 'add-row' },
+        el('button', { class: 'btn small', type: 'button', onclick: async () => {
+          const [f] = await filePicker(false, 'image/*'); if (!f) return;
+          try { p.card.cover = await upload(f); markDirty(); rr(); toast('Đã tải ảnh cover'); } catch (e) { toast(e.message, true); }
+        } }, 'Tải ảnh cover'),
+        el('button', { class: 'btn small ghost', type: 'button', onclick: async () => {
+          const src = await pickExisting(); if (src) { p.card.cover = src; markDirty(); rr(); }
+        } }, 'Chọn ảnh có sẵn'),
+        p.card.cover ? el('button', { class: 'btn small ghost', type: 'button', onclick: () => { p.card.cover = ''; markDirty(); rr(); } }, 'Bỏ ảnh') : null),
+      field('Mô tả ảnh (alt)', input(p.card, 'coverAlt')),
+      field('Nền gradient khi chưa có ảnh (CSS)', input(p.card, 'coverGradient', { placeholder: 'linear-gradient(155deg,#4fa9ff,#0a0a0b)' }))));
+  ed.append(card('Thẻ ở trang chủ (Work)', true,
+    coverBox,
+    el('div', { class: 'grid2' },
+      field('Tên trên thẻ', input(p.card, 'title')),
+      field('Tag dưới tên (vd: B2B SaaS · IoT)', input(p.card, 'tag'))),
+    field('Vai trò (Role)', input(p.card, 'role')),
+    field('Highlights (3 dòng là đẹp nhất)', listEditor(p.card.highlights, 'Highlight', () => '', rr)),
+    field('Problem — đoạn mô tả bên trái', ...[].concat(input(p.card, 'problem', { type: 'textarea', rows: 4, counter: [150, 260] })))));
+
+  /* content blocks */
+  const blocksBox = el('div', { class: 'row-list' });
+  p.blocks.forEach((b, i) => blocksBox.append(blockEditor(p.blocks, b, i, rr)));
+  blocksBox.append(el('div', { class: 'add-row' },
+    ...BLOCK_TYPES.map(([t, name]) => el('button', { class: 'btn small', type: 'button', onclick: () => {
+      p.blocks.push(t === 'text' ? { type: t, heading: '', body: '' } : t === 'table'
+        ? { type: t, heading: '', intro: '', columns: ['Cột 1', 'Cột 2'], rows: [['', '']], note: '' }
+        : { type: t, heading: '', items: [] });
+      markDirty(); rr();
+    } }, '+ ' + name))));
+  ed.append(card('Nội dung case study', true,
+    el('div', { class: 'md-help', html: 'Cách viết: dòng trống = đoạn mới · dòng bắt đầu bằng <code>- </code> = gạch đầu dòng · <code>**chữ đậm**</code> · <code>*nghiêng*</code> · <code>[chữ](https://link)</code>' }),
+    blocksBox));
+
+  /* showcase */
+  const shotsGrid = el('div', { class: 'shots' });
+  p.shots.forEach((s, i) => shotsGrid.append(shotEditor(p.shots, s, i, rr)));
+  const dz = el('div', { class: 'dropzone' }, 'Kéo thả ảnh / video vào đây, hoặc bấm để chọn (nhiều file cùng lúc)');
+  const addFiles = async (files) => {
+    for (const f of files) {
+      try {
+        const src = await upload(f);
+        p.shots.push({ type: /^video\//.test(f.type) ? 'video' : 'image', src, caption: '', alt: '', mobile: false });
+      } catch (e) { toast(e.message, true); }
+    }
+    markDirty(); rr(); toast(`Đã tải ${files.length} file`);
+  };
+  dz.addEventListener('click', async () => addFiles(await filePicker(true)));
+  dz.addEventListener('dragover', (e) => { e.preventDefault(); dz.classList.add('over'); });
+  dz.addEventListener('dragleave', () => dz.classList.remove('over'));
+  dz.addEventListener('drop', (e) => { e.preventDefault(); dz.classList.remove('over'); addFiles([...e.dataTransfer.files]); });
+  ed.append(card(`Ảnh / video hiển thị (${p.shots.length})`, true, dz,
+    el('div', { class: 'add-row' },
+      el('button', { class: 'btn small ghost', type: 'button', onclick: async () => {
+        const src = await pickExisting(); if (!src) return;
+        p.shots.push({ type: /\.(mp4|webm)$/i.test(src) ? 'video' : 'image', src, caption: '', alt: '', mobile: false }); markDirty(); rr();
+      } }, 'Thêm ảnh có sẵn')),
+    shotsGrid));
+
+  /* password */
+  const pw = el('input', { type: 'password', placeholder: 'Mật khẩu mới' });
+  ed.append(card('Mật khẩu (NDA)', !!p.passwordHash,
+    el('div', { class: 'lock-state' }, p.passwordHash ? '🔒 Project này đang khoá bằng mật khẩu.' : 'Không khoá — ai cũng xem được.'),
+    el('div', { class: 'row' }, pw,
+      el('button', { class: 'btn small', type: 'button', onclick: async () => {
+        const v = pw.value.trim().toLowerCase(); if (!v) return toast('Nhập mật khẩu trước', true);
+        p.passwordHash = await sha256(v); markDirty(); rr(); toast('Đã đặt mật khẩu — nhớ Lưu');
+      } }, p.passwordHash ? 'Đổi mật khẩu' : 'Đặt mật khẩu'),
+      p.passwordHash ? el('button', { class: 'btn small ghost', type: 'button', onclick: () => { p.passwordHash = ''; markDirty(); rr(); } }, 'Gỡ mật khẩu') : null),
+    el('p', { class: 'hint' }, 'Mật khẩu không phân biệt hoa thường. Đây là lớp che phía trình duyệt — đủ để giữ NDA với người xem bình thường, không phải bảo mật tuyệt đối.')));
+
+  /* danger */
+  ed.append(card('Xoá project', false,
+    el('p', { class: 'hint' }, 'Xoá khỏi danh sách và xoá trang project-' + p.slug + '.html khi lưu. Ảnh trong assets/ vẫn được giữ lại.'),
+    el('button', { class: 'btn danger', type: 'button', onclick: () => {
+      if (!confirm(`Xoá hẳn project “${p.title}”?`)) return;
+      state.data.projects.splice(state.sel, 1);
+      state.sel = Math.min(state.sel, state.data.projects.length - 1);
+      markDirty(); renderList(); renderEditor(); setPreview('index.html');
+    } }, 'Xoá project này')));
+
+  // keep collapsed/expanded state and scroll position across re-renders
+  const cards = ed.querySelectorAll('details.card');
+  if (openState.length === cards.length) cards.forEach((d, i) => (d.open = openState[i]));
+  ed.scrollTop = scroll;
+}
+
+function blockEditor(arr, b, i, rr) {
+  const typeSel = select(b, 'type', BLOCK_TYPES, () => {
+    if (b.type === 'text' && b.body == null) b.body = '';
+    if ((b.type === 'chips' || b.type === 'stats') && !Array.isArray(b.items)) b.items = [];
+    if (b.type === 'table' && !b.columns) Object.assign(b, { intro: '', columns: ['Cột 1', 'Cột 2'], rows: [['', '']], note: '' });
+    rr();
+  });
+  const box = el('div', { class: 'block' },
+    el('div', { class: 'block-head' }, typeSel, el('span', { class: 'spacer' }),
+      el('button', { class: 'icon-btn', type: 'button', title: 'Lên', onclick: () => { if (moveIn(arr, i, -1)) { markDirty(); rr(); } } }, '↑'),
+      el('button', { class: 'icon-btn', type: 'button', title: 'Xuống', onclick: () => { if (moveIn(arr, i, 1)) { markDirty(); rr(); } } }, '↓'),
+      el('button', { class: 'icon-btn', type: 'button', title: 'Xoá khối', onclick: () => { if (confirm('Xoá khối này?')) { arr.splice(i, 1); markDirty(); rr(); } } }, '✕')),
+    el('div', { class: 'grid2' },
+      field('Tiêu đề khối', input(b, 'heading')),
+      field('Gắn với section (tuỳ chọn)', (() => { const i = input(b, 'section'); i.setAttribute('list', 'sectionNames'); return i; })())));
+
+  if (b.type === 'chips') {
+    b.items = b.items || [];
+    box.append(listEditor(b.items, [['text', 'Deliverable'], ['nda', 'NDA', 'check']], () => ({ text: '', nda: false }), rr));
+  } else if (b.type === 'stats') {
+    b.items = b.items || [];
+    box.append(listEditor(b.items, [['value', 'Số (vd: 1,229)'], ['label', 'Chú thích']], () => ({ value: '', label: '' }), rr));
+  } else if (b.type === 'table') {
+    const cols = el('input', { type: 'text' }); cols.value = (b.columns || []).join(' | ');
+    cols.addEventListener('input', () => { b.columns = cols.value.split('|').map((s) => s.trim()); markDirty(); });
+    const rows = el('textarea', { rows: 5 }); rows.value = (b.rows || []).map((r) => r.join(' | ')).join('\n');
+    rows.addEventListener('input', () => { b.rows = rows.value.split('\n').filter((l) => l.trim()).map((l) => l.split('|').map((s) => s.trim())); markDirty(); });
+    box.append(
+      field('Đoạn mở đầu (tuỳ chọn)', input(b, 'intro', { type: 'textarea', rows: 2 })),
+      field('Tên cột — ngăn cách bằng |', cols),
+      field('Các dòng — mỗi dòng một hàng, ngăn cột bằng |', rows),
+      field('Ghi chú dưới bảng (tuỳ chọn)', input(b, 'note', { type: 'textarea', rows: 2 })));
+  } else {
+    box.append(field('Nội dung', input(b, 'body', { type: 'textarea', rows: 6 })));
+  }
+  return box;
+}
+
+function shotEditor(arr, s, i, rr) {
+  const mob = el('input', { type: 'checkbox' }); mob.checked = !!s.mobile;
+  mob.addEventListener('change', () => { s.mobile = mob.checked; markDirty(); });
+  const cap = el('input', { type: 'text', placeholder: 'Chú thích (hiện dưới ảnh)' }); cap.value = s.caption || '';
+  cap.addEventListener('input', () => { s.caption = cap.value; markDirty(); });
+  const alt = el('input', { type: 'text', placeholder: 'Alt (mô tả cho SEO)' }); alt.value = s.alt || '';
+  alt.addEventListener('input', () => { s.alt = alt.value; markDirty(); });
+  const sec = el('input', { type: 'text', placeholder: 'Section (tên trên breadcrumb)', list: 'sectionNames' }); sec.value = s.section || '';
+  sec.addEventListener('input', () => { s.section = sec.value.trim(); markDirty(); });
+  return el('div', { class: 'shot' },
+    s.type === 'gradient' ? el('div', { class: 'shot-media', style: `background:${s.css}` }) : thumb(s.src),
+    el('div', { class: 'shot-body' },
+      sec, cap, s.type === 'image' ? alt : null,
+      el('div', { class: 'shot-tools' },
+        s.type === 'image' ? el('label', { class: 'switch' }, mob, 'Khung mobile') : el('span', { style: 'margin-right:auto;font-size:.72rem;color:#77736a' }, s.type),
+        el('button', { class: 'icon-btn', type: 'button', title: 'Lên trước', onclick: () => { if (moveIn(arr, i, -1)) { markDirty(); rr(); } } }, '←'),
+        el('button', { class: 'icon-btn', type: 'button', title: 'Ra sau', onclick: () => { if (moveIn(arr, i, 1)) { markDirty(); rr(); } } }, '→'),
+        el('button', { class: 'icon-btn', type: 'button', title: 'Thay file', onclick: async () => {
+          const [f] = await filePicker(false); if (!f) return;
+          try { s.src = await upload(f); s.type = /^video\//.test(f.type) ? 'video' : 'image'; markDirty(); rr(); } catch (e) { toast(e.message, true); }
+        } }, '⟳'),
+        el('button', { class: 'icon-btn', type: 'button', title: 'Xoá', onclick: () => { arr.splice(i, 1); markDirty(); rr(); } }, '✕'))));
+}
+
+/* ---------------- preview ---------------- */
+function renderPreviewOptions() {
+  const sel = $('#previewPage'); const keep = sel.value;
+  sel.innerHTML = '';
+  sel.append(el('option', { value: 'index.html' }, 'Trang chủ'));
+  state.data.projects.forEach((p) => sel.append(el('option', { value: `project-${p.slug}.html` }, (p.visible === false ? '(ẩn) ' : '') + p.title)));
+  if (keep) sel.value = keep;
+}
+function setPreview(page) {
+  $('#previewPage').value = page;
+  const url = '/site/' + page;
+  $('#previewFrame').src = url; $('#openPreview').href = url;
+}
+function reloadPreview() {
+  const f = $('#previewFrame');
+  try { f.contentWindow.location.reload(); } catch (e) { f.src = f.src; }
+}
+
+/* ---------------- publish ---------------- */
+async function openPublish() {
+  if (state.dirty) {
+    if (!confirm('Bạn còn thay đổi chưa lưu. Lưu & build trước khi publish?')) return;
+    await save(); if (state.dirty) return;
+  }
+  const j = await (await fetch('/api/git/status')).json();
+  $('#publishBranch').textContent = `Nhánh: ${j.branch} · commit gần nhất: ${j.last}`;
+  const box = $('#changedFiles'); box.innerHTML = '';
+  if (!j.files.length) box.append(el('div', {}, 'Không có thay đổi mới. Bấm Publish sẽ chỉ đẩy các commit chưa push (nếu có).'));
+  j.files.forEach((f) => box.append(el('div', {}, el('b', {}, f.state || '?'), f.file)));
+  $('#publishLog').hidden = true; $('#doPublish').disabled = false;
+  $('#publishDialog').showModal();
+}
+async function doPublish() {
+  const btn = $('#doPublish'); btn.disabled = true; btn.textContent = 'Đang đẩy lên…';
+  const log = $('#publishLog'); log.hidden = false; log.textContent = 'Đang chạy git…';
+  try {
+    const r = await fetch('/api/git/publish', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: $('#commitMsg').value }) });
+    const j = await r.json();
+    log.textContent = (j.log || []).map((l) => `$ ${l.cmd}\n${l.out || ''}`).join('\n\n') + (j.hint ? `\n\n⚠ ${j.hint}` : '');
+    if (j.ok) toast('Đã publish! GitHub Pages sẽ cập nhật sau ~1 phút.');
+    else toast('Publish chưa thành công — xem log', true);
+  } catch (e) { log.textContent = e.message; toast(e.message, true); }
+  btn.textContent = 'Commit & Push'; btn.disabled = false;
+}
+
+/* ---------------- wiring ---------------- */
+$('#saveBtn').addEventListener('click', save);
+$('#newProjectBtn').addEventListener('click', newProject);
+$('#publishBtn').addEventListener('click', openPublish);
+$('#doPublish').addEventListener('click', doPublish);
+$('#reloadPreview').addEventListener('click', reloadPreview);
+$('#previewPage').addEventListener('change', (e) => setPreview(e.target.value));
+$('#togglePreview').addEventListener('click', () => {
+  const l = $('#layout'); l.classList.toggle('no-preview');
+  $('#togglePreview').textContent = l.classList.contains('no-preview') ? 'Hiện preview' : 'Ẩn preview';
+});
+$('#previewSize').addEventListener('click', (e) => {
+  const b = e.target.closest('button'); if (!b) return;
+  $('#previewSize').querySelectorAll('button').forEach((x) => x.classList.toggle('on', x === b));
+  $('#previewFrame').style.width = b.dataset.w;
+});
+document.addEventListener('keydown', (e) => {
+  if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 's') { e.preventDefault(); save(); }
+});
+window.addEventListener('beforeunload', (e) => { if (state.dirty) { e.preventDefault(); e.returnValue = ''; } });
+
+load().catch((e) => toast('Không tải được dữ liệu: ' + e.message, true));

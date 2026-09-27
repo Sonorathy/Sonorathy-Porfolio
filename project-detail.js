@@ -70,4 +70,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateFromScroll();
   }
+
+  /* Vertical section breadcrumb: highlight the section currently at the
+     top of the showcase column; clicking jumps the showcase there and
+     scrolls the text column to the block tagged with the same section. */
+  const secNav = document.querySelector('.pd-secnav');
+  const showcase = document.querySelector('.pd-showcase');
+  if (secNav && showcase) {
+    const items = [...secNav.querySelectorAll('.pd-secnav-item')];
+    const anchors = items.map((a) => document.getElementById(a.dataset.target)).filter(Boolean);
+    const info = document.querySelector('.pd-info');
+    const stacked = () => window.matchMedia('(max-width:900px)').matches;
+
+    function setActive(id) {
+      items.forEach((a) => a.classList.toggle('is-active', a.dataset.target === id));
+    }
+    function spy() {
+      const top = showcase.getBoundingClientRect().top + showcase.clientHeight * 0.3;
+      let current = anchors[0];
+      anchors.forEach((a) => { if (a.getBoundingClientRect().top <= top) current = a; });
+      if (current) setActive(current.id);
+    }
+    showcase.addEventListener('scroll', spy, { passive: true });
+    window.addEventListener('scroll', spy, { passive: true });
+
+    items.forEach((a) => a.addEventListener('click', (e) => {
+      const target = document.getElementById(a.dataset.target);
+      if (!target) return;
+      e.preventDefault();
+      if (stacked()) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        showcase.scrollTo({ top: target.offsetTop - showcase.offsetTop, behavior: 'smooth' });
+        const block = info && info.querySelector(`[data-section="${a.dataset.target}"]`);
+        if (block) info.scrollTo({ top: block.offsetTop - info.offsetTop - 80, behavior: 'smooth' });
+      }
+      setActive(a.dataset.target);
+    }));
+    spy();
+  }
 });

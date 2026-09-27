@@ -1,0 +1,2151 @@
+{
+  "version": 1,
+  "projects": [
+    {
+      "slug": "nexa-ai-sales-agent",
+      "visible": true,
+      "featured": true,
+      "sectionNav": true,
+      "category": "product-uiux",
+      "title": "Nexa AI Sales Agent",
+      "badge": "",
+      "tagline": "From first message to paid invoice: a B2B sales flow where AI drafts every step and people approve every price change.",
+      "metaDescription": "Nexa AI Sales Agent — B2B sales flow where AI drafts every step and people approve every price change. 20 screens, desktop + mobile. Product design case study by Sonorathy.",
+      "meta": [
+        {
+          "label": "Year",
+          "value": "2026"
+        },
+        {
+          "label": "Role",
+          "value": "Product Designer · end to end"
+        },
+        {
+          "label": "Scope",
+          "value": "20 screens · desktop + mobile"
+        },
+        {
+          "label": "Type",
+          "value": "In-house product · sold to businesses"
+        }
+      ],
+      "card": {
+        "title": "Nexa AI Sales Agent",
+        "tag": "AI Agent · B2B SaaS · Desktop + Mobile",
+        "role": "Product Designer · end to end",
+        "highlights": [
+          "Eight steps, one flow: AI drafts, people decide",
+          "A human approval gate on every out-of-limit discount",
+          "Every AI answer cites its source in the catalog"
+        ],
+        "problem": "Selling B2B software takes seven hand-offs. I designed one flow from first chat to paid invoice where AI drafts the needs, quote, contract and invoice — and people approve every price change.",
+        "cover": "assets/work/nexa-ai-sales-agent/01-overview.jpg",
+        "coverAlt": "Nexa AI Sales Agent — updated quote on mobile and desktop",
+        "coverGradient": "linear-gradient(155deg,#6d3bd6,#0a0a0b)"
+      },
+      "blocks": [
+        {
+          "type": "text",
+          "heading": "About",
+          "section": "About",
+          "body": "Selling B2B software takes seven hand-offs. This project turns them into one flow, where AI drafts and people decide.\n\nEvery AI output carries its source. Every price change above a limit waits for a person. The customer sees quotes, changes and status — never internal negotiation data."
+        },
+        {
+          "type": "stats",
+          "heading": "In numbers",
+          "section": "In numbers",
+          "items": [
+            {
+              "value": "20",
+              "label": "screens"
+            },
+            {
+              "value": "08",
+              "label": "steps, one flow"
+            },
+            {
+              "value": "36",
+              "label": "jF components reused"
+            },
+            {
+              "value": "12",
+              "label": "new kit components"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "heading": "Problem & solution",
+          "section": "Problem & Solution",
+          "body": "A customer replies to a quote asking for 8% off and 50 more seats. Today that means a rep retyping the quote, guessing whether he may give 8%, and asking his manager in chat with no context.\n\nIn Nexa the agent reads the email, detects the two changes, drafts version 2 with a before / after table — and blocks the send, because 8% is above the rep's 5% limit. An in-limit option (keep 5%, add the seats) is always on the table."
+        },
+        {
+          "type": "table",
+          "heading": "Three people, one deal",
+          "section": "Personas",
+          "intro": "",
+          "columns": [
+            "Who",
+            "Job",
+            "Needs"
+          ],
+          "rows": [
+            [
+              "Minh Nguyen · Sales executive (primary user)",
+              "Close deals fast without quoting wrong or going over his discount limit.",
+              "AI does the drafting and the maths — he keeps the send button. AI answers customers after hours and hands the deal back with full context."
+            ],
+            [
+              "Hoa Pham · Sales manager (approver)",
+              "Protect margin without slowing the team down.",
+              "One request with before / after and an in-limit alternative."
+            ],
+            [
+              "Linh Tran · Head of Operations (customer)",
+              "Pick the right plan for 500 people without reading a long spec.",
+              "An answer at any hour; prices she can check herself; request changes, sign and pay on her phone."
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "type": "text",
+          "heading": "Eight steps. AI drafts, people decide.",
+          "section": "Flow",
+          "body": "- **Understand** — AI extracts needs from chat · the rep asks the missing questions.\n- **Recommend** — AI matches needs to plans · the rep picks the plan.\n- **Build** — AI checks seats and suggests add-ons · the rep edits the cart.\n- **Generate** — AI applies the price book and tax · the rep sends the quote.\n- **Negotiate** — AI drafts v2 and flags the limit · the manager approves.\n- **Draft** — AI fills the contract · the rep sends it to sign.\n- **Verify** — AI checks the invoice against the contract · the customer pays.\n- **Track** — AI writes the handoff · the rep books kick-off.\n\nStep 5 is the human-approval gate: a discount above the rep's limit cannot reach the customer until a manager approves it."
+        },
+        {
+          "type": "text",
+          "heading": "Where the design earns its keep",
+          "section": "Key screens",
+          "body": "- **AI listens, you ask.** The agent reads the chat as it happens and pulls out intent, scale and must-haves. Each field links to the message it came from; missing facts show as “Not stated” instead of a guess.\n- **A human gate on every discount.** Detected changes, not a new form; before / after on the same table; the manager decides.\n- **The customer sees why, not how.** On mobile the assistant recommends one plan with the reason for each need and a catalog source. Quotes never show discount limits or internal options.\n- **Every answer has a source.** Catalog items carry a version, an update date and an “Allow AI to cite” switch; AI flags answers that cited an outdated sheet.\n- **From updated quote to paid, on one phone.** Version 2 shows exactly what changed; the invoice is checked against the signed contract before the customer sees it.\n- **Each list shows the next thing to do.** The AI panel names what needs you today and has a draft ready — a follow-up, a payment reminder, a renewal quote."
+        },
+        {
+          "type": "text",
+          "heading": "Design system",
+          "section": "Design system",
+          "body": "Built on jF Design System 4.1 in brand mode Midnight Purple: 36 jF components reused, 12 kit components added. Components bind only to semantic tokens.\n\n- **AI components** — every AI output shows its source and what is still missing; agent fields are filled with a source chip or “Not stated”, never a guess.\n- **Status** — colour sits on the dot and left bar only; banners are inline with a left bar, never a solid fill.\n- **Buttons** — one primary action per screen; the gradient button is reserved for the hero CTA on mobile."
+        },
+        {
+          "type": "chips",
+          "heading": "Deliverables",
+          "items": [
+            {
+              "text": "20 screens · desktop + mobile",
+              "nda": false
+            },
+            {
+              "text": "8-step end-to-end flow",
+              "nda": false
+            },
+            {
+              "text": "Sales Agent component kit",
+              "nda": false
+            },
+            {
+              "text": "Personas",
+              "nda": false
+            },
+            {
+              "text": "Design system mapping",
+              "nda": false
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "heading": "Note",
+          "body": "Nexa is an in-house product sold to businesses. Customer names and figures in the screens are sample data."
+        }
+      ],
+      "shots": [
+        {
+          "type": "image",
+          "src": "assets/work/nexa-ai-sales-agent/01-overview.jpg",
+          "caption": "Overview — updated quote, mobile and desktop",
+          "alt": "Nexa AI Sales Agent — Overview — updated quote, mobile and desktop",
+          "mobile": false,
+          "section": "Overview"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/nexa-ai-sales-agent/02-about.jpg",
+          "caption": "About",
+          "alt": "Nexa AI Sales Agent — About",
+          "mobile": false,
+          "section": "About"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/nexa-ai-sales-agent/03-in-numbers.jpg",
+          "caption": "In numbers",
+          "alt": "Nexa AI Sales Agent — In numbers",
+          "mobile": false,
+          "section": "In numbers"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/nexa-ai-sales-agent/04-problem-solution.jpg",
+          "caption": "Problem & solution — detected changes, v2 draft, approval gate",
+          "alt": "Nexa AI Sales Agent — Problem & solution — detected changes, v2 draft, approval gate",
+          "mobile": false,
+          "section": "Problem & Solution"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/nexa-ai-sales-agent/05-personas.jpg",
+          "caption": "Three people, one deal",
+          "alt": "Nexa AI Sales Agent — Three people, one deal",
+          "mobile": false,
+          "section": "Personas"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/nexa-ai-sales-agent/06-flow.jpg",
+          "caption": "Eight steps. AI drafts, people decide.",
+          "alt": "Nexa AI Sales Agent — Eight steps. AI drafts, people decide.",
+          "mobile": false,
+          "section": "Flow"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/nexa-ai-sales-agent/07a-key-screens.jpg",
+          "caption": "Key screens",
+          "alt": "Nexa AI Sales Agent — Key screens",
+          "mobile": false,
+          "section": "Key screens"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/nexa-ai-sales-agent/07b-understand.jpg",
+          "caption": "01 · Understand — AI listens, you ask",
+          "alt": "Nexa AI Sales Agent — 01 · Understand — AI listens, you ask",
+          "mobile": false,
+          "section": "Key screens"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/nexa-ai-sales-agent/07c-negotiate.jpg",
+          "caption": "05 · Negotiate — a human gate on every discount",
+          "alt": "Nexa AI Sales Agent — 05 · Negotiate — a human gate on every discount",
+          "mobile": false,
+          "section": "Key screens"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/nexa-ai-sales-agent/07d-customer-ai.jpg",
+          "caption": "09 · Customer — the customer sees why, not how",
+          "alt": "Nexa AI Sales Agent — 09 · Customer — the customer sees why, not how",
+          "mobile": false,
+          "section": "Key screens"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/nexa-ai-sales-agent/07e-catalog.jpg",
+          "caption": "14 · Cite — every answer has a source",
+          "alt": "Nexa AI Sales Agent — 14 · Cite — every answer has a source",
+          "mobile": false,
+          "section": "Key screens"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/nexa-ai-sales-agent/07f-sign-pay.jpg",
+          "caption": "10 · Close — from updated quote to paid, on one phone",
+          "alt": "Nexa AI Sales Agent — 10 · Close — from updated quote to paid, on one phone",
+          "mobile": false,
+          "section": "Key screens"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/nexa-ai-sales-agent/07g-management.jpg",
+          "caption": "11–13 · Manage — quotes, orders and contracts in one place",
+          "alt": "Nexa AI Sales Agent — 11–13 · Manage — quotes, orders and contracts in one place",
+          "mobile": false,
+          "section": "Key screens"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/nexa-ai-sales-agent/08-design-system.jpg",
+          "caption": "Design system — Midnight Purple brand mode, AI components",
+          "alt": "Nexa AI Sales Agent — Design system — Midnight Purple brand mode, AI components",
+          "mobile": false,
+          "section": "Design system"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/nexa-ai-sales-agent/09-thanks.jpg",
+          "caption": "Thank you",
+          "alt": "Nexa AI Sales Agent — Thank you",
+          "mobile": false,
+          "section": "Thanks"
+        }
+      ],
+      "passwordHash": "",
+      "passwordStorageKey": ""
+    },
+    {
+      "slug": "tvpl-legal-ai",
+      "visible": true,
+      "featured": true,
+      "category": "product-uiux",
+      "title": "TVPL Legal AI",
+      "badge": "Self-initiated concept · 2026 · not commissioned by TVPL",
+      "tagline": "How people hand legal work to AI — and how they check it before they trust it.",
+      "metaDescription": "TVPL Legal AI — self-initiated concept: how lawyers, in-house legal teams and businesses hand legal work to AI and verify it. Product design case study by Sonorathy.",
+      "meta": [
+        {
+          "label": "Year",
+          "value": "2026"
+        },
+        {
+          "label": "Type",
+          "value": "Concept · self-initiated"
+        },
+        {
+          "label": "Scope",
+          "value": "UX Research · Product Design · Design System"
+        },
+        {
+          "label": "Output",
+          "value": "12 desktop + 11 mobile screens, 33 components"
+        }
+      ],
+      "card": {
+        "title": "TVPL Legal AI",
+        "tag": "AI · LegalTech · Concept",
+        "role": "Product Designer · Self-initiated concept",
+        "highlights": [
+          "Six-step flow for handing legal work to AI",
+          "Citations with validity status, readable in seconds",
+          "Escalation to a named lawyer, on both sides"
+        ],
+        "problem": "Legal AI is only useful if people can check it. I designed how lawyers, in-house legal teams and businesses ask by situation, verify every citation against its validity, and hand a case to a named lawyer — 23 screens, 33 components.",
+        "cover": "assets/work/tvpl/tvpl-d03.jpg",
+        "coverAlt": "TVPL Legal AI — answer with legal basis and validity status",
+        "coverGradient": ""
+      },
+      "blocks": [
+        {
+          "type": "text",
+          "heading": "Why this project",
+          "body": "THƯ VIỆN PHÁP LUẬT is building a Legal AI ecosystem in three tiers: **Legal Intelligence** (retrieve the right legal basis), **Legal AI** (reason and write a full answer, embedded in clients’ software) and **AI Workspace** (the finished product for end users) — all on one shared design foundation.\n\nI wanted to understand that problem before applying, so I designed the shared layer myself: how citations, validity status, AI states, risk warnings and hand-off to a human look the same across all three tiers."
+        },
+        {
+          "type": "text",
+          "heading": "The core task flow",
+          "body": "Every screen and component hangs off six steps a user goes through when they give legal work to AI:\n\n- **1 · Assign** — describe the situation to the AI.\n- **2 · Track** — see what the AI is doing, and stop it.\n- **3 · Read** — get the answer, conclusion first.\n- **4 · Verify** — open every citation to the exact clause.\n- **5 · Notice risk** — see warnings that come with an action.\n- **6 · Escalate** — hand the case to a named lawyer."
+        },
+        {
+          "type": "table",
+          "heading": "Three user groups, three jobs",
+          "intro": "",
+          "columns": [
+            "Who",
+            "Job",
+            "Pain point"
+          ],
+          "rows": [
+            [
+              "In-house legal officer",
+              "Answer “can we do this?” and explain the basis to management.",
+              "Not sure the article they found is still in force."
+            ],
+            [
+              "Lawyer",
+              "Handle many requests in parallel with evidence.",
+              "Can’t see which request is urgent or where AI got stuck."
+            ],
+            [
+              "Citizens & SME owners",
+              "Know what to do next about their own situation.",
+              "Can’t name the legal term for what’s happening to them."
+            ]
+          ],
+          "note": "Built from desk research and the job description. **These are hypotheses, not validated findings** — see “What I’d do next”."
+        },
+        {
+          "type": "text",
+          "heading": "Solution audit",
+          "body": "I compared the existing Vietnamese legal AI tools (Bộ Tư pháp’s AI Pháp luật, LuatVietnam’s AI Luật and TVPL today) on coverage, pricing, how validity status is shown and whether there is any path to a human. None showed validity status next to the answer, and none offered a human escalation path in the flow.\n\nOutside legal, I borrowed from products where trust is the whole UX: bank transfer confirmations (verify before you commit), the HTTPS padlock (one glance, one tap for detail) and e-signature certificates (responsibility tied to a named person and a timestamp)."
+        },
+        {
+          "type": "text",
+          "heading": "Three design decisions",
+          "body": "- **Ask by situation, not by legal term.** Prompt suggestions are written as everyday situations; a case file can be attached; a stop button is always visible while AI is running.\n- **Validity readable in seconds.** Conclusion first, legal basis in a separate sheet; every quote opens the full article, with its validity status and amendment timeline on the card itself.\n- **Escalation is an action, not an error.** “Ask a lawyer” sits in a fixed spot at the end of every answer; the lawyer side has its own inbox and composer, and the expert-review state shows the name of the person who signed off."
+        },
+        {
+          "type": "text",
+          "heading": "Ground rules for the whole kit",
+          "body": "- Every legal claim links to a citation that opens to the exact clause.\n- Validity is required information — the right text that is no longer in force is still wrong.\n- The law that applies is the one in force at the time of the event, not the newest one.\n- “Not enough legal basis” is a valid result, not an error.\n- Every risk warning comes with a suggested action.\n- Final responsibility belongs to the person who signs, not the machine."
+        },
+        {
+          "type": "text",
+          "heading": "What I’d do next",
+          "body": "The three pain points above are assumptions. Before building anything, I’d spend a week with BA and Legal BA to check them against real cases, then run usability tests on the ask → verify → escalate flow with lawyers and in-house legal staff."
+        },
+        {
+          "type": "chips",
+          "heading": "Deliverables",
+          "items": [
+            {
+              "text": "Research deck (11 slides)",
+              "nda": false
+            },
+            {
+              "text": "Wireframes & flows",
+              "nda": false
+            },
+            {
+              "text": "12 desktop screens",
+              "nda": false
+            },
+            {
+              "text": "11 mobile screens",
+              "nda": false
+            },
+            {
+              "text": "33 legal components",
+              "nda": false
+            }
+          ]
+        }
+      ],
+      "shots": [
+        {
+          "type": "image",
+          "src": "assets/work/tvpl/tvpl-d03.jpg",
+          "caption": "S3 · Answer with legal basis — conclusion first, citations with validity status",
+          "mobile": false,
+          "alt": "S3 · Answer with legal basis — conclusion first, citations with validity status"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/tvpl/tvpl-d01.jpg",
+          "caption": "S1 · Start a session — situation-based suggestions, attach a case file",
+          "mobile": false,
+          "alt": "S1 · Start a session — situation-based suggestions, attach a case file"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/tvpl/tvpl-d02.jpg",
+          "caption": "S2 · AI running — visible progress and a stop button",
+          "mobile": false,
+          "alt": "S2 · AI running — visible progress and a stop button"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/tvpl/tvpl-d04.jpg",
+          "caption": "S4 · Expert returns the answer — reviewed and signed by a named lawyer",
+          "mobile": false,
+          "alt": "S4 · Expert returns the answer — reviewed and signed by a named lawyer"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/tvpl/tvpl-d05.jpg",
+          "caption": "S5 · Cases — every question grouped by matter",
+          "mobile": false,
+          "alt": "S5 · Cases — every question grouped by matter"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/tvpl/tvpl-d06.jpg",
+          "caption": "S6 · Pinned legal basis — a personal cabinet of verified clauses",
+          "mobile": false,
+          "alt": "S6 · Pinned legal basis — a personal cabinet of verified clauses"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/tvpl/tvpl-d08.jpg",
+          "caption": "S8 · AI tasks board — long-running jobs with status",
+          "mobile": false,
+          "alt": "S8 · AI tasks board — long-running jobs with status"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/tvpl/tvpl-d10.jpg",
+          "caption": "S10 · Lawyer side — request inbox by urgency",
+          "mobile": false,
+          "alt": "S10 · Lawyer side — request inbox by urgency"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/tvpl/tvpl-d11.jpg",
+          "caption": "S11 · Lawyer side — composing the reviewed answer",
+          "mobile": false,
+          "alt": "S11 · Lawyer side — composing the reviewed answer"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/tvpl/tvpl-m01.jpg",
+          "caption": "M1 · Mobile — ask",
+          "mobile": true,
+          "alt": "M1 · Mobile — ask"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/tvpl/tvpl-m02.jpg",
+          "caption": "M2 · Mobile — AI answering",
+          "mobile": true,
+          "alt": "M2 · Mobile — AI answering"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/tvpl/tvpl-m03.jpg",
+          "caption": "M3 · Mobile — answer with legal basis",
+          "mobile": true,
+          "alt": "M3 · Mobile — answer with legal basis"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/tvpl/tvpl-m05.jpg",
+          "caption": "M5 · Mobile — full text of the clause",
+          "mobile": true,
+          "alt": "M5 · Mobile — full text of the clause"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/tvpl/tvpl-audit.jpg",
+          "caption": "Solution audit — existing tools and references from outside legal",
+          "mobile": false,
+          "alt": "Solution audit — existing tools and references from outside legal"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/tvpl/tvpl-hmw.jpg",
+          "caption": "Three “How might we” questions, one per pain point",
+          "mobile": false,
+          "alt": "Three “How might we” questions, one per pain point"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/tvpl/tvpl-sol1.jpg",
+          "caption": "Decision 1 · Ask by situation",
+          "mobile": false,
+          "alt": "Decision 1 · Ask by situation"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/tvpl/tvpl-sol2.jpg",
+          "caption": "Decision 2 · Verify the legal basis",
+          "mobile": false,
+          "alt": "Decision 2 · Verify the legal basis"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/tvpl/tvpl-sol3.jpg",
+          "caption": "Decision 3 · Hand off to a lawyer",
+          "mobile": false,
+          "alt": "Decision 3 · Hand off to a lawyer"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/tvpl/tvpl-wireframe.jpg",
+          "caption": "Wireframes — two-role flow, AI task flow and four layout skeletons",
+          "mobile": false,
+          "alt": "Wireframes — two-role flow, AI task flow and four layout skeletons"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/tvpl/tvpl-index.jpg",
+          "caption": "Kit index — 7 pages, 33 components, 6 ground rules",
+          "mobile": false,
+          "alt": "Kit index — 7 pages, 33 components, 6 ground rules"
+        }
+      ],
+      "passwordHash": "",
+      "passwordStorageKey": ""
+    },
+    {
+      "slug": "jf-design-system",
+      "visible": true,
+      "featured": true,
+      "category": "product-uiux",
+      "title": "jF Design System 4.1",
+      "badge": "",
+      "tagline": "One library, six products, five brands — from a button to an AI legal answer.",
+      "metaDescription": "jF Design System 4.1 — one Figma library serving six products across five brands: 1,229 variables, 354 component sets, Chat & AI kits. Case study by Sonorathy.",
+      "meta": [
+        {
+          "label": "Year",
+          "value": "2023 – 2026"
+        },
+        {
+          "label": "Role",
+          "value": "Design System Designer"
+        },
+        {
+          "label": "Scope",
+          "value": "Tokens · Theming · Components · Docs"
+        },
+        {
+          "label": "Serves",
+          "value": "jFoundation, jChat, jMaps, jFa, Pastel, TVPL Legal AI"
+        }
+      ],
+      "card": {
+        "title": "jF Design System 4.1",
+        "tag": "Design System · Multi-brand",
+        "role": "Design System Designer",
+        "highlights": [
+          "1,229 variables across 10 collections",
+          "354 component sets, 2,660 variants",
+          "5 brand modes, Light/Dark, 3 densities"
+        ],
+        "problem": "Six products were drifting into their own buttons, tables and alerts. I built one Figma library where each product switches brand, shape and density by mode — from core components to Chat, AI and legal patterns.",
+        "cover": "assets/work/jf-ds/ds-theming.jpg",
+        "coverAlt": "jF Design System — theming across brand modes",
+        "coverGradient": ""
+      },
+      "blocks": [
+        {
+          "type": "text",
+          "heading": "The problem",
+          "body": "Six products were being designed in parallel — an internal platform, a chat app, an IoT/GIS dashboard, a farm-operations app, a consumer brand and an AI legal assistant. Each started drifting into its own buttons, tables and alert styles, so every new screen meant re-deciding things that were already decided elsewhere.\n\nThe goal: one Figma library where a product changes brand, shape and density by switching a mode — not by detaching components."
+        },
+        {
+          "type": "stats",
+          "heading": "By the numbers",
+          "items": [
+            {
+              "value": "116",
+              "label": "pages"
+            },
+            {
+              "value": "354",
+              "label": "component sets"
+            },
+            {
+              "value": "2,660",
+              "label": "variants"
+            },
+            {
+              "value": "1,229",
+              "label": "variables in 10 collections"
+            },
+            {
+              "value": "7,628",
+              "label": "icons"
+            },
+            {
+              "value": "195",
+              "label": "text, colour & effect styles"
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "heading": "Token architecture",
+          "intro": "Three layers. Components only ever bind to the semantic layer, so brand, theme and layout changes never reach inside a component.",
+          "columns": [
+            "Collection",
+            "Modes",
+            "Vars"
+          ],
+          "rows": [
+            [
+              "Primitive colours / dimensions",
+              "1",
+              "210 / 27"
+            ],
+            [
+              "Brand",
+              "jFoundation, jChat, jMaps, jFa, Pastel",
+              "255"
+            ],
+            [
+              "Theme",
+              "Standard, Premium",
+              "34"
+            ],
+            [
+              "Semantic colour",
+              "Light, Dark",
+              "478"
+            ],
+            [
+              "Semantic dimension",
+              "1",
+              "123"
+            ],
+            [
+              "Shape",
+              "Default, Rounded, Pill, Sharp",
+              "18"
+            ],
+            [
+              "Responsive",
+              "Desktop, Tablet, Mobile",
+              "44"
+            ],
+            [
+              "Density",
+              "Compact, Comfortable, Spacious",
+              "11"
+            ],
+            [
+              "System",
+              "1",
+              "29"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "type": "text",
+          "heading": "What’s in the library",
+          "body": "- **Desktop** — 37 pages, 87 component sets, 910 variants: navigation, data entry, data display, feedback.\n- **Mobile** — 20 pages, 39 sets, 311 variants: pickers, bottom sheets, action bars, keypads. The difference lives in the overlay layer: status bar, keyboard, safe area.\n- **Chat & AI** — 11 pages, 68 sets, 296 variants: message parts, composer, heavy AI tasks, in-chat commerce (product recommendations, cart drafts, quotations, contract review).\n- **Platform** — data tables, charts, GIS & map, operations, alerts & logs — shared by jMaps and jFa, split only by brand mode.\n- **AI · Legal** — citation cards (8 validity states), validity timeline, clause compare, 4-level risk flags, 5-state expert review."
+        },
+        {
+          "type": "text",
+          "heading": "Handoff",
+          "body": "- Every component set carries a description: when to use it, when not to.\n- Every component group has its own doc page with anatomy, variants and usage rules.\n- Contrast is checked by script against WCAG for every mode, not by eye.\n- A decision log records why each non-obvious choice was made."
+        },
+        {
+          "type": "chips",
+          "heading": "Deliverables",
+          "items": [
+            {
+              "text": "Figma library",
+              "nda": false
+            },
+            {
+              "text": "Variables & modes",
+              "nda": false
+            },
+            {
+              "text": "Desktop & mobile kits",
+              "nda": false
+            },
+            {
+              "text": "Chat & AI kits",
+              "nda": false
+            },
+            {
+              "text": "Documentation",
+              "nda": false
+            }
+          ]
+        }
+      ],
+      "shots": [
+        {
+          "type": "image",
+          "src": "assets/work/jf-ds/ds-scope.jpg",
+          "caption": "System scope — pages and variant counts per kit",
+          "mobile": false,
+          "alt": "System scope — pages and variant counts per kit"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/jf-ds/ds-token.jpg",
+          "caption": "Token architecture — 10 collections, 1,229 variables",
+          "mobile": false,
+          "alt": "Token architecture — 10 collections, 1,229 variables"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/jf-ds/ds-theming.jpg",
+          "caption": "Theming — the same component set in three brand modes",
+          "mobile": false,
+          "alt": "Theming — the same component set in three brand modes"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/jf-ds/ds-overview.jpg",
+          "caption": "Component overview — foundation, navigation, data entry, display, feedback",
+          "mobile": false,
+          "alt": "Component overview — foundation, navigation, data entry, display, feedback"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/jf-ds/ds-ai-commerce.jpg",
+          "caption": "AI kit · commerce & advisory — recommendations, cart draft, quotation, contract review",
+          "mobile": false,
+          "alt": "AI kit · commerce & advisory — recommendations, cart draft, quotation, contract review"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/jf-ds/ds-citation.jpg",
+          "caption": "Legal pattern · how legal basis is shown — citation card, validity timeline, clause compare",
+          "mobile": false,
+          "alt": "Legal pattern · how legal basis is shown — citation card, validity timeline, clause compare"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/jf-ds/ds-risk.jpg",
+          "caption": "Legal pattern · risk flags and hand-off to a real person",
+          "mobile": false,
+          "alt": "Legal pattern · risk flags and hand-off to a real person"
+        }
+      ],
+      "passwordHash": "",
+      "passwordStorageKey": ""
+    },
+    {
+      "slug": "jmaps",
+      "visible": true,
+      "featured": true,
+      "category": "product-uiux",
+      "title": "jMaps & jFa",
+      "badge": "",
+      "tagline": "An operations platform for sites, devices and alerts — plus the field app that closes the loop.",
+      "metaDescription": "jMaps & jFa — IoT and GIS operations platform: alerts, maps, devices, cameras, roles, plus a field app for farm operations. Product design case study by Sonorathy.",
+      "meta": [
+        {
+          "label": "Year",
+          "value": "2025 – 2026"
+        },
+        {
+          "label": "Role",
+          "value": "Product Designer"
+        },
+        {
+          "label": "Scope",
+          "value": "Research · UX · UI · Design System"
+        },
+        {
+          "label": "Platform",
+          "value": "Web dashboard + mobile field app"
+        }
+      ],
+      "card": {
+        "title": "jMaps & jFa",
+        "tag": "B2B SaaS · IoT · GIS",
+        "role": "Product Designer",
+        "highlights": [
+          "Research: personas, journey maps, competitors",
+          "Map-first operations dashboard",
+          "Every state: loading, empty, error, overload"
+        ],
+        "problem": "Operations teams watch thousands of devices across many sites. I designed a map-first dashboard that leads with the incident nobody has claimed yet, plus a field app that turns alerts into today's tasks.",
+        "cover": "assets/work/jmaps/jmaps-ops.jpg",
+        "coverAlt": "jMaps — operations overview dashboard",
+        "coverGradient": ""
+      },
+      "blocks": [
+        {
+          "type": "text",
+          "heading": "The scenario",
+          "body": "Operations teams watch thousands of connected devices spread across several sites — factories, cold storage, substations, farms. When something goes wrong (a cold room heating up, a transformer overloaded, a gateway offline), the first question is always the same: *where is it, how bad is it, and has anyone picked it up yet?*\n\njMaps answers that on a map-first web dashboard. jFa is its sibling for farm operations, with a mobile app for the people actually in the field."
+        },
+        {
+          "type": "text",
+          "heading": "Research first",
+          "body": "The project ran the full sequence before any UI: market research, user research (three personas and a journey map for each), data insight, competitor analysis and an audit of the existing flow — then user flow, sitemap, moodboard and concept."
+        },
+        {
+          "type": "text",
+          "heading": "Design challenges",
+          "body": "- **Unacknowledged beats unresolved.** The overview leads with the incident nobody has claimed yet — with the threshold, how long it has been over it, and a one-click “take it”.\n- **Map, list and camera tell one story.** Selecting an alert pins it on the site map and opens the nearest camera, so operators confirm visually before they dispatch anyone.\n- **Every state designed, not just the happy path.** Loading, no alerts, data-source error and overload each have their own screen.\n- **Roles and permissions as a first-class screen.** Who can see which site, and who can close an alert, is managed in the product, not in a support ticket.\n- **Close the loop in the field.** jFa mobile turns alerts and tasks into today’s checklist and a work log that supervisors approve on the web."
+        },
+        {
+          "type": "chips",
+          "heading": "Deliverables",
+          "items": [
+            {
+              "text": "Personas & journey maps",
+              "nda": false
+            },
+            {
+              "text": "Competitor analysis",
+              "nda": false
+            },
+            {
+              "text": "Web dashboard",
+              "nda": false
+            },
+            {
+              "text": "Mobile field app",
+              "nda": false
+            },
+            {
+              "text": "Platform kit in jF DS",
+              "nda": false
+            }
+          ]
+        }
+      ],
+      "shots": [
+        {
+          "type": "image",
+          "src": "assets/work/jmaps/jmaps-ops.jpg",
+          "caption": "Operations overview — unclaimed incident first, site map, camera, open alerts, trends",
+          "mobile": false,
+          "alt": "Operations overview — unclaimed incident first, site map, camera, open alerts, trends"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/jmaps/jmaps-map.jpg",
+          "caption": "Site map — assets and devices on the map",
+          "mobile": false,
+          "alt": "Site map — assets and devices on the map"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/jmaps/jmaps-alert.jpg",
+          "caption": "Alert detail — threshold, timeline and who has it",
+          "mobile": false,
+          "alt": "Alert detail — threshold, timeline and who has it"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/jmaps/jmaps-roles.jpg",
+          "caption": "Users & permissions — per-site access",
+          "mobile": false,
+          "alt": "Users & permissions — per-site access"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/jmaps/jmaps-loading.jpg",
+          "caption": "State · loading",
+          "mobile": false,
+          "alt": "State · loading"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/jmaps/jmaps-error.jpg",
+          "caption": "State · data-source error",
+          "mobile": false,
+          "alt": "State · data-source error"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/jmaps/jfa-overview.jpg",
+          "caption": "jFa · farm operations overview",
+          "mobile": false,
+          "alt": "jFa · farm operations overview"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/jmaps/jfa-m-today.jpg",
+          "caption": "jFa mobile · today's tasks",
+          "mobile": true,
+          "alt": "jFa mobile · today's tasks"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/jmaps/jfa-m-log.jpg",
+          "caption": "jFa mobile · logging work in the field",
+          "mobile": true,
+          "alt": "jFa mobile · logging work in the field"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/jmaps/jmaps-persona.jpg",
+          "caption": "Research · user persona",
+          "mobile": false,
+          "alt": "Research · user persona"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/jmaps/jmaps-journey.jpg",
+          "caption": "Research · user journey map",
+          "mobile": false,
+          "alt": "Research · user journey map"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/jmaps/jmaps-competitor.jpg",
+          "caption": "Research · competitor analysis",
+          "mobile": false,
+          "alt": "Research · competitor analysis"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/jmaps/jmaps-context.jpg",
+          "caption": "Research · background & context",
+          "mobile": false,
+          "alt": "Research · background & context"
+        }
+      ],
+      "passwordHash": "",
+      "passwordStorageKey": ""
+    },
+    {
+      "slug": "edpay",
+      "visible": true,
+      "featured": true,
+      "category": "product-uiux",
+      "title": "EdPay & jWallet",
+      "badge": "",
+      "tagline": "School payments without the spreadsheets — a student wallet, an admin portal and debt management.",
+      "metaDescription": "EdPay & jWallet — tuition collection, student wallet and debt management for schools. Fintech product design case study by Sonorathy.",
+      "meta": [
+        {
+          "label": "Year",
+          "value": "2026"
+        },
+        {
+          "label": "Client",
+          "value": "JDO Group"
+        },
+        {
+          "label": "Role",
+          "value": "Product Designer"
+        },
+        {
+          "label": "Platform",
+          "value": "Mobile app · Web admin · POS"
+        }
+      ],
+      "card": {
+        "title": "EdPay & jWallet",
+        "tag": "Fintech · EdTech · Mobile + Web",
+        "role": "Product Designer",
+        "highlights": [
+          "Student wallet app, MVP in two weeks",
+          "Admin portal for thousands of students",
+          "Debit notes, payment status, e-invoices"
+        ],
+        "problem": "Collecting tuition took weeks of forms, emailed bills and manual checks. I designed the student wallet, the school admin portal and debt management that move the whole payment cycle online.",
+        "cover": "assets/work/edpay/edpay-admin-student.jpg",
+        "coverAlt": "EdPay — school admin portal",
+        "coverGradient": ""
+      },
+      "blocks": [
+        {
+          "type": "text",
+          "heading": "The scenario",
+          "body": "Collecting tuition at a school used to take weeks: parents fill in enrolment forms, the accounting team emails bills, parents transfer money, then accounting checks every payment by hand. Every hand-off was a chance for errors and drop-offs.\n\nEdPay moves the whole cycle online: the school sets up fee items per student, parents review and pay by QR, bank transfer or card, and the e-invoice is issued automatically. jWallet extends it into a student wallet for spending on campus."
+        },
+        {
+          "type": "text",
+          "heading": "What I designed",
+          "body": "- **jWallet mobile app** — sign-up with email / phone OTP, home, top-up and transfers, spending limits, notifications, help centre, and NFC tap-to-pay at campus POS.\n- **Admin portal** — student and parent management, card settings, locking a wallet, and filters built for lists of thousands of students.\n- **Debit notes** — debt management lists, payment status, PDF invoices and empty states for the accounting team.\n- **Handoff** — MVP delivered in a two-week sprint, with every state (default, typing, filled, error + snackbar) specified for developers."
+        },
+        {
+          "type": "text",
+          "heading": "Design challenges",
+          "body": "- **Money needs certainty.** Every transaction ends on a receipt screen with amount, status and reference — nothing is “probably sent”.\n- **Parents control, students spend.** Limits and locks live on the parent side; the student app stays simple.\n- **Accounting works in bulk.** Admin screens are built around filters, statuses and exports rather than single records."
+        },
+        {
+          "type": "chips",
+          "heading": "Deliverables",
+          "items": [
+            {
+              "text": "Mobile app (MVP)",
+              "nda": false
+            },
+            {
+              "text": "Admin portal",
+              "nda": false
+            },
+            {
+              "text": "Debit note module",
+              "nda": false
+            },
+            {
+              "text": "POS / NFC flow",
+              "nda": false
+            },
+            {
+              "text": "Dev handoff",
+              "nda": false
+            }
+          ]
+        }
+      ],
+      "shots": [
+        {
+          "type": "image",
+          "src": "assets/work/edpay/edpay-flowmap.jpg",
+          "caption": "jWallet MVP — full flow: onboarding, transfers, limits, notifications, profile",
+          "mobile": false,
+          "alt": "jWallet MVP — full flow: onboarding, transfers, limits, notifications, profile"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/edpay/edpay-m-home.jpg",
+          "caption": "jWallet · home",
+          "mobile": true,
+          "alt": "jWallet · home"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/edpay/edpay-m-home2.jpg",
+          "caption": "jWallet · home with activity",
+          "mobile": true,
+          "alt": "jWallet · home with activity"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/edpay/edpay-m-pos.jpg",
+          "caption": "jWallet · pay at campus POS",
+          "mobile": true,
+          "alt": "jWallet · pay at campus POS"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/edpay/edpay-m-setting.jpg",
+          "caption": "jWallet · settings",
+          "mobile": true,
+          "alt": "jWallet · settings"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/edpay/edpay-m-help.jpg",
+          "caption": "jWallet · help centre",
+          "mobile": true,
+          "alt": "jWallet · help centre"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/edpay/edpay-admin-student.jpg",
+          "caption": "Admin · students",
+          "mobile": false,
+          "alt": "Admin · students"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/edpay/edpay-admin-student2.jpg",
+          "caption": "Admin · student detail",
+          "mobile": false,
+          "alt": "Admin · student detail"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/edpay/edpay-admin-card.jpg",
+          "caption": "Admin · card settings",
+          "mobile": false,
+          "alt": "Admin · card settings"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/edpay/edpay-admin-filter.jpg",
+          "caption": "Admin · filters",
+          "mobile": false,
+          "alt": "Admin · filters"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/edpay/edpay-debt-list.jpg",
+          "caption": "Debit notes · debt management",
+          "mobile": false,
+          "alt": "Debit notes · debt management"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/edpay/edpay-debt-status.jpg",
+          "caption": "Debit notes · payment status",
+          "mobile": false,
+          "alt": "Debit notes · payment status"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/edpay/edpay-debt-pdf.jpg",
+          "caption": "Debit notes · PDF invoice",
+          "mobile": false,
+          "alt": "Debit notes · PDF invoice"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/edpay/edpay-debt-empty.jpg",
+          "caption": "Debit notes · empty state",
+          "mobile": false,
+          "alt": "Debit notes · empty state"
+        }
+      ],
+      "passwordHash": "",
+      "passwordStorageKey": ""
+    },
+    {
+      "slug": "mvillage",
+      "visible": true,
+      "featured": true,
+      "category": "product-uiux",
+      "title": "M Village",
+      "badge": "",
+      "tagline": "Premium hotel brand repositioning & booking platform redesign.",
+      "metaDescription": "M Village — premium hotel brand repositioning & booking platform redesign. Brand & product design case study by Sonorathy.",
+      "meta": [
+        {
+          "label": "Year",
+          "value": "2026"
+        },
+        {
+          "label": "Scope",
+          "value": "Brand Strategy & UI/UX Design"
+        },
+        {
+          "label": "Client",
+          "value": "M Village"
+        },
+        {
+          "label": "Duration",
+          "value": "4 weeks"
+        }
+      ],
+      "card": {
+        "title": "M Village",
+        "tag": "Brand Strategy · Booking App",
+        "role": "Brand Strategy & UI/UX Designer",
+        "highlights": [
+          "Defined a premium brand positioning",
+          "Built the mood board & visual direction",
+          "Redesigned the end-to-end booking flow"
+        ],
+        "problem": "M Village wanted to move upmarket from a generic 'place to stay' to a premium lifestyle hotel brand for a more sophisticated clientele. I defined the positioning and carried it through a redesigned booking experience that earns trust in the first few seconds.",
+        "cover": "assets/work/mvillage-cover.jpg",
+        "coverAlt": "M Village — premium hotel brand repositioning",
+        "coverGradient": ""
+      },
+      "blocks": [
+        {
+          "type": "text",
+          "heading": "The Scenario & Business Problem",
+          "body": "M Village wanted to move upmarket — from a generic \"place to stay\" to a premium lifestyle hotel brand that could win over a more sophisticated, cosmopolitan clientele. But the existing booking platform read as a neutral, functional utility. It didn't look, feel, or behave like something that sophisticated guests would pay a premium for.\n\nReaching that higher-tier audience meant the brand and the product had to earn trust in the first few seconds — before a single room was even shown."
+        },
+        {
+          "type": "text",
+          "heading": "The Design & Strategy Challenge",
+          "body": "The goal was to define a premium positioning and carry it faithfully into a booking experience that still converts. Core objectives:\n\n- **Define the Premium Positioning:** Set a \"Sophisticated. Authentic. Premium.\" brand direction targeted at a cosmopolitan, higher-spending guest.\n- **Build the Visual & Mood Direction:** Translate that positioning into a color system, photography direction, and mood board every surface could draw from.\n- **Redesign the Booking Flow:** Turn search, compare, and checkout into one guided journey that reflects the new brand, not just a functional form.\n- **Build for Reuse:** Ship a reusable component library so new pages stay consistent as the product grows."
+        },
+        {
+          "type": "chips",
+          "heading": "Deliverables",
+          "items": [
+            {
+              "text": "Brand Positioning & Mood Board",
+              "nda": false
+            },
+            {
+              "text": "Booking Web App Redesign",
+              "nda": false
+            },
+            {
+              "text": "Design System",
+              "nda": false
+            },
+            {
+              "text": "Admin Dashboard",
+              "nda": true
+            }
+          ]
+        }
+      ],
+      "shots": [
+        {
+          "type": "image",
+          "src": "assets/work/mvillage-deck/p1-cover.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "M Village — premium brand cover"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/mvillage-deck/p4-website.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "M Village — redesigned booking website"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/mvillage-deck/slide-50.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "M Village — 'Live in the now' brand direction"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/mvillage-deck/slide-51.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "M Village — sophisticated authentic premium hotel brand positioning"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/mvillage-deck/slide-42.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "M Village — case study overview"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/mvillage-deck/slide-43.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "M Village — mood direction"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/mvillage-deck/slide-45.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "M Village — color palette in UI"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/mvillage-deck/slide-46.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "M Village — typography mood direction"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/mvillage-deck/slide-47.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "M Village — typeface system"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/mvillage-deck/slide-48.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "M Village — type scale"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/mvillage-deck/slide-49.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "M Village — typography grid & line spacing"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/mvillage-deck/slide-50b.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "M Village — hallway corridor lighting mood"
+        }
+      ],
+      "passwordHash": "",
+      "passwordStorageKey": ""
+    },
+    {
+      "slug": "lda",
+      "visible": true,
+      "featured": true,
+      "category": "product-uiux",
+      "title": "Legion D'Antares",
+      "badge": "",
+      "tagline": "Luxury fashion ecommerce — custom storefront design & development.",
+      "metaDescription": "Legion D'Antares — luxury fashion ecommerce. Web design & development case study by Sonorathy.",
+      "meta": [
+        {
+          "label": "Year",
+          "value": "2026"
+        },
+        {
+          "label": "Scope",
+          "value": "Web Design & Development"
+        },
+        {
+          "label": "Client",
+          "value": "Legion D'Antares"
+        },
+        {
+          "label": "Duration",
+          "value": "5 weeks"
+        }
+      ],
+      "card": {
+        "title": "Legion D'Antares",
+        "tag": "Web Design & Dev · Ecommerce",
+        "role": "Web Designer & Developer",
+        "highlights": [
+          "Custom storefront design & build",
+          "Editorial-style product storytelling",
+          "Optimized checkout experience"
+        ],
+        "problem": "The brand needed an ecommerce presence that matched its high-fashion positioning instead of a generic template look. I designed and built a custom storefront with editorial pacing that lets the collections breathe.",
+        "cover": "assets/work/lda-cover.jpg",
+        "coverAlt": "Legion D'Antares — luxury fashion ecommerce",
+        "coverGradient": ""
+      },
+      "blocks": [
+        {
+          "type": "text",
+          "heading": "The Scenario & Business Problem",
+          "body": "The brand needed an ecommerce presence that matched its high-fashion positioning instead of a generic template look. I designed and built a custom storefront with editorial pacing that lets the collections breathe.\n\nOff-the-shelf ecommerce themes made every collection look like a catalog page. The brand needed the site itself to feel like part of the campaign, not just a place to check out."
+        },
+        {
+          "type": "text",
+          "heading": "The Design & Strategy Challenge",
+          "body": "The goal was a storefront that felt as considered as the collections it sells, without sacrificing conversion. Core objectives:\n\n- **Design an Editorial Storefront:** Give each collection room to breathe instead of a dense grid layout.\n- **Tell the Product Story:** Pair imagery and copy so product pages read like a lookbook.\n- **Simplify Checkout:** Cut friction from cart to confirmation without losing the premium feel."
+        },
+        {
+          "type": "chips",
+          "heading": "Deliverables",
+          "items": [
+            {
+              "text": "Ecommerce Storefront",
+              "nda": false
+            },
+            {
+              "text": "Product Photography Direction",
+              "nda": false
+            },
+            {
+              "text": "Email Templates",
+              "nda": true
+            }
+          ]
+        }
+      ],
+      "shots": [
+        {
+          "type": "image",
+          "src": "assets/work/lda-deck/p2-mobile-hero.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "Legion D'Antares — mobile landing page"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/lda-deck/p2-mobile.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "Legion D'Antares — mobile storefront screens"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/lda-deck/p3-checkout.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "Legion D'Antares — mobile checkout flow"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/lda-deck/p1-desktop.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "Legion D'Antares — desktop landing page"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/lda-deck/p6-collage.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "Legion D'Antares — multi-device mockup"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/lda-deck/p4-designsystem.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "Legion D'Antares — design system"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/lda-deck/p5-photobook.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "Legion D'Antares — photobook mockup"
+        },
+        {
+          "type": "video",
+          "src": "assets/video/lda-reel.mp4",
+          "caption": "",
+          "mobile": false
+        }
+      ],
+      "passwordHash": "",
+      "passwordStorageKey": ""
+    },
+    {
+      "slug": "luvenus-jewelry",
+      "visible": true,
+      "featured": true,
+      "category": "branding",
+      "title": "Luvenus",
+      "badge": "",
+      "tagline": "Fine jewelry & piercing brand identity — elegance meets edge.",
+      "metaDescription": "Luvenus — fine jewelry & piercing brand identity. Brand identity case study by Sonorathy.",
+      "meta": [
+        {
+          "label": "Year",
+          "value": "2024"
+        },
+        {
+          "label": "Scope",
+          "value": "Brand Identity"
+        },
+        {
+          "label": "Client",
+          "value": "Luvenus Jewelry & Piercing"
+        },
+        {
+          "label": "Duration",
+          "value": "3 weeks"
+        }
+      ],
+      "card": {
+        "title": "Luvenus",
+        "tag": "Brand Identity · Packaging",
+        "role": "Brand Identity Designer",
+        "highlights": [
+          "Logo & visual identity system",
+          "Packaging & stationery design",
+          "Billboard and gift merchandise applications"
+        ],
+        "problem": "Luvenus needed a fine jewelry & piercing brand identity that felt both elegant and distinctive in a market full of generic gold-and-black branding. I built a full identity system — from logo to packaging to out-of-home advertising.",
+        "cover": "assets/work/luvenus-cover.jpg",
+        "coverAlt": "Luvenus — fine jewelry brand identity",
+        "coverGradient": ""
+      },
+      "blocks": [
+        {
+          "type": "text",
+          "heading": "The Scenario & Business Problem",
+          "body": "Luvenus is a fine jewelry and luxury piercing brand looking to stand out in a market full of generic gold-and-black jewelry branding. It needed an identity that felt both elegant and distinctive — sophisticated enough for fine jewelry, edgy enough for a piercing studio.\n\nThe brand needed to work across everything from packaging and stationery to out-of-home advertising, without losing the sense of quiet luxury that fine jewelry buyers expect."
+        },
+        {
+          "type": "text",
+          "heading": "The Design & Strategy Challenge",
+          "body": "The goal was a mark and system flexible enough to travel from a wax seal to a subway billboard. Core objectives:\n\n- **Design the Mark:** A logo combining a phoenix, a gemstone and a woman's silhouette — symbolizing transformation and confidence.\n- **Build the Color & Type System:** A teal-and-gold palette that reads as premium without tipping into cliché.\n- **Extend to Every Touchpoint:** Packaging, stationery, gifts and billboard advertising, all carrying one consistent visual language."
+        },
+        {
+          "type": "chips",
+          "heading": "Deliverables",
+          "items": [
+            {
+              "text": "Brand Identity Kit",
+              "nda": false
+            },
+            {
+              "text": "Packaging & Stationery",
+              "nda": false
+            },
+            {
+              "text": "Billboard & CIP Applications",
+              "nda": false
+            },
+            {
+              "text": "Merchandise & Gifts",
+              "nda": false
+            }
+          ]
+        }
+      ],
+      "shots": [
+        {
+          "type": "image",
+          "src": "assets/work/luvenus-deck/p00-cover.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "Luvenus — brand guidelines cover"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/luvenus-deck/p01.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "Luvenus — brand guidelines page 1"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/luvenus-deck/p02.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "Luvenus — brand guidelines page 2"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/luvenus-deck/p03.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "Luvenus — brand guidelines page 3"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/luvenus-deck/p04.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "Luvenus — brand guidelines page 4"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/luvenus-deck/p05.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "Luvenus — brand guidelines page 5"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/luvenus-deck/p06.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "Luvenus — brand guidelines page 6"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/luvenus-deck/p07.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "Luvenus — brand guidelines page 7"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/luvenus-deck/p08.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "Luvenus — brand guidelines page 8"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/luvenus-deck/p09.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "Luvenus — brand guidelines page 9"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/luvenus-deck/p10.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "Luvenus — brand guidelines page 10"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/luvenus-deck/p11.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "Luvenus — brand guidelines page 11"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/luvenus-deck/p12.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "Luvenus — brand guidelines page 12"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/luvenus-deck/p13.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "Luvenus — brand guidelines page 13"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/luvenus-deck/p14.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "Luvenus — brand guidelines page 14"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/luvenus-deck/p15.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "Luvenus — brand guidelines page 15"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/luvenus-deck/p16.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "Luvenus — brand guidelines page 16"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/luvenus-deck/p17.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "Luvenus — brand guidelines page 17"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/luvenus-deck/p18.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "Luvenus — brand guidelines page 18"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/luvenus-deck/p19.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "Luvenus — brand guidelines page 19"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/luvenus-deck/p20.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "Luvenus — brand guidelines page 20"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/luvenus-deck/p21.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "Luvenus — brand guidelines page 21"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/luvenus-deck/p22.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "Luvenus — brand guidelines page 22"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/luvenus-deck/p23.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "Luvenus — brand guidelines page 23"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/luvenus-deck/p24.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "Luvenus — brand guidelines page 24"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/luvenus-deck/p25.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "Luvenus — brand guidelines page 25"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/luvenus-deck/p26.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "Luvenus — brand guidelines page 26"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/luvenus-deck/p27.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "Luvenus — brand guidelines page 27"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/luvenus-deck/p28.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "Luvenus — brand guidelines page 28"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/luvenus-deck/p29.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "Luvenus — brand guidelines page 29"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/luvenus-deck/p30.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "Luvenus — brand guidelines page 30"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/luvenus-deck/p31.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "Luvenus — brand guidelines page 31"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/luvenus-deck/p32-lastcover.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "Luvenus — brand guidelines back cover"
+        }
+      ],
+      "passwordHash": "",
+      "passwordStorageKey": ""
+    },
+    {
+      "slug": "luvenus",
+      "visible": true,
+      "featured": true,
+      "category": "product-uiux",
+      "title": "30S Care",
+      "badge": "",
+      "tagline": "Premium leather care brand identity & landing page — clean, care, protect.",
+      "metaDescription": "30S Care — leather care brand identity & landing page. Brand & UI/UX design case study by Sonorathy.",
+      "meta": [
+        {
+          "label": "Year",
+          "value": "2026"
+        },
+        {
+          "label": "Scope",
+          "value": "Brand Identity & UI/UX Design"
+        },
+        {
+          "label": "Client",
+          "value": "30S Care"
+        },
+        {
+          "label": "Duration",
+          "value": "4 weeks"
+        }
+      ],
+      "card": {
+        "title": "30S Care",
+        "tag": "Brand Identity · Landing Page",
+        "role": "Brand & UI/UX Designer",
+        "highlights": [
+          "Full brand identity & logo system",
+          "Conversion-focused landing page",
+          "Mini design system for product UI"
+        ],
+        "problem": "30S Care needed a premium identity and a landing page that could earn trust for a car-interior leather-care product in a crowded accessories market. I built the brand from logo to launch page in one consistent system.",
+        "cover": "assets/work/30care-cover.jpg",
+        "coverAlt": "30S Care — leather care brand identity",
+        "coverGradient": ""
+      },
+      "blocks": [
+        {
+          "type": "text",
+          "heading": "The Scenario & Business Problem",
+          "body": "30S Care is a premium leather care line for car interiors entering a market crowded with generic, low-trust accessory brands. It needed an identity and a launch page that could earn confidence in the first few seconds — before a single feature was explained.\n\nThe name comes from the product's core promise: visible results in just 30 seconds. The brand and the landing page both had to make that promise feel credible, not gimmicky."
+        },
+        {
+          "type": "text",
+          "heading": "The Design & Strategy Challenge",
+          "body": "The goal was a premium, trustworthy identity that could extend cleanly from product packaging to a conversion-focused digital storefront. Core objectives:\n\n- **Build the Brand Identity:** Design a logo, color system, and typography that read as premium automotive care, not generic cleaning supplies.\n- **Design the Landing Page:** Lead with the \"30 seconds\" promise and guide visitors straight to purchase.\n- **Ship a Mini Design System:** Document reusable UI components so the product site stays consistent as it grows.\n- **Extend to Merchandise:** Carry the identity onto apparel and stationery for market presence beyond the product itself."
+        },
+        {
+          "type": "chips",
+          "heading": "Deliverables",
+          "items": [
+            {
+              "text": "Brand Identity Kit",
+              "nda": false
+            },
+            {
+              "text": "Landing Page Design",
+              "nda": false
+            },
+            {
+              "text": "Mini Design System",
+              "nda": false
+            },
+            {
+              "text": "Merchandise & Stationery Mockup",
+              "nda": false
+            }
+          ]
+        }
+      ],
+      "shots": [
+        {
+          "type": "image",
+          "src": "assets/work/30care-cover.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "30S Care — brand cover"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/30care-landing.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "30S Care — landing page mockup"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/30care-palette.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "30S Care — color palette"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/30care-designsystem.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "30S Care — mini design system"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/30care-merch.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "30S Care — merchandise mockup"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/30care-stationery.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "30S Care — stationery mockup"
+        },
+        {
+          "type": "video",
+          "src": "assets/video/30care-reel.mp4",
+          "caption": "",
+          "mobile": false
+        }
+      ],
+      "passwordHash": "",
+      "passwordStorageKey": ""
+    },
+    {
+      "slug": "geomap",
+      "visible": true,
+      "featured": true,
+      "category": "product-uiux",
+      "title": "GeoMap",
+      "badge": "",
+      "tagline": "Map-based web app for visualizing location data.",
+      "metaDescription": "GeoMap — web app design & development. Product design case study by Sonorathy.",
+      "meta": [
+        {
+          "label": "Year",
+          "value": "2026"
+        },
+        {
+          "label": "Scope",
+          "value": "Product & Frontend Design"
+        },
+        {
+          "label": "Client",
+          "value": "GeoMap"
+        },
+        {
+          "label": "Duration",
+          "value": "6 weeks"
+        }
+      ],
+      "card": {
+        "title": "GeoMap",
+        "tag": "Web App Design & Dev",
+        "role": "Product Designer & Frontend Developer",
+        "highlights": [
+          "Map-based data visualization UI",
+          "Design system for a data-dense app",
+          "Built with performance in mind"
+        ],
+        "problem": "The existing tool buried useful location data behind dense tables that were hard to scan. I designed a map-first interface that surfaces the same data visually, making patterns obvious at a glance.",
+        "cover": "",
+        "coverAlt": "",
+        "coverGradient": "linear-gradient(155deg,#4fa9ff,#0a0a0b)"
+      },
+      "blocks": [
+        {
+          "type": "text",
+          "heading": "The Scenario & Business Problem",
+          "body": "The existing tool buried useful location data behind dense tables that were hard to scan. I designed a map-first interface that surfaces the same data visually, making patterns obvious at a glance.\n\nAnalysts were spending more time scrolling through rows than actually finding insight — the team needed the map itself to do the work the tables couldn't."
+        },
+        {
+          "type": "text",
+          "heading": "The Design & Strategy Challenge",
+          "body": "The goal was to make a data-dense product feel legible at a glance, without stripping out the detail power users rely on. Core objectives:\n\n- **Lead with the Map:** Turn tabular location data into an interface built around visual patterns.\n- **Design a Scalable System:** Ship a component system that holds up as the data set grows.\n- **Optimize for Performance:** Keep the map fast and responsive even with dense data layers."
+        },
+        {
+          "type": "chips",
+          "heading": "Deliverables",
+          "items": [
+            {
+              "text": "Web App",
+              "nda": false
+            },
+            {
+              "text": "Design System",
+              "nda": false
+            },
+            {
+              "text": "Internal Admin Tool",
+              "nda": true
+            }
+          ]
+        }
+      ],
+      "shots": [
+        {
+          "type": "gradient",
+          "css": "linear-gradient(155deg,#4fa9ff,#0a0a0b)",
+          "caption": "",
+          "mobile": false
+        }
+      ],
+      "passwordHash": "",
+      "passwordStorageKey": ""
+    },
+    {
+      "slug": "finbnb",
+      "visible": true,
+      "featured": true,
+      "category": "product-uiux",
+      "title": "FinB&B",
+      "badge": "",
+      "tagline": "Fintech web app — onboarding, dashboard, and reporting UI.",
+      "metaDescription": "FinB&B — fintech web app. Product & UI/UX design case study by Sonorathy.",
+      "meta": [
+        {
+          "label": "Year",
+          "value": "2026"
+        },
+        {
+          "label": "Scope",
+          "value": "Product & UI/UX Design"
+        },
+        {
+          "label": "Client",
+          "value": "FinB&B"
+        },
+        {
+          "label": "Duration",
+          "value": "5 weeks"
+        }
+      ],
+      "card": {
+        "title": "FinB&B",
+        "tag": "Fintech · Web App",
+        "role": "Product & UI/UX Designer",
+        "highlights": [
+          "Simplified onboarding flow",
+          "Dashboard & reporting UI",
+          "Accessible, trustworthy visual language"
+        ],
+        "problem": "Early users found the product hard to trust and navigate, with onboarding that felt like a typical finance app. I designed a calmer, clearer interface that builds trust from the first screen.",
+        "cover": "",
+        "coverAlt": "",
+        "coverGradient": "linear-gradient(155deg,#7c5cff,#0a0a0b)"
+      },
+      "blocks": [
+        {
+          "type": "text",
+          "heading": "The Scenario & Business Problem",
+          "body": "Early users found the product hard to trust and navigate, with onboarding that felt like a typical finance app. I designed a calmer, clearer interface that builds trust from the first screen.\n\nIn fintech, hesitation at onboarding means lost users. The product needed to feel credible and easy to understand before it could ask anyone to connect their finances."
+        },
+        {
+          "type": "text",
+          "heading": "The Design & Strategy Challenge",
+          "body": "The goal was an interface that felt trustworthy without feeling cold or overly corporate. Core objectives:\n\n- **Simplify Onboarding:** Cut unnecessary steps so new users reach value faster.\n- **Design the Dashboard:** Make reporting and account data easy to scan at a glance.\n- **Build Trust Visually:** Use an accessible, calm visual language instead of typical finance-app tropes."
+        },
+        {
+          "type": "chips",
+          "heading": "Deliverables",
+          "items": [
+            {
+              "text": "Web App",
+              "nda": false
+            },
+            {
+              "text": "Dashboard UI",
+              "nda": false
+            },
+            {
+              "text": "Compliance Docs UI",
+              "nda": true
+            }
+          ]
+        }
+      ],
+      "shots": [
+        {
+          "type": "gradient",
+          "css": "linear-gradient(155deg,#7c5cff,#0a0a0b)",
+          "caption": "",
+          "mobile": false
+        }
+      ],
+      "passwordHash": "",
+      "passwordStorageKey": ""
+    },
+    {
+      "slug": "gamble",
+      "visible": true,
+      "featured": true,
+      "category": "product-uiux",
+      "title": "GAMBLE",
+      "badge": "",
+      "tagline": "Real-money gaming platform — lobby, live casino & mobile app design.",
+      "metaDescription": "GAMBLE — real-money gaming platform, lobby & mobile app design. Password-protected case study by Sonorathy.",
+      "meta": [
+        {
+          "label": "Year",
+          "value": "2026"
+        },
+        {
+          "label": "Scope",
+          "value": "Product & UI/UX Design"
+        },
+        {
+          "label": "Client",
+          "value": "NDA"
+        },
+        {
+          "label": "Duration",
+          "value": "6 weeks"
+        }
+      ],
+      "card": {
+        "title": "GAMBLE",
+        "tag": "Product Design · NDA",
+        "role": "Product & UI/UX Designer",
+        "highlights": [
+          "Casino lobby & live-game UI design",
+          "Responsive web + mobile app system",
+          "Password-protected case study (NDA)"
+        ],
+        "problem": "A real-money gaming platform needed a lobby, live-game and wallet experience that felt fast, trustworthy and premium across web and mobile. Full case study details are under NDA — enter the password to view.",
+        "cover": "assets/work/gamble-cover.jpg",
+        "coverAlt": "GAMBLE — password-protected case study",
+        "coverGradient": ""
+      },
+      "blocks": [
+        {
+          "type": "text",
+          "heading": "The Scenario & Business Problem",
+          "body": "A real-money gaming platform needed a lobby, live-casino and mobile app experience that felt fast, trustworthy and premium — while surfacing dense, constantly-updating information: jackpots, live tables, wallet balances, chat, leaderboards.\n\nThe existing UI looked generic and cluttered, which undermined trust despite the product itself being solid. In an industry where users decide to deposit within seconds, that gap in perceived credibility was costing conversions."
+        },
+        {
+          "type": "text",
+          "heading": "The Design & Strategy Challenge",
+          "body": "The goal was a UI dense enough to hold everything a real-money player expects, without ever feeling noisy or untrustworthy. Core objectives:\n\n- **Design a Trustworthy Lobby:** Balance jackpots, promos and live stats in one hierarchy that reads as premium, not chaotic.\n- **Streamline the Live-Game UI:** Keep bet, balance and win states legible at a glance during fast-paced play.\n- **Build a Consistent Mobile System:** Carry the same visual language across web and app without losing density.\n- **Design for High-Frequency Trust:** Wallet, payments and VIP surfaces that feel secure on every visit, not just the first."
+        },
+        {
+          "type": "chips",
+          "heading": "Deliverables",
+          "items": [
+            {
+              "text": "Casino Lobby & Live Casino UI",
+              "nda": false
+            },
+            {
+              "text": "Mobile App Design System",
+              "nda": false
+            },
+            {
+              "text": "Wallet & Payments Flow",
+              "nda": true
+            },
+            {
+              "text": "Full Case Study",
+              "nda": true
+            }
+          ]
+        }
+      ],
+      "shots": [
+        {
+          "type": "image",
+          "src": "assets/work/gamble-deck/p1-lobby.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "GAMBLE — casino lobby, web & mobile"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/gamble-deck/p2-slot.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "GAMBLE — live slot game UI"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/gamble-deck/p3-app.jpg",
+          "caption": "",
+          "mobile": false,
+          "alt": "GAMBLE — mobile app screens"
+        }
+      ],
+      "passwordHash": "47286cc2d7e42d0dc79fb7ca6ba0d8103c1d347340ce56c03b370d74c9bf6b74",
+      "passwordStorageKey": "snrt:gambleUnlocked"
+    }
+  ]
+}
