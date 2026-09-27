@@ -5,8 +5,8 @@
 <meta charset="UTF-8" />
 <script>(function(){try{var t=localStorage.getItem('snrt:theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>EdPay &amp; jWallet — Sonorathy</title>
-<meta name="description" content="EdPay &amp; jWallet — tuition collection, student wallet and debt management for schools. Fintech product design case study by Sonorathy." />
+<title>EdPay · Shop Billing — Sonorathy</title>
+<meta name="description" content="EdPay · Shop Billing — POS, handheld terminal, pre-order with in-store pickup and the jLink payment page for school stores, on one debit note ledger. Fintech product design case study by Sonorathy." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
@@ -29,49 +29,79 @@
 
 <div class="pd-grid">
   <div class="pd-info">
-    <h1 class="pd-title">EdPay &amp; jWallet</h1>
-    <p class="pd-tagline">School payments without the spreadsheets — a student wallet, an admin portal and debt management.</p>
+    <h1 class="pd-title">EdPay · Shop Billing</h1>
+    <p class="pd-tagline">Three ways to sell, one debit note — counter POS, a handheld terminal and online pre-orders for school stores, all posting to the same ledger.</p>
 
     <div class="pd-meta">
-      <div class="pd-meta-row"><span>Year</span><span>2026</span></div>
+      <div class="pd-meta-row"><span>Year</span><span>2025 – 2026</span></div>
       <div class="pd-meta-row"><span>Client</span><span>JDO Group</span></div>
       <div class="pd-meta-row"><span>Role</span><span>Product Designer</span></div>
-      <div class="pd-meta-row"><span>Platform</span><span>Mobile app · Web admin · POS</span></div>
+      <div class="pd-meta-row"><span>Platform</span><span>iPad POS · Handheld · Web · Mobile</span></div>
     </div>
 
-    <div class="pd-block">
-      <h2>The scenario</h2>
-      <p>Collecting tuition at a school used to take weeks: parents fill in enrolment forms, the accounting team emails bills, parents transfer money, then accounting checks every payment by hand. Every hand-off was a chance for errors and drop-offs.</p>
-      <p>EdPay moves the whole cycle online: the school sets up fee items per student, parents review and pay by QR, bank transfer or card, and the e-invoice is issued automatically. jWallet extends it into a student wallet for spending on campus.</p>
+    <div class="pd-block" data-section="sec-overview">
+      <h2>The ecosystem</h2>
+      <p>EdPay is a school payments ecosystem. Shop Billing is its retail side: a school store sells at the counter on an iPad POS, from a handheld terminal and through online pre-orders — and every payment ends up in the same debit note ledger that handles receivables and invoicing.</p>
+      <p>Built for school stores. Also works for general retail and F&amp;B.</p>
     </div>
 
-    <div class="pd-block">
+    <div class="pd-block" data-section="sec-overview">
+      <h2>In numbers</h2>
+      <div class="pd-stats">
+        <div class="pd-stat"><strong>3</strong><span>sales channels</span></div>
+        <div class="pd-stat"><strong>4</strong><span>surfaces</span></div>
+        <div class="pd-stat"><strong>42</strong><span>screens &amp; states</span></div>
+        <div class="pd-stat"><strong>5 → 3</strong><span>accounting steps per payment (internal figure from the product team)</span></div>
+      </div>
+    </div>
+
+    <div class="pd-block" data-section="sec-problem-solution">
+      <h2>Selling was quick. Bookkeeping lagged behind.</h2>
+      <p>Three things slowed the store down after the sale. Each one maps to a part of the product.</p>
+      <table class="pd-table">
+        <tr><th>Before</th><th>After</th></tr>
+        <tr><td>Counter sales, online orders and payments were kept in separate places and reconciled at the end of the day.</td><td>POS, handheld and pre-orders share one order queue and post to the same ledger.</td></tr>
+        <tr><td>Online payments passed through a third-party gateway before reaching the merchant.</td><td>jLink replaces the gateway; funds settle in the merchant’s bank account.</td></tr>
+        <tr><td>Accountants created receivables, sent reminders and issued invoices by hand for each payment.</td><td>The debit note system handles receivables, reminders, instalments and e-invoices.</td></tr>
+      </table>
+    </div>
+
+    <div class="pd-block" data-section="sec-counter-pos">
       <h2>What I designed</h2>
       <ul class="pd-objectives">
-        <li><strong>jWallet mobile app</strong> — sign-up with email / phone OTP, home, top-up and transfers, spending limits, notifications, help centre, and NFC tap-to-pay at campus POS.</li>
-        <li><strong>Admin portal</strong> — student and parent management, card settings, locking a wallet, and filters built for lists of thousands of students.</li>
-        <li><strong>Debit notes</strong> — debt management lists, payment status, PDF invoices and empty states for the accounting team.</li>
-        <li><strong>Handoff</strong> — MVP delivered in a two-week sprint, with every state (default, typing, filled, error + snackbar) specified for developers.</li>
+        <li><strong>Counter POS (iPad)</strong> — the catalog follows the store’s product categories and the cart stays pinned to the right. Quick-tender amounts and change, receipt or e-invoice, and a shift close that compares drawer cash with the system total.</li>
+        <li><strong>POS terminal (handheld)</strong> — the same flow for serving customers away from the counter or when the queue is long, so there is nothing new to learn.</li>
+        <li><strong>Pre-order, in-store pickup</strong> — parents browse and pay online, or pay at the counter on pickup. The order lands in the cashier’s queue with its pickup time; guests track it with an order code, no account needed.</li>
+        <li><strong>jLink payment page</strong> — amount, merchant and a session countdown stay at the top; a data policy checkbox gates confirm; six-digit OTP with resend after 60 seconds.</li>
+        <li><strong>Also in EdPay</strong> — the jWallet student app (sign-up, top-up, transfers, spending limits, NFC tap-to-pay at campus POS) and the school admin portal for student, parent and card management.</li>
       </ul>
     </div>
 
-    <div class="pd-block">
-      <h2>Design challenges</h2>
+    <div class="pd-block" data-section="sec-pre-order">
+      <h2>Design choices</h2>
       <ul class="pd-objectives">
-        <li><strong>Money needs certainty.</strong> Every transaction ends on a receipt screen with amount, status and reference — nothing is “probably sent”.</li>
-        <li><strong>Parents control, students spend.</strong> Limits and locks live on the parent side; the student app stays simple.</li>
-        <li><strong>Accounting works in bulk.</strong> Admin screens are built around filters, statuses and exports rather than single records.</li>
+        <li><strong>One queue for every channel.</strong> Walk-in sales and online pre-orders appear in the same order queue, so the cashier never checks two places.</li>
+        <li><strong>Nothing new to learn.</strong> The handheld mirrors the iPad flow step for step.</li>
+        <li><strong>Pay now or at pickup.</strong> Payment status and order progress sit side by side, so parents know when to come.</li>
+        <li><strong>Money needs certainty.</strong> Every payment ends on a screen with amount, status and reference — nothing is “probably sent”.</li>
       </ul>
+    </div>
+
+    <div class="pd-block" data-section="sec-ecosystem">
+      <h2>Under the hood</h2>
+      <p>Whichever channel makes the sale, the transaction lands in the debit note system: a receivable for each sale, reminders when a payment is due, instalments, e-invoices issued once a payment is confirmed, and direct settlement to the merchant’s bank account with partner banks.</p>
+      <p>The debit note system is a proprietary product and its UI is not shown here — see edpay.vn. How jLink works technically is under NDA.</p>
     </div>
 
     <div class="pd-block">
       <h2>Deliverables</h2>
       <div class="pd-deliverables">
-        <span class="pd-deliverable">Mobile app (MVP)</span>
-        <span class="pd-deliverable">Admin portal</span>
-        <span class="pd-deliverable">Debit note module</span>
-        <span class="pd-deliverable">POS / NFC flow</span>
-        <span class="pd-deliverable">Dev handoff</span>
+        <span class="pd-deliverable">Counter POS (iPad)</span>
+        <span class="pd-deliverable">Handheld POS terminal</span>
+        <span class="pd-deliverable">Pre-order storefront</span>
+        <span class="pd-deliverable">jLink payment page</span>
+        <span class="pd-deliverable">jWallet &amp; admin portal</span>
+        <span class="pd-deliverable pd-nda">Debit note integration <em>NDA</em></span>
       </div>
     </div>
 
@@ -94,56 +124,52 @@
   </div>
 
   <div class="pd-showcase pd-showcase-stack">
-    <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/edpay/edpay-flowmap.jpg" alt="jWallet MVP — full flow: onboarding, transfers, limits, notifications, profile">
+    <figure class="pd-showcase-item" data-section="sec-overview" id="sec-overview" data-hover>
+      <img src="assets/work/edpay/00-hero.jpg" alt="Shop Billing — retail and billing for school stores: login and storefront on mobile">
     </figure>
-    <figure class="pd-showcase-item pd-showcase-mobile" data-hover>
-      <img src="assets/work/edpay/edpay-m-home.jpg" alt="jWallet · home" loading="lazy">
+    <figure class="pd-showcase-item" data-section="sec-overview" data-hover>
+      <img src="assets/work/edpay/01-overview.jpg" alt="Overview — three ways to sell, one debit note ledger; counter POS screen" loading="lazy">
     </figure>
-    <figure class="pd-showcase-item pd-showcase-mobile" data-hover>
-      <img src="assets/work/edpay/edpay-m-home2.jpg" alt="jWallet · home with activity" loading="lazy">
+    <figure class="pd-showcase-item" data-section="sec-problem-solution" id="sec-problem-solution" data-hover>
+      <img src="assets/work/edpay/02-problem-solution.jpg" alt="Problem and solution — three bottlenecks after the sale, each mapped to a part of the product" loading="lazy">
     </figure>
-    <figure class="pd-showcase-item pd-showcase-mobile" data-hover>
-      <img src="assets/work/edpay/edpay-m-pos.jpg" alt="jWallet · pay at campus POS" loading="lazy">
+    <figure class="pd-showcase-item" data-section="sec-counter-pos" id="sec-counter-pos" data-hover>
+      <img src="assets/work/edpay/03-counter-pos.jpg" alt="Counter POS on iPad — catalog, pinned cart, quick tender, receipt or e-invoice, shift close" loading="lazy">
     </figure>
-    <figure class="pd-showcase-item pd-showcase-mobile" data-hover>
-      <img src="assets/work/edpay/edpay-m-setting.jpg" alt="jWallet · settings" loading="lazy">
+    <figure class="pd-showcase-item" data-section="sec-pos-terminal" id="sec-pos-terminal" data-hover>
+      <img src="assets/work/edpay/04-pos-terminal.jpg" alt="POS terminal — the same flow on a handheld, with a printed receipt" loading="lazy">
     </figure>
-    <figure class="pd-showcase-item pd-showcase-mobile" data-hover>
-      <img src="assets/work/edpay/edpay-m-help.jpg" alt="jWallet · help centre" loading="lazy">
+    <figure class="pd-showcase-item" data-section="sec-pre-order" id="sec-pre-order" data-hover>
+      <img src="assets/work/edpay/05-pre-order.jpg" alt="Pre-order with in-store pickup — storefront, checkout, order tracking and order history" loading="lazy">
     </figure>
-    <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/edpay/edpay-admin-student.jpg" alt="Admin · students" loading="lazy">
+    <figure class="pd-showcase-item" data-section="sec-jlink" id="sec-jlink" data-hover>
+      <img src="assets/work/edpay/06-jlink.jpg" alt="jLink payment page — amount, merchant and countdown on top, OTP confirmation, web and mobile" loading="lazy">
     </figure>
-    <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/edpay/edpay-admin-student2.jpg" alt="Admin · student detail" loading="lazy">
+    <figure class="pd-showcase-item" data-section="sec-ecosystem" id="sec-ecosystem" data-hover>
+      <img src="assets/work/edpay/07-ecosystem.jpg" alt="Ecosystem — three channels post to one debit note: receivables, reminders, instalments, e-invoices, direct settlement" loading="lazy">
     </figure>
-    <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/edpay/edpay-admin-card.jpg" alt="Admin · card settings" loading="lazy">
-    </figure>
-    <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/edpay/edpay-admin-filter.jpg" alt="Admin · filters" loading="lazy">
-    </figure>
-    <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/edpay/edpay-debt-list.jpg" alt="Debit notes · debt management" loading="lazy">
-    </figure>
-    <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/edpay/edpay-debt-status.jpg" alt="Debit notes · payment status" loading="lazy">
-    </figure>
-    <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/edpay/edpay-debt-pdf.jpg" alt="Debit notes · PDF invoice" loading="lazy">
-    </figure>
-    <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/edpay/edpay-debt-empty.jpg" alt="Debit notes · empty state" loading="lazy">
+    <figure class="pd-showcase-item" data-section="sec-thanks" id="sec-thanks" data-hover>
+      <img src="assets/work/edpay/08-thanks.jpg" alt="Thanks for scrolling" loading="lazy">
     </figure>
   </div>
 </div>
 
-<a href="project-jmaps.html" class="pd-prev-float" data-hover>
+<nav class="pd-secnav" aria-label="Sections">
+  <a href="#sec-overview" class="pd-secnav-item is-active" data-target="sec-overview" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">Overview</span></a>
+  <a href="#sec-problem-solution" class="pd-secnav-item" data-target="sec-problem-solution" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">Problem &amp; Solution</span></a>
+  <a href="#sec-counter-pos" class="pd-secnav-item" data-target="sec-counter-pos" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">Counter POS</span></a>
+  <a href="#sec-pos-terminal" class="pd-secnav-item" data-target="sec-pos-terminal" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">POS Terminal</span></a>
+  <a href="#sec-pre-order" class="pd-secnav-item" data-target="sec-pre-order" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">Pre-order</span></a>
+  <a href="#sec-jlink" class="pd-secnav-item" data-target="sec-jlink" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">jLink</span></a>
+  <a href="#sec-ecosystem" class="pd-secnav-item" data-target="sec-ecosystem" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">Ecosystem</span></a>
+  <a href="#sec-thanks" class="pd-secnav-item" data-target="sec-thanks" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">Thanks</span></a>
+</nav>
+
+<a href="project-jf-design-system.html" class="pd-prev-float" data-hover>
   <i>&larr;</i><span>Previous</span>
 </a>
 
-<a href="project-mvillage.html" class="pd-next-float" data-hover>
+<a href="project-jmaps.html" class="pd-next-float" data-hover>
   <span>Next</span><i>&rarr;</i>
 </a>
 

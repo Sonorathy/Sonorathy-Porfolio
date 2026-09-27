@@ -802,6 +802,229 @@
       "sectionNav": true
     },
     {
+      "slug": "edpay",
+      "visible": true,
+      "featured": true,
+      "category": "product-uiux",
+      "title": "EdPay · Shop Billing",
+      "badge": "",
+      "tagline": "Three ways to sell, one debit note — counter POS, a handheld terminal and online pre-orders for school stores, all posting to the same ledger.",
+      "metaDescription": "EdPay · Shop Billing — POS, handheld terminal, pre-order with in-store pickup and the jLink payment page for school stores, on one debit note ledger. Fintech product design case study by Sonorathy.",
+      "meta": [
+        {
+          "label": "Year",
+          "value": "2025 – 2026"
+        },
+        {
+          "label": "Client",
+          "value": "JDO Group"
+        },
+        {
+          "label": "Role",
+          "value": "Product Designer"
+        },
+        {
+          "label": "Platform",
+          "value": "iPad POS · Handheld · Web · Mobile"
+        }
+      ],
+      "card": {
+        "title": "EdPay · Shop Billing",
+        "tag": "Fintech · POS · Semi e-commerce",
+        "role": "Product Designer",
+        "highlights": [
+          "Three sales channels, one debit note ledger",
+          "5 → 3 accounting steps per payment",
+          "42 screens & states across 4 surfaces"
+        ],
+        "problem": "Selling at the school store was quick; bookkeeping lagged behind. I designed a counter POS, a handheld terminal and online pre-order with in-store pickup — and every payment posts to one debit note ledger.",
+        "cover": "assets/work/edpay/cover.jpg",
+        "coverAlt": "EdPay Shop Billing — debit note, POS system, semi e-commerce and wallet on mobile",
+        "coverGradient": ""
+      },
+      "blocks": [
+        {
+          "type": "text",
+          "heading": "The ecosystem",
+          "section": "Overview",
+          "body": "EdPay is a school payments ecosystem. Shop Billing is its retail side: a school store sells at the counter on an iPad POS, from a handheld terminal and through online pre-orders — and every payment ends up in the same debit note ledger that handles receivables and invoicing.\n\nBuilt for school stores. Also works for general retail and F&B."
+        },
+        {
+          "type": "stats",
+          "heading": "In numbers",
+          "section": "Overview",
+          "items": [
+            {
+              "value": "3",
+              "label": "sales channels"
+            },
+            {
+              "value": "4",
+              "label": "surfaces"
+            },
+            {
+              "value": "42",
+              "label": "screens & states"
+            },
+            {
+              "value": "5 → 3",
+              "label": "accounting steps per payment (internal figure from the product team)"
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "heading": "Selling was quick. Bookkeeping lagged behind.",
+          "section": "Problem & Solution",
+          "intro": "Three things slowed the store down after the sale. Each one maps to a part of the product.",
+          "columns": [
+            "Before",
+            "After"
+          ],
+          "rows": [
+            [
+              "Counter sales, online orders and payments were kept in separate places and reconciled at the end of the day.",
+              "POS, handheld and pre-orders share one order queue and post to the same ledger."
+            ],
+            [
+              "Online payments passed through a third-party gateway before reaching the merchant.",
+              "jLink replaces the gateway; funds settle in the merchant’s bank account."
+            ],
+            [
+              "Accountants created receivables, sent reminders and issued invoices by hand for each payment.",
+              "The debit note system handles receivables, reminders, instalments and e-invoices."
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "type": "text",
+          "heading": "What I designed",
+          "section": "Counter POS",
+          "body": "- **Counter POS (iPad)** — the catalog follows the store’s product categories and the cart stays pinned to the right. Quick-tender amounts and change, receipt or e-invoice, and a shift close that compares drawer cash with the system total.\n- **POS terminal (handheld)** — the same flow for serving customers away from the counter or when the queue is long, so there is nothing new to learn.\n- **Pre-order, in-store pickup** — parents browse and pay online, or pay at the counter on pickup. The order lands in the cashier’s queue with its pickup time; guests track it with an order code, no account needed.\n- **jLink payment page** — amount, merchant and a session countdown stay at the top; a data policy checkbox gates confirm; six-digit OTP with resend after 60 seconds.\n- **Also in EdPay** — the jWallet student app (sign-up, top-up, transfers, spending limits, NFC tap-to-pay at campus POS) and the school admin portal for student, parent and card management."
+        },
+        {
+          "type": "text",
+          "heading": "Design choices",
+          "section": "Pre-order",
+          "body": "- **One queue for every channel.** Walk-in sales and online pre-orders appear in the same order queue, so the cashier never checks two places.\n- **Nothing new to learn.** The handheld mirrors the iPad flow step for step.\n- **Pay now or at pickup.** Payment status and order progress sit side by side, so parents know when to come.\n- **Money needs certainty.** Every payment ends on a screen with amount, status and reference — nothing is “probably sent”."
+        },
+        {
+          "type": "text",
+          "heading": "Under the hood",
+          "section": "Ecosystem",
+          "body": "Whichever channel makes the sale, the transaction lands in the debit note system: a receivable for each sale, reminders when a payment is due, instalments, e-invoices issued once a payment is confirmed, and direct settlement to the merchant’s bank account with partner banks.\n\nThe debit note system is a proprietary product and its UI is not shown here — see edpay.vn. How jLink works technically is under NDA."
+        },
+        {
+          "type": "chips",
+          "heading": "Deliverables",
+          "items": [
+            {
+              "text": "Counter POS (iPad)",
+              "nda": false
+            },
+            {
+              "text": "Handheld POS terminal",
+              "nda": false
+            },
+            {
+              "text": "Pre-order storefront",
+              "nda": false
+            },
+            {
+              "text": "jLink payment page",
+              "nda": false
+            },
+            {
+              "text": "jWallet & admin portal",
+              "nda": false
+            },
+            {
+              "text": "Debit note integration",
+              "nda": true
+            }
+          ]
+        }
+      ],
+      "shots": [
+        {
+          "type": "image",
+          "src": "assets/work/edpay/00-hero.jpg",
+          "caption": "",
+          "alt": "Shop Billing — retail and billing for school stores: login and storefront on mobile",
+          "mobile": false,
+          "section": "Overview"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/edpay/01-overview.jpg",
+          "caption": "",
+          "alt": "Overview — three ways to sell, one debit note ledger; counter POS screen",
+          "mobile": false,
+          "section": "Overview"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/edpay/02-problem-solution.jpg",
+          "caption": "",
+          "alt": "Problem and solution — three bottlenecks after the sale, each mapped to a part of the product",
+          "mobile": false,
+          "section": "Problem & Solution"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/edpay/03-counter-pos.jpg",
+          "caption": "",
+          "alt": "Counter POS on iPad — catalog, pinned cart, quick tender, receipt or e-invoice, shift close",
+          "mobile": false,
+          "section": "Counter POS"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/edpay/04-pos-terminal.jpg",
+          "caption": "",
+          "alt": "POS terminal — the same flow on a handheld, with a printed receipt",
+          "mobile": false,
+          "section": "POS Terminal"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/edpay/05-pre-order.jpg",
+          "caption": "",
+          "alt": "Pre-order with in-store pickup — storefront, checkout, order tracking and order history",
+          "mobile": false,
+          "section": "Pre-order"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/edpay/06-jlink.jpg",
+          "caption": "",
+          "alt": "jLink payment page — amount, merchant and countdown on top, OTP confirmation, web and mobile",
+          "mobile": false,
+          "section": "jLink"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/edpay/07-ecosystem.jpg",
+          "caption": "",
+          "alt": "Ecosystem — three channels post to one debit note: receivables, reminders, instalments, e-invoices, direct settlement",
+          "mobile": false,
+          "section": "Ecosystem"
+        },
+        {
+          "type": "image",
+          "src": "assets/work/edpay/08-thanks.jpg",
+          "caption": "",
+          "alt": "Thanks for scrolling",
+          "mobile": false,
+          "section": "Thanks"
+        }
+      ],
+      "passwordHash": "",
+      "passwordStorageKey": "",
+      "sectionNav": true
+    },
+    {
       "slug": "jmaps",
       "visible": true,
       "featured": true,
@@ -976,193 +1199,6 @@
           "caption": "",
           "mobile": false,
           "alt": "Research · background & context"
-        }
-      ],
-      "passwordHash": "",
-      "passwordStorageKey": ""
-    },
-    {
-      "slug": "edpay",
-      "visible": true,
-      "featured": true,
-      "category": "product-uiux",
-      "title": "EdPay & jWallet",
-      "badge": "",
-      "tagline": "School payments without the spreadsheets — a student wallet, an admin portal and debt management.",
-      "metaDescription": "EdPay & jWallet — tuition collection, student wallet and debt management for schools. Fintech product design case study by Sonorathy.",
-      "meta": [
-        {
-          "label": "Year",
-          "value": "2026"
-        },
-        {
-          "label": "Client",
-          "value": "JDO Group"
-        },
-        {
-          "label": "Role",
-          "value": "Product Designer"
-        },
-        {
-          "label": "Platform",
-          "value": "Mobile app · Web admin · POS"
-        }
-      ],
-      "card": {
-        "title": "EdPay & jWallet",
-        "tag": "Fintech · EdTech · Mobile + Web",
-        "role": "Product Designer",
-        "highlights": [
-          "Student wallet app, MVP in two weeks",
-          "Admin portal for thousands of students",
-          "Debit notes, payment status, e-invoices"
-        ],
-        "problem": "Collecting tuition took weeks of forms, emailed bills and manual checks. I designed the student wallet, the school admin portal and debt management that move the whole payment cycle online.",
-        "cover": "assets/work/edpay/edpay-admin-student.jpg",
-        "coverAlt": "EdPay — school admin portal",
-        "coverGradient": ""
-      },
-      "blocks": [
-        {
-          "type": "text",
-          "heading": "The scenario",
-          "body": "Collecting tuition at a school used to take weeks: parents fill in enrolment forms, the accounting team emails bills, parents transfer money, then accounting checks every payment by hand. Every hand-off was a chance for errors and drop-offs.\n\nEdPay moves the whole cycle online: the school sets up fee items per student, parents review and pay by QR, bank transfer or card, and the e-invoice is issued automatically. jWallet extends it into a student wallet for spending on campus."
-        },
-        {
-          "type": "text",
-          "heading": "What I designed",
-          "body": "- **jWallet mobile app** — sign-up with email / phone OTP, home, top-up and transfers, spending limits, notifications, help centre, and NFC tap-to-pay at campus POS.\n- **Admin portal** — student and parent management, card settings, locking a wallet, and filters built for lists of thousands of students.\n- **Debit notes** — debt management lists, payment status, PDF invoices and empty states for the accounting team.\n- **Handoff** — MVP delivered in a two-week sprint, with every state (default, typing, filled, error + snackbar) specified for developers."
-        },
-        {
-          "type": "text",
-          "heading": "Design challenges",
-          "body": "- **Money needs certainty.** Every transaction ends on a receipt screen with amount, status and reference — nothing is “probably sent”.\n- **Parents control, students spend.** Limits and locks live on the parent side; the student app stays simple.\n- **Accounting works in bulk.** Admin screens are built around filters, statuses and exports rather than single records."
-        },
-        {
-          "type": "chips",
-          "heading": "Deliverables",
-          "items": [
-            {
-              "text": "Mobile app (MVP)",
-              "nda": false
-            },
-            {
-              "text": "Admin portal",
-              "nda": false
-            },
-            {
-              "text": "Debit note module",
-              "nda": false
-            },
-            {
-              "text": "POS / NFC flow",
-              "nda": false
-            },
-            {
-              "text": "Dev handoff",
-              "nda": false
-            }
-          ]
-        }
-      ],
-      "shots": [
-        {
-          "type": "image",
-          "src": "assets/work/edpay/edpay-flowmap.jpg",
-          "caption": "",
-          "mobile": false,
-          "alt": "jWallet MVP — full flow: onboarding, transfers, limits, notifications, profile"
-        },
-        {
-          "type": "image",
-          "src": "assets/work/edpay/edpay-m-home.jpg",
-          "caption": "",
-          "mobile": true,
-          "alt": "jWallet · home"
-        },
-        {
-          "type": "image",
-          "src": "assets/work/edpay/edpay-m-home2.jpg",
-          "caption": "",
-          "mobile": true,
-          "alt": "jWallet · home with activity"
-        },
-        {
-          "type": "image",
-          "src": "assets/work/edpay/edpay-m-pos.jpg",
-          "caption": "",
-          "mobile": true,
-          "alt": "jWallet · pay at campus POS"
-        },
-        {
-          "type": "image",
-          "src": "assets/work/edpay/edpay-m-setting.jpg",
-          "caption": "",
-          "mobile": true,
-          "alt": "jWallet · settings"
-        },
-        {
-          "type": "image",
-          "src": "assets/work/edpay/edpay-m-help.jpg",
-          "caption": "",
-          "mobile": true,
-          "alt": "jWallet · help centre"
-        },
-        {
-          "type": "image",
-          "src": "assets/work/edpay/edpay-admin-student.jpg",
-          "caption": "",
-          "mobile": false,
-          "alt": "Admin · students"
-        },
-        {
-          "type": "image",
-          "src": "assets/work/edpay/edpay-admin-student2.jpg",
-          "caption": "",
-          "mobile": false,
-          "alt": "Admin · student detail"
-        },
-        {
-          "type": "image",
-          "src": "assets/work/edpay/edpay-admin-card.jpg",
-          "caption": "",
-          "mobile": false,
-          "alt": "Admin · card settings"
-        },
-        {
-          "type": "image",
-          "src": "assets/work/edpay/edpay-admin-filter.jpg",
-          "caption": "",
-          "mobile": false,
-          "alt": "Admin · filters"
-        },
-        {
-          "type": "image",
-          "src": "assets/work/edpay/edpay-debt-list.jpg",
-          "caption": "",
-          "mobile": false,
-          "alt": "Debit notes · debt management"
-        },
-        {
-          "type": "image",
-          "src": "assets/work/edpay/edpay-debt-status.jpg",
-          "caption": "",
-          "mobile": false,
-          "alt": "Debit notes · payment status"
-        },
-        {
-          "type": "image",
-          "src": "assets/work/edpay/edpay-debt-pdf.jpg",
-          "caption": "",
-          "mobile": false,
-          "alt": "Debit notes · PDF invoice"
-        },
-        {
-          "type": "image",
-          "src": "assets/work/edpay/edpay-debt-empty.jpg",
-          "caption": "",
-          "mobile": false,
-          "alt": "Debit notes · empty state"
         }
       ],
       "passwordHash": "",
