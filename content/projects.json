@@ -14,17 +14,17 @@
     {
       "id": "product-marketing",
       "label": "Product Marketing",
-      "visible": true
+      "visible": false
     },
     {
       "id": "content-strategy",
       "label": "Content Strategy",
-      "visible": true
+      "visible": false
     },
     {
       "id": "ai-workflow",
       "label": "AI Workflow",
-      "visible": true
+      "visible": false
     }
   ],
   "projects": [
