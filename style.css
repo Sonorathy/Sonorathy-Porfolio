@@ -1451,6 +1451,25 @@ body.pd-unlocked .pd-gate{opacity:0;visibility:hidden;pointer-events:none;}
 }
 .pd-gate-error.show{opacity:1;}
 
+/* "Read the case study" toggle — only exists at the stacked layout, where
+   the long text would otherwise push every image below the fold */
+.pd-more{display:none;}
+
+@media (max-width:900px){
+  .pd-info.is-collapsible:not(.is-expanded) .pd-block,
+  .pd-info.is-collapsible:not(.is-expanded) .pd-footer-inline{display:none;}
+  .pd-more{
+    display:inline-flex;align-items:center;gap:.8rem;align-self:flex-start;
+    padding:.9rem 1.4rem;border-radius:100px;
+    border:1px solid var(--line);background:transparent;color:var(--fg);
+    font:500 .88rem/1 var(--font-body);cursor:pointer;
+    transition:border-color .3s;
+  }
+  .pd-more:hover,.pd-more:focus-visible{border-color:var(--fg);}
+  .pd-more i{font-style:normal;transition:transform .3s var(--ease);}
+  .pd-info.is-expanded .pd-more i{transform:rotate(180deg);}
+}
+
 @media (max-width:900px){
   .pd-grid{grid-template-columns:1fr;height:auto;}
   .project-detail-page{height:auto;overflow:visible;}

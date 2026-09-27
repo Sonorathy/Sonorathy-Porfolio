@@ -1,6 +1,29 @@
 /* Custom circle cursor for standalone project detail pages
    (lightweight mirror of the cursor logic in script.js — no GSAP/Lenis dependency) */
 document.addEventListener('DOMContentLoaded', () => {
+  /* Mobile: keep the intro short so the images come right after it. The
+     long text blocks collapse behind a "Read the case study" toggle; the
+     CSS only applies the collapse at the stacked (≤900px) layout. */
+  const infoCol = document.querySelector('.pd-info');
+  const textBlocks = infoCol ? infoCol.querySelectorAll('.pd-block:not(.pd-reach)') : [];
+  const moreAnchor = infoCol && (infoCol.querySelector('.pd-meta') || infoCol.querySelector('.pd-tagline'));
+  if (textBlocks.length && moreAnchor) {
+    const more = document.createElement('button');
+    more.type = 'button';
+    more.className = 'pd-more';
+    more.setAttribute('aria-expanded', 'false');
+    const closedLabel = `Read the case study · ${textBlocks.length} section${textBlocks.length > 1 ? 's' : ''}`;
+    more.innerHTML = `<span>${closedLabel}</span><i aria-hidden="true">&darr;</i>`;
+    moreAnchor.insertAdjacentElement('afterend', more);
+    infoCol.classList.add('is-collapsible');
+    more.addEventListener('click', () => {
+      const open = infoCol.classList.toggle('is-expanded');
+      more.setAttribute('aria-expanded', String(open));
+      more.querySelector('span').textContent = open ? 'Show less' : closedLabel;
+      if (!open) more.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  }
+
   const cursor = document.getElementById('cursor');
   if (!cursor) return;
 
@@ -53,7 +76,10 @@ document.addEventListener('DOMContentLoaded', () => {
       return window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - EDGE_SLACK;
     }
     function updateFromScroll() {
-      const atBottom = panels.some(panelAtBottom) || pageAtBottom();
+      // stacked (mobile) layout: the columns don't scroll on their own, so
+      // only the page position counts — otherwise the buttons cover the images
+      const stackedLayout = window.matchMedia('(max-width:900px)').matches;
+      const atBottom = (!stackedLayout && panels.some(panelAtBottom)) || pageAtBottom();
       navFloats.forEach(el => el.classList.toggle('show', atBottom));
     }
 
