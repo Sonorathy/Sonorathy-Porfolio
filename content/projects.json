@@ -593,7 +593,7 @@
         ],
         "problem": "Six products were drifting into their own buttons, tables and alerts. I built one Figma library where each product switches brand, shape and density by mode — from core components to Chat, AI and legal patterns.",
         "cover": "assets/work/jf-ds/cover.jpg",
-        "coverAlt": "jF Design System — one component library for desktop, mobile, chat and AI products",
+        "coverAlt": "jF Design System — six brand colours over shared weather, chat, task and alert components",
         "coverGradient": ""
       },
       "blocks": [
