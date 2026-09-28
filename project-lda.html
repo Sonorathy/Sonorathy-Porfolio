@@ -3,10 +3,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<script>(function(){try{var t=localStorage.getItem('snrt:theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();</script>
+<script>(function(){try{var t=localStorage.getItem('snrt:theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');var l=localStorage.getItem('snrt:lang');if(l)document.documentElement.lang=l;}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Legion D'Antares — Sonorathy</title>
-<meta name="description" content="Legion D'Antares — luxury fashion ecommerce. Web design &amp; development case study by Sonorathy." />
+<meta name="description" content="Legion D'Antares — luxury fashion ecommerce. Web design &amp; development case study by Sonorathy." data-vi-content="Legion D'Antares — thương mại điện tử thời trang cao cấp. Case study thiết kế &amp;amp; phát triển web của Sonorathy." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
@@ -17,35 +17,48 @@
 <div class="cursor" id="cursor">
   <div class="cursor-dot"></div>
   <div class="cursor-ring"></div>
-  <span class="cursor-label">VIEW</span>
+  <span class="cursor-label" data-vi="XEM">VIEW</span>
 </div>
 
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle light / dark mode" data-hover>
+<div class="lang-toggle" id="langToggle" role="group" aria-label="Language" data-vi-aria-label="Ngôn ngữ">
+  <button type="button" data-lang="en" aria-pressed="true" data-hover>EN</button>
+  <button type="button" data-lang="vi" aria-pressed="false" data-hover>VI</button>
+</div>
+
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle light / dark mode" data-vi-aria-label="Chuyển giao diện sáng / tối" data-hover>
   <i class="theme-icon theme-icon-sun">&#9728;</i>
   <i class="theme-icon theme-icon-moon">&#9789;</i>
 </button>
 
-<a href="index.html#work" class="pd-back" data-hover><i>←</i> Back</a>
+<a href="index.html#work" class="pd-back" data-hover data-vi="&lt;i&gt;←&lt;/i&gt; Quay lại"><i>←</i> Back</a>
 
 <div class="pd-grid">
   <div class="pd-info">
     <h1 class="pd-title">Legion D'Antares</h1>
-    <p class="pd-tagline">Luxury fashion ecommerce — custom storefront design &amp; development.</p>
+    <p class="pd-tagline" data-vi="Thương mại điện tử thời trang cao cấp — thiết kế &amp;amp; phát triển storefront riêng.">Luxury fashion ecommerce — custom storefront design &amp; development.</p>
 
     <div class="pd-meta">
-      <div class="pd-meta-row"><span>Year</span><span>2026</span></div>
-      <div class="pd-meta-row"><span>Scope</span><span>Web Design &amp; Development</span></div>
-      <div class="pd-meta-row"><span>Client</span><span>Legion D'Antares</span></div>
-      <div class="pd-meta-row"><span>Duration</span><span>5 weeks</span></div>
+      <div class="pd-meta-row"><span data-vi="Năm">Year</span><span>2026</span></div>
+      <div class="pd-meta-row"><span data-vi="Phạm vi">Scope</span><span data-vi="Thiết kế &amp;amp; phát triển web">Web Design &amp; Development</span></div>
+      <div class="pd-meta-row"><span data-vi="Khách hàng">Client</span><span>Legion D'Antares</span></div>
+      <div class="pd-meta-row"><span data-vi="Thời gian">Duration</span><span data-vi="5 tuần">5 weeks</span></div>
     </div>
 
-    <div class="pd-block">
+    <div class="pd-block" data-vi="      &lt;h2&gt;Bối cảnh &amp;amp; bài toán kinh doanh&lt;/h2&gt;
+      &lt;p&gt;Thương hiệu cần một kênh bán hàng online xứng với định vị thời trang cao cấp, thay vì vẻ ngoài của một template đại trà. Tôi thiết kế và xây một storefront riêng với nhịp dàn trang kiểu tạp chí, để mỗi bộ sưu tập có không gian thở.&lt;/p&gt;
+      &lt;p&gt;Các theme ecommerce có sẵn khiến bộ sưu tập nào cũng trông như một trang catalog. Thương hiệu cần chính website trở thành một phần của chiến dịch, chứ không chỉ là nơi để thanh toán.&lt;/p&gt;">
       <h2>The Scenario &amp; Business Problem</h2>
       <p>The brand needed an ecommerce presence that matched its high-fashion positioning instead of a generic template look. I designed and built a custom storefront with editorial pacing that lets the collections breathe.</p>
       <p>Off-the-shelf ecommerce themes made every collection look like a catalog page. The brand needed the site itself to feel like part of the campaign, not just a place to check out.</p>
     </div>
 
-    <div class="pd-block">
+    <div class="pd-block" data-vi="      &lt;h2&gt;Thách thức thiết kế &amp;amp; chiến lược&lt;/h2&gt;
+      &lt;p&gt;Mục tiêu là một storefront được chăm chút như chính những bộ sưu tập nó bán, mà không đánh đổi tỉ lệ chuyển đổi. Các mục tiêu chính:&lt;/p&gt;
+      &lt;ul class=&quot;pd-objectives&quot;&gt;
+        &lt;li&gt;&lt;strong&gt;Thiết kế storefront kiểu tạp chí:&lt;/strong&gt; Cho mỗi bộ sưu tập không gian thở thay vì một lưới dày đặc.&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Kể câu chuyện sản phẩm:&lt;/strong&gt; Kết hợp hình ảnh và nội dung để trang sản phẩm đọc như một lookbook.&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Đơn giản hoá thanh toán:&lt;/strong&gt; Giảm ma sát từ giỏ hàng đến xác nhận mà không mất đi cảm giác cao cấp.&lt;/li&gt;
+      &lt;/ul&gt;">
       <h2>The Design &amp; Strategy Challenge</h2>
       <p>The goal was a storefront that felt as considered as the collections it sells, without sacrificing conversion. Core objectives:</p>
       <ul class="pd-objectives">
@@ -55,7 +68,12 @@
       </ul>
     </div>
 
-    <div class="pd-block">
+    <div class="pd-block" data-vi="      &lt;h2&gt;Sản phẩm bàn giao&lt;/h2&gt;
+      &lt;div class=&quot;pd-deliverables&quot;&gt;
+        &lt;span class=&quot;pd-deliverable&quot;&gt;Storefront thương mại điện tử&lt;/span&gt;
+        &lt;span class=&quot;pd-deliverable&quot;&gt;Định hướng chụp ảnh sản phẩm&lt;/span&gt;
+        &lt;span class=&quot;pd-deliverable pd-nda&quot;&gt;Mẫu email &lt;em&gt;NDA&lt;/em&gt;&lt;/span&gt;
+      &lt;/div&gt;">
       <h2>Deliverables</h2>
       <div class="pd-deliverables">
         <span class="pd-deliverable">Ecommerce Storefront</span>
@@ -65,8 +83,8 @@
     </div>
 
     <div class="pd-block pd-reach">
-      <h2 class="pd-reach-title">Reach out.</h2>
-      <p class="pd-reach-sub">Let&rsquo;s work together to bring your ideas to life.</p>
+      <h2 class="pd-reach-title" data-vi="Liên hệ.">Reach out.</h2>
+      <p class="pd-reach-sub" data-vi="Cùng nhau biến ý tưởng của bạn thành hiện thực.">Let&rsquo;s work together to bring your ideas to life.</p>
       <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=maianhthyvo@gmail.com" class="pd-reach-link" data-hover target="_blank" rel="noopener">maianhthyvo@gmail.com</a>
       <div class="pd-reach-socials">
         <a href="https://www.linkedin.com/in/v%C3%B5-mai-anh-thy/" data-hover target="_blank" rel="noopener">LinkedIn</a>
@@ -75,32 +93,32 @@
     </div>
 
     <div class="pd-footer-inline">
-      <span>Designed by <a href="index.html" data-hover>Sonorathy</a></span>
-      <span>&copy; 2026 All rights reserved</span>
+      <span data-vi="Thiết kế bởi &lt;a href=&quot;index.html&quot; data-hover&gt;Sonorathy&lt;/a&gt;">Designed by <a href="index.html" data-hover>Sonorathy</a></span>
+      <span data-vi="&amp;copy; 2026 Bảo lưu mọi quyền">&copy; 2026 All rights reserved</span>
     </div>
   </div>
 
   <div class="pd-showcase pd-showcase-stack">
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/lda-deck/p2-mobile-hero.jpg" alt="Legion D'Antares — mobile landing page">
+      <img src="assets/work/lda-deck/p2-mobile-hero.jpg" alt="Legion D'Antares — mobile landing page" data-vi-alt="Legion D'Antares — landing page trên mobile">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/lda-deck/p2-mobile.jpg" alt="Legion D'Antares — mobile storefront screens" loading="lazy">
+      <img src="assets/work/lda-deck/p2-mobile.jpg" alt="Legion D'Antares — mobile storefront screens" data-vi-alt="Legion D'Antares — các màn hình storefront trên mobile" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/lda-deck/p3-checkout.jpg" alt="Legion D'Antares — mobile checkout flow" loading="lazy">
+      <img src="assets/work/lda-deck/p3-checkout.jpg" alt="Legion D'Antares — mobile checkout flow" data-vi-alt="Legion D'Antares — quy trình thanh toán trên mobile" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/lda-deck/p1-desktop.jpg" alt="Legion D'Antares — desktop landing page" loading="lazy">
+      <img src="assets/work/lda-deck/p1-desktop.jpg" alt="Legion D'Antares — desktop landing page" data-vi-alt="Legion D'Antares — landing page trên desktop" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/lda-deck/p6-collage.jpg" alt="Legion D'Antares — multi-device mockup" loading="lazy">
+      <img src="assets/work/lda-deck/p6-collage.jpg" alt="Legion D'Antares — multi-device mockup" data-vi-alt="Legion D'Antares — mockup đa thiết bị" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
       <img src="assets/work/lda-deck/p4-designsystem.jpg" alt="Legion D'Antares — design system" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/lda-deck/p5-photobook.jpg" alt="Legion D'Antares — photobook mockup" loading="lazy">
+      <img src="assets/work/lda-deck/p5-photobook.jpg" alt="Legion D'Antares — photobook mockup" data-vi-alt="Legion D'Antares — mockup photobook" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
       <video src="assets/video/lda-reel.mp4" controls muted playsinline preload="metadata"></video>
@@ -109,13 +127,14 @@
 </div>
 
 <a href="project-mvillage.html" class="pd-prev-float" data-hover>
-  <i>&larr;</i><span>Previous</span>
+  <i>&larr;</i><span data-vi="Trước">Previous</span>
 </a>
 
 <a href="project-luvenus-jewelry.html" class="pd-next-float" data-hover>
-  <span>Next</span><i>&rarr;</i>
+  <span data-vi="Tiếp">Next</span><i>&rarr;</i>
 </a>
 
+<script src="i18n.js"></script>
 <script src="theme.js"></script>
 <script src="img-slots.js"></script>
 <script src="project-detail.js"></script>

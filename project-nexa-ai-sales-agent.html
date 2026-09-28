@@ -3,10 +3,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<script>(function(){try{var t=localStorage.getItem('snrt:theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();</script>
+<script>(function(){try{var t=localStorage.getItem('snrt:theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');var l=localStorage.getItem('snrt:lang');if(l)document.documentElement.lang=l;}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Nexa AI Sales Agent — Sonorathy</title>
-<meta name="description" content="Nexa AI Sales Agent — B2B sales flow where AI drafts every step and people approve every price change. 20 screens, desktop + mobile. Product design case study by Sonorathy." />
+<meta name="description" content="Nexa AI Sales Agent — B2B sales flow where AI drafts every step and people approve every price change. 20 screens, desktop + mobile. Product design case study by Sonorathy." data-vi-content="Nexa AI Sales Agent — quy trình bán hàng B2B nơi AI soạn nháp mọi bước và con người duyệt mọi thay đổi về giá. 20 màn hình, desktop + mobile. Case study thiết kế sản phẩm của Sonorathy." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
@@ -17,35 +17,48 @@
 <div class="cursor" id="cursor">
   <div class="cursor-dot"></div>
   <div class="cursor-ring"></div>
-  <span class="cursor-label">VIEW</span>
+  <span class="cursor-label" data-vi="XEM">VIEW</span>
 </div>
 
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle light / dark mode" data-hover>
+<div class="lang-toggle" id="langToggle" role="group" aria-label="Language" data-vi-aria-label="Ngôn ngữ">
+  <button type="button" data-lang="en" aria-pressed="true" data-hover>EN</button>
+  <button type="button" data-lang="vi" aria-pressed="false" data-hover>VI</button>
+</div>
+
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle light / dark mode" data-vi-aria-label="Chuyển giao diện sáng / tối" data-hover>
   <i class="theme-icon theme-icon-sun">&#9728;</i>
   <i class="theme-icon theme-icon-moon">&#9789;</i>
 </button>
 
-<a href="index.html#work" class="pd-back" data-hover><i>←</i> Back</a>
+<a href="index.html#work" class="pd-back" data-hover data-vi="&lt;i&gt;←&lt;/i&gt; Quay lại"><i>←</i> Back</a>
 
 <div class="pd-grid">
   <div class="pd-info">
     <h1 class="pd-title">Nexa AI Sales Agent</h1>
-    <p class="pd-tagline">From first message to paid invoice: a B2B sales flow where AI drafts every step and people approve every price change.</p>
+    <p class="pd-tagline" data-vi="Từ tin nhắn đầu tiên đến hoá đơn đã thanh toán: một quy trình bán hàng B2B nơi AI soạn nháp mọi bước và con người duyệt mọi thay đổi về giá.">From first message to paid invoice: a B2B sales flow where AI drafts every step and people approve every price change.</p>
 
     <div class="pd-meta">
-      <div class="pd-meta-row"><span>Year</span><span>2026</span></div>
-      <div class="pd-meta-row"><span>Role</span><span>Product Designer · end to end</span></div>
-      <div class="pd-meta-row"><span>Scope</span><span>20 screens · desktop + mobile</span></div>
-      <div class="pd-meta-row"><span>Type</span><span>In-house product · sold to businesses</span></div>
+      <div class="pd-meta-row"><span data-vi="Năm">Year</span><span>2026</span></div>
+      <div class="pd-meta-row"><span data-vi="Vai trò">Role</span><span data-vi="Product Designer · từ đầu đến cuối">Product Designer · end to end</span></div>
+      <div class="pd-meta-row"><span data-vi="Phạm vi">Scope</span><span data-vi="20 màn hình · desktop + mobile">20 screens · desktop + mobile</span></div>
+      <div class="pd-meta-row"><span data-vi="Loại">Type</span><span data-vi="Sản phẩm nội bộ · bán cho doanh nghiệp">In-house product · sold to businesses</span></div>
     </div>
 
-    <div class="pd-block" data-section="sec-about">
+    <div class="pd-block" data-section="sec-about" data-vi="      &lt;h2&gt;Giới thiệu&lt;/h2&gt;
+      &lt;p&gt;Bán phần mềm B2B phải qua bảy lần chuyển giao. Dự án này gom chúng thành một quy trình, nơi AI soạn nháp và con người quyết định.&lt;/p&gt;
+      &lt;p&gt;Mọi kết quả của AI đều kèm nguồn. Mọi thay đổi giá vượt hạn mức đều chờ một người duyệt. Khách hàng thấy báo giá, thay đổi và trạng thái — không bao giờ thấy dữ liệu đàm phán nội bộ.&lt;/p&gt;">
       <h2>About</h2>
       <p>Selling B2B software takes seven hand-offs. This project turns them into one flow, where AI drafts and people decide.</p>
       <p>Every AI output carries its source. Every price change above a limit waits for a person. The customer sees quotes, changes and status — never internal negotiation data.</p>
     </div>
 
-    <div class="pd-block" data-section="sec-in-numbers">
+    <div class="pd-block" data-section="sec-in-numbers" data-vi="      &lt;h2&gt;Qua các con số&lt;/h2&gt;
+      &lt;div class=&quot;pd-stats&quot;&gt;
+        &lt;div class=&quot;pd-stat&quot;&gt;&lt;strong&gt;20&lt;/strong&gt;&lt;span&gt;màn hình&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;pd-stat&quot;&gt;&lt;strong&gt;08&lt;/strong&gt;&lt;span&gt;bước, một quy trình&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;pd-stat&quot;&gt;&lt;strong&gt;36&lt;/strong&gt;&lt;span&gt;component tái sử dụng từ Design System&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;pd-stat&quot;&gt;&lt;strong&gt;12&lt;/strong&gt;&lt;span&gt;component mới trong kit&lt;/span&gt;&lt;/div&gt;
+      &lt;/div&gt;">
       <h2>In numbers</h2>
       <div class="pd-stats">
         <div class="pd-stat"><strong>20</strong><span>screens</span></div>
@@ -55,13 +68,21 @@
       </div>
     </div>
 
-    <div class="pd-block" data-section="sec-problem-solution">
+    <div class="pd-block" data-section="sec-problem-solution" data-vi="      &lt;h2&gt;Vấn đề &amp;amp; giải pháp&lt;/h2&gt;
+      &lt;p&gt;Một khách hàng trả lời báo giá, xin giảm 8% và thêm 50 suất. Hiện nay, điều đó có nghĩa là nhân viên sales gõ lại báo giá, đoán xem mình có được giảm 8% không, rồi hỏi quản lý qua chat mà không có ngữ cảnh.&lt;/p&gt;
+      &lt;p&gt;Trong Nexa, agent đọc email, nhận ra hai thay đổi, soạn phiên bản 2 với bảng trước / sau — và chặn việc gửi đi, vì 8% vượt hạn mức 5% của nhân viên. Luôn có sẵn một phương án trong hạn mức (giữ 5%, thêm số suất).&lt;/p&gt;">
       <h2>Problem &amp; solution</h2>
       <p>A customer replies to a quote asking for 8% off and 50 more seats. Today that means a rep retyping the quote, guessing whether he may give 8%, and asking his manager in chat with no context.</p>
       <p>In Nexa the agent reads the email, detects the two changes, drafts version 2 with a before / after table — and blocks the send, because 8% is above the rep's 5% limit. An in-limit option (keep 5%, add the seats) is always on the table.</p>
     </div>
 
-    <div class="pd-block" data-section="sec-personas">
+    <div class="pd-block" data-section="sec-personas" data-vi="      &lt;h2&gt;Ba con người, một thương vụ&lt;/h2&gt;
+      &lt;table class=&quot;pd-table&quot;&gt;
+        &lt;tr&gt;&lt;th&gt;Ai&lt;/th&gt;&lt;th&gt;Công việc&lt;/th&gt;&lt;th&gt;Cần gì&lt;/th&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;Minh Nguyễn · Nhân viên kinh doanh (người dùng chính)&lt;/td&gt;&lt;td&gt;Chốt deal nhanh mà không báo giá sai hay vượt hạn mức giảm giá của mình.&lt;/td&gt;&lt;td&gt;AI lo phần soạn nháp và tính toán — anh giữ nút gửi. AI trả lời khách ngoài giờ và trả lại deal kèm đủ ngữ cảnh.&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;Hoa Phạm · Quản lý kinh doanh (người duyệt)&lt;/td&gt;&lt;td&gt;Bảo vệ biên lợi nhuận mà không làm chậm cả đội.&lt;/td&gt;&lt;td&gt;Một yêu cầu duy nhất có bảng trước / sau và một phương án trong hạn mức.&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;Linh Trần · Trưởng bộ phận Vận hành (khách hàng)&lt;/td&gt;&lt;td&gt;Chọn đúng gói cho 500 người mà không phải đọc một bản mô tả dài.&lt;/td&gt;&lt;td&gt;Có câu trả lời bất cứ lúc nào; giá tự kiểm tra được; yêu cầu thay đổi, ký và thanh toán ngay trên điện thoại.&lt;/td&gt;&lt;/tr&gt;
+      &lt;/table&gt;">
       <h2>Three people, one deal</h2>
       <table class="pd-table">
         <tr><th>Who</th><th>Job</th><th>Needs</th></tr>
@@ -71,7 +92,18 @@
       </table>
     </div>
 
-    <div class="pd-block" data-section="sec-flow">
+    <div class="pd-block" data-section="sec-flow" data-vi="      &lt;h2&gt;Tám bước. AI soạn nháp, con người quyết định.&lt;/h2&gt;
+      &lt;ul class=&quot;pd-objectives&quot;&gt;
+        &lt;li&gt;&lt;strong&gt;Thấu hiểu&lt;/strong&gt; — AI trích xuất nhu cầu từ cuộc chat · nhân viên hỏi những câu còn thiếu.&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Gợi ý&lt;/strong&gt; — AI đối chiếu nhu cầu với các gói · nhân viên chọn gói.&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Lên giỏ&lt;/strong&gt; — AI kiểm tra số suất và gợi ý add-on · nhân viên chỉnh giỏ hàng.&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Tạo báo giá&lt;/strong&gt; — AI áp bảng giá và thuế · nhân viên gửi báo giá.&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Đàm phán&lt;/strong&gt; — AI soạn v2 và cảnh báo hạn mức · quản lý duyệt.&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Soạn hợp đồng&lt;/strong&gt; — AI điền hợp đồng · nhân viên gửi đi ký.&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Đối chiếu&lt;/strong&gt; — AI kiểm tra hoá đơn với hợp đồng · khách hàng thanh toán.&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Theo dõi&lt;/strong&gt; — AI viết bản bàn giao · nhân viên đặt lịch kick-off.&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;p&gt;Bước 5 là cổng duyệt của con người: mức giảm giá vượt hạn mức của nhân viên không thể đến tay khách cho tới khi quản lý duyệt.&lt;/p&gt;">
       <h2>Eight steps. AI drafts, people decide.</h2>
       <ul class="pd-objectives">
         <li><strong>Understand</strong> — AI extracts needs from chat · the rep asks the missing questions.</li>
@@ -86,7 +118,15 @@
       <p>Step 5 is the human-approval gate: a discount above the rep's limit cannot reach the customer until a manager approves it.</p>
     </div>
 
-    <div class="pd-block" data-section="sec-key-screens">
+    <div class="pd-block" data-section="sec-key-screens" data-vi="      &lt;h2&gt;Nơi thiết kế tạo ra giá trị&lt;/h2&gt;
+      &lt;ul class=&quot;pd-objectives&quot;&gt;
+        &lt;li&gt;&lt;strong&gt;AI lắng nghe, bạn đặt câu hỏi.&lt;/strong&gt; Agent đọc cuộc chat theo thời gian thực và rút ra ý định, quy mô và yêu cầu bắt buộc. Mỗi trường dẫn về tin nhắn gốc; thông tin còn thiếu hiện là “Chưa nêu” thay vì một phỏng đoán.&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Cổng duyệt của con người cho mọi mức giảm giá.&lt;/strong&gt; Hiện các thay đổi được phát hiện, không bắt điền form mới; trước / sau trên cùng một bảng; quản lý là người quyết.&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Khách hàng thấy lý do, không thấy cách làm.&lt;/strong&gt; Trên mobile, trợ lý gợi ý một gói kèm lý do cho từng nhu cầu và nguồn từ catalog. Báo giá không bao giờ hiện hạn mức giảm giá hay các phương án nội bộ.&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Câu trả lời nào cũng có nguồn.&lt;/strong&gt; Mỗi mục trong catalog có phiên bản, ngày cập nhật và công tắc “Cho phép AI trích dẫn”; AI đánh dấu những câu trả lời đã trích từ tài liệu cũ.&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Từ báo giá cập nhật đến thanh toán, trên một chiếc điện thoại.&lt;/strong&gt; Phiên bản 2 hiện rõ những gì đã thay đổi; hoá đơn được đối chiếu với hợp đồng đã ký trước khi khách nhìn thấy.&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Mỗi danh sách cho biết việc cần làm tiếp theo.&lt;/strong&gt; Panel AI nêu rõ việc cần bạn xử lý hôm nay và soạn sẵn bản nháp — email follow-up, nhắc thanh toán, báo giá gia hạn.&lt;/li&gt;
+      &lt;/ul&gt;">
       <h2>Where the design earns its keep</h2>
       <ul class="pd-objectives">
         <li><strong>AI listens, you ask.</strong> The agent reads the chat as it happens and pulls out intent, scale and must-haves. Each field links to the message it came from; missing facts show as “Not stated” instead of a guess.</li>
@@ -98,7 +138,13 @@
       </ul>
     </div>
 
-    <div class="pd-block" data-section="sec-design-system">
+    <div class="pd-block" data-section="sec-design-system" data-vi="      &lt;h2&gt;Design system&lt;/h2&gt;
+      &lt;p&gt;Xây trên Design System ở brand mode Midnight Purple: tái sử dụng 36 component của Design System, thêm 12 component cho kit. Component chỉ gắn vào token semantic.&lt;/p&gt;
+      &lt;ul class=&quot;pd-objectives&quot;&gt;
+        &lt;li&gt;&lt;strong&gt;Component AI&lt;/strong&gt; — mọi kết quả của AI đều hiện nguồn và những gì còn thiếu; các trường của agent được điền bằng chip nguồn hoặc “Chưa nêu”, không bao giờ là phỏng đoán.&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Trạng thái&lt;/strong&gt; — màu chỉ nằm ở chấm và thanh bên trái; banner nằm inline với thanh bên trái, không bao giờ tô kín.&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Nút bấm&lt;/strong&gt; — mỗi màn hình một hành động chính; nút gradient chỉ dành cho CTA chính trên mobile.&lt;/li&gt;
+      &lt;/ul&gt;">
       <h2>Design system</h2>
       <p>Built on the Design System in brand mode Midnight Purple: 36 Design System components reused, 12 kit components added. Components bind only to semantic tokens.</p>
       <ul class="pd-objectives">
@@ -108,7 +154,14 @@
       </ul>
     </div>
 
-    <div class="pd-block">
+    <div class="pd-block" data-vi="      &lt;h2&gt;Sản phẩm bàn giao&lt;/h2&gt;
+      &lt;div class=&quot;pd-deliverables&quot;&gt;
+        &lt;span class=&quot;pd-deliverable&quot;&gt;20 màn hình · desktop + mobile&lt;/span&gt;
+        &lt;span class=&quot;pd-deliverable&quot;&gt;Quy trình 8 bước từ đầu đến cuối&lt;/span&gt;
+        &lt;span class=&quot;pd-deliverable&quot;&gt;Bộ component Sales Agent&lt;/span&gt;
+        &lt;span class=&quot;pd-deliverable&quot;&gt;Persona&lt;/span&gt;
+        &lt;span class=&quot;pd-deliverable&quot;&gt;Ánh xạ vào design system&lt;/span&gt;
+      &lt;/div&gt;">
       <h2>Deliverables</h2>
       <div class="pd-deliverables">
         <span class="pd-deliverable">20 screens · desktop + mobile</span>
@@ -119,14 +172,15 @@
       </div>
     </div>
 
-    <div class="pd-block">
+    <div class="pd-block" data-vi="      &lt;h2&gt;Ghi chú&lt;/h2&gt;
+      &lt;p&gt;Nexa là sản phẩm nội bộ bán cho doanh nghiệp. Tên khách hàng và số liệu trong các màn hình là dữ liệu mẫu.&lt;/p&gt;">
       <h2>Note</h2>
       <p>Nexa is an in-house product sold to businesses. Customer names and figures in the screens are sample data.</p>
     </div>
 
     <div class="pd-block pd-reach">
-      <h2 class="pd-reach-title">Reach out.</h2>
-      <p class="pd-reach-sub">Let&rsquo;s work together to bring your ideas to life.</p>
+      <h2 class="pd-reach-title" data-vi="Liên hệ.">Reach out.</h2>
+      <p class="pd-reach-sub" data-vi="Cùng nhau biến ý tưởng của bạn thành hiện thực.">Let&rsquo;s work together to bring your ideas to life.</p>
       <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=maianhthyvo@gmail.com" class="pd-reach-link" data-hover target="_blank" rel="noopener">maianhthyvo@gmail.com</a>
       <div class="pd-reach-socials">
         <a href="https://www.linkedin.com/in/v%C3%B5-mai-anh-thy/" data-hover target="_blank" rel="noopener">LinkedIn</a>
@@ -135,80 +189,81 @@
     </div>
 
     <div class="pd-footer-inline">
-      <span>Designed by <a href="index.html" data-hover>Sonorathy</a></span>
-      <span>&copy; 2026 All rights reserved</span>
+      <span data-vi="Thiết kế bởi &lt;a href=&quot;index.html&quot; data-hover&gt;Sonorathy&lt;/a&gt;">Designed by <a href="index.html" data-hover>Sonorathy</a></span>
+      <span data-vi="&amp;copy; 2026 Bảo lưu mọi quyền">&copy; 2026 All rights reserved</span>
     </div>
   </div>
 
   <div class="pd-showcase pd-showcase-stack">
     <figure class="pd-showcase-item" data-section="sec-overview" id="sec-overview" data-hover>
-      <img src="assets/work/nexa-ai-sales-agent/01-overview.jpg" alt="Nexa AI Sales Agent — Overview — updated quote, mobile and desktop">
+      <img src="assets/work/nexa-ai-sales-agent/01-overview.jpg" alt="Nexa AI Sales Agent — Overview — updated quote, mobile and desktop" data-vi-alt="Nexa AI Sales Agent — Tổng quan — báo giá cập nhật trên mobile và desktop">
     </figure>
     <figure class="pd-showcase-item" data-section="sec-about" id="sec-about" data-hover>
-      <img src="assets/work/nexa-ai-sales-agent/02-about.jpg" alt="Nexa AI Sales Agent — About" loading="lazy">
+      <img src="assets/work/nexa-ai-sales-agent/02-about.jpg" alt="Nexa AI Sales Agent — About" data-vi-alt="Nexa AI Sales Agent — Giới thiệu" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-section="sec-in-numbers" id="sec-in-numbers" data-hover>
-      <img src="assets/work/nexa-ai-sales-agent/03-in-numbers.jpg" alt="Nexa AI Sales Agent — In numbers" loading="lazy">
+      <img src="assets/work/nexa-ai-sales-agent/03-in-numbers.jpg" alt="Nexa AI Sales Agent — In numbers" data-vi-alt="Nexa AI Sales Agent — Qua các con số" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-section="sec-problem-solution" id="sec-problem-solution" data-hover>
-      <img src="assets/work/nexa-ai-sales-agent/04-problem-solution.jpg" alt="Nexa AI Sales Agent — Problem &amp; solution — detected changes, v2 draft, approval gate" loading="lazy">
+      <img src="assets/work/nexa-ai-sales-agent/04-problem-solution.jpg" alt="Nexa AI Sales Agent — Problem &amp; solution — detected changes, v2 draft, approval gate" data-vi-alt="Nexa AI Sales Agent — Vấn đề &amp;amp; giải pháp — thay đổi được phát hiện, bản nháp v2, cổng duyệt" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-section="sec-personas" id="sec-personas" data-hover>
-      <img src="assets/work/nexa-ai-sales-agent/05-personas.jpg" alt="Nexa AI Sales Agent — Three people, one deal" loading="lazy">
+      <img src="assets/work/nexa-ai-sales-agent/05-personas.jpg" alt="Nexa AI Sales Agent — Three people, one deal" data-vi-alt="Nexa AI Sales Agent — Ba con người, một thương vụ" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-section="sec-flow" id="sec-flow" data-hover>
-      <img src="assets/work/nexa-ai-sales-agent/06-flow.jpg" alt="Nexa AI Sales Agent — Eight steps. AI drafts, people decide." loading="lazy">
+      <img src="assets/work/nexa-ai-sales-agent/06-flow.jpg" alt="Nexa AI Sales Agent — Eight steps. AI drafts, people decide." data-vi-alt="Nexa AI Sales Agent — Tám bước. AI soạn nháp, con người quyết định." loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-section="sec-key-screens" id="sec-key-screens" data-hover>
-      <img src="assets/work/nexa-ai-sales-agent/07a-key-screens.jpg" alt="Nexa AI Sales Agent — Key screens" loading="lazy">
+      <img src="assets/work/nexa-ai-sales-agent/07a-key-screens.jpg" alt="Nexa AI Sales Agent — Key screens" data-vi-alt="Nexa AI Sales Agent — Màn hình chính" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-section="sec-key-screens" data-hover>
-      <img src="assets/work/nexa-ai-sales-agent/07b-understand.jpg" alt="Nexa AI Sales Agent — 01 · Understand — AI listens, you ask" loading="lazy">
+      <img src="assets/work/nexa-ai-sales-agent/07b-understand.jpg" alt="Nexa AI Sales Agent — 01 · Understand — AI listens, you ask" data-vi-alt="Nexa AI Sales Agent — 01 · Thấu hiểu — AI lắng nghe, bạn đặt câu hỏi" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-section="sec-key-screens" data-hover>
-      <img src="assets/work/nexa-ai-sales-agent/07c-negotiate.jpg" alt="Nexa AI Sales Agent — 05 · Negotiate — a human gate on every discount" loading="lazy">
+      <img src="assets/work/nexa-ai-sales-agent/07c-negotiate.jpg" alt="Nexa AI Sales Agent — 05 · Negotiate — a human gate on every discount" data-vi-alt="Nexa AI Sales Agent — 05 · Đàm phán — cổng duyệt của con người cho mọi mức giảm giá" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-section="sec-key-screens" data-hover>
-      <img src="assets/work/nexa-ai-sales-agent/07d-customer-ai.jpg" alt="Nexa AI Sales Agent — 09 · Customer — the customer sees why, not how" loading="lazy">
+      <img src="assets/work/nexa-ai-sales-agent/07d-customer-ai.jpg" alt="Nexa AI Sales Agent — 09 · Customer — the customer sees why, not how" data-vi-alt="Nexa AI Sales Agent — 09 · Khách hàng — khách thấy lý do, không thấy cách làm" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-section="sec-key-screens" data-hover>
-      <img src="assets/work/nexa-ai-sales-agent/07e-catalog.jpg" alt="Nexa AI Sales Agent — 14 · Cite — every answer has a source" loading="lazy">
+      <img src="assets/work/nexa-ai-sales-agent/07e-catalog.jpg" alt="Nexa AI Sales Agent — 14 · Cite — every answer has a source" data-vi-alt="Nexa AI Sales Agent — 14 · Trích dẫn — câu trả lời nào cũng có nguồn" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-section="sec-key-screens" data-hover>
-      <img src="assets/work/nexa-ai-sales-agent/07f-sign-pay.jpg" alt="Nexa AI Sales Agent — 10 · Close — from updated quote to paid, on one phone" loading="lazy">
+      <img src="assets/work/nexa-ai-sales-agent/07f-sign-pay.jpg" alt="Nexa AI Sales Agent — 10 · Close — from updated quote to paid, on one phone" data-vi-alt="Nexa AI Sales Agent — 10 · Chốt — từ báo giá cập nhật đến thanh toán, trên một chiếc điện thoại" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-section="sec-key-screens" data-hover>
-      <img src="assets/work/nexa-ai-sales-agent/07g-management.jpg" alt="Nexa AI Sales Agent — 11–13 · Manage — quotes, orders and contracts in one place" loading="lazy">
+      <img src="assets/work/nexa-ai-sales-agent/07g-management.jpg" alt="Nexa AI Sales Agent — 11–13 · Manage — quotes, orders and contracts in one place" data-vi-alt="Nexa AI Sales Agent — 11–13 · Quản lý — báo giá, đơn hàng và hợp đồng ở một nơi" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-section="sec-design-system" id="sec-design-system" data-hover>
-      <img src="assets/work/nexa-ai-sales-agent/08-design-system.jpg" alt="Nexa AI Sales Agent — Design system — Midnight Purple brand mode, AI components" loading="lazy">
+      <img src="assets/work/nexa-ai-sales-agent/08-design-system.jpg" alt="Nexa AI Sales Agent — Design system — Midnight Purple brand mode, AI components" data-vi-alt="Nexa AI Sales Agent — Design system — brand mode Midnight Purple, component AI" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-section="sec-thanks" id="sec-thanks" data-hover>
-      <img src="assets/work/nexa-ai-sales-agent/09-thanks.jpg" alt="Nexa AI Sales Agent — Thank you" loading="lazy">
+      <img src="assets/work/nexa-ai-sales-agent/09-thanks.jpg" alt="Nexa AI Sales Agent — Thank you" data-vi-alt="Nexa AI Sales Agent — Cảm ơn" loading="lazy">
     </figure>
   </div>
 </div>
 
-<nav class="pd-secnav" aria-label="Sections">
-  <a href="#sec-overview" class="pd-secnav-item is-active" data-target="sec-overview" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">Overview</span></a>
-  <a href="#sec-about" class="pd-secnav-item" data-target="sec-about" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">About</span></a>
-  <a href="#sec-in-numbers" class="pd-secnav-item" data-target="sec-in-numbers" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">In numbers</span></a>
-  <a href="#sec-problem-solution" class="pd-secnav-item" data-target="sec-problem-solution" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">Problem &amp; Solution</span></a>
-  <a href="#sec-personas" class="pd-secnav-item" data-target="sec-personas" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">Personas</span></a>
-  <a href="#sec-flow" class="pd-secnav-item" data-target="sec-flow" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">Flow</span></a>
-  <a href="#sec-key-screens" class="pd-secnav-item" data-target="sec-key-screens" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">Key screens</span></a>
+<nav class="pd-secnav" aria-label="Sections" data-vi-aria-label="Các phần">
+  <a href="#sec-overview" class="pd-secnav-item is-active" data-target="sec-overview" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label" data-vi="Tổng quan">Overview</span></a>
+  <a href="#sec-about" class="pd-secnav-item" data-target="sec-about" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label" data-vi="Giới thiệu">About</span></a>
+  <a href="#sec-in-numbers" class="pd-secnav-item" data-target="sec-in-numbers" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label" data-vi="Con số">In numbers</span></a>
+  <a href="#sec-problem-solution" class="pd-secnav-item" data-target="sec-problem-solution" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label" data-vi="Vấn đề &amp;amp; Giải pháp">Problem &amp; Solution</span></a>
+  <a href="#sec-personas" class="pd-secnav-item" data-target="sec-personas" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label" data-vi="Persona">Personas</span></a>
+  <a href="#sec-flow" class="pd-secnav-item" data-target="sec-flow" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label" data-vi="Quy trình">Flow</span></a>
+  <a href="#sec-key-screens" class="pd-secnav-item" data-target="sec-key-screens" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label" data-vi="Màn hình chính">Key screens</span></a>
   <a href="#sec-design-system" class="pd-secnav-item" data-target="sec-design-system" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">Design system</span></a>
-  <a href="#sec-thanks" class="pd-secnav-item" data-target="sec-thanks" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">Thanks</span></a>
+  <a href="#sec-thanks" class="pd-secnav-item" data-target="sec-thanks" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label" data-vi="Cảm ơn">Thanks</span></a>
 </nav>
 
 <a href="project-jf-design-system.html" class="pd-prev-float" data-hover>
-  <i>&larr;</i><span>Previous</span>
+  <i>&larr;</i><span data-vi="Trước">Previous</span>
 </a>
 
 <a href="project-tvpl-legal-ai.html" class="pd-next-float" data-hover>
-  <span>Next</span><i>&rarr;</i>
+  <span data-vi="Tiếp">Next</span><i>&rarr;</i>
 </a>
 
+<script src="i18n.js"></script>
 <script src="theme.js"></script>
 <script src="img-slots.js"></script>
 <script src="project-detail.js"></script>

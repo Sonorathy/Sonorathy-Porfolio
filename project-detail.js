@@ -12,16 +12,21 @@ document.addEventListener('DOMContentLoaded', () => {
     more.type = 'button';
     more.className = 'pd-more';
     more.setAttribute('aria-expanded', 'false');
-    const closedLabel = `Read the case study · ${textBlocks.length} section${textBlocks.length > 1 ? 's' : ''}`;
-    more.innerHTML = `<span>${closedLabel}</span><i aria-hidden="true">&darr;</i>`;
+    const T = (en, vi) => (window.SNRT_I18N ? window.SNRT_I18N.t(en, vi) : en);
+    const n = textBlocks.length;
+    const label = (open) => open ? T('Show less', 'Thu gọn')
+      : T(`Read the case study · ${n} section${n > 1 ? 's' : ''}`, `Đọc case study · ${n} phần`);
+    more.innerHTML = `<span>${label(false)}</span><i aria-hidden="true">&darr;</i>`;
     moreAnchor.insertAdjacentElement('afterend', more);
     infoCol.classList.add('is-collapsible');
+    const isOpen = () => infoCol.classList.contains('is-expanded');
     more.addEventListener('click', () => {
       const open = infoCol.classList.toggle('is-expanded');
       more.setAttribute('aria-expanded', String(open));
-      more.querySelector('span').textContent = open ? 'Show less' : closedLabel;
+      more.querySelector('span').textContent = label(open);
       if (!open) more.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
+    document.addEventListener('snrt:lang', () => { more.querySelector('span').textContent = label(isOpen()); });
   }
 
   const cursor = document.getElementById('cursor');

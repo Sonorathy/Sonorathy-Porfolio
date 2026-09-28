@@ -3,10 +3,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<script>(function(){try{var t=localStorage.getItem('snrt:theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();</script>
+<script>(function(){try{var t=localStorage.getItem('snrt:theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');var l=localStorage.getItem('snrt:lang');if(l)document.documentElement.lang=l;}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Luvenus — Sonorathy</title>
-<meta name="description" content="Luvenus — fine jewelry &amp; piercing brand identity. Brand identity case study by Sonorathy." />
+<meta name="description" content="Luvenus — fine jewelry &amp; piercing brand identity. Brand identity case study by Sonorathy." data-vi-content="Luvenus — nhận diện thương hiệu trang sức &amp;amp; xỏ khuyên cao cấp. Case study nhận diện thương hiệu của Sonorathy." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
@@ -17,35 +17,48 @@
 <div class="cursor" id="cursor">
   <div class="cursor-dot"></div>
   <div class="cursor-ring"></div>
-  <span class="cursor-label">VIEW</span>
+  <span class="cursor-label" data-vi="XEM">VIEW</span>
 </div>
 
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle light / dark mode" data-hover>
+<div class="lang-toggle" id="langToggle" role="group" aria-label="Language" data-vi-aria-label="Ngôn ngữ">
+  <button type="button" data-lang="en" aria-pressed="true" data-hover>EN</button>
+  <button type="button" data-lang="vi" aria-pressed="false" data-hover>VI</button>
+</div>
+
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle light / dark mode" data-vi-aria-label="Chuyển giao diện sáng / tối" data-hover>
   <i class="theme-icon theme-icon-sun">&#9728;</i>
   <i class="theme-icon theme-icon-moon">&#9789;</i>
 </button>
 
-<a href="index.html#work" class="pd-back" data-hover><i>←</i> Back</a>
+<a href="index.html#work" class="pd-back" data-hover data-vi="&lt;i&gt;←&lt;/i&gt; Quay lại"><i>←</i> Back</a>
 
 <div class="pd-grid">
   <div class="pd-info">
     <h1 class="pd-title">Luvenus</h1>
-    <p class="pd-tagline">Fine jewelry &amp; piercing brand identity — elegance meets edge.</p>
+    <p class="pd-tagline" data-vi="Nhận diện thương hiệu trang sức &amp;amp; xỏ khuyên cao cấp — thanh lịch gặp cá tính.">Fine jewelry &amp; piercing brand identity — elegance meets edge.</p>
 
     <div class="pd-meta">
-      <div class="pd-meta-row"><span>Year</span><span>2024</span></div>
-      <div class="pd-meta-row"><span>Scope</span><span>Brand Identity</span></div>
-      <div class="pd-meta-row"><span>Client</span><span>Luvenus Jewelry &amp; Piercing</span></div>
-      <div class="pd-meta-row"><span>Duration</span><span>3 weeks</span></div>
+      <div class="pd-meta-row"><span data-vi="Năm">Year</span><span>2024</span></div>
+      <div class="pd-meta-row"><span data-vi="Phạm vi">Scope</span><span data-vi="Nhận diện thương hiệu">Brand Identity</span></div>
+      <div class="pd-meta-row"><span data-vi="Khách hàng">Client</span><span>Luvenus Jewelry &amp; Piercing</span></div>
+      <div class="pd-meta-row"><span data-vi="Thời gian">Duration</span><span data-vi="3 tuần">3 weeks</span></div>
     </div>
 
-    <div class="pd-block">
+    <div class="pd-block" data-vi="      &lt;h2&gt;Bối cảnh &amp;amp; bài toán kinh doanh&lt;/h2&gt;
+      &lt;p&gt;Luvenus là thương hiệu trang sức và xỏ khuyên cao cấp, muốn nổi bật giữa một thị trường toàn những thương hiệu trang sức vàng-đen na ná nhau. Thương hiệu cần một bộ nhận diện vừa thanh lịch vừa khác biệt — đủ tinh tế cho trang sức cao cấp, đủ cá tính cho một studio xỏ khuyên.&lt;/p&gt;
+      &lt;p&gt;Bộ nhận diện phải dùng được ở mọi nơi, từ bao bì và ấn phẩm văn phòng đến quảng cáo ngoài trời, mà không mất đi vẻ sang trọng tĩnh lặng mà khách mua trang sức cao cấp mong đợi.&lt;/p&gt;">
       <h2>The Scenario &amp; Business Problem</h2>
       <p>Luvenus is a fine jewelry and luxury piercing brand looking to stand out in a market full of generic gold-and-black jewelry branding. It needed an identity that felt both elegant and distinctive — sophisticated enough for fine jewelry, edgy enough for a piercing studio.</p>
       <p>The brand needed to work across everything from packaging and stationery to out-of-home advertising, without losing the sense of quiet luxury that fine jewelry buyers expect.</p>
     </div>
 
-    <div class="pd-block">
+    <div class="pd-block" data-vi="      &lt;h2&gt;Thách thức thiết kế &amp;amp; chiến lược&lt;/h2&gt;
+      &lt;p&gt;Mục tiêu là một biểu tượng và hệ thống đủ linh hoạt để đi từ con dấu sáp đến billboard ở ga tàu điện ngầm. Các mục tiêu chính:&lt;/p&gt;
+      &lt;ul class=&quot;pd-objectives&quot;&gt;
+        &lt;li&gt;&lt;strong&gt;Thiết kế biểu tượng:&lt;/strong&gt; Logo kết hợp phượng hoàng, viên đá quý và dáng người phụ nữ — biểu trưng cho sự lột xác và tự tin.&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Xây hệ màu &amp;amp; chữ:&lt;/strong&gt; Bảng màu xanh mòng két và vàng đọc lên cao cấp mà không sa vào khuôn sáo.&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Mở rộng đến mọi điểm chạm:&lt;/strong&gt; Bao bì, ấn phẩm văn phòng, quà tặng và quảng cáo billboard, tất cả cùng một ngôn ngữ hình ảnh nhất quán.&lt;/li&gt;
+      &lt;/ul&gt;">
       <h2>The Design &amp; Strategy Challenge</h2>
       <p>The goal was a mark and system flexible enough to travel from a wax seal to a subway billboard. Core objectives:</p>
       <ul class="pd-objectives">
@@ -55,7 +68,13 @@
       </ul>
     </div>
 
-    <div class="pd-block">
+    <div class="pd-block" data-vi="      &lt;h2&gt;Sản phẩm bàn giao&lt;/h2&gt;
+      &lt;div class=&quot;pd-deliverables&quot;&gt;
+        &lt;span class=&quot;pd-deliverable&quot;&gt;Bộ nhận diện thương hiệu&lt;/span&gt;
+        &lt;span class=&quot;pd-deliverable&quot;&gt;Bao bì &amp;amp; ấn phẩm văn phòng&lt;/span&gt;
+        &lt;span class=&quot;pd-deliverable&quot;&gt;Ứng dụng billboard &amp;amp; CIP&lt;/span&gt;
+        &lt;span class=&quot;pd-deliverable&quot;&gt;Quà tặng &amp;amp; vật phẩm&lt;/span&gt;
+      &lt;/div&gt;">
       <h2>Deliverables</h2>
       <div class="pd-deliverables">
         <span class="pd-deliverable">Brand Identity Kit</span>
@@ -66,8 +85,8 @@
     </div>
 
     <div class="pd-block pd-reach">
-      <h2 class="pd-reach-title">Reach out.</h2>
-      <p class="pd-reach-sub">Let&rsquo;s work together to bring your ideas to life.</p>
+      <h2 class="pd-reach-title" data-vi="Liên hệ.">Reach out.</h2>
+      <p class="pd-reach-sub" data-vi="Cùng nhau biến ý tưởng của bạn thành hiện thực.">Let&rsquo;s work together to bring your ideas to life.</p>
       <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=maianhthyvo@gmail.com" class="pd-reach-link" data-hover target="_blank" rel="noopener">maianhthyvo@gmail.com</a>
       <div class="pd-reach-socials">
         <a href="https://www.linkedin.com/in/v%C3%B5-mai-anh-thy/" data-hover target="_blank" rel="noopener">LinkedIn</a>
@@ -76,122 +95,123 @@
     </div>
 
     <div class="pd-footer-inline">
-      <span>Designed by <a href="index.html" data-hover>Sonorathy</a></span>
-      <span>&copy; 2026 All rights reserved</span>
+      <span data-vi="Thiết kế bởi &lt;a href=&quot;index.html&quot; data-hover&gt;Sonorathy&lt;/a&gt;">Designed by <a href="index.html" data-hover>Sonorathy</a></span>
+      <span data-vi="&amp;copy; 2026 Bảo lưu mọi quyền">&copy; 2026 All rights reserved</span>
     </div>
   </div>
 
   <div class="pd-showcase pd-showcase-stack">
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/luvenus-deck/p00-cover.jpg" alt="Luvenus — brand guidelines cover">
+      <img src="assets/work/luvenus-deck/p00-cover.jpg" alt="Luvenus — brand guidelines cover" data-vi-alt="Luvenus — bìa brand guidelines">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/luvenus-deck/p01.jpg" alt="Luvenus — brand guidelines page 1" loading="lazy">
+      <img src="assets/work/luvenus-deck/p01.jpg" alt="Luvenus — brand guidelines page 1" data-vi-alt="Luvenus — brand guidelines trang 1" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/luvenus-deck/p02.jpg" alt="Luvenus — brand guidelines page 2" loading="lazy">
+      <img src="assets/work/luvenus-deck/p02.jpg" alt="Luvenus — brand guidelines page 2" data-vi-alt="Luvenus — brand guidelines trang 2" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/luvenus-deck/p03.jpg" alt="Luvenus — brand guidelines page 3" loading="lazy">
+      <img src="assets/work/luvenus-deck/p03.jpg" alt="Luvenus — brand guidelines page 3" data-vi-alt="Luvenus — brand guidelines trang 3" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/luvenus-deck/p04.jpg" alt="Luvenus — brand guidelines page 4" loading="lazy">
+      <img src="assets/work/luvenus-deck/p04.jpg" alt="Luvenus — brand guidelines page 4" data-vi-alt="Luvenus — brand guidelines trang 4" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/luvenus-deck/p05.jpg" alt="Luvenus — brand guidelines page 5" loading="lazy">
+      <img src="assets/work/luvenus-deck/p05.jpg" alt="Luvenus — brand guidelines page 5" data-vi-alt="Luvenus — brand guidelines trang 5" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/luvenus-deck/p06.jpg" alt="Luvenus — brand guidelines page 6" loading="lazy">
+      <img src="assets/work/luvenus-deck/p06.jpg" alt="Luvenus — brand guidelines page 6" data-vi-alt="Luvenus — brand guidelines trang 6" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/luvenus-deck/p07.jpg" alt="Luvenus — brand guidelines page 7" loading="lazy">
+      <img src="assets/work/luvenus-deck/p07.jpg" alt="Luvenus — brand guidelines page 7" data-vi-alt="Luvenus — brand guidelines trang 7" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/luvenus-deck/p08.jpg" alt="Luvenus — brand guidelines page 8" loading="lazy">
+      <img src="assets/work/luvenus-deck/p08.jpg" alt="Luvenus — brand guidelines page 8" data-vi-alt="Luvenus — brand guidelines trang 8" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/luvenus-deck/p09.jpg" alt="Luvenus — brand guidelines page 9" loading="lazy">
+      <img src="assets/work/luvenus-deck/p09.jpg" alt="Luvenus — brand guidelines page 9" data-vi-alt="Luvenus — brand guidelines trang 9" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/luvenus-deck/p10.jpg" alt="Luvenus — brand guidelines page 10" loading="lazy">
+      <img src="assets/work/luvenus-deck/p10.jpg" alt="Luvenus — brand guidelines page 10" data-vi-alt="Luvenus — brand guidelines trang 10" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/luvenus-deck/p11.jpg" alt="Luvenus — brand guidelines page 11" loading="lazy">
+      <img src="assets/work/luvenus-deck/p11.jpg" alt="Luvenus — brand guidelines page 11" data-vi-alt="Luvenus — brand guidelines trang 11" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/luvenus-deck/p12.jpg" alt="Luvenus — brand guidelines page 12" loading="lazy">
+      <img src="assets/work/luvenus-deck/p12.jpg" alt="Luvenus — brand guidelines page 12" data-vi-alt="Luvenus — brand guidelines trang 12" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/luvenus-deck/p13.jpg" alt="Luvenus — brand guidelines page 13" loading="lazy">
+      <img src="assets/work/luvenus-deck/p13.jpg" alt="Luvenus — brand guidelines page 13" data-vi-alt="Luvenus — brand guidelines trang 13" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/luvenus-deck/p14.jpg" alt="Luvenus — brand guidelines page 14" loading="lazy">
+      <img src="assets/work/luvenus-deck/p14.jpg" alt="Luvenus — brand guidelines page 14" data-vi-alt="Luvenus — brand guidelines trang 14" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/luvenus-deck/p15.jpg" alt="Luvenus — brand guidelines page 15" loading="lazy">
+      <img src="assets/work/luvenus-deck/p15.jpg" alt="Luvenus — brand guidelines page 15" data-vi-alt="Luvenus — brand guidelines trang 15" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/luvenus-deck/p16.jpg" alt="Luvenus — brand guidelines page 16" loading="lazy">
+      <img src="assets/work/luvenus-deck/p16.jpg" alt="Luvenus — brand guidelines page 16" data-vi-alt="Luvenus — brand guidelines trang 16" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/luvenus-deck/p17.jpg" alt="Luvenus — brand guidelines page 17" loading="lazy">
+      <img src="assets/work/luvenus-deck/p17.jpg" alt="Luvenus — brand guidelines page 17" data-vi-alt="Luvenus — brand guidelines trang 17" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/luvenus-deck/p18.jpg" alt="Luvenus — brand guidelines page 18" loading="lazy">
+      <img src="assets/work/luvenus-deck/p18.jpg" alt="Luvenus — brand guidelines page 18" data-vi-alt="Luvenus — brand guidelines trang 18" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/luvenus-deck/p19.jpg" alt="Luvenus — brand guidelines page 19" loading="lazy">
+      <img src="assets/work/luvenus-deck/p19.jpg" alt="Luvenus — brand guidelines page 19" data-vi-alt="Luvenus — brand guidelines trang 19" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/luvenus-deck/p20.jpg" alt="Luvenus — brand guidelines page 20" loading="lazy">
+      <img src="assets/work/luvenus-deck/p20.jpg" alt="Luvenus — brand guidelines page 20" data-vi-alt="Luvenus — brand guidelines trang 20" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/luvenus-deck/p21.jpg" alt="Luvenus — brand guidelines page 21" loading="lazy">
+      <img src="assets/work/luvenus-deck/p21.jpg" alt="Luvenus — brand guidelines page 21" data-vi-alt="Luvenus — brand guidelines trang 21" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/luvenus-deck/p22.jpg" alt="Luvenus — brand guidelines page 22" loading="lazy">
+      <img src="assets/work/luvenus-deck/p22.jpg" alt="Luvenus — brand guidelines page 22" data-vi-alt="Luvenus — brand guidelines trang 22" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/luvenus-deck/p23.jpg" alt="Luvenus — brand guidelines page 23" loading="lazy">
+      <img src="assets/work/luvenus-deck/p23.jpg" alt="Luvenus — brand guidelines page 23" data-vi-alt="Luvenus — brand guidelines trang 23" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/luvenus-deck/p24.jpg" alt="Luvenus — brand guidelines page 24" loading="lazy">
+      <img src="assets/work/luvenus-deck/p24.jpg" alt="Luvenus — brand guidelines page 24" data-vi-alt="Luvenus — brand guidelines trang 24" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/luvenus-deck/p25.jpg" alt="Luvenus — brand guidelines page 25" loading="lazy">
+      <img src="assets/work/luvenus-deck/p25.jpg" alt="Luvenus — brand guidelines page 25" data-vi-alt="Luvenus — brand guidelines trang 25" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/luvenus-deck/p26.jpg" alt="Luvenus — brand guidelines page 26" loading="lazy">
+      <img src="assets/work/luvenus-deck/p26.jpg" alt="Luvenus — brand guidelines page 26" data-vi-alt="Luvenus — brand guidelines trang 26" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/luvenus-deck/p27.jpg" alt="Luvenus — brand guidelines page 27" loading="lazy">
+      <img src="assets/work/luvenus-deck/p27.jpg" alt="Luvenus — brand guidelines page 27" data-vi-alt="Luvenus — brand guidelines trang 27" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/luvenus-deck/p28.jpg" alt="Luvenus — brand guidelines page 28" loading="lazy">
+      <img src="assets/work/luvenus-deck/p28.jpg" alt="Luvenus — brand guidelines page 28" data-vi-alt="Luvenus — brand guidelines trang 28" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/luvenus-deck/p29.jpg" alt="Luvenus — brand guidelines page 29" loading="lazy">
+      <img src="assets/work/luvenus-deck/p29.jpg" alt="Luvenus — brand guidelines page 29" data-vi-alt="Luvenus — brand guidelines trang 29" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/luvenus-deck/p30.jpg" alt="Luvenus — brand guidelines page 30" loading="lazy">
+      <img src="assets/work/luvenus-deck/p30.jpg" alt="Luvenus — brand guidelines page 30" data-vi-alt="Luvenus — brand guidelines trang 30" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/luvenus-deck/p31.jpg" alt="Luvenus — brand guidelines page 31" loading="lazy">
+      <img src="assets/work/luvenus-deck/p31.jpg" alt="Luvenus — brand guidelines page 31" data-vi-alt="Luvenus — brand guidelines trang 31" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/luvenus-deck/p32-lastcover.jpg" alt="Luvenus — brand guidelines back cover" loading="lazy">
+      <img src="assets/work/luvenus-deck/p32-lastcover.jpg" alt="Luvenus — brand guidelines back cover" data-vi-alt="Luvenus — bìa sau brand guidelines" loading="lazy">
     </figure>
   </div>
 </div>
 
 <a href="project-lda.html" class="pd-prev-float" data-hover>
-  <i>&larr;</i><span>Previous</span>
+  <i>&larr;</i><span data-vi="Trước">Previous</span>
 </a>
 
 <a href="project-jf-design-system.html" class="pd-next-float" data-hover>
-  <span>Next</span><i>&rarr;</i>
+  <span data-vi="Tiếp">Next</span><i>&rarr;</i>
 </a>
 
+<script src="i18n.js"></script>
 <script src="theme.js"></script>
 <script src="img-slots.js"></script>
 <script src="project-detail.js"></script>

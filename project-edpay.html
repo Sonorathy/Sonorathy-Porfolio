@@ -3,10 +3,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<script>(function(){try{var t=localStorage.getItem('snrt:theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();</script>
+<script>(function(){try{var t=localStorage.getItem('snrt:theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');var l=localStorage.getItem('snrt:lang');if(l)document.documentElement.lang=l;}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>EdPay · Shop Billing — Sonorathy</title>
-<meta name="description" content="EdPay · Shop Billing — POS, handheld terminal, pre-order with in-store pickup and the jLink payment page for school stores, on one debit note ledger. Fintech product design case study by Sonorathy." />
+<meta name="description" content="EdPay · Shop Billing — POS, handheld terminal, pre-order with in-store pickup and the jLink payment page for school stores, on one debit note ledger. Fintech product design case study by Sonorathy." data-vi-content="EdPay · Shop Billing — POS, máy POS cầm tay, đặt trước nhận tại cửa hàng và trang thanh toán jLink cho cửa hàng trường học, trên cùng một sổ debit note. Case study thiết kế sản phẩm fintech của Sonorathy." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
@@ -17,35 +17,48 @@
 <div class="cursor" id="cursor">
   <div class="cursor-dot"></div>
   <div class="cursor-ring"></div>
-  <span class="cursor-label">VIEW</span>
+  <span class="cursor-label" data-vi="XEM">VIEW</span>
 </div>
 
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle light / dark mode" data-hover>
+<div class="lang-toggle" id="langToggle" role="group" aria-label="Language" data-vi-aria-label="Ngôn ngữ">
+  <button type="button" data-lang="en" aria-pressed="true" data-hover>EN</button>
+  <button type="button" data-lang="vi" aria-pressed="false" data-hover>VI</button>
+</div>
+
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle light / dark mode" data-vi-aria-label="Chuyển giao diện sáng / tối" data-hover>
   <i class="theme-icon theme-icon-sun">&#9728;</i>
   <i class="theme-icon theme-icon-moon">&#9789;</i>
 </button>
 
-<a href="index.html#work" class="pd-back" data-hover><i>←</i> Back</a>
+<a href="index.html#work" class="pd-back" data-hover data-vi="&lt;i&gt;←&lt;/i&gt; Quay lại"><i>←</i> Back</a>
 
 <div class="pd-grid">
   <div class="pd-info">
     <h1 class="pd-title">EdPay · Shop Billing</h1>
-    <p class="pd-tagline">Three ways to sell, one debit note — counter POS, a handheld terminal and online pre-orders for school stores, all posting to the same ledger.</p>
+    <p class="pd-tagline" data-vi="Ba cách bán, một debit note — POS tại quầy, máy POS cầm tay và đặt hàng trước online cho cửa hàng trường học, tất cả ghi về cùng một sổ.">Three ways to sell, one debit note — counter POS, a handheld terminal and online pre-orders for school stores, all posting to the same ledger.</p>
 
     <div class="pd-meta">
-      <div class="pd-meta-row"><span>Year</span><span>2025 – 2026</span></div>
-      <div class="pd-meta-row"><span>Client</span><span>JDO Group</span></div>
-      <div class="pd-meta-row"><span>Role</span><span>Product Designer</span></div>
-      <div class="pd-meta-row"><span>Platform</span><span>iPad POS · Handheld · Web · Mobile</span></div>
+      <div class="pd-meta-row"><span data-vi="Năm">Year</span><span>2025 – 2026</span></div>
+      <div class="pd-meta-row"><span data-vi="Khách hàng">Client</span><span>JDO Group</span></div>
+      <div class="pd-meta-row"><span data-vi="Vai trò">Role</span><span>Product Designer</span></div>
+      <div class="pd-meta-row"><span data-vi="Nền tảng">Platform</span><span data-vi="iPad POS · Máy cầm tay · Web · Mobile">iPad POS · Handheld · Web · Mobile</span></div>
     </div>
 
-    <div class="pd-block" data-section="sec-overview">
+    <div class="pd-block" data-section="sec-overview" data-vi="      &lt;h2&gt;Hệ sinh thái&lt;/h2&gt;
+      &lt;p&gt;EdPay là hệ sinh thái thanh toán cho trường học. Shop Billing là mảng bán lẻ của nó: cửa hàng trường học bán tại quầy bằng iPad POS, bằng máy POS cầm tay và qua đặt hàng trước online — và mọi khoản thanh toán đều về chung một sổ debit note lo phần công nợ và hoá đơn.&lt;/p&gt;
+      &lt;p&gt;Xây cho cửa hàng trường học. Cũng dùng được cho bán lẻ nói chung và F&amp;amp;B.&lt;/p&gt;">
       <h2>The ecosystem</h2>
       <p>EdPay is a school payments ecosystem. Shop Billing is its retail side: a school store sells at the counter on an iPad POS, from a handheld terminal and through online pre-orders — and every payment ends up in the same debit note ledger that handles receivables and invoicing.</p>
       <p>Built for school stores. Also works for general retail and F&amp;B.</p>
     </div>
 
-    <div class="pd-block" data-section="sec-overview">
+    <div class="pd-block" data-section="sec-overview" data-vi="      &lt;h2&gt;Qua các con số&lt;/h2&gt;
+      &lt;div class=&quot;pd-stats&quot;&gt;
+        &lt;div class=&quot;pd-stat&quot;&gt;&lt;strong&gt;3&lt;/strong&gt;&lt;span&gt;kênh bán hàng&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;pd-stat&quot;&gt;&lt;strong&gt;4&lt;/strong&gt;&lt;span&gt;nền tảng&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;pd-stat&quot;&gt;&lt;strong&gt;42&lt;/strong&gt;&lt;span&gt;màn hình &amp;amp; trạng thái&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;pd-stat&quot;&gt;&lt;strong&gt;5 → 3&lt;/strong&gt;&lt;span&gt;bước kế toán cho mỗi khoản thanh toán (số liệu nội bộ từ team sản phẩm)&lt;/span&gt;&lt;/div&gt;
+      &lt;/div&gt;">
       <h2>In numbers</h2>
       <div class="pd-stats">
         <div class="pd-stat"><strong>3</strong><span>sales channels</span></div>
@@ -55,7 +68,14 @@
       </div>
     </div>
 
-    <div class="pd-block" data-section="sec-problem-solution">
+    <div class="pd-block" data-section="sec-problem-solution" data-vi="      &lt;h2&gt;Bán thì nhanh. Sổ sách thì chậm theo sau.&lt;/h2&gt;
+      &lt;p&gt;Ba điều làm cửa hàng chậm lại sau khi bán. Mỗi điều ứng với một phần của sản phẩm.&lt;/p&gt;
+      &lt;table class=&quot;pd-table&quot;&gt;
+        &lt;tr&gt;&lt;th&gt;Trước&lt;/th&gt;&lt;th&gt;Sau&lt;/th&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;Bán tại quầy, đơn online và thanh toán nằm ở những nơi khác nhau và được đối soát vào cuối ngày.&lt;/td&gt;&lt;td&gt;POS, máy cầm tay và đơn đặt trước dùng chung một hàng đợi đơn và ghi về cùng một sổ.&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;Thanh toán online đi qua một cổng trung gian bên thứ ba trước khi về tới người bán.&lt;/td&gt;&lt;td&gt;jLink thay cho cổng trung gian; tiền về thẳng tài khoản ngân hàng của người bán.&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;Kế toán tạo công nợ, gửi nhắc nhở và xuất hoá đơn bằng tay cho từng khoản thanh toán.&lt;/td&gt;&lt;td&gt;Hệ thống debit note lo công nợ, nhắc nhở, trả góp và hoá đơn điện tử.&lt;/td&gt;&lt;/tr&gt;
+      &lt;/table&gt;">
       <h2>Selling was quick. Bookkeeping lagged behind.</h2>
       <p>Three things slowed the store down after the sale. Each one maps to a part of the product.</p>
       <table class="pd-table">
@@ -66,7 +86,14 @@
       </table>
     </div>
 
-    <div class="pd-block" data-section="sec-counter-pos">
+    <div class="pd-block" data-section="sec-counter-pos" data-vi="      &lt;h2&gt;Những gì tôi thiết kế&lt;/h2&gt;
+      &lt;ul class=&quot;pd-objectives&quot;&gt;
+        &lt;li&gt;&lt;strong&gt;POS tại quầy (iPad)&lt;/strong&gt; — danh mục theo đúng nhóm sản phẩm của cửa hàng và giỏ hàng luôn ghim bên phải. Chọn nhanh mệnh giá và tiền thối, in hoá đơn hoặc xuất hoá đơn điện tử, và chốt ca so sánh tiền trong két với tổng trên hệ thống.&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Máy POS cầm tay&lt;/strong&gt; — cùng một quy trình để phục vụ khách ngoài quầy hoặc khi hàng dài, nên không có gì mới phải học.&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Đặt trước, nhận tại cửa hàng&lt;/strong&gt; — phụ huynh xem hàng và thanh toán online, hoặc trả tại quầy khi nhận. Đơn vào thẳng hàng đợi của thu ngân kèm giờ nhận; khách tra cứu đơn bằng mã đơn, không cần tài khoản.&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Trang thanh toán jLink&lt;/strong&gt; — số tiền, người bán và thời gian đếm ngược của phiên luôn nằm trên cùng; ô đồng ý chính sách dữ liệu phải được chọn trước khi xác nhận; OTP sáu số, gửi lại sau 60 giây.&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Cũng trong EdPay&lt;/strong&gt; — ứng dụng jWallet cho học sinh (đăng ký, nạp tiền, chuyển tiền, hạn mức chi tiêu, chạm NFC để thanh toán ở POS trong trường) và cổng quản trị cho nhà trường để quản lý học sinh, phụ huynh và thẻ.&lt;/li&gt;
+      &lt;/ul&gt;">
       <h2>What I designed</h2>
       <ul class="pd-objectives">
         <li><strong>Counter POS (iPad)</strong> — the catalog follows the store’s product categories and the cart stays pinned to the right. Quick-tender amounts and change, receipt or e-invoice, and a shift close that compares drawer cash with the system total.</li>
@@ -77,7 +104,13 @@
       </ul>
     </div>
 
-    <div class="pd-block" data-section="sec-pre-order">
+    <div class="pd-block" data-section="sec-pre-order" data-vi="      &lt;h2&gt;Các lựa chọn thiết kế&lt;/h2&gt;
+      &lt;ul class=&quot;pd-objectives&quot;&gt;
+        &lt;li&gt;&lt;strong&gt;Một hàng đợi cho mọi kênh.&lt;/strong&gt; Đơn bán tại quầy và đơn đặt trước online nằm chung một hàng đợi, nên thu ngân không bao giờ phải xem hai nơi.&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Không có gì mới phải học.&lt;/strong&gt; Máy cầm tay đi theo từng bước của quy trình trên iPad.&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Trả ngay hoặc trả khi nhận.&lt;/strong&gt; Trạng thái thanh toán và tiến độ đơn nằm cạnh nhau, để phụ huynh biết khi nào nên đến.&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Tiền bạc cần sự chắc chắn.&lt;/strong&gt; Mọi khoản thanh toán đều kết thúc ở một màn hình có số tiền, trạng thái và mã tham chiếu — không có gì là “chắc đã gửi”.&lt;/li&gt;
+      &lt;/ul&gt;">
       <h2>Design choices</h2>
       <ul class="pd-objectives">
         <li><strong>One queue for every channel.</strong> Walk-in sales and online pre-orders appear in the same order queue, so the cashier never checks two places.</li>
@@ -87,13 +120,23 @@
       </ul>
     </div>
 
-    <div class="pd-block" data-section="sec-ecosystem">
+    <div class="pd-block" data-section="sec-ecosystem" data-vi="      &lt;h2&gt;Phía sau hệ thống&lt;/h2&gt;
+      &lt;p&gt;Dù bán qua kênh nào, giao dịch cũng về hệ thống debit note: một khoản công nợ cho mỗi lần bán, nhắc nhở khi đến hạn thanh toán, trả góp, hoá đơn điện tử xuất ngay khi thanh toán được xác nhận, và tiền về thẳng tài khoản ngân hàng của người bán qua các ngân hàng đối tác.&lt;/p&gt;
+      &lt;p&gt;Hệ thống debit note là sản phẩm độc quyền nên giao diện không được hiển thị ở đây — xem tại edpay.vn. Cách jLink hoạt động về mặt kỹ thuật thuộc NDA.&lt;/p&gt;">
       <h2>Under the hood</h2>
       <p>Whichever channel makes the sale, the transaction lands in the debit note system: a receivable for each sale, reminders when a payment is due, instalments, e-invoices issued once a payment is confirmed, and direct settlement to the merchant’s bank account with partner banks.</p>
       <p>The debit note system is a proprietary product and its UI is not shown here — see edpay.vn. How jLink works technically is under NDA.</p>
     </div>
 
-    <div class="pd-block">
+    <div class="pd-block" data-vi="      &lt;h2&gt;Sản phẩm bàn giao&lt;/h2&gt;
+      &lt;div class=&quot;pd-deliverables&quot;&gt;
+        &lt;span class=&quot;pd-deliverable&quot;&gt;POS tại quầy (iPad)&lt;/span&gt;
+        &lt;span class=&quot;pd-deliverable&quot;&gt;Máy POS cầm tay&lt;/span&gt;
+        &lt;span class=&quot;pd-deliverable&quot;&gt;Cửa hàng đặt trước online&lt;/span&gt;
+        &lt;span class=&quot;pd-deliverable&quot;&gt;Trang thanh toán jLink&lt;/span&gt;
+        &lt;span class=&quot;pd-deliverable&quot;&gt;jWallet &amp;amp; cổng quản trị&lt;/span&gt;
+        &lt;span class=&quot;pd-deliverable pd-nda&quot;&gt;Tích hợp debit note &lt;em&gt;NDA&lt;/em&gt;&lt;/span&gt;
+      &lt;/div&gt;">
       <h2>Deliverables</h2>
       <div class="pd-deliverables">
         <span class="pd-deliverable">Counter POS (iPad)</span>
@@ -106,8 +149,8 @@
     </div>
 
     <div class="pd-block pd-reach">
-      <h2 class="pd-reach-title">Reach out.</h2>
-      <p class="pd-reach-sub">Let&rsquo;s work together to bring your ideas to life.</p>
+      <h2 class="pd-reach-title" data-vi="Liên hệ.">Reach out.</h2>
+      <p class="pd-reach-sub" data-vi="Cùng nhau biến ý tưởng của bạn thành hiện thực.">Let&rsquo;s work together to bring your ideas to life.</p>
       <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=maianhthyvo@gmail.com" class="pd-reach-link" data-hover target="_blank" rel="noopener">maianhthyvo@gmail.com</a>
       <div class="pd-reach-socials">
         <a href="https://www.linkedin.com/in/v%C3%B5-mai-anh-thy/" data-hover target="_blank" rel="noopener">LinkedIn</a>
@@ -116,61 +159,62 @@
     </div>
 
     <div class="pd-footer-inline">
-      <span>Designed by <a href="index.html" data-hover>Sonorathy</a></span>
-      <span>&copy; 2026 All rights reserved</span>
+      <span data-vi="Thiết kế bởi &lt;a href=&quot;index.html&quot; data-hover&gt;Sonorathy&lt;/a&gt;">Designed by <a href="index.html" data-hover>Sonorathy</a></span>
+      <span data-vi="&amp;copy; 2026 Bảo lưu mọi quyền">&copy; 2026 All rights reserved</span>
     </div>
   </div>
 
   <div class="pd-showcase pd-showcase-stack">
     <figure class="pd-showcase-item" data-section="sec-overview" id="sec-overview" data-hover>
-      <img src="assets/work/edpay/00-hero.jpg" alt="Shop Billing — retail and billing for school stores: login and storefront on mobile">
+      <img src="assets/work/edpay/00-hero.jpg" alt="Shop Billing — retail and billing for school stores: login and storefront on mobile" data-vi-alt="Shop Billing — bán lẻ và thanh toán cho cửa hàng trường học: đăng nhập và cửa hàng trên mobile">
     </figure>
     <figure class="pd-showcase-item" data-section="sec-overview" data-hover>
-      <img src="assets/work/edpay/01-overview.jpg" alt="Overview — three ways to sell, one debit note ledger; counter POS screen" loading="lazy">
+      <img src="assets/work/edpay/01-overview.jpg" alt="Overview — three ways to sell, one debit note ledger; counter POS screen" data-vi-alt="Tổng quan — ba cách bán, một sổ debit note; màn hình POS tại quầy" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-section="sec-problem-solution" id="sec-problem-solution" data-hover>
-      <img src="assets/work/edpay/02-problem-solution.jpg" alt="Problem and solution — three bottlenecks after the sale, each mapped to a part of the product" loading="lazy">
+      <img src="assets/work/edpay/02-problem-solution.jpg" alt="Problem and solution — three bottlenecks after the sale, each mapped to a part of the product" data-vi-alt="Vấn đề và giải pháp — ba điểm nghẽn sau khi bán, mỗi điểm ứng với một phần của sản phẩm" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-section="sec-counter-pos" id="sec-counter-pos" data-hover>
-      <img src="assets/work/edpay/03-counter-pos.jpg" alt="Counter POS on iPad — catalog, pinned cart, quick tender, receipt or e-invoice, shift close" loading="lazy">
+      <img src="assets/work/edpay/03-counter-pos.jpg" alt="Counter POS on iPad — catalog, pinned cart, quick tender, receipt or e-invoice, shift close" data-vi-alt="POS tại quầy trên iPad — danh mục, giỏ hàng ghim, chọn nhanh mệnh giá, hoá đơn in hoặc điện tử, chốt ca" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-section="sec-pos-terminal" id="sec-pos-terminal" data-hover>
-      <img src="assets/work/edpay/04-pos-terminal.jpg" alt="POS terminal — the same flow on a handheld, with a printed receipt" loading="lazy">
+      <img src="assets/work/edpay/04-pos-terminal.jpg" alt="POS terminal — the same flow on a handheld, with a printed receipt" data-vi-alt="Máy POS cầm tay — cùng quy trình trên thiết bị cầm tay, kèm hoá đơn in" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-section="sec-pre-order" id="sec-pre-order" data-hover>
-      <img src="assets/work/edpay/05-pre-order.jpg" alt="Pre-order with in-store pickup — storefront, checkout, order tracking and order history" loading="lazy">
+      <img src="assets/work/edpay/05-pre-order.jpg" alt="Pre-order with in-store pickup — storefront, checkout, order tracking and order history" data-vi-alt="Đặt trước nhận tại cửa hàng — cửa hàng online, thanh toán, theo dõi đơn và lịch sử đơn" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-section="sec-jlink" id="sec-jlink" data-hover>
-      <img src="assets/work/edpay/06-jlink.jpg" alt="jLink payment page — amount, merchant and countdown on top, OTP confirmation, web and mobile" loading="lazy">
+      <img src="assets/work/edpay/06-jlink.jpg" alt="jLink payment page — amount, merchant and countdown on top, OTP confirmation, web and mobile" data-vi-alt="Trang thanh toán jLink — số tiền, người bán và đếm ngược ở trên cùng, xác nhận OTP, trên web và mobile" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-section="sec-ecosystem" id="sec-ecosystem" data-hover>
-      <img src="assets/work/edpay/07-ecosystem.jpg" alt="Ecosystem — three channels post to one debit note: receivables, reminders, instalments, e-invoices, direct settlement" loading="lazy">
+      <img src="assets/work/edpay/07-ecosystem.jpg" alt="Ecosystem — three channels post to one debit note: receivables, reminders, instalments, e-invoices, direct settlement" data-vi-alt="Hệ sinh thái — ba kênh ghi về một debit note: công nợ, nhắc nhở, trả góp, hoá đơn điện tử, tiền về thẳng tài khoản" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-section="sec-thanks" id="sec-thanks" data-hover>
-      <img src="assets/work/edpay/08-thanks.jpg" alt="Thanks for scrolling" loading="lazy">
+      <img src="assets/work/edpay/08-thanks.jpg" alt="Thanks for scrolling" data-vi-alt="Cảm ơn bạn đã xem" loading="lazy">
     </figure>
   </div>
 </div>
 
-<nav class="pd-secnav" aria-label="Sections">
-  <a href="#sec-overview" class="pd-secnav-item is-active" data-target="sec-overview" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">Overview</span></a>
-  <a href="#sec-problem-solution" class="pd-secnav-item" data-target="sec-problem-solution" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">Problem &amp; Solution</span></a>
-  <a href="#sec-counter-pos" class="pd-secnav-item" data-target="sec-counter-pos" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">Counter POS</span></a>
-  <a href="#sec-pos-terminal" class="pd-secnav-item" data-target="sec-pos-terminal" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">POS Terminal</span></a>
-  <a href="#sec-pre-order" class="pd-secnav-item" data-target="sec-pre-order" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">Pre-order</span></a>
+<nav class="pd-secnav" aria-label="Sections" data-vi-aria-label="Các phần">
+  <a href="#sec-overview" class="pd-secnav-item is-active" data-target="sec-overview" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label" data-vi="Tổng quan">Overview</span></a>
+  <a href="#sec-problem-solution" class="pd-secnav-item" data-target="sec-problem-solution" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label" data-vi="Vấn đề &amp;amp; Giải pháp">Problem &amp; Solution</span></a>
+  <a href="#sec-counter-pos" class="pd-secnav-item" data-target="sec-counter-pos" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label" data-vi="POS tại quầy">Counter POS</span></a>
+  <a href="#sec-pos-terminal" class="pd-secnav-item" data-target="sec-pos-terminal" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label" data-vi="POS cầm tay">POS Terminal</span></a>
+  <a href="#sec-pre-order" class="pd-secnav-item" data-target="sec-pre-order" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label" data-vi="Đặt trước">Pre-order</span></a>
   <a href="#sec-jlink" class="pd-secnav-item" data-target="sec-jlink" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">jLink</span></a>
-  <a href="#sec-ecosystem" class="pd-secnav-item" data-target="sec-ecosystem" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">Ecosystem</span></a>
-  <a href="#sec-thanks" class="pd-secnav-item" data-target="sec-thanks" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">Thanks</span></a>
+  <a href="#sec-ecosystem" class="pd-secnav-item" data-target="sec-ecosystem" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label" data-vi="Hệ sinh thái">Ecosystem</span></a>
+  <a href="#sec-thanks" class="pd-secnav-item" data-target="sec-thanks" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label" data-vi="Cảm ơn">Thanks</span></a>
 </nav>
 
 <a href="project-tvpl-legal-ai.html" class="pd-prev-float" data-hover>
-  <i>&larr;</i><span>Previous</span>
+  <i>&larr;</i><span data-vi="Trước">Previous</span>
 </a>
 
 <a href="project-mvillage.html" class="pd-next-float" data-hover>
-  <span>Next</span><i>&rarr;</i>
+  <span data-vi="Tiếp">Next</span><i>&rarr;</i>
 </a>
 
+<script src="i18n.js"></script>
 <script src="theme.js"></script>
 <script src="img-slots.js"></script>
 <script src="project-detail.js"></script>

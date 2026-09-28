@@ -41,10 +41,61 @@ function md(body, indent) {
   }).filter(Boolean).join('\n');
 }
 
+/* ---------------- language ----------------
+   English is written into the markup; Vietnamese rides along on the same
+   element — data-vi holds the element's HTML, data-vi-<attr> an attribute —
+   and i18n.js swaps it in. Vietnamese lives next to each English field in
+   the content as a "vi" object ({ title, tagline, … }); anything without a
+   Vietnamese version simply stays English. */
+const V = (o) => (o && o.vi) || {};
+// viHtml / enHtml are already-rendered HTML; the attribute is emitted only
+// when there is a Vietnamese version that differs from the English one
+function viAttr(viHtml, enHtml, name = 'data-vi') {
+  if (viHtml == null || viHtml === '' || viHtml === enHtml) return '';
+  return ` ${name}="${esc(viHtml)}"`;
+}
+const viText = (vi, en, name) => viAttr(vi ? esc(vi) : vi, esc(en), name);
+// UI strings on every project page: [English HTML, Vietnamese HTML]
+const UI = {
+  view: ['VIEW', 'XEM'],
+  back: ['<i>←</i> Back', '<i>←</i> Quay lại'],
+  reachTitle: ['Reach out.', 'Liên hệ.'],
+  reachSub: ['Let&rsquo;s work together to bring your ideas to life.', 'Cùng nhau biến ý tưởng của bạn thành hiện thực.'],
+  designedBy: ['Designed by <a href="index.html" data-hover>Sonorathy</a>', 'Thiết kế bởi <a href="index.html" data-hover>Sonorathy</a>'],
+  rights: ['&copy; 2026 All rights reserved', '&copy; 2026 Bảo lưu mọi quyền'],
+  prev: ['Previous', 'Trước'],
+  next: ['Next', 'Tiếp'],
+  gateTitle: ['This case study is protected', 'Case study này được bảo vệ'],
+  gateUnlock: ['Unlock', 'Mở khoá'],
+  gateError: ['Incorrect password — try again.', 'Sai mật khẩu — thử lại nhé.'],
+};
+const ui = (k) => `${viAttr(UI[k][1], UI[k][0])}>${UI[k][0]}`;
+const LANG_TOGGLE = `<div class="lang-toggle" id="langToggle" role="group" aria-label="Language" data-vi-aria-label="Ngôn ngữ">
+  <button type="button" data-lang="en" aria-pressed="true" data-hover>EN</button>
+  <button type="button" data-lang="vi" aria-pressed="false" data-hover>VI</button>
+</div>`;
+// block with its Vietnamese fields merged over the English ones
+function localizeBlock(b) {
+  const v = V(b);
+  const out = Object.assign({}, b, v);
+  if (Array.isArray(b.items)) out.items = b.items.map((it) => (typeof it === 'object' ? Object.assign({}, it, V(it)) : it));
+  return out;
+}
+const hasVi = (b) => Object.keys(V(b)).length > 0 || (b.items || []).some((it) => it && it.vi);
+
 const secId = (name) => 'sec-' + String(name || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
   .replace(/đ/g, 'd').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 
+// a block swaps language as one unit: the Vietnamese version of its whole
+// inner HTML (heading + body/table/stats/chips) sits in data-vi on the block
 function renderBlock(b) {
+  const en = blockInner(b);
+  const vi = hasVi(b) ? blockInner(localizeBlock(b)) : '';
+  const sec = b.section ? ` data-section="${esc(secId(b.section))}"` : '';
+  return `\n    <div class="pd-block"${sec}${viAttr(vi, en)}>\n${en}\n    </div>\n`;
+}
+
+function blockInner(b) {
   const h = b.heading ? `      <h2>${esc(b.heading)}</h2>\n` : '';
   let inner = '';
   if (b.type === 'chips') {
@@ -63,8 +114,7 @@ function renderBlock(b) {
   } else {
     inner = md(b.body, 6);
   }
-  const sec = b.section ? ` data-section="${esc(secId(b.section))}"` : '';
-  return `\n    <div class="pd-block"${sec}>\n${h}${inner}\n    </div>\n`;
+  return `${h}${inner}`;
 }
 
 function renderShot(s, i, all) {
@@ -72,7 +122,8 @@ function renderShot(s, i, all) {
   // first shot of each named section becomes the anchor the section nav jumps to
   const firstOfSection = s.section && all.findIndex((x) => x.section === s.section) === i;
   const secAttr = s.section ? ` data-section="${esc(secId(s.section))}"${firstOfSection ? ` id="${esc(secId(s.section))}"` : ''}` : '';
-  const cap = s.caption ? `\n      <figcaption class="pd-showcase-caption">${esc(s.caption)}</figcaption>` : '';
+  const sv = V(s);
+  const cap = s.caption ? `\n      <figcaption class="pd-showcase-caption"${viText(sv.caption, s.caption)}>${esc(s.caption)}</figcaption>` : '';
   if (s.type === 'video') {
     return `    <figure class="pd-showcase-item"${secAttr} data-hover>\n      <video src="${esc(s.src)}" controls muted playsinline preload="metadata"></video>${cap}\n    </figure>`;
   }
@@ -81,7 +132,8 @@ function renderShot(s, i, all) {
   }
   const cls = s.mobile ? 'pd-showcase-item pd-showcase-mobile' : 'pd-showcase-item';
   const alt = s.alt || s.caption || '';
-  return `    <figure class="${cls}"${secAttr} data-hover>\n      <img src="${esc(s.src)}" alt="${esc(alt)}"${lazy}>${cap}\n    </figure>`;
+  const altVi = sv.alt || sv.caption || '';
+  return `    <figure class="${cls}"${secAttr} data-hover>\n      <img src="${esc(s.src)}" alt="${esc(alt)}"${viText(altVi, alt, 'data-vi-alt')}${lazy}>${cap}\n    </figure>`;
 }
 
 /* vertical section breadcrumb — one entry per distinct shot.section, in
@@ -92,9 +144,10 @@ function sectionNav(p) {
   const names = [];
   (p.shots || []).forEach((s) => { if (s.section && !names.includes(s.section)) names.push(s.section); });
   if (names.length < 2) return '';
+  const viNames = V(p).sections || {};
   return `
-<nav class="pd-secnav" aria-label="Sections">
-${names.map((n, i) => `  <a href="#${esc(secId(n))}" class="pd-secnav-item${i === 0 ? ' is-active' : ''}" data-target="${esc(secId(n))}" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">${esc(n)}</span></a>`).join('\n')}
+<nav class="pd-secnav" aria-label="Sections" data-vi-aria-label="Các phần">
+${names.map((n, i) => `  <a href="#${esc(secId(n))}" class="pd-secnav-item${i === 0 ? ' is-active' : ''}" data-target="${esc(secId(n))}" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label"${viText(viNames[n], n)}>${esc(n)}</span></a>`).join('\n')}
 </nav>
 `;
 }
@@ -107,12 +160,12 @@ function gateHtml(p) {
 <div class="pd-gate" id="pdGate">
   <div class="pd-gate-card">
     <i class="pd-gate-lock">&#128274;</i>
-    <h2>This case study is protected</h2>
-    <p>${esc(p.title)} is under NDA. Enter the password to view the full case study.</p>
+    <h2${ui('gateTitle')}</h2>
+    <p data-vi="${esc(`${esc(V(p).title || p.title)} được bảo mật theo NDA. Nhập mật khẩu để xem toàn bộ case study.`)}">${esc(p.title)} is under NDA. Enter the password to view the full case study.</p>
     <form class="pd-gate-form" id="pdGateForm" autocomplete="off">
-      <input type="password" class="pd-gate-input" id="pdGateInput" placeholder="Password" />
-      <button type="submit" class="pd-gate-submit">Unlock</button>
-      <span class="pd-gate-error" id="pdGateError">Incorrect password — try again.</span>
+      <input type="password" class="pd-gate-input" id="pdGateInput" placeholder="Password" data-vi-placeholder="Mật khẩu" />
+      <button type="submit" class="pd-gate-submit"${ui('gateUnlock')}</button>
+      <span class="pd-gate-error" id="pdGateError"${ui('gateError')}</span>
     </form>
   </div>
 </div>
@@ -154,19 +207,22 @@ function gateScript(p) {
 function renderPage(p, prev, next) {
   const locked = !!p.passwordHash;
   const title = esc(p.title);
+  const pv = V(p);
   const meta = (p.meta || []).map((m) =>
-    `      <div class="pd-meta-row"><span>${esc(m.label)}</span><span>${esc(m.value)}</span></div>`).join('\n');
-  const badge = p.badge ? `\n    <span class="pd-badge">${esc(p.badge)}</span>` : '';
+    `      <div class="pd-meta-row"><span${viText(V(m).label, m.label)}>${esc(m.label)}</span><span${viText(V(m).value, m.value)}>${esc(m.value)}</span></div>`).join('\n');
+  const badge = p.badge ? `\n    <span class="pd-badge"${viText(pv.badge, p.badge)}>${esc(p.badge)}</span>` : '';
+  const desc = p.metaDescription || p.tagline;
+  const descVi = pv.metaDescription || pv.tagline;
   const robots = p.visible === false ? '\n<meta name="robots" content="noindex" />' : '';
   return `<!DOCTYPE html>
 <!-- GENERATED by tools/build.js from content/projects.json — edit in the admin (npm run admin), not here. -->
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<script>(function(){try{var t=localStorage.getItem('snrt:theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();</script>
+<script>(function(){try{var t=localStorage.getItem('snrt:theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');var l=localStorage.getItem('snrt:lang');if(l)document.documentElement.lang=l;}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>${title} — Sonorathy</title>
-<meta name="description" content="${esc(p.metaDescription || p.tagline)}" />${robots}
+<title${viText(pv.title && `${pv.title} — Sonorathy`, `${p.title} — Sonorathy`)}>${title} — Sonorathy</title>
+<meta name="description" content="${esc(desc)}"${viText(descVi, desc, 'data-vi-content')} />${robots}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
@@ -177,36 +233,38 @@ function renderPage(p, prev, next) {
 <div class="cursor" id="cursor">
   <div class="cursor-dot"></div>
   <div class="cursor-ring"></div>
-  <span class="cursor-label">VIEW</span>
+  <span class="cursor-label"${ui('view')}</span>
 </div>
 
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle light / dark mode" data-hover>
+${LANG_TOGGLE}
+
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle light / dark mode" data-vi-aria-label="Chuyển giao diện sáng / tối" data-hover>
   <i class="theme-icon theme-icon-sun">&#9728;</i>
   <i class="theme-icon theme-icon-moon">&#9789;</i>
 </button>
 
-<a href="index.html#work" class="pd-back" data-hover><i>←</i> Back</a>
+<a href="index.html#work" class="pd-back" data-hover${ui('back')}</a>
 ${locked ? gateHtml(p) : ''}
 <div class="pd-grid">
   <div class="pd-info">
-    <h1 class="pd-title">${title}</h1>${badge}
-    <p class="pd-tagline">${inline(p.tagline)}</p>
+    <h1 class="pd-title"${viText(pv.title, p.title)}>${title}</h1>${badge}
+    <p class="pd-tagline"${viAttr(pv.tagline && inline(pv.tagline), inline(p.tagline))}>${inline(p.tagline)}</p>
 
     <div class="pd-meta">
 ${meta}
     </div>
 ${(p.blocks || []).map(renderBlock).join('')}
     <div class="pd-block pd-reach">
-      <h2 class="pd-reach-title">Reach out.</h2>
-      <p class="pd-reach-sub">Let&rsquo;s work together to bring your ideas to life.</p>
+      <h2 class="pd-reach-title"${ui('reachTitle')}</h2>
+      <p class="pd-reach-sub"${ui('reachSub')}</p>
 ${contactEmail('pd-reach-link', '', 6)}
       <div class="pd-reach-socials">${contactSocials(8)}
       </div>
     </div>
 
     <div class="pd-footer-inline">
-      <span>Designed by <a href="index.html" data-hover>Sonorathy</a></span>
-      <span>&copy; 2026 All rights reserved</span>
+      <span${ui('designedBy')}</span>
+      <span${ui('rights')}</span>
     </div>
   </div>
 
@@ -216,13 +274,14 @@ ${(p.shots || []).map(renderShot).join('\n')}
 </div>
 ${sectionNav(p)}
 <a href="project-${prev.slug}.html" class="pd-prev-float" data-hover>
-  <i>&larr;</i><span>Previous</span>
+  <i>&larr;</i><span${ui('prev')}</span>
 </a>
 
 <a href="project-${next.slug}.html" class="pd-next-float" data-hover>
-  <span>Next</span><i>&rarr;</i>
+  <span${ui('next')}</span><i>&rarr;</i>
 </a>
 
+<script src="i18n.js"></script>
 <script src="theme.js"></script>
 <script src="img-slots.js"></script>
 <script src="project-detail.js"></script>
@@ -233,22 +292,27 @@ ${locked ? gateScript(p) : ''}</body>
 
 function renderCard(p, i) {
   const c = p.card || {};
+  const cv = V(c);
+  const pv = V(p);
   const locked = !!p.passwordHash;
+  const cardTitle = c.title || p.title;
+  const cardTitleVi = cv.title || pv.title;
+  const coverAlt = c.coverAlt || p.title;
   const media = c.cover
-    ? `<div class="work-card-media${locked ? ' work-card-media-locked' : ''}"><img src="${esc(c.cover)}" alt="${esc(c.coverAlt || p.title)}" loading="lazy">${locked ? '<i class="work-card-lock">&#128274;</i>' : ''}</div>`
+    ? `<div class="work-card-media${locked ? ' work-card-media-locked' : ''}"><img src="${esc(c.cover)}" alt="${esc(coverAlt)}"${viText(cv.coverAlt || pv.title, coverAlt, 'data-vi-alt')} loading="lazy">${locked ? '<i class="work-card-lock">&#128274;</i>' : ''}</div>`
     : `<div class="work-card-media work-card-grad" style="background:${esc(c.coverGradient || 'linear-gradient(155deg,#555,#0a0a0b)')}">${locked ? '<i class="work-card-lock">&#128274;</i>' : ''}</div>`;
   return `
         <a href="project-${p.slug}.html" class="work-card${locked ? ' work-card-locked' : ''}" data-hover
            data-category="${esc(p.category || 'product-uiux')}"
-           data-title="${esc(c.title || p.title)}"
+           data-title="${esc(cardTitle)}"
            data-role="${esc(c.role)}"
            data-highlights="${esc((c.highlights || []).join('|'))}"
-           data-problem="${esc(c.problem)}">
+           data-problem="${esc(c.problem)}"${viText(cardTitleVi, cardTitle, 'data-vi-data-title')}${viText(cv.role, c.role, 'data-vi-data-role')}${viText(cv.highlights && cv.highlights.join('|'), (c.highlights || []).join('|'), 'data-vi-data-highlights')}${viText(cv.problem, c.problem, 'data-vi-data-problem')}>
           ${media}
           <div class="work-card-meta">
             <span class="work-card-index">${String(i + 1).padStart(2, '0')}</span>
-            <span class="work-card-title">${esc(c.title || p.title)}</span>
-            <span class="work-card-tag">${esc(c.tag)}</span>
+            <span class="work-card-title"${viText(cardTitleVi, cardTitle)}>${esc(cardTitle)}</span>
+            <span class="work-card-tag"${viText(cv.tag, c.tag)}>${esc(c.tag)}</span>
           </div>
         </a>
 `;
@@ -256,14 +320,17 @@ function renderCard(p, i) {
 
 function renderSlide(p) {
   const c = p.card || {};
+  const cv = V(c);
+  const pv = V(p);
   const locked = !!p.passwordHash;
+  const coverAlt = c.coverAlt || p.title;
   const media = c.cover
-    ? `<div class="carousel-media${locked ? ' carousel-media-locked' : ''}"><img src="${esc(c.cover)}" alt="${esc(c.coverAlt || p.title)}" loading="lazy">${locked ? '<i class="carousel-lock">&#128274;</i>' : ''}</div>`
+    ? `<div class="carousel-media${locked ? ' carousel-media-locked' : ''}"><img src="${esc(c.cover)}" alt="${esc(coverAlt)}"${viText(cv.coverAlt || pv.title, coverAlt, 'data-vi-alt')} loading="lazy">${locked ? '<i class="carousel-lock">&#128274;</i>' : ''}</div>`
     : `<div class="carousel-media carousel-media-grad" style="background:${esc(c.coverGradient || 'linear-gradient(135deg,#555,#0a0a0b)')}"></div>`;
   return `
         <div class="carousel-slide" data-hover>
           ${media}
-          <span class="carousel-caption">${esc(c.title || p.title)}</span>
+          <span class="carousel-caption"${viText(cv.title || pv.title, c.title || p.title)}>${esc(c.title || p.title)}</span>
         </div>`;
 }
 
@@ -281,6 +348,22 @@ const DEFAULT_CONTACTS = [
   { type: 'dribbble', label: 'Dribbble', link: '', visible: true },
 ];
 let CONTACTS = DEFAULT_CONTACTS;
+// generic contact types are shown in the visitor's language; a label that is
+// empty or still one of these default names follows the language, a custom
+// label (a brand name, "My portfolio"…) is shown as written
+const CONTACT_NAMES = {
+  phone: ['Phone', 'Điện thoại', ['Số điện thoại', 'SĐT']],
+  other: ['Other', 'Khác', []],
+  website: ['Website', 'Website', []],
+};
+function contactLabel(c) {
+  const n = CONTACT_NAMES[c.type];
+  const label = String(c.label || '').trim();
+  if (n && (!label || [n[0], n[1]].concat(n[2]).some((x) => x.toLowerCase() === label.toLowerCase()))) {
+    return `${viText(n[1], n[0])}>${esc(n[0])}`;
+  }
+  return `>${esc(label || c.type)}`;
+}
 function contactHref(c) {
   const v = String(c.link || '').trim();
   if (!v) return '#';
@@ -305,7 +388,7 @@ function contactSocials(indent) {
   return shownContacts().filter((c) => c !== main).map((c) => {
     const href = contactHref(c);
     const tgt = href !== '#' && isExternal(href) ? ' target="_blank" rel="noopener"' : '';
-    return `\n${' '.repeat(indent)}<a href="${esc(href)}" data-hover${tgt}>${esc(c.label || c.type)}</a>`;
+    return `\n${' '.repeat(indent)}<a href="${esc(href)}" data-hover${tgt}${contactLabel(c)}</a>`;
   }).join('');
 }
 
@@ -317,10 +400,10 @@ const DEFAULT_FILTERS = [
   { id: 'content-strategy', label: 'Content Strategy', visible: true },
   { id: 'ai-workflow', label: 'AI Workflow', visible: true },
 ];
-const filterBtn = (id, label, active) =>
-  `\n        <button class="work-filter-btn${active ? ' is-active' : ''}" type="button" data-filter="${esc(id)}" data-hover role="tab" aria-selected="${active}">${esc(label)}<span class="work-filter-count"></span></button>`;
+const filterBtn = (id, label, labelVi, active) =>
+  `\n        <button class="work-filter-btn${active ? ' is-active' : ''}" type="button" data-filter="${esc(id)}" data-hover role="tab" aria-selected="${active}"><span class="work-filter-label"${viText(labelVi, label)}>${esc(label)}</span><span class="work-filter-count"></span></button>`;
 function renderFilters(filters) {
-  return filterBtn('all', 'All', true) + filters.filter((f) => f.visible !== false).map((f) => filterBtn(f.id, f.label, false)).join('');
+  return filterBtn('all', 'All', 'Tất cả', true) + filters.filter((f) => f.visible !== false).map((f) => filterBtn(f.id, f.label, V(f).label, false)).join('');
 }
 
 function replaceRegion(htmlStr, name, content, openAnchor, closeAnchor) {

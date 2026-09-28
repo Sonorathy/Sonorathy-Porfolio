@@ -3,10 +3,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<script>(function(){try{var t=localStorage.getItem('snrt:theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();</script>
+<script>(function(){try{var t=localStorage.getItem('snrt:theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');var l=localStorage.getItem('snrt:lang');if(l)document.documentElement.lang=l;}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Design System — Sonorathy</title>
-<meta name="description" content="Design System — one Figma library serving six products across six brands: 1,265 variables, 328 component sets, Chat &amp; AI kits. Case study by Sonorathy." />
+<meta name="description" content="Design System — one Figma library serving six products across six brands: 1,265 variables, 328 component sets, Chat &amp; AI kits. Case study by Sonorathy." data-vi-content="Design System — một thư viện Figma phục vụ sáu sản phẩm trên sáu thương hiệu: 1.265 biến, 328 component set, bộ kit Chat &amp;amp; AI. Case study của Sonorathy." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
@@ -17,35 +17,50 @@
 <div class="cursor" id="cursor">
   <div class="cursor-dot"></div>
   <div class="cursor-ring"></div>
-  <span class="cursor-label">VIEW</span>
+  <span class="cursor-label" data-vi="XEM">VIEW</span>
 </div>
 
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle light / dark mode" data-hover>
+<div class="lang-toggle" id="langToggle" role="group" aria-label="Language" data-vi-aria-label="Ngôn ngữ">
+  <button type="button" data-lang="en" aria-pressed="true" data-hover>EN</button>
+  <button type="button" data-lang="vi" aria-pressed="false" data-hover>VI</button>
+</div>
+
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle light / dark mode" data-vi-aria-label="Chuyển giao diện sáng / tối" data-hover>
   <i class="theme-icon theme-icon-sun">&#9728;</i>
   <i class="theme-icon theme-icon-moon">&#9789;</i>
 </button>
 
-<a href="index.html#work" class="pd-back" data-hover><i>←</i> Back</a>
+<a href="index.html#work" class="pd-back" data-hover data-vi="&lt;i&gt;←&lt;/i&gt; Quay lại"><i>←</i> Back</a>
 
 <div class="pd-grid">
   <div class="pd-info">
     <h1 class="pd-title">Design System</h1>
-    <p class="pd-tagline">One library, six products, five brands — from a button to an AI legal answer.</p>
+    <p class="pd-tagline" data-vi="Một thư viện, sáu sản phẩm, năm thương hiệu — từ một nút bấm đến một câu trả lời pháp lý của AI.">One library, six products, five brands — from a button to an AI legal answer.</p>
 
     <div class="pd-meta">
-      <div class="pd-meta-row"><span>Year</span><span>2023 – 2026</span></div>
-      <div class="pd-meta-row"><span>Role</span><span>Design System Designer</span></div>
-      <div class="pd-meta-row"><span>Scope</span><span>Tokens · Theming · Components · Docs</span></div>
-      <div class="pd-meta-row"><span>Serves</span><span>NDA</span></div>
+      <div class="pd-meta-row"><span data-vi="Năm">Year</span><span>2023 – 2026</span></div>
+      <div class="pd-meta-row"><span data-vi="Vai trò">Role</span><span>Design System Designer</span></div>
+      <div class="pd-meta-row"><span data-vi="Phạm vi">Scope</span><span data-vi="Token · Theming · Component · Tài liệu">Tokens · Theming · Components · Docs</span></div>
+      <div class="pd-meta-row"><span data-vi="Phục vụ">Serves</span><span>NDA</span></div>
     </div>
 
-    <div class="pd-block" data-section="sec-overview">
+    <div class="pd-block" data-section="sec-overview" data-vi="      &lt;h2&gt;Vấn đề&lt;/h2&gt;
+      &lt;p&gt;Sáu sản phẩm được thiết kế song song — một nền tảng nội bộ, một ứng dụng chat, một dashboard IoT/GIS, một ứng dụng vận hành nông trại, một thương hiệu tiêu dùng và một trợ lý pháp lý AI. Mỗi sản phẩm dần có nút, bảng và kiểu cảnh báo riêng, nên mỗi màn hình mới lại phải quyết định lại những điều đã được quyết ở nơi khác.&lt;/p&gt;
+      &lt;p&gt;Mục tiêu: một thư viện Figma duy nhất, nơi sản phẩm đổi thương hiệu, hình khối và mật độ bằng cách chuyển mode — không phải detach component.&lt;/p&gt;">
       <h2>The problem</h2>
       <p>Six products were being designed in parallel — an internal platform, a chat app, an IoT/GIS dashboard, a farm-operations app, a consumer brand and an AI legal assistant. Each started drifting into its own buttons, tables and alert styles, so every new screen meant re-deciding things that were already decided elsewhere.</p>
       <p>The goal: one Figma library where a product changes brand, shape and density by switching a mode — not by detaching components.</p>
     </div>
 
-    <div class="pd-block" data-section="sec-in-numbers">
+    <div class="pd-block" data-section="sec-in-numbers" data-vi="      &lt;h2&gt;Qua các con số&lt;/h2&gt;
+      &lt;div class=&quot;pd-stats&quot;&gt;
+        &lt;div class=&quot;pd-stat&quot;&gt;&lt;strong&gt;116&lt;/strong&gt;&lt;span&gt;trang&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;pd-stat&quot;&gt;&lt;strong&gt;328&lt;/strong&gt;&lt;span&gt;component set&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;pd-stat&quot;&gt;&lt;strong&gt;2,817&lt;/strong&gt;&lt;span&gt;variant&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;pd-stat&quot;&gt;&lt;strong&gt;1,265&lt;/strong&gt;&lt;span&gt;biến trong 10 collection&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;pd-stat&quot;&gt;&lt;strong&gt;7,800+&lt;/strong&gt;&lt;span&gt;icon&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;pd-stat&quot;&gt;&lt;strong&gt;196&lt;/strong&gt;&lt;span&gt;style chữ, màu &amp;amp; hiệu ứng&lt;/span&gt;&lt;/div&gt;
+      &lt;/div&gt;">
       <h2>By the numbers</h2>
       <div class="pd-stats">
         <div class="pd-stat"><strong>116</strong><span>pages</span></div>
@@ -57,7 +72,20 @@
       </div>
     </div>
 
-    <div class="pd-block" data-section="sec-token-architecture">
+    <div class="pd-block" data-section="sec-token-architecture" data-vi="      &lt;h2&gt;Kiến trúc token&lt;/h2&gt;
+      &lt;p&gt;Ba lớp. Component chỉ gắn vào lớp semantic, nên mọi thay đổi về thương hiệu, theme hay bố cục không bao giờ chạm vào bên trong component.&lt;/p&gt;
+      &lt;table class=&quot;pd-table&quot;&gt;
+        &lt;tr&gt;&lt;th&gt;Collection&lt;/th&gt;&lt;th&gt;Mode&lt;/th&gt;&lt;th&gt;Số biến&lt;/th&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;Màu / kích thước gốc (primitive)&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;210 / 27&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;Brand&lt;/td&gt;&lt;td&gt;jFoundation, jChat, jMaps, jFa, Pastel&lt;/td&gt;&lt;td&gt;255&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;Theme&lt;/td&gt;&lt;td&gt;Standard, Premium&lt;/td&gt;&lt;td&gt;34&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;Màu semantic&lt;/td&gt;&lt;td&gt;Sáng, Tối&lt;/td&gt;&lt;td&gt;478&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;Kích thước semantic&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;123&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;Shape&lt;/td&gt;&lt;td&gt;Default, Rounded, Pill, Sharp&lt;/td&gt;&lt;td&gt;18&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;Responsive&lt;/td&gt;&lt;td&gt;Desktop, Tablet, Mobile&lt;/td&gt;&lt;td&gt;44&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;Mật độ&lt;/td&gt;&lt;td&gt;Compact, Comfortable, Spacious&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;System&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;29&lt;/td&gt;&lt;/tr&gt;
+      &lt;/table&gt;">
       <h2>Token architecture</h2>
       <p>Three layers. Components only ever bind to the semantic layer, so brand, theme and layout changes never reach inside a component.</p>
       <table class="pd-table">
@@ -74,7 +102,14 @@
       </table>
     </div>
 
-    <div class="pd-block" data-section="sec-coverage">
+    <div class="pd-block" data-section="sec-coverage" data-vi="      &lt;h2&gt;Thư viện có gì&lt;/h2&gt;
+      &lt;ul class=&quot;pd-objectives&quot;&gt;
+        &lt;li&gt;&lt;strong&gt;Desktop&lt;/strong&gt; — 37 trang, 87 component set, 910 variant: điều hướng, nhập liệu, hiển thị dữ liệu, phản hồi.&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Mobile&lt;/strong&gt; — 20 trang, 39 set, 311 variant: picker, bottom sheet, action bar, bàn phím số. Khác biệt nằm ở lớp overlay: status bar, bàn phím, vùng an toàn.&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Chat &amp;amp; AI&lt;/strong&gt; — 11 trang, 68 set, 296 variant: các phần của tin nhắn, ô soạn tin, tác vụ AI nặng, thương mại trong chat (gợi ý sản phẩm, giỏ hàng nháp, báo giá, rà soát hợp đồng).&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Platform&lt;/strong&gt; — bảng dữ liệu, biểu đồ, GIS &amp;amp; bản đồ, vận hành, cảnh báo &amp;amp; nhật ký — dùng chung cho jMaps và jFa, chỉ khác nhau ở brand mode.&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;AI · Pháp lý&lt;/strong&gt; — thẻ trích dẫn (8 trạng thái hiệu lực), dòng thời gian hiệu lực, so sánh điều khoản, cờ rủi ro 4 mức, duyệt bởi chuyên gia 5 trạng thái.&lt;/li&gt;
+      &lt;/ul&gt;">
       <h2>What’s in the library</h2>
       <ul class="pd-objectives">
         <li><strong>Desktop</strong> — 37 pages, 87 component sets, 910 variants: navigation, data entry, data display, feedback.</li>
@@ -85,7 +120,13 @@
       </ul>
     </div>
 
-    <div class="pd-block">
+    <div class="pd-block" data-vi="      &lt;h2&gt;Bàn giao&lt;/h2&gt;
+      &lt;ul&gt;
+        &lt;li&gt;Mỗi component set có mô tả: khi nào nên dùng, khi nào không.&lt;/li&gt;
+        &lt;li&gt;Mỗi nhóm component có trang tài liệu riêng với cấu trúc, variant và quy tắc sử dụng.&lt;/li&gt;
+        &lt;li&gt;Độ tương phản được kiểm tra bằng script theo WCAG cho mọi mode, không kiểm bằng mắt.&lt;/li&gt;
+        &lt;li&gt;Một nhật ký quyết định ghi lại lý do của từng lựa chọn không hiển nhiên.&lt;/li&gt;
+      &lt;/ul&gt;">
       <h2>Handoff</h2>
       <ul>
         <li>Every component set carries a description: when to use it, when not to.</li>
@@ -95,7 +136,14 @@
       </ul>
     </div>
 
-    <div class="pd-block">
+    <div class="pd-block" data-vi="      &lt;h2&gt;Sản phẩm bàn giao&lt;/h2&gt;
+      &lt;div class=&quot;pd-deliverables&quot;&gt;
+        &lt;span class=&quot;pd-deliverable&quot;&gt;Thư viện Figma&lt;/span&gt;
+        &lt;span class=&quot;pd-deliverable&quot;&gt;Biến &amp;amp; mode&lt;/span&gt;
+        &lt;span class=&quot;pd-deliverable&quot;&gt;Kit desktop &amp;amp; mobile&lt;/span&gt;
+        &lt;span class=&quot;pd-deliverable&quot;&gt;Kit Chat &amp;amp; AI&lt;/span&gt;
+        &lt;span class=&quot;pd-deliverable&quot;&gt;Tài liệu&lt;/span&gt;
+      &lt;/div&gt;">
       <h2>Deliverables</h2>
       <div class="pd-deliverables">
         <span class="pd-deliverable">Figma library</span>
@@ -107,8 +155,8 @@
     </div>
 
     <div class="pd-block pd-reach">
-      <h2 class="pd-reach-title">Reach out.</h2>
-      <p class="pd-reach-sub">Let&rsquo;s work together to bring your ideas to life.</p>
+      <h2 class="pd-reach-title" data-vi="Liên hệ.">Reach out.</h2>
+      <p class="pd-reach-sub" data-vi="Cùng nhau biến ý tưởng của bạn thành hiện thực.">Let&rsquo;s work together to bring your ideas to life.</p>
       <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=maianhthyvo@gmail.com" class="pd-reach-link" data-hover target="_blank" rel="noopener">maianhthyvo@gmail.com</a>
       <div class="pd-reach-socials">
         <a href="https://www.linkedin.com/in/v%C3%B5-mai-anh-thy/" data-hover target="_blank" rel="noopener">LinkedIn</a>
@@ -117,64 +165,65 @@
     </div>
 
     <div class="pd-footer-inline">
-      <span>Designed by <a href="index.html" data-hover>Sonorathy</a></span>
-      <span>&copy; 2026 All rights reserved</span>
+      <span data-vi="Thiết kế bởi &lt;a href=&quot;index.html&quot; data-hover&gt;Sonorathy&lt;/a&gt;">Designed by <a href="index.html" data-hover>Sonorathy</a></span>
+      <span data-vi="&amp;copy; 2026 Bảo lưu mọi quyền">&copy; 2026 All rights reserved</span>
     </div>
   </div>
 
   <div class="pd-showcase pd-showcase-stack">
     <figure class="pd-showcase-item" data-section="sec-overview" id="sec-overview" data-hover>
-      <img src="assets/work/jf-ds/01-cover.jpg" alt="Design System — one component library for desktop, mobile, chat and AI products">
+      <img src="assets/work/jf-ds/01-cover.jpg" alt="Design System — one component library for desktop, mobile, chat and AI products" data-vi-alt="Design System — một thư viện component cho sản phẩm desktop, mobile, chat và AI">
     </figure>
     <figure class="pd-showcase-item" data-section="sec-in-numbers" id="sec-in-numbers" data-hover>
-      <img src="assets/work/jf-ds/02-in-numbers.jpg" alt="In numbers — 328 component sets, 2,817 variants, 1,265 variables, 6 brand modes" loading="lazy">
+      <img src="assets/work/jf-ds/02-in-numbers.jpg" alt="In numbers — 328 component sets, 2,817 variants, 1,265 variables, 6 brand modes" data-vi-alt="Qua các con số — 328 component set, 2.817 variant, 1.265 biến, 6 brand mode" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-section="sec-token-architecture" id="sec-token-architecture" data-hover>
-      <img src="assets/work/jf-ds/03-token-architecture.jpg" alt="Token architecture — four layers, one token traced across six brands" loading="lazy">
+      <img src="assets/work/jf-ds/03-token-architecture.jpg" alt="Token architecture — four layers, one token traced across six brands" data-vi-alt="Kiến trúc token — bốn lớp, một token được lần theo qua sáu thương hiệu" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-section="sec-brand-switching" id="sec-brand-switching" data-hover>
-      <img src="assets/work/jf-ds/04a-brand-switching.jpg" alt="Brand switching — switch the brand, not the components" loading="lazy">
+      <img src="assets/work/jf-ds/04a-brand-switching.jpg" alt="Brand switching — switch the brand, not the components" data-vi-alt="Chuyển thương hiệu — đổi thương hiệu, không đổi component" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-section="sec-brand-switching" data-hover>
-      <img src="assets/work/jf-ds/04b-brand-switching.gif" alt="Screen recording — one mode change on the 1.Brand collection re-themes four screens live in Figma" loading="lazy">
+      <img src="assets/work/jf-ds/04b-brand-switching.gif" alt="Screen recording — one mode change on the 1.Brand collection re-themes four screens live in Figma" data-vi-alt="Quay màn hình — một lần đổi mode trên collection 1.Brand làm đổi theme bốn màn hình ngay trong Figma" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-section="sec-brand-switching" data-hover>
-      <img src="assets/work/jf-ds/04c-brand-switching-modes.jpg" alt="The same frame in six brand modes" loading="lazy">
+      <img src="assets/work/jf-ds/04c-brand-switching-modes.jpg" alt="The same frame in six brand modes" data-vi-alt="Cùng một frame trong sáu brand mode" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-section="sec-properties" id="sec-properties" data-hover>
-      <img src="assets/work/jf-ds/05-properties.jpg" alt="Component properties — variants, booleans, text and instance swaps" loading="lazy">
+      <img src="assets/work/jf-ds/05-properties.jpg" alt="Component properties — variants, booleans, text and instance swaps" data-vi-alt="Thuộc tính component — variant, boolean, text và instance swap" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-section="sec-variant-matrix" id="sec-variant-matrix" data-hover>
-      <img src="assets/work/jf-ds/06-variant-matrix.jpg" alt="Variant matrix — every state drawn" loading="lazy">
+      <img src="assets/work/jf-ds/06-variant-matrix.jpg" alt="Variant matrix — every state drawn" data-vi-alt="Ma trận variant — mọi trạng thái đều được vẽ" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-section="sec-coverage" id="sec-coverage" data-hover>
-      <img src="assets/work/jf-ds/07-coverage.jpg" alt="Coverage — foundations under product kits for chat, AI, commerce and platform" loading="lazy">
+      <img src="assets/work/jf-ds/07-coverage.jpg" alt="Coverage — foundations under product kits for chat, AI, commerce and platform" data-vi-alt="Độ phủ — nền tảng bên dưới các kit sản phẩm cho chat, AI, thương mại và platform" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-section="sec-thanks" id="sec-thanks" data-hover>
-      <img src="assets/work/jf-ds/08-thanks.jpg" alt="Thank you" loading="lazy">
+      <img src="assets/work/jf-ds/08-thanks.jpg" alt="Thank you" data-vi-alt="Cảm ơn" loading="lazy">
     </figure>
   </div>
 </div>
 
-<nav class="pd-secnav" aria-label="Sections">
-  <a href="#sec-overview" class="pd-secnav-item is-active" data-target="sec-overview" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">Overview</span></a>
-  <a href="#sec-in-numbers" class="pd-secnav-item" data-target="sec-in-numbers" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">In numbers</span></a>
-  <a href="#sec-token-architecture" class="pd-secnav-item" data-target="sec-token-architecture" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">Token architecture</span></a>
-  <a href="#sec-brand-switching" class="pd-secnav-item" data-target="sec-brand-switching" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">Brand switching</span></a>
-  <a href="#sec-properties" class="pd-secnav-item" data-target="sec-properties" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">Properties</span></a>
-  <a href="#sec-variant-matrix" class="pd-secnav-item" data-target="sec-variant-matrix" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">Variant matrix</span></a>
-  <a href="#sec-coverage" class="pd-secnav-item" data-target="sec-coverage" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">Coverage</span></a>
-  <a href="#sec-thanks" class="pd-secnav-item" data-target="sec-thanks" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">Thanks</span></a>
+<nav class="pd-secnav" aria-label="Sections" data-vi-aria-label="Các phần">
+  <a href="#sec-overview" class="pd-secnav-item is-active" data-target="sec-overview" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label" data-vi="Tổng quan">Overview</span></a>
+  <a href="#sec-in-numbers" class="pd-secnav-item" data-target="sec-in-numbers" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label" data-vi="Con số">In numbers</span></a>
+  <a href="#sec-token-architecture" class="pd-secnav-item" data-target="sec-token-architecture" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label" data-vi="Kiến trúc token">Token architecture</span></a>
+  <a href="#sec-brand-switching" class="pd-secnav-item" data-target="sec-brand-switching" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label" data-vi="Chuyển thương hiệu">Brand switching</span></a>
+  <a href="#sec-properties" class="pd-secnav-item" data-target="sec-properties" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label" data-vi="Thuộc tính">Properties</span></a>
+  <a href="#sec-variant-matrix" class="pd-secnav-item" data-target="sec-variant-matrix" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label" data-vi="Ma trận variant">Variant matrix</span></a>
+  <a href="#sec-coverage" class="pd-secnav-item" data-target="sec-coverage" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label" data-vi="Độ phủ">Coverage</span></a>
+  <a href="#sec-thanks" class="pd-secnav-item" data-target="sec-thanks" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label" data-vi="Cảm ơn">Thanks</span></a>
 </nav>
 
 <a href="project-luvenus-jewelry.html" class="pd-prev-float" data-hover>
-  <i>&larr;</i><span>Previous</span>
+  <i>&larr;</i><span data-vi="Trước">Previous</span>
 </a>
 
 <a href="project-nexa-ai-sales-agent.html" class="pd-next-float" data-hover>
-  <span>Next</span><i>&rarr;</i>
+  <span data-vi="Tiếp">Next</span><i>&rarr;</i>
 </a>
 
+<script src="i18n.js"></script>
 <script src="theme.js"></script>
 <script src="img-slots.js"></script>
 <script src="project-detail.js"></script>

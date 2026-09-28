@@ -21,6 +21,9 @@ window.addEventListener('beforeunload', () => {
   sessionStorage.setItem(SNRT_SCROLL_KEY, String(window.scrollY || window.pageYOffset || 0));
 });
 
+// current-language string (see i18n.js); English when i18n isn't loaded
+const i18nText = (en, vi) => (window.SNRT_I18N ? window.SNRT_I18N.t(en, vi) : en);
+
 document.addEventListener('DOMContentLoaded', () => {
 
   const hasGSAP = typeof gsap !== 'undefined';
@@ -59,6 +62,9 @@ document.addEventListener('DOMContentLoaded', () => {
       refreshTimer = setTimeout(() => ScrollTrigger.refresh(), 200);
     }
     window.addEventListener('load', scheduleScrollTriggerRefresh);
+    // a language switch changes text lengths (and so section heights) —
+    // it's a click, so the page is at rest and a refresh is safe
+    document.addEventListener('snrt:lang', scheduleScrollTriggerRefresh);
   }
 
   /* ---------------- Preloader ---------------- */
@@ -136,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.work-card').forEach(card => {
     card.addEventListener('mouseenter', () => {
       cursor.classList.add('work-hover');
-      cursorLabel.textContent = 'View Detail';
+      cursorLabel.textContent = i18nText('View Detail', 'Xem chi tiết');
     });
     card.addEventListener('mouseleave', () => {
       cursor.classList.remove('work-hover');
@@ -646,6 +652,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // instant: used while scroll-scrubbing, so text tracks the scroll
     // 1:1 with no lag/flicker. animated: used for direct mouse hover.
+    // language switch rewrote the cards' data-* text — refresh the panel
+    document.addEventListener('snrt:lang', () => { if (cards[activeIdx]) fillWorkDetail(cards[activeIdx]); });
+
     function setActive(idx, animated) {
       if (idx === activeIdx || !cards[idx]) return;
       activeIdx = idx;
@@ -743,9 +752,11 @@ document.addEventListener('DOMContentLoaded', () => {
       // disappears on its own the moment a real card gets that category.
       if (filter !== 'all' && matches.length === 0 && placeholderCard) {
         const btn = document.querySelector(`.work-filter-btn[data-filter="${filter}"]`);
-        const label = btn ? btn.textContent.trim() : 'This capability';
+        const labelEl = btn && (btn.querySelector('.work-filter-label') || btn);
+        const label = labelEl ? labelEl.textContent.trim() : i18nText('This capability', 'Mảng này');
         placeholderCard.dataset.title = label;
-        placeholderCard.dataset.problem = `${label} case studies are on the way — check back soon, or reach out directly for examples in the meantime.`;
+        placeholderCard.dataset.problem = i18nText(`${label} case studies are on the way — check back soon, or reach out directly for examples in the meantime.`,
+          `Case study mảng ${label} đang được chuẩn bị — hãy quay lại sau, hoặc liên hệ trực tiếp để xem ví dụ.`);
         const titleEl = document.getElementById('workEmptyCardTitle');
         if (titleEl) titleEl.textContent = label;
         return [placeholderCard];
@@ -1025,7 +1036,7 @@ document.addEventListener('DOMContentLoaded', () => {
     testimonialForm.addEventListener('submit', (e) => {
       e.preventDefault();
       if (submitBtn) submitBtn.disabled = true;
-      if (statusEl) { statusEl.textContent = 'Sending…'; statusEl.className = 'testimonial-form-status'; }
+      if (statusEl) { statusEl.textContent = i18nText('Sending…', 'Đang gửi…'); statusEl.className = 'testimonial-form-status'; }
 
       fetch(testimonialForm.action, {
         method: 'POST',
@@ -1046,7 +1057,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(() => {
           if (statusEl) {
-            statusEl.textContent = "Something went wrong — mind trying again in a moment?";
+            statusEl.textContent = i18nText('Something went wrong — mind trying again in a moment?', 'Có lỗi xảy ra — bạn thử lại sau ít phút nhé?');
             statusEl.className = 'testimonial-form-status is-error';
           }
         })

@@ -32,6 +32,10 @@ const CONTACT_TYPES = [
   ['other', 'Khác', 'https://…'],
 ];
 const contactType = (t) => CONTACT_TYPES.find((x) => x[0] === t) || CONTACT_TYPES[CONTACT_TYPES.length - 1];
+// the site shows these types in the visitor's language (Phone / Điện thoại),
+// so their label stays empty unless you type a custom one
+const AUTO_LABEL = { phone: 'Phone / Điện thoại', other: 'Other / Khác' };
+const defaultLabel = (t) => (AUTO_LABEL[t] ? '' : contactType(t)[1]);
 const categories = () => state.data.filters.map((f) => [f.id, f.label]);
 const BLOCK_TYPES = [['text', 'Đoạn văn / danh sách'], ['chips', 'Chips (Deliverables)'], ['stats', 'Số liệu'], ['table', 'Bảng']];
 
@@ -383,10 +387,10 @@ function renderContacts(ed) {
     type.value = contactType(c.type)[0];
     type.addEventListener('change', () => {
       // keep a custom label, but follow the type when the label was just the old type's name
-      if (!c.label || c.label === contactType(c.type)[1]) c.label = contactType(type.value)[1];
+      if (!c.label || c.label === contactType(c.type)[1]) c.label = defaultLabel(type.value);
       c.type = type.value; markDirty(); rr();
     });
-    const label = el('input', { type: 'text', placeholder: contactType(c.type)[1] }); label.value = c.label || '';
+    const label = el('input', { type: 'text', placeholder: AUTO_LABEL[c.type] ? `Tự đổi theo ngôn ngữ: ${AUTO_LABEL[c.type]}` : contactType(c.type)[1] }); label.value = c.label || '';
     label.addEventListener('input', () => { c.label = label.value; markDirty(); });
     const link = el('input', { type: 'text', placeholder: contactType(c.type)[2] }); link.value = c.link || '';
     link.addEventListener('input', () => { c.link = link.value; markDirty(); });
@@ -402,7 +406,7 @@ function renderContacts(ed) {
   const newType = el('select', {}, CONTACT_TYPES.map(([v, t]) => el('option', { value: v }, t)));
   box.append(el('div', { class: 'add-row' }, newType,
     el('button', { class: 'btn small', type: 'button', onclick: () => {
-      list.push({ type: newType.value, label: contactType(newType.value)[1], link: '', visible: true });
+      list.push({ type: newType.value, label: defaultLabel(newType.value), link: '', visible: true });
       markDirty(); rr();
     } }, '+ Thêm liên hệ')));
 

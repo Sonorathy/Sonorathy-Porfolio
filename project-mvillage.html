@@ -3,10 +3,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<script>(function(){try{var t=localStorage.getItem('snrt:theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();</script>
+<script>(function(){try{var t=localStorage.getItem('snrt:theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');var l=localStorage.getItem('snrt:lang');if(l)document.documentElement.lang=l;}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>M Village — Sonorathy</title>
-<meta name="description" content="M Village — premium hotel brand repositioning &amp; booking platform redesign. Brand &amp; product design case study by Sonorathy." />
+<meta name="description" content="M Village — premium hotel brand repositioning &amp; booking platform redesign. Brand &amp; product design case study by Sonorathy." data-vi-content="M Village — tái định vị thương hiệu khách sạn cao cấp &amp;amp; thiết kế lại nền tảng đặt phòng. Case study thương hiệu &amp;amp; thiết kế sản phẩm của Sonorathy." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
@@ -17,35 +17,49 @@
 <div class="cursor" id="cursor">
   <div class="cursor-dot"></div>
   <div class="cursor-ring"></div>
-  <span class="cursor-label">VIEW</span>
+  <span class="cursor-label" data-vi="XEM">VIEW</span>
 </div>
 
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle light / dark mode" data-hover>
+<div class="lang-toggle" id="langToggle" role="group" aria-label="Language" data-vi-aria-label="Ngôn ngữ">
+  <button type="button" data-lang="en" aria-pressed="true" data-hover>EN</button>
+  <button type="button" data-lang="vi" aria-pressed="false" data-hover>VI</button>
+</div>
+
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle light / dark mode" data-vi-aria-label="Chuyển giao diện sáng / tối" data-hover>
   <i class="theme-icon theme-icon-sun">&#9728;</i>
   <i class="theme-icon theme-icon-moon">&#9789;</i>
 </button>
 
-<a href="index.html#work" class="pd-back" data-hover><i>←</i> Back</a>
+<a href="index.html#work" class="pd-back" data-hover data-vi="&lt;i&gt;←&lt;/i&gt; Quay lại"><i>←</i> Back</a>
 
 <div class="pd-grid">
   <div class="pd-info">
     <h1 class="pd-title">M Village</h1>
-    <p class="pd-tagline">Premium hotel brand repositioning &amp; booking platform redesign.</p>
+    <p class="pd-tagline" data-vi="Tái định vị thương hiệu khách sạn cao cấp &amp;amp; thiết kế lại nền tảng đặt phòng.">Premium hotel brand repositioning &amp; booking platform redesign.</p>
 
     <div class="pd-meta">
-      <div class="pd-meta-row"><span>Year</span><span>2026</span></div>
-      <div class="pd-meta-row"><span>Scope</span><span>Brand Strategy &amp; UI/UX Design</span></div>
-      <div class="pd-meta-row"><span>Client</span><span>M Village</span></div>
-      <div class="pd-meta-row"><span>Duration</span><span>4 weeks</span></div>
+      <div class="pd-meta-row"><span data-vi="Năm">Year</span><span>2026</span></div>
+      <div class="pd-meta-row"><span data-vi="Phạm vi">Scope</span><span data-vi="Chiến lược thương hiệu &amp;amp; Thiết kế UI/UX">Brand Strategy &amp; UI/UX Design</span></div>
+      <div class="pd-meta-row"><span data-vi="Khách hàng">Client</span><span>M Village</span></div>
+      <div class="pd-meta-row"><span data-vi="Thời gian">Duration</span><span data-vi="4 tuần">4 weeks</span></div>
     </div>
 
-    <div class="pd-block">
+    <div class="pd-block" data-vi="      &lt;h2&gt;Bối cảnh &amp;amp; bài toán kinh doanh&lt;/h2&gt;
+      &lt;p&gt;M Village muốn nâng tầm — từ một “chỗ nghỉ” bình thường thành thương hiệu khách sạn phong cách sống cao cấp, đủ sức chinh phục nhóm khách tinh tế và quốc tế hơn. Nhưng nền tảng đặt phòng hiện tại chỉ như một công cụ trung tính, thuần chức năng. Nó không có vẻ ngoài, cảm giác hay cách vận hành của một thứ mà khách hàng tinh tế sẵn sàng trả giá cao.&lt;/p&gt;
+      &lt;p&gt;Để chạm tới nhóm khách cao cấp đó, thương hiệu và sản phẩm phải tạo được niềm tin trong vài giây đầu — trước cả khi một căn phòng được hiển thị.&lt;/p&gt;">
       <h2>The Scenario &amp; Business Problem</h2>
       <p>M Village wanted to move upmarket — from a generic &quot;place to stay&quot; to a premium lifestyle hotel brand that could win over a more sophisticated, cosmopolitan clientele. But the existing booking platform read as a neutral, functional utility. It didn't look, feel, or behave like something that sophisticated guests would pay a premium for.</p>
       <p>Reaching that higher-tier audience meant the brand and the product had to earn trust in the first few seconds — before a single room was even shown.</p>
     </div>
 
-    <div class="pd-block">
+    <div class="pd-block" data-vi="      &lt;h2&gt;Thách thức thiết kế &amp;amp; chiến lược&lt;/h2&gt;
+      &lt;p&gt;Mục tiêu là xác lập một định vị cao cấp và đưa nó trọn vẹn vào một trải nghiệm đặt phòng vẫn chuyển đổi tốt. Các mục tiêu chính:&lt;/p&gt;
+      &lt;ul class=&quot;pd-objectives&quot;&gt;
+        &lt;li&gt;&lt;strong&gt;Xác lập định vị cao cấp:&lt;/strong&gt; Đặt định hướng thương hiệu “Tinh tế. Chân thật. Cao cấp.” nhắm tới nhóm khách quốc tế, chi tiêu cao.&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Xây định hướng hình ảnh &amp;amp; cảm xúc:&lt;/strong&gt; Chuyển định vị đó thành hệ màu, định hướng nhiếp ảnh và mood board cho mọi điểm chạm.&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Thiết kế lại quy trình đặt phòng:&lt;/strong&gt; Biến tìm kiếm, so sánh và thanh toán thành một hành trình có dẫn dắt, phản ánh thương hiệu mới chứ không chỉ là một form chức năng.&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Xây để tái sử dụng:&lt;/strong&gt; Bàn giao một thư viện component dùng lại được để các trang mới luôn nhất quán khi sản phẩm lớn lên.&lt;/li&gt;
+      &lt;/ul&gt;">
       <h2>The Design &amp; Strategy Challenge</h2>
       <p>The goal was to define a premium positioning and carry it faithfully into a booking experience that still converts. Core objectives:</p>
       <ul class="pd-objectives">
@@ -56,7 +70,13 @@
       </ul>
     </div>
 
-    <div class="pd-block">
+    <div class="pd-block" data-vi="      &lt;h2&gt;Sản phẩm bàn giao&lt;/h2&gt;
+      &lt;div class=&quot;pd-deliverables&quot;&gt;
+        &lt;span class=&quot;pd-deliverable&quot;&gt;Định vị thương hiệu &amp;amp; mood board&lt;/span&gt;
+        &lt;span class=&quot;pd-deliverable&quot;&gt;Thiết kế lại web app đặt phòng&lt;/span&gt;
+        &lt;span class=&quot;pd-deliverable&quot;&gt;Design system&lt;/span&gt;
+        &lt;span class=&quot;pd-deliverable pd-nda&quot;&gt;Dashboard quản trị &lt;em&gt;NDA&lt;/em&gt;&lt;/span&gt;
+      &lt;/div&gt;">
       <h2>Deliverables</h2>
       <div class="pd-deliverables">
         <span class="pd-deliverable">Brand Positioning &amp; Mood Board</span>
@@ -67,8 +87,8 @@
     </div>
 
     <div class="pd-block pd-reach">
-      <h2 class="pd-reach-title">Reach out.</h2>
-      <p class="pd-reach-sub">Let&rsquo;s work together to bring your ideas to life.</p>
+      <h2 class="pd-reach-title" data-vi="Liên hệ.">Reach out.</h2>
+      <p class="pd-reach-sub" data-vi="Cùng nhau biến ý tưởng của bạn thành hiện thực.">Let&rsquo;s work together to bring your ideas to life.</p>
       <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=maianhthyvo@gmail.com" class="pd-reach-link" data-hover target="_blank" rel="noopener">maianhthyvo@gmail.com</a>
       <div class="pd-reach-socials">
         <a href="https://www.linkedin.com/in/v%C3%B5-mai-anh-thy/" data-hover target="_blank" rel="noopener">LinkedIn</a>
@@ -77,59 +97,60 @@
     </div>
 
     <div class="pd-footer-inline">
-      <span>Designed by <a href="index.html" data-hover>Sonorathy</a></span>
-      <span>&copy; 2026 All rights reserved</span>
+      <span data-vi="Thiết kế bởi &lt;a href=&quot;index.html&quot; data-hover&gt;Sonorathy&lt;/a&gt;">Designed by <a href="index.html" data-hover>Sonorathy</a></span>
+      <span data-vi="&amp;copy; 2026 Bảo lưu mọi quyền">&copy; 2026 All rights reserved</span>
     </div>
   </div>
 
   <div class="pd-showcase pd-showcase-stack">
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/mvillage-deck/p1-cover.jpg" alt="M Village — premium brand cover">
+      <img src="assets/work/mvillage-deck/p1-cover.jpg" alt="M Village — premium brand cover" data-vi-alt="M Village — ảnh bìa thương hiệu cao cấp">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/mvillage-deck/p4-website.jpg" alt="M Village — redesigned booking website" loading="lazy">
+      <img src="assets/work/mvillage-deck/p4-website.jpg" alt="M Village — redesigned booking website" data-vi-alt="M Village — website đặt phòng được thiết kế lại" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/mvillage-deck/slide-50.jpg" alt="M Village — 'Live in the now' brand direction" loading="lazy">
+      <img src="assets/work/mvillage-deck/slide-50.jpg" alt="M Village — 'Live in the now' brand direction" data-vi-alt="M Village — định hướng thương hiệu “Live in the now”" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/mvillage-deck/slide-51.jpg" alt="M Village — sophisticated authentic premium hotel brand positioning" loading="lazy">
+      <img src="assets/work/mvillage-deck/slide-51.jpg" alt="M Village — sophisticated authentic premium hotel brand positioning" data-vi-alt="M Village — định vị thương hiệu khách sạn tinh tế, chân thật, cao cấp" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/mvillage-deck/slide-42.jpg" alt="M Village — case study overview" loading="lazy">
+      <img src="assets/work/mvillage-deck/slide-42.jpg" alt="M Village — case study overview" data-vi-alt="M Village — tổng quan case study" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/mvillage-deck/slide-43.jpg" alt="M Village — mood direction" loading="lazy">
+      <img src="assets/work/mvillage-deck/slide-43.jpg" alt="M Village — mood direction" data-vi-alt="M Village — định hướng cảm xúc" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/mvillage-deck/slide-45.jpg" alt="M Village — color palette in UI" loading="lazy">
+      <img src="assets/work/mvillage-deck/slide-45.jpg" alt="M Village — color palette in UI" data-vi-alt="M Village — bảng màu trong UI" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/mvillage-deck/slide-46.jpg" alt="M Village — typography mood direction" loading="lazy">
+      <img src="assets/work/mvillage-deck/slide-46.jpg" alt="M Village — typography mood direction" data-vi-alt="M Village — định hướng cảm xúc cho chữ" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/mvillage-deck/slide-47.jpg" alt="M Village — typeface system" loading="lazy">
+      <img src="assets/work/mvillage-deck/slide-47.jpg" alt="M Village — typeface system" data-vi-alt="M Village — hệ thống kiểu chữ" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/mvillage-deck/slide-48.jpg" alt="M Village — type scale" loading="lazy">
+      <img src="assets/work/mvillage-deck/slide-48.jpg" alt="M Village — type scale" data-vi-alt="M Village — thang cỡ chữ" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/mvillage-deck/slide-49.jpg" alt="M Village — typography grid &amp; line spacing" loading="lazy">
+      <img src="assets/work/mvillage-deck/slide-49.jpg" alt="M Village — typography grid &amp; line spacing" data-vi-alt="M Village — lưới chữ &amp;amp; khoảng cách dòng" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-hover>
-      <img src="assets/work/mvillage-deck/slide-50b.jpg" alt="M Village — hallway corridor lighting mood" loading="lazy">
+      <img src="assets/work/mvillage-deck/slide-50b.jpg" alt="M Village — hallway corridor lighting mood" data-vi-alt="M Village — cảm xúc ánh sáng hành lang" loading="lazy">
     </figure>
   </div>
 </div>
 
 <a href="project-edpay.html" class="pd-prev-float" data-hover>
-  <i>&larr;</i><span>Previous</span>
+  <i>&larr;</i><span data-vi="Trước">Previous</span>
 </a>
 
 <a href="project-lda.html" class="pd-next-float" data-hover>
-  <span>Next</span><i>&rarr;</i>
+  <span data-vi="Tiếp">Next</span><i>&rarr;</i>
 </a>
 
+<script src="i18n.js"></script>
 <script src="theme.js"></script>
 <script src="img-slots.js"></script>
 <script src="project-detail.js"></script>

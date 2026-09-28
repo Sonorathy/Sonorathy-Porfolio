@@ -3,10 +3,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<script>(function(){try{var t=localStorage.getItem('snrt:theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();</script>
+<script>(function(){try{var t=localStorage.getItem('snrt:theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');var l=localStorage.getItem('snrt:lang');if(l)document.documentElement.lang=l;}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>TVPL Legal AI — Sonorathy</title>
-<meta name="description" content="TVPL Legal AI — self-initiated concept: how lawyers, in-house legal teams and businesses hand legal work to AI and verify it. Product design case study by Sonorathy." />
+<meta name="description" content="TVPL Legal AI — self-initiated concept: how lawyers, in-house legal teams and businesses hand legal work to AI and verify it. Product design case study by Sonorathy." data-vi-content="TVPL Legal AI — concept tự thực hiện: cách luật sư, pháp chế doanh nghiệp và doanh nghiệp giao việc pháp lý cho AI và kiểm chứng kết quả. Case study thiết kế sản phẩm của Sonorathy." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
@@ -17,36 +17,52 @@
 <div class="cursor" id="cursor">
   <div class="cursor-dot"></div>
   <div class="cursor-ring"></div>
-  <span class="cursor-label">VIEW</span>
+  <span class="cursor-label" data-vi="XEM">VIEW</span>
 </div>
 
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle light / dark mode" data-hover>
+<div class="lang-toggle" id="langToggle" role="group" aria-label="Language" data-vi-aria-label="Ngôn ngữ">
+  <button type="button" data-lang="en" aria-pressed="true" data-hover>EN</button>
+  <button type="button" data-lang="vi" aria-pressed="false" data-hover>VI</button>
+</div>
+
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle light / dark mode" data-vi-aria-label="Chuyển giao diện sáng / tối" data-hover>
   <i class="theme-icon theme-icon-sun">&#9728;</i>
   <i class="theme-icon theme-icon-moon">&#9789;</i>
 </button>
 
-<a href="index.html#work" class="pd-back" data-hover><i>←</i> Back</a>
+<a href="index.html#work" class="pd-back" data-hover data-vi="&lt;i&gt;←&lt;/i&gt; Quay lại"><i>←</i> Back</a>
 
 <div class="pd-grid">
   <div class="pd-info">
     <h1 class="pd-title">TVPL Legal AI</h1>
-    <span class="pd-badge">Self-initiated concept · 2026 · not commissioned by TVPL</span>
-    <p class="pd-tagline">How people hand legal work to AI — and how they check it before they trust it.</p>
+    <span class="pd-badge" data-vi="Concept tự thực hiện · 2026 · không do TVPL đặt hàng">Self-initiated concept · 2026 · not commissioned by TVPL</span>
+    <p class="pd-tagline" data-vi="Cách con người giao việc pháp lý cho AI — và cách họ kiểm tra trước khi tin.">How people hand legal work to AI — and how they check it before they trust it.</p>
 
     <div class="pd-meta">
-      <div class="pd-meta-row"><span>Year</span><span>2026</span></div>
-      <div class="pd-meta-row"><span>Type</span><span>Concept · self-initiated</span></div>
-      <div class="pd-meta-row"><span>Scope</span><span>UX Research · Product Design · Design System</span></div>
-      <div class="pd-meta-row"><span>Output</span><span>12 desktop + 11 mobile screens, 33 components</span></div>
+      <div class="pd-meta-row"><span data-vi="Năm">Year</span><span>2026</span></div>
+      <div class="pd-meta-row"><span data-vi="Loại">Type</span><span data-vi="Concept · tự thực hiện">Concept · self-initiated</span></div>
+      <div class="pd-meta-row"><span data-vi="Phạm vi">Scope</span><span>UX Research · Product Design · Design System</span></div>
+      <div class="pd-meta-row"><span data-vi="Kết quả">Output</span><span data-vi="12 màn hình desktop + 11 mobile, 33 component">12 desktop + 11 mobile screens, 33 components</span></div>
     </div>
 
-    <div class="pd-block">
+    <div class="pd-block" data-vi="      &lt;h2&gt;Vì sao có dự án này&lt;/h2&gt;
+      &lt;p&gt;THƯ VIỆN PHÁP LUẬT đang xây một hệ sinh thái Legal AI gồm ba tầng: &lt;strong&gt;Legal Intelligence&lt;/strong&gt; (truy xuất đúng căn cứ pháp lý), &lt;strong&gt;Legal AI&lt;/strong&gt; (lập luận và viết câu trả lời hoàn chỉnh, nhúng vào phần mềm của khách hàng) và &lt;strong&gt;AI Workspace&lt;/strong&gt; (sản phẩm hoàn chỉnh cho người dùng cuối) — tất cả trên một nền tảng thiết kế dùng chung.&lt;/p&gt;
+      &lt;p&gt;Tôi muốn hiểu bài toán đó trước khi ứng tuyển, nên tự thiết kế lớp dùng chung: cách trích dẫn, tình trạng hiệu lực, trạng thái của AI, cảnh báo rủi ro và việc chuyển cho con người trông giống nhau ở cả ba tầng.&lt;/p&gt;">
       <h2>Why this project</h2>
       <p>THƯ VIỆN PHÁP LUẬT is building a Legal AI ecosystem in three tiers: <strong>Legal Intelligence</strong> (retrieve the right legal basis), <strong>Legal AI</strong> (reason and write a full answer, embedded in clients’ software) and <strong>AI Workspace</strong> (the finished product for end users) — all on one shared design foundation.</p>
       <p>I wanted to understand that problem before applying, so I designed the shared layer myself: how citations, validity status, AI states, risk warnings and hand-off to a human look the same across all three tiers.</p>
     </div>
 
-    <div class="pd-block">
+    <div class="pd-block" data-vi="      &lt;h2&gt;Quy trình tác vụ cốt lõi&lt;/h2&gt;
+      &lt;p&gt;Mọi màn hình và component đều bám theo sáu bước người dùng trải qua khi giao việc pháp lý cho AI:&lt;/p&gt;
+      &lt;ul class=&quot;pd-objectives&quot;&gt;
+        &lt;li&gt;&lt;strong&gt;1 · Giao việc&lt;/strong&gt; — mô tả tình huống cho AI.&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;2 · Theo dõi&lt;/strong&gt; — xem AI đang làm gì, và dừng nó lại.&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;3 · Đọc&lt;/strong&gt; — nhận câu trả lời, kết luận trước.&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;4 · Kiểm chứng&lt;/strong&gt; — mở từng trích dẫn đến đúng điều khoản.&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;5 · Nhận diện rủi ro&lt;/strong&gt; — thấy cảnh báo đi kèm một hành động.&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;6 · Chuyển tiếp&lt;/strong&gt; — giao vụ việc cho một luật sư có tên.&lt;/li&gt;
+      &lt;/ul&gt;">
       <h2>The core task flow</h2>
       <p>Every screen and component hangs off six steps a user goes through when they give legal work to AI:</p>
       <ul class="pd-objectives">
@@ -59,7 +75,14 @@
       </ul>
     </div>
 
-    <div class="pd-block">
+    <div class="pd-block" data-vi="      &lt;h2&gt;Ba nhóm người dùng, ba công việc&lt;/h2&gt;
+      &lt;table class=&quot;pd-table&quot;&gt;
+        &lt;tr&gt;&lt;th&gt;Ai&lt;/th&gt;&lt;th&gt;Công việc&lt;/th&gt;&lt;th&gt;Điểm đau&lt;/th&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;Pháp chế doanh nghiệp&lt;/td&gt;&lt;td&gt;Trả lời câu hỏi “mình có được làm việc này không?” và giải thích căn cứ cho ban lãnh đạo.&lt;/td&gt;&lt;td&gt;Không chắc điều luật mình tìm được còn hiệu lực không.&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;Luật sư&lt;/td&gt;&lt;td&gt;Xử lý song song nhiều yêu cầu có kèm bằng chứng.&lt;/td&gt;&lt;td&gt;Không thấy yêu cầu nào gấp, hay AI đang vướng ở đâu.&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;Người dân &amp;amp; chủ doanh nghiệp nhỏ&lt;/td&gt;&lt;td&gt;Biết bước tiếp theo cần làm trong tình huống của chính mình.&lt;/td&gt;&lt;td&gt;Không gọi được tên thuật ngữ pháp lý cho điều đang xảy ra với mình.&lt;/td&gt;&lt;/tr&gt;
+      &lt;/table&gt;
+      &lt;p style=&quot;margin-top:1rem;&quot;&gt;Xây dựng từ nghiên cứu tài liệu và bản mô tả công việc. &lt;strong&gt;Đây là giả thuyết, chưa phải kết quả đã kiểm chứng&lt;/strong&gt; — xem phần “Bước tiếp theo”.&lt;/p&gt;">
       <h2>Three user groups, three jobs</h2>
       <table class="pd-table">
         <tr><th>Who</th><th>Job</th><th>Pain point</th></tr>
@@ -70,13 +93,20 @@
       <p style="margin-top:1rem;">Built from desk research and the job description. <strong>These are hypotheses, not validated findings</strong> — see “What I’d do next”.</p>
     </div>
 
-    <div class="pd-block">
+    <div class="pd-block" data-vi="      &lt;h2&gt;Đánh giá các giải pháp hiện có&lt;/h2&gt;
+      &lt;p&gt;Tôi so sánh các công cụ AI pháp lý hiện có ở Việt Nam (AI Pháp luật của Bộ Tư pháp, AI Luật của LuatVietnam và TVPL hiện tại) về độ phủ, giá, cách hiển thị tình trạng hiệu lực và việc có đường chuyển sang con người hay không. Không công cụ nào hiện tình trạng hiệu lực cạnh câu trả lời, và không công cụ nào có đường chuyển cho con người ngay trong quy trình.&lt;/p&gt;
+      &lt;p&gt;Ngoài lĩnh vực pháp lý, tôi học hỏi từ những sản phẩm mà niềm tin chính là toàn bộ trải nghiệm: màn hình xác nhận chuyển khoản ngân hàng (kiểm tra trước khi cam kết), ổ khoá HTTPS (một cái nhìn, một lần chạm để xem chi tiết) và chứng thư chữ ký số (trách nhiệm gắn với một người có tên và một mốc thời gian).&lt;/p&gt;">
       <h2>Solution audit</h2>
       <p>I compared the existing Vietnamese legal AI tools (Bộ Tư pháp’s AI Pháp luật, LuatVietnam’s AI Luật and TVPL today) on coverage, pricing, how validity status is shown and whether there is any path to a human. None showed validity status next to the answer, and none offered a human escalation path in the flow.</p>
       <p>Outside legal, I borrowed from products where trust is the whole UX: bank transfer confirmations (verify before you commit), the HTTPS padlock (one glance, one tap for detail) and e-signature certificates (responsibility tied to a named person and a timestamp).</p>
     </div>
 
-    <div class="pd-block">
+    <div class="pd-block" data-vi="      &lt;h2&gt;Ba quyết định thiết kế&lt;/h2&gt;
+      &lt;ul class=&quot;pd-objectives&quot;&gt;
+        &lt;li&gt;&lt;strong&gt;Hỏi theo tình huống, không theo thuật ngữ pháp lý.&lt;/strong&gt; Gợi ý câu hỏi được viết như những tình huống đời thường; có thể đính kèm hồ sơ vụ việc; nút dừng luôn hiện khi AI đang chạy.&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Đọc được hiệu lực trong vài giây.&lt;/strong&gt; Kết luận trước, căn cứ pháp lý nằm ở một sheet riêng; mỗi trích dẫn mở ra toàn văn điều luật, với tình trạng hiệu lực và dòng thời gian sửa đổi ngay trên thẻ.&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Chuyển tiếp là một hành động, không phải lỗi.&lt;/strong&gt; “Hỏi luật sư” nằm cố định ở cuối mỗi câu trả lời; phía luật sư có hộp thư và ô soạn thảo riêng, và trạng thái duyệt bởi chuyên gia hiện tên người đã xác nhận.&lt;/li&gt;
+      &lt;/ul&gt;">
       <h2>Three design decisions</h2>
       <ul class="pd-objectives">
         <li><strong>Ask by situation, not by legal term.</strong> Prompt suggestions are written as everyday situations; a case file can be attached; a stop button is always visible while AI is running.</li>
@@ -85,7 +115,15 @@
       </ul>
     </div>
 
-    <div class="pd-block">
+    <div class="pd-block" data-vi="      &lt;h2&gt;Nguyên tắc chung cho cả bộ kit&lt;/h2&gt;
+      &lt;ul&gt;
+        &lt;li&gt;Mọi nhận định pháp lý đều dẫn đến một trích dẫn mở ra đúng điều khoản.&lt;/li&gt;
+        &lt;li&gt;Hiệu lực là thông tin bắt buộc — đúng văn bản mà hết hiệu lực thì vẫn là sai.&lt;/li&gt;
+        &lt;li&gt;Luật được áp dụng là luật có hiệu lực tại thời điểm xảy ra sự việc, không phải luật mới nhất.&lt;/li&gt;
+        &lt;li&gt;“Chưa đủ căn cứ pháp lý” là một kết quả hợp lệ, không phải lỗi.&lt;/li&gt;
+        &lt;li&gt;Mọi cảnh báo rủi ro đều đi kèm một hành động được gợi ý.&lt;/li&gt;
+        &lt;li&gt;Trách nhiệm cuối cùng thuộc về người ký, không phải máy.&lt;/li&gt;
+      &lt;/ul&gt;">
       <h2>Ground rules for the whole kit</h2>
       <ul>
         <li>Every legal claim links to a citation that opens to the exact clause.</li>
@@ -97,12 +135,20 @@
       </ul>
     </div>
 
-    <div class="pd-block">
+    <div class="pd-block" data-vi="      &lt;h2&gt;Bước tiếp theo&lt;/h2&gt;
+      &lt;p&gt;Ba điểm đau ở trên là giả định. Trước khi xây bất cứ thứ gì, tôi sẽ dành một tuần cùng BA và Legal BA để đối chiếu chúng với các vụ việc thật, rồi chạy usability test cho quy trình hỏi → kiểm chứng → chuyển tiếp với luật sư và nhân sự pháp chế.&lt;/p&gt;">
       <h2>What I’d do next</h2>
       <p>The three pain points above are assumptions. Before building anything, I’d spend a week with BA and Legal BA to check them against real cases, then run usability tests on the ask → verify → escalate flow with lawyers and in-house legal staff.</p>
     </div>
 
-    <div class="pd-block">
+    <div class="pd-block" data-vi="      &lt;h2&gt;Sản phẩm bàn giao&lt;/h2&gt;
+      &lt;div class=&quot;pd-deliverables&quot;&gt;
+        &lt;span class=&quot;pd-deliverable&quot;&gt;Deck nghiên cứu (11 slide)&lt;/span&gt;
+        &lt;span class=&quot;pd-deliverable&quot;&gt;Wireframe &amp;amp; flow&lt;/span&gt;
+        &lt;span class=&quot;pd-deliverable&quot;&gt;12 màn hình desktop&lt;/span&gt;
+        &lt;span class=&quot;pd-deliverable&quot;&gt;11 màn hình mobile&lt;/span&gt;
+        &lt;span class=&quot;pd-deliverable&quot;&gt;33 component pháp lý&lt;/span&gt;
+      &lt;/div&gt;">
       <h2>Deliverables</h2>
       <div class="pd-deliverables">
         <span class="pd-deliverable">Research deck (11 slides)</span>
@@ -114,8 +160,8 @@
     </div>
 
     <div class="pd-block pd-reach">
-      <h2 class="pd-reach-title">Reach out.</h2>
-      <p class="pd-reach-sub">Let&rsquo;s work together to bring your ideas to life.</p>
+      <h2 class="pd-reach-title" data-vi="Liên hệ.">Reach out.</h2>
+      <p class="pd-reach-sub" data-vi="Cùng nhau biến ý tưởng của bạn thành hiện thực.">Let&rsquo;s work together to bring your ideas to life.</p>
       <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=maianhthyvo@gmail.com" class="pd-reach-link" data-hover target="_blank" rel="noopener">maianhthyvo@gmail.com</a>
       <div class="pd-reach-socials">
         <a href="https://www.linkedin.com/in/v%C3%B5-mai-anh-thy/" data-hover target="_blank" rel="noopener">LinkedIn</a>
@@ -124,50 +170,51 @@
     </div>
 
     <div class="pd-footer-inline">
-      <span>Designed by <a href="index.html" data-hover>Sonorathy</a></span>
-      <span>&copy; 2026 All rights reserved</span>
+      <span data-vi="Thiết kế bởi &lt;a href=&quot;index.html&quot; data-hover&gt;Sonorathy&lt;/a&gt;">Designed by <a href="index.html" data-hover>Sonorathy</a></span>
+      <span data-vi="&amp;copy; 2026 Bảo lưu mọi quyền">&copy; 2026 All rights reserved</span>
     </div>
   </div>
 
   <div class="pd-showcase pd-showcase-stack">
     <figure class="pd-showcase-item" data-section="sec-overview" id="sec-overview" data-hover>
-      <img src="assets/work/tvpl/01-cover.jpg" alt="Legal AI — how a legal team hands a question to AI, verifies the basis and escalates to a lawyer">
+      <img src="assets/work/tvpl/01-cover.jpg" alt="Legal AI — how a legal team hands a question to AI, verifies the basis and escalates to a lawyer" data-vi-alt="Legal AI — cách một đội pháp lý giao câu hỏi cho AI, kiểm chứng căn cứ và chuyển cho luật sư">
     </figure>
     <figure class="pd-showcase-item" data-section="sec-ui-kit" id="sec-ui-kit" data-hover>
-      <img src="assets/work/tvpl/02-ui-kit.jpg" alt="Design system / UI kit — Pastel colour and type on Design System tokens, 36 legal components, six ground rules" loading="lazy">
+      <img src="assets/work/tvpl/02-ui-kit.jpg" alt="Design system / UI kit — Pastel colour and type on Design System tokens, 36 legal components, six ground rules" data-vi-alt="Design system / UI kit — màu và chữ Pastel trên token của Design System, 36 component pháp lý, sáu nguyên tắc" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-section="sec-core-task-flow" id="sec-core-task-flow" data-hover>
-      <img src="assets/work/tvpl/03-core-task-flow.jpg" alt="Core task flow — six steps from the job description, three pain points at assign, verify and escalate" loading="lazy">
+      <img src="assets/work/tvpl/03-core-task-flow.jpg" alt="Core task flow — six steps from the job description, three pain points at assign, verify and escalate" data-vi-alt="Quy trình tác vụ cốt lõi — sáu bước từ bản mô tả công việc, ba điểm đau ở giao việc, kiểm chứng và chuyển tiếp" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-section="sec-three-bets" id="sec-three-bets" data-hover>
-      <img src="assets/work/tvpl/04-three-bets.jpg" alt="Three bets — each How might we built on something TVPL already has" loading="lazy">
+      <img src="assets/work/tvpl/04-three-bets.jpg" alt="Three bets — each How might we built on something TVPL already has" data-vi-alt="Ba canh bạc — mỗi câu How might we dựa trên thứ TVPL đã có sẵn" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-section="sec-showcase" id="sec-showcase" data-hover>
-      <img src="assets/work/tvpl/05-showcase.jpg" alt="Showcase — desktop workspace, document templates and the mobile home and lawyer desk" loading="lazy">
+      <img src="assets/work/tvpl/05-showcase.jpg" alt="Showcase — desktop workspace, document templates and the mobile home and lawyer desk" data-vi-alt="Showcase — không gian làm việc trên desktop, mẫu văn bản, trang chủ mobile và bàn làm việc của luật sư" loading="lazy">
     </figure>
     <figure class="pd-showcase-item" data-section="sec-let-s-talk" id="sec-let-s-talk" data-hover>
-      <img src="assets/work/tvpl/06-lets-talk.jpg" alt="Let’s talk — design system, BA and Dev collaboration, to go deeper in the interview" loading="lazy">
+      <img src="assets/work/tvpl/06-lets-talk.jpg" alt="Let’s talk — design system, BA and Dev collaboration, to go deeper in the interview" data-vi-alt="Cùng trao đổi — phối hợp giữa design system, BA và Dev, để đi sâu hơn trong buổi phỏng vấn" loading="lazy">
     </figure>
   </div>
 </div>
 
-<nav class="pd-secnav" aria-label="Sections">
-  <a href="#sec-overview" class="pd-secnav-item is-active" data-target="sec-overview" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">Overview</span></a>
+<nav class="pd-secnav" aria-label="Sections" data-vi-aria-label="Các phần">
+  <a href="#sec-overview" class="pd-secnav-item is-active" data-target="sec-overview" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label" data-vi="Tổng quan">Overview</span></a>
   <a href="#sec-ui-kit" class="pd-secnav-item" data-target="sec-ui-kit" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">UI kit</span></a>
-  <a href="#sec-core-task-flow" class="pd-secnav-item" data-target="sec-core-task-flow" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">Core task flow</span></a>
-  <a href="#sec-three-bets" class="pd-secnav-item" data-target="sec-three-bets" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">Three bets</span></a>
+  <a href="#sec-core-task-flow" class="pd-secnav-item" data-target="sec-core-task-flow" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label" data-vi="Quy trình cốt lõi">Core task flow</span></a>
+  <a href="#sec-three-bets" class="pd-secnav-item" data-target="sec-three-bets" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label" data-vi="Ba canh bạc">Three bets</span></a>
   <a href="#sec-showcase" class="pd-secnav-item" data-target="sec-showcase" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">Showcase</span></a>
-  <a href="#sec-let-s-talk" class="pd-secnav-item" data-target="sec-let-s-talk" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label">Let’s talk</span></a>
+  <a href="#sec-let-s-talk" class="pd-secnav-item" data-target="sec-let-s-talk" data-hover><span class="pd-secnav-line"></span><span class="pd-secnav-label" data-vi="Cùng trao đổi">Let’s talk</span></a>
 </nav>
 
 <a href="project-nexa-ai-sales-agent.html" class="pd-prev-float" data-hover>
-  <i>&larr;</i><span>Previous</span>
+  <i>&larr;</i><span data-vi="Trước">Previous</span>
 </a>
 
 <a href="project-edpay.html" class="pd-next-float" data-hover>
-  <span>Next</span><i>&rarr;</i>
+  <span data-vi="Tiếp">Next</span><i>&rarr;</i>
 </a>
 
+<script src="i18n.js"></script>
 <script src="theme.js"></script>
 <script src="img-slots.js"></script>
 <script src="project-detail.js"></script>

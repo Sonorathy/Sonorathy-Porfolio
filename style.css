@@ -52,6 +52,24 @@ html[data-theme="light"] .cursor-dot{background:var(--fg);}
   transition:border-color .3s,background .3s,transform .3s;
 }
 .theme-toggle:hover{transform:scale(1.06);}
+
+/* language switch — EN / VI pill, sits just left of the theme toggle */
+.lang-toggle{
+  position:fixed;top:1.6rem;right:calc(1.6rem + 44px + .5rem);z-index:600;
+  height:44px;padding:4px;border-radius:100px;
+  display:flex;align-items:center;gap:2px;
+  background:var(--chip-bg-strong);backdrop-filter:blur(14px);
+  border:1px solid var(--chip-line);
+}
+.lang-toggle button{
+  height:34px;min-width:36px;padding:0 .55rem;border-radius:100px;border:0;
+  background:transparent;color:var(--fg-dim);cursor:none;
+  font-family:var(--font-body);font-size:.72rem;font-weight:600;letter-spacing:.08em;
+  transition:background .3s,color .3s;
+}
+.lang-toggle button:hover{color:var(--fg);}
+.lang-toggle button[aria-pressed="true"]{background:var(--fg);color:var(--bg);}
+.lang-toggle button:focus-visible{outline:2px solid var(--fg);outline-offset:2px;}
 .theme-icon{
   font-style:normal;font-size:1.05rem;position:absolute;
   color:var(--fg);

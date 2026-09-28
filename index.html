@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<script>(function(){try{var t=localStorage.getItem('snrt:theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();</script>
+<script>(function(){try{var t=localStorage.getItem('snrt:theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');var l=localStorage.getItem('snrt:lang');if(l)document.documentElement.lang=l;}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Sonorathy — Product & UI/UX Designer</title>
-<meta name="description" content="Sonorathy — Product designer & frontend developer. UI/UX, web apps, branding." />
+<title data-vi="Sonorathy — Nhà thiết kế Product &amp; UI/UX">Sonorathy — Product & UI/UX Designer</title>
+<meta name="description" content="Sonorathy — Product designer & frontend developer. UI/UX, web apps, branding." data-vi-content="Sonorathy — Product designer &amp; frontend developer. UI/UX, web app, thương hiệu." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
@@ -17,11 +17,16 @@
 <div class="cursor" id="cursor">
   <div class="cursor-dot"></div>
   <div class="cursor-ring"></div>
-  <span class="cursor-label">VIEW</span>
+  <span class="cursor-label" data-vi="XEM">VIEW</span>
 </div>
 
 <!-- Light / dark mode toggle -->
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle light / dark mode" data-hover>
+<div class="lang-toggle" id="langToggle" role="group" aria-label="Language" data-vi-aria-label="Ngôn ngữ">
+  <button type="button" data-lang="en" aria-pressed="true" data-hover>EN</button>
+  <button type="button" data-lang="vi" aria-pressed="false" data-hover>VI</button>
+</div>
+
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle light / dark mode" data-vi-aria-label="Chuyển giao diện sáng / tối" data-hover>
   <i class="theme-icon theme-icon-sun">&#9728;</i>
   <i class="theme-icon theme-icon-moon">&#9789;</i>
 </button>
@@ -34,7 +39,7 @@
   </div>
   <div class="preloader-bar"><div class="preloader-bar-fill" id="preloaderFill"></div></div>
   <div class="preloader-bottom">
-    <span>Personal Portfolio</span>
+    <span data-vi="Portfolio cá nhân">Personal Portfolio</span>
     <span>2026</span>
   </div>
 </div>
@@ -51,9 +56,9 @@
 
 <!-- Floating bottom dock nav -->
 <nav class="dock-nav" id="dockNav">
-  <a href="#about" data-hover data-magnetic>About</a>
-  <a href="#work" data-hover data-magnetic>Work</a>
-  <a href="#services" data-hover data-magnetic>Services</a>
+  <a href="#about" data-hover data-magnetic data-vi="Giới thiệu">About</a>
+  <a href="#work" data-hover data-magnetic data-vi="Dự án">Work</a>
+  <a href="#services" data-hover data-magnetic data-vi="Dịch vụ">Services</a>
   <span class="dock-indicator" id="dockIndicator"></span>
 </nav>
 
@@ -65,13 +70,13 @@
       <div class="hero-media" id="heroMedia">
         <div class="hero-image-row" id="projectStack">
           <div class="hero-img-item hero-img-lda" data-hover>
-            <img src="assets/hero/hero-lda.jpg" alt="Legion D'Antares — Vietnamese luxury fashion campaign">
+            <img src="assets/hero/hero-lda.jpg" alt="Legion D'Antares — Vietnamese luxury fashion campaign" data-vi-alt="Legion D'Antares — chiến dịch thời trang cao cấp Việt Nam">
           </div>
           <div class="hero-img-item hero-img-parkview" data-hover>
-            <img src="assets/hero/hero-mvillage.jpg" alt="M Village — hotel booking platform cover">
+            <img src="assets/hero/hero-mvillage.jpg" alt="M Village — hotel booking platform cover" data-vi-alt="M Village — ảnh bìa nền tảng đặt phòng khách sạn">
           </div>
           <div class="hero-img-item hero-img-luvenus" data-hover>
-            <img src="assets/hero/hero-luvenus.jpg" alt="Luvenus — brand identity cover">
+            <img src="assets/hero/hero-luvenus.jpg" alt="Luvenus — brand identity cover" data-vi-alt="Luvenus — ảnh bìa bộ nhận diện thương hiệu">
           </div>
         </div>
       </div>
@@ -92,18 +97,18 @@
         <div class="hero-meta-grid">
           <div class="hero-meta">
             <div class="hero-meta-text">
-              <span class="hero-meta-label">Role</span>
+              <span class="hero-meta-label" data-vi="Vai trò">Role</span>
               <span class="hero-meta-value">Product &amp; UI/UX Designer</span>
             </div>
           </div>
           <div class="hero-meta">
             <div class="hero-meta-text">
-              <span class="hero-meta-label">Expertise</span>
-              <span class="hero-meta-value">Web Apps, Branding, SaaS</span>
+              <span class="hero-meta-label" data-vi="Chuyên môn">Expertise</span>
+              <span class="hero-meta-value" data-vi="Web App, Thương hiệu, SaaS">Web Apps, Branding, SaaS</span>
             </div>
           </div>
           <div class="hero-meta hero-meta-tagline-wrap">
-            <span class="hero-meta-tagline">I design products people love to use.</span>
+            <span class="hero-meta-tagline" data-vi="Tôi thiết kế những sản phẩm người dùng yêu thích.">I design products people love to use.</span>
           </div>
         </div>
       </div>
@@ -123,24 +128,24 @@
       <div class="overview-left">
         <div class="overview-intro">
           <div class="overview-photo">
-            <img src="assets/about/thy-portrait.jpg" alt="Sonorathy — studio portrait">
+            <img src="assets/about/thy-portrait.jpg" alt="Sonorathy — studio portrait" data-vi-alt="Sonorathy — ảnh chân dung studio">
           </div>
           <div class="overview-intro-copy">
-            <span class="overview-eyebrow reveal-word">I'M SONORATHY</span>
-            <h2 class="overview-heading reveal-lines">Creating products and brands that people remember.</h2>
-            <p class="reveal-lines">I'm a UI UX and Product Designer with a passion for AI, branding, and motion. I turn ideas into thoughtful digital experiences that are simple, engaging, and built to create real impact.</p>
-            <a href="#work" class="overview-cta" data-hover data-magnetic><span>View my work</span><i>→</i></a>
+            <span class="overview-eyebrow reveal-word" data-vi="TÔI LÀ SONORATHY">I'M SONORATHY</span>
+            <h2 class="overview-heading reveal-lines" data-vi="Tạo nên những sản phẩm và thương hiệu khiến người ta nhớ.">Creating products and brands that people remember.</h2>
+            <p class="reveal-lines" data-vi="Tôi là UI/UX và Product Designer, đam mê AI, thương hiệu và motion. Tôi biến ý tưởng thành những trải nghiệm số được nghĩ kỹ: đơn giản, cuốn hút và tạo ra tác động thật.">I'm a UI UX and Product Designer with a passion for AI, branding, and motion. I turn ideas into thoughtful digital experiences that are simple, engaging, and built to create real impact.</p>
+            <a href="#work" class="overview-cta" data-hover data-magnetic data-vi="&lt;span&gt;Xem dự án&lt;/span&gt;&lt;i&gt;→&lt;/i&gt;"><span>View my work</span><i>→</i></a>
           </div>
         </div>
 
         <div class="about-panel">
           <div class="about-row">
-            <span class="about-row-label">Services</span>
-            <div class="about-row-value">UI/UX Design <span class="slash">/</span> Design Systems <span class="slash">/</span> Brand Identity <span class="slash">/</span> User Research <span class="slash">/</span> AI‑assisted Workflows</div>
+            <span class="about-row-label" data-vi="Dịch vụ">Services</span>
+            <div class="about-row-value" data-vi="Thiết kế UI/UX &lt;span class=&quot;slash&quot;&gt;/&lt;/span&gt; Design System &lt;span class=&quot;slash&quot;&gt;/&lt;/span&gt; Nhận diện thương hiệu &lt;span class=&quot;slash&quot;&gt;/&lt;/span&gt; Nghiên cứu người dùng &lt;span class=&quot;slash&quot;&gt;/&lt;/span&gt; Quy trình làm việc cùng AI">UI/UX Design <span class="slash">/</span> Design Systems <span class="slash">/</span> Brand Identity <span class="slash">/</span> User Research <span class="slash">/</span> AI‑assisted Workflows</div>
           </div>
 
           <div class="about-row">
-            <span class="about-row-label">Skill &amp; Tool</span>
+            <span class="about-row-label" data-vi="Kỹ năng &amp;amp; Công cụ">Skill &amp; Tool</span>
             <div class="about-row-tools">
               <div class="tool-tile" data-tool="Figma">
                 <span class="tool-tile-icon"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/figma/default.svg" alt="Figma" loading="lazy"></span>
@@ -170,14 +175,14 @@
           </div>
 
           <div class="about-row">
-            <span class="about-row-label">Domain</span>
-            <div class="about-row-value">Hospitality <span class="slash">/</span> Fashion &amp; Luxury <span class="slash">/</span> Jewelry &amp; Retail <span class="slash">/</span> Fintech <span class="slash">/</span> SaaS &amp; Web Apps</div>
+            <span class="about-row-label" data-vi="Lĩnh vực">Domain</span>
+            <div class="about-row-value" data-vi="Khách sạn &amp;amp; Lưu trú &lt;span class=&quot;slash&quot;&gt;/&lt;/span&gt; Thời trang &amp;amp; Cao cấp &lt;span class=&quot;slash&quot;&gt;/&lt;/span&gt; Trang sức &amp;amp; Bán lẻ &lt;span class=&quot;slash&quot;&gt;/&lt;/span&gt; Fintech &lt;span class=&quot;slash&quot;&gt;/&lt;/span&gt; SaaS &amp;amp; Web App">Hospitality <span class="slash">/</span> Fashion &amp; Luxury <span class="slash">/</span> Jewelry &amp; Retail <span class="slash">/</span> Fintech <span class="slash">/</span> SaaS &amp; Web Apps</div>
           </div>
         </div>
       </div>
 
       <div class="overview-photo-full">
-        <img src="assets/about/thy-walk.jpg" alt="Sonorathy — studio portrait, walking">
+        <img src="assets/about/thy-walk.jpg" alt="Sonorathy — studio portrait, walking" data-vi-alt="Sonorathy — ảnh chân dung studio, đang bước đi">
       </div>
 
     </div>
@@ -190,31 +195,31 @@
       <div class="carousel-track" id="carouselTrack">
         <!-- BUILD:CAROUSEL:START -->
         <div class="carousel-slide" data-hover>
-          <div class="carousel-media"><img src="assets/work/jf-ds/cover.jpg" alt="Design System — six brand colours over shared weather, chat, task and alert components" loading="lazy"></div>
+          <div class="carousel-media"><img src="assets/work/jf-ds/cover.jpg" alt="Design System — six brand colours over shared weather, chat, task and alert components" data-vi-alt="Design System — màu của sáu thương hiệu trên cùng một bộ component thời tiết, chat, tác vụ và cảnh báo" loading="lazy"></div>
           <span class="carousel-caption">Design System</span>
         </div>
         <div class="carousel-slide" data-hover>
-          <div class="carousel-media"><img src="assets/work/nexa-ai-sales-agent/cover.jpg" alt="Nexa AI Sales Agent — AI plan recommendation and quote on mobile" loading="lazy"></div>
+          <div class="carousel-media"><img src="assets/work/nexa-ai-sales-agent/cover.jpg" alt="Nexa AI Sales Agent — AI plan recommendation and quote on mobile" data-vi-alt="Nexa AI Sales Agent — AI gợi ý gói dịch vụ và báo giá trên mobile" loading="lazy"></div>
           <span class="carousel-caption">Nexa AI Sales Agent</span>
         </div>
         <div class="carousel-slide" data-hover>
-          <div class="carousel-media"><img src="assets/work/tvpl/cover.jpg" alt="Legal AI — mobile screens for the answer, home and lawyer desk" loading="lazy"></div>
+          <div class="carousel-media"><img src="assets/work/tvpl/cover.jpg" alt="Legal AI — mobile screens for the answer, home and lawyer desk" data-vi-alt="Legal AI — màn hình mobile cho câu trả lời, trang chủ và bàn làm việc của luật sư" loading="lazy"></div>
           <span class="carousel-caption">TVPL Legal AI</span>
         </div>
         <div class="carousel-slide" data-hover>
-          <div class="carousel-media"><img src="assets/work/edpay/cover.jpg" alt="EdPay Shop Billing — debit note, POS system, semi e-commerce and wallet on mobile" loading="lazy"></div>
+          <div class="carousel-media"><img src="assets/work/edpay/cover.jpg" alt="EdPay Shop Billing — debit note, POS system, semi e-commerce and wallet on mobile" data-vi-alt="EdPay Shop Billing — debit note, hệ thống POS, semi e-commerce và ví trên mobile" loading="lazy"></div>
           <span class="carousel-caption">EdPay · Shop Billing</span>
         </div>
         <div class="carousel-slide" data-hover>
-          <div class="carousel-media"><img src="assets/work/mvillage-cover.jpg" alt="M Village — premium hotel brand repositioning" loading="lazy"></div>
+          <div class="carousel-media"><img src="assets/work/mvillage-cover.jpg" alt="M Village — premium hotel brand repositioning" data-vi-alt="M Village — tái định vị thương hiệu khách sạn cao cấp" loading="lazy"></div>
           <span class="carousel-caption">M Village</span>
         </div>
         <div class="carousel-slide" data-hover>
-          <div class="carousel-media"><img src="assets/work/lda-cover.jpg" alt="Legion D'Antares — luxury fashion ecommerce" loading="lazy"></div>
+          <div class="carousel-media"><img src="assets/work/lda-cover.jpg" alt="Legion D'Antares — luxury fashion ecommerce" data-vi-alt="Legion D'Antares — thương mại điện tử thời trang cao cấp" loading="lazy"></div>
           <span class="carousel-caption">Legion D'Antares</span>
         </div>
         <div class="carousel-slide" data-hover>
-          <div class="carousel-media"><img src="assets/work/luvenus-cover.jpg" alt="Luvenus — fine jewelry brand identity" loading="lazy"></div>
+          <div class="carousel-media"><img src="assets/work/luvenus-cover.jpg" alt="Luvenus — fine jewelry brand identity" data-vi-alt="Luvenus — nhận diện thương hiệu trang sức cao cấp" loading="lazy"></div>
           <span class="carousel-caption">Luvenus</span>
         </div>
         <!-- BUILD:CAROUSEL:END -->
@@ -222,7 +227,7 @@
       </div>
     </div>
 
-    <p class="projects-overview-statement reveal-lines">I don't just design interfaces — I design systems that help businesses grow and people succeed. The best products aren't the ones with the most beautiful UI; they're the ones that solve the right problem in the simplest way.</p>
+    <p class="projects-overview-statement reveal-lines" data-vi="Tôi không chỉ thiết kế giao diện — tôi thiết kế những hệ thống giúp doanh nghiệp tăng trưởng và con người thành công. Sản phẩm tốt nhất không phải là sản phẩm có UI đẹp nhất, mà là sản phẩm giải đúng vấn đề theo cách đơn giản nhất.">I don't just design interfaces — I design systems that help businesses grow and people succeed. The best products aren't the ones with the most beautiful UI; they're the ones that solve the right problem in the simplest way.</p>
   </section>
 
   <!-- MARQUEE -->
@@ -245,7 +250,7 @@
   <section class="work" id="work">
     <div class="section-head work-scroll-head">
       <h2 class="section-title split-lines">
-        <span>Works</span>
+        <span data-vi="Dự án">Works</span>
       </h2>
     </div>
 
@@ -265,9 +270,9 @@
            baseline instead of the title sitting flush with the tabs. -->
       <div class="work-filter reveal-word" id="workFilter" role="tablist">
         <!-- BUILD:FILTERS:START -->
-        <button class="work-filter-btn is-active" type="button" data-filter="all" data-hover role="tab" aria-selected="true">All<span class="work-filter-count"></span></button>
-        <button class="work-filter-btn" type="button" data-filter="product-uiux" data-hover role="tab" aria-selected="false">Product &amp; UI/UX Design<span class="work-filter-count"></span></button>
-        <button class="work-filter-btn" type="button" data-filter="branding" data-hover role="tab" aria-selected="false">Branding<span class="work-filter-count"></span></button>
+        <button class="work-filter-btn is-active" type="button" data-filter="all" data-hover role="tab" aria-selected="true"><span class="work-filter-label" data-vi="Tất cả">All</span><span class="work-filter-count"></span></button>
+        <button class="work-filter-btn" type="button" data-filter="product-uiux" data-hover role="tab" aria-selected="false"><span class="work-filter-label" data-vi="Thiết kế Product &amp;amp; UI/UX">Product &amp; UI/UX Design</span><span class="work-filter-count"></span></button>
+        <button class="work-filter-btn" type="button" data-filter="branding" data-hover role="tab" aria-selected="false"><span class="work-filter-label" data-vi="Thương hiệu">Branding</span><span class="work-filter-count"></span></button>
         <!-- BUILD:FILTERS:END -->
 
       </div>
@@ -280,17 +285,17 @@
           <h3 class="work-detail-title" id="workDetailTitle">M Village</h3>
           <div class="work-detail-cols">
             <div class="work-detail-col">
-              <span class="work-detail-label">Role</span>
+              <span class="work-detail-label" data-vi="Vai trò">Role</span>
               <span class="work-detail-value" id="workDetailRole">Product &amp; UI/UX Designer</span>
             </div>
             <div class="work-detail-col">
-              <span class="work-detail-label">Highlights</span>
+              <span class="work-detail-label" data-vi="Điểm nổi bật">Highlights</span>
               <ul class="work-detail-list" id="workDetailHighlights"></ul>
             </div>
           </div>
         </div>
         <div class="work-detail-desc">
-          <span class="work-detail-label">Problem</span>
+          <span class="work-detail-label" data-vi="Vấn đề">Problem</span>
           <p id="workDetailProblem"></p>
         </div>
       </div>
@@ -306,12 +311,12 @@
            data-title="Design System"
            data-role="Design System Designer"
            data-highlights="1,265 variables across 10 collections|328 component sets, 2,817 variants|6 brand modes, Light/Dark, 4 shape modes"
-           data-problem="Six products were drifting into their own buttons, tables and alerts. I built one Figma library where each product switches brand, shape and density by mode — from core components to Chat, AI and legal patterns.">
-          <div class="work-card-media"><img src="assets/work/jf-ds/cover.jpg" alt="Design System — six brand colours over shared weather, chat, task and alert components" loading="lazy"></div>
+           data-problem="Six products were drifting into their own buttons, tables and alerts. I built one Figma library where each product switches brand, shape and density by mode — from core components to Chat, AI and legal patterns." data-vi-data-highlights="1.265 biến trong 10 collection|328 component set, 2.817 variant|6 brand mode, Sáng/Tối, 4 shape mode" data-vi-data-problem="Sáu sản phẩm đang dần mỗi nơi một kiểu nút, bảng và cảnh báo. Tôi xây một thư viện Figma duy nhất, nơi mỗi sản phẩm đổi thương hiệu, hình khối và mật độ chỉ bằng cách chuyển mode — từ component nền tảng đến các pattern Chat, AI và pháp lý.">
+          <div class="work-card-media"><img src="assets/work/jf-ds/cover.jpg" alt="Design System — six brand colours over shared weather, chat, task and alert components" data-vi-alt="Design System — màu của sáu thương hiệu trên cùng một bộ component thời tiết, chat, tác vụ và cảnh báo" loading="lazy"></div>
           <div class="work-card-meta">
             <span class="work-card-index">01</span>
             <span class="work-card-title">Design System</span>
-            <span class="work-card-tag">Design System · Multi-brand</span>
+            <span class="work-card-tag" data-vi="Design System · Đa thương hiệu">Design System · Multi-brand</span>
           </div>
         </a>
 
@@ -320,8 +325,8 @@
            data-title="Nexa AI Sales Agent"
            data-role="Product Designer · end to end"
            data-highlights="Eight steps, one flow: AI drafts, people decide|A human approval gate on every out-of-limit discount|Every AI answer cites its source in the catalog"
-           data-problem="Selling B2B software takes seven hand-offs. I designed one flow from first chat to paid invoice where AI drafts the needs, quote, contract and invoice — and people approve every price change.">
-          <div class="work-card-media"><img src="assets/work/nexa-ai-sales-agent/cover.jpg" alt="Nexa AI Sales Agent — AI plan recommendation and quote on mobile" loading="lazy"></div>
+           data-problem="Selling B2B software takes seven hand-offs. I designed one flow from first chat to paid invoice where AI drafts the needs, quote, contract and invoice — and people approve every price change." data-vi-data-role="Product Designer · từ đầu đến cuối" data-vi-data-highlights="Tám bước, một quy trình: AI soạn nháp, con người quyết định|Một cổng duyệt của con người cho mọi mức giảm giá vượt hạn mức|Mọi câu trả lời của AI đều dẫn nguồn trong catalog" data-vi-data-problem="Bán phần mềm B2B phải qua bảy lần chuyển giao. Tôi thiết kế một quy trình liền mạch từ cuộc chat đầu tiên đến hoá đơn đã thanh toán, nơi AI soạn nháp nhu cầu, báo giá, hợp đồng và hoá đơn — còn con người duyệt mọi thay đổi về giá.">
+          <div class="work-card-media"><img src="assets/work/nexa-ai-sales-agent/cover.jpg" alt="Nexa AI Sales Agent — AI plan recommendation and quote on mobile" data-vi-alt="Nexa AI Sales Agent — AI gợi ý gói dịch vụ và báo giá trên mobile" loading="lazy"></div>
           <div class="work-card-meta">
             <span class="work-card-index">02</span>
             <span class="work-card-title">Nexa AI Sales Agent</span>
@@ -334,8 +339,8 @@
            data-title="TVPL Legal AI"
            data-role="Product Designer · Self-initiated concept"
            data-highlights="Six-step flow for handing legal work to AI|Citations with validity status, readable in seconds|Escalation to a named lawyer, on both sides"
-           data-problem="Legal AI is only useful if people can check it. I designed how lawyers, in-house legal teams and businesses ask by situation, verify every citation against its validity, and hand a case to a named lawyer — 23 screens, 33 components.">
-          <div class="work-card-media"><img src="assets/work/tvpl/cover.jpg" alt="Legal AI — mobile screens for the answer, home and lawyer desk" loading="lazy"></div>
+           data-problem="Legal AI is only useful if people can check it. I designed how lawyers, in-house legal teams and businesses ask by situation, verify every citation against its validity, and hand a case to a named lawyer — 23 screens, 33 components." data-vi-data-role="Product Designer · Concept tự thực hiện" data-vi-data-highlights="Quy trình sáu bước để giao việc pháp lý cho AI|Trích dẫn kèm tình trạng hiệu lực, đọc hiểu trong vài giây|Chuyển vụ việc cho một luật sư có tên, ở cả hai phía" data-vi-data-problem="AI pháp lý chỉ hữu ích khi con người kiểm chứng được nó. Tôi thiết kế cách luật sư, pháp chế doanh nghiệp và doanh nghiệp hỏi theo tình huống, đối chiếu từng trích dẫn với tình trạng hiệu lực, và chuyển vụ việc cho một luật sư có tên — 23 màn hình, 33 component.">
+          <div class="work-card-media"><img src="assets/work/tvpl/cover.jpg" alt="Legal AI — mobile screens for the answer, home and lawyer desk" data-vi-alt="Legal AI — màn hình mobile cho câu trả lời, trang chủ và bàn làm việc của luật sư" loading="lazy"></div>
           <div class="work-card-meta">
             <span class="work-card-index">03</span>
             <span class="work-card-title">TVPL Legal AI</span>
@@ -348,8 +353,8 @@
            data-title="EdPay · Shop Billing"
            data-role="Product Designer"
            data-highlights="Three sales channels, one debit note ledger|5 → 3 accounting steps per payment|42 screens &amp; states across 4 surfaces"
-           data-problem="Selling at the school store was quick; bookkeeping lagged behind. I designed a counter POS, a handheld terminal and online pre-order with in-store pickup — and every payment posts to one debit note ledger.">
-          <div class="work-card-media"><img src="assets/work/edpay/cover.jpg" alt="EdPay Shop Billing — debit note, POS system, semi e-commerce and wallet on mobile" loading="lazy"></div>
+           data-problem="Selling at the school store was quick; bookkeeping lagged behind. I designed a counter POS, a handheld terminal and online pre-order with in-store pickup — and every payment posts to one debit note ledger." data-vi-data-highlights="Ba kênh bán hàng, một sổ debit note|Từ 5 → 3 bước kế toán cho mỗi khoản thanh toán|42 màn hình &amp;amp; trạng thái trên 4 nền tảng" data-vi-data-problem="Bán hàng ở cửa hàng trường học thì nhanh, nhưng sổ sách thì chậm theo sau. Tôi thiết kế POS tại quầy, máy POS cầm tay và đặt hàng trước online nhận tại cửa hàng — và mọi khoản thanh toán đều ghi về một sổ debit note.">
+          <div class="work-card-media"><img src="assets/work/edpay/cover.jpg" alt="EdPay Shop Billing — debit note, POS system, semi e-commerce and wallet on mobile" data-vi-alt="EdPay Shop Billing — debit note, hệ thống POS, semi e-commerce và ví trên mobile" loading="lazy"></div>
           <div class="work-card-meta">
             <span class="work-card-index">04</span>
             <span class="work-card-title">EdPay · Shop Billing</span>
@@ -362,12 +367,12 @@
            data-title="M Village"
            data-role="Brand Strategy &amp; UI/UX Designer"
            data-highlights="Defined a premium brand positioning|Built the mood board &amp; visual direction|Redesigned the end-to-end booking flow"
-           data-problem="M Village wanted to move upmarket from a generic 'place to stay' to a premium lifestyle hotel brand for a more sophisticated clientele. I defined the positioning and carried it through a redesigned booking experience that earns trust in the first few seconds.">
-          <div class="work-card-media"><img src="assets/work/mvillage-cover.jpg" alt="M Village — premium hotel brand repositioning" loading="lazy"></div>
+           data-problem="M Village wanted to move upmarket from a generic 'place to stay' to a premium lifestyle hotel brand for a more sophisticated clientele. I defined the positioning and carried it through a redesigned booking experience that earns trust in the first few seconds." data-vi-data-highlights="Xác lập định vị thương hiệu cao cấp|Xây mood board &amp;amp; định hướng hình ảnh|Thiết kế lại toàn bộ quy trình đặt phòng" data-vi-data-problem="M Village muốn nâng tầm từ một “chỗ nghỉ” bình thường thành thương hiệu khách sạn phong cách sống cao cấp cho nhóm khách tinh tế hơn. Tôi xác lập định vị và đưa nó vào một trải nghiệm đặt phòng được thiết kế lại, tạo được niềm tin ngay trong vài giây đầu.">
+          <div class="work-card-media"><img src="assets/work/mvillage-cover.jpg" alt="M Village — premium hotel brand repositioning" data-vi-alt="M Village — tái định vị thương hiệu khách sạn cao cấp" loading="lazy"></div>
           <div class="work-card-meta">
             <span class="work-card-index">05</span>
             <span class="work-card-title">M Village</span>
-            <span class="work-card-tag">Brand Strategy · Booking App</span>
+            <span class="work-card-tag" data-vi="Chiến lược thương hiệu · Ứng dụng đặt phòng">Brand Strategy · Booking App</span>
           </div>
         </a>
 
@@ -376,12 +381,12 @@
            data-title="Legion D'Antares"
            data-role="Web Designer &amp; Developer"
            data-highlights="Custom storefront design &amp; build|Editorial-style product storytelling|Optimized checkout experience"
-           data-problem="The brand needed an ecommerce presence that matched its high-fashion positioning instead of a generic template look. I designed and built a custom storefront with editorial pacing that lets the collections breathe.">
-          <div class="work-card-media"><img src="assets/work/lda-cover.jpg" alt="Legion D'Antares — luxury fashion ecommerce" loading="lazy"></div>
+           data-problem="The brand needed an ecommerce presence that matched its high-fashion positioning instead of a generic template look. I designed and built a custom storefront with editorial pacing that lets the collections breathe." data-vi-data-highlights="Thiết kế &amp;amp; xây dựng storefront riêng|Kể chuyện sản phẩm theo phong cách tạp chí|Tối ưu trải nghiệm thanh toán" data-vi-data-problem="Thương hiệu cần một kênh bán hàng online xứng với định vị thời trang cao cấp, thay vì vẻ ngoài của một template đại trà. Tôi thiết kế và xây một storefront riêng với nhịp dàn trang kiểu tạp chí, để mỗi bộ sưu tập có không gian thở.">
+          <div class="work-card-media"><img src="assets/work/lda-cover.jpg" alt="Legion D'Antares — luxury fashion ecommerce" data-vi-alt="Legion D'Antares — thương mại điện tử thời trang cao cấp" loading="lazy"></div>
           <div class="work-card-meta">
             <span class="work-card-index">06</span>
             <span class="work-card-title">Legion D'Antares</span>
-            <span class="work-card-tag">Web Design &amp; Dev · Ecommerce</span>
+            <span class="work-card-tag" data-vi="Thiết kế &amp;amp; phát triển web · Ecommerce">Web Design &amp; Dev · Ecommerce</span>
           </div>
         </a>
 
@@ -390,12 +395,12 @@
            data-title="Luvenus"
            data-role="Brand Identity Designer"
            data-highlights="Logo &amp; visual identity system|Packaging &amp; stationery design|Billboard and gift merchandise applications"
-           data-problem="Luvenus needed a fine jewelry &amp; piercing brand identity that felt both elegant and distinctive in a market full of generic gold-and-black branding. I built a full identity system — from logo to packaging to out-of-home advertising.">
-          <div class="work-card-media"><img src="assets/work/luvenus-cover.jpg" alt="Luvenus — fine jewelry brand identity" loading="lazy"></div>
+           data-problem="Luvenus needed a fine jewelry &amp; piercing brand identity that felt both elegant and distinctive in a market full of generic gold-and-black branding. I built a full identity system — from logo to packaging to out-of-home advertising." data-vi-data-highlights="Logo &amp;amp; hệ thống nhận diện|Thiết kế bao bì &amp;amp; ấn phẩm văn phòng|Ứng dụng trên billboard và quà tặng" data-vi-data-problem="Luvenus cần một bộ nhận diện trang sức &amp;amp; xỏ khuyên vừa thanh lịch vừa khác biệt, giữa một thị trường toàn những thương hiệu vàng-đen na ná nhau. Tôi xây trọn hệ thống nhận diện — từ logo, bao bì đến quảng cáo ngoài trời.">
+          <div class="work-card-media"><img src="assets/work/luvenus-cover.jpg" alt="Luvenus — fine jewelry brand identity" data-vi-alt="Luvenus — nhận diện thương hiệu trang sức cao cấp" loading="lazy"></div>
           <div class="work-card-meta">
             <span class="work-card-index">07</span>
             <span class="work-card-title">Luvenus</span>
-            <span class="work-card-tag">Brand Identity · Packaging</span>
+            <span class="work-card-tag" data-vi="Nhận diện thương hiệu · Bao bì">Brand Identity · Packaging</span>
           </div>
         </a>
 
@@ -407,12 +412,14 @@
              the moment a real card gets that data-category. -->
         <div class="work-card work-card-empty" id="workEmptyCard" data-hover
              data-role="Case studies currently being compiled"
-             data-highlights="Reach out directly for examples in the meantime">
-          <div class="work-card-media work-card-empty-media"><span>Coming soon</span></div>
+             data-highlights="Reach out directly for examples in the meantime"
+             data-vi-data-role="Case study đang được biên soạn"
+             data-vi-data-highlights="Trong lúc chờ, bạn có thể liên hệ trực tiếp để xem ví dụ">
+          <div class="work-card-media work-card-empty-media"><span data-vi="Sắp ra mắt">Coming soon</span></div>
           <div class="work-card-meta">
             <span class="work-card-index">—</span>
-            <span class="work-card-title" id="workEmptyCardTitle">More work coming</span>
-            <span class="work-card-tag">Case studies in progress</span>
+            <span class="work-card-title" id="workEmptyCardTitle" data-vi="Thêm dự án sắp tới">More work coming</span>
+            <span class="work-card-tag" data-vi="Case study đang thực hiện">Case studies in progress</span>
           </div>
         </div>
 
@@ -422,49 +429,49 @@
       <!-- mobile-only: swipe still works, these are just an explicit
            alternative for switching projects one at a time -->
       <div class="work-mobile-nav" id="workMobileNav">
-        <button class="work-nav-btn" id="workNavPrev" type="button" aria-label="Previous project" data-hover><i>&larr;</i></button>
-        <button class="work-nav-btn" id="workNavNext" type="button" aria-label="Next project" data-hover><i>&rarr;</i></button>
+        <button class="work-nav-btn" id="workNavPrev" type="button" aria-label="Previous project" data-vi-aria-label="Dự án trước" data-hover><i>&larr;</i></button>
+        <button class="work-nav-btn" id="workNavNext" type="button" aria-label="Next project" data-vi-aria-label="Dự án tiếp theo" data-hover><i>&rarr;</i></button>
       </div>
 
     </div>
 
-    <p class="work-note reveal-word">Some additional projects are covered under client NDAs and can't be shown publicly here.</p>
+    <p class="work-note reveal-word" data-vi="Một số dự án khác thuộc thoả thuận bảo mật (NDA) với khách hàng nên không thể công khai tại đây.">Some additional projects are covered under client NDAs and can't be shown publicly here.</p>
   </section>
 
   <!-- SERVICES -->
   <section class="services" id="services">
     <div class="section-head">
-      <span class="section-eyebrow reveal-word">© What I Do — 03</span>
+      <span class="section-eyebrow reveal-word" data-vi="© Tôi làm gì — 03">© What I Do — 03</span>
       <h2 class="section-title split-lines">
-        <span>Services &amp;</span>
-        <span>capabilities</span>
+        <span data-vi="Dịch vụ &amp;">Services &amp;</span>
+        <span data-vi="năng lực">capabilities</span>
       </h2>
     </div>
 
     <div class="services-grid">
       <div class="service-card" data-hover>
         <span class="service-num">01</span>
-        <h3>UI / UX Design</h3>
-        <p>User research, wireframes, design systems, prototyping and micro‑interactions built for clarity and conversion.</p>
-        <ul><li>User Research</li><li>Design Systems</li><li>Prototyping</li><li>Micro‑interactions</li></ul>
+        <h3 data-vi="Thiết kế UI / UX">UI / UX Design</h3>
+        <p data-vi="Nghiên cứu người dùng, wireframe, design system, prototype và micro‑interaction — rõ ràng và tối ưu chuyển đổi.">User research, wireframes, design systems, prototyping and micro‑interactions built for clarity and conversion.</p>
+        <ul><li data-vi="Nghiên cứu người dùng">User Research</li><li data-vi="Design System">Design Systems</li><li data-vi="Prototype">Prototyping</li><li data-vi="Micro‑interaction">Micro‑interactions</li></ul>
       </div>
       <div class="service-card" data-hover>
         <span class="service-num">02</span>
-        <h3>Brand Identity</h3>
-        <p>Strategy‑led identity systems — logos, type, color, and assets that stay consistent across every surface.</p>
-        <ul><li>Identity Design</li><li>Design Tokens</li><li>Brand Assets</li><li>Style Guides</li></ul>
+        <h3 data-vi="Nhận diện thương hiệu">Brand Identity</h3>
+        <p data-vi="Hệ thống nhận diện dẫn dắt bởi chiến lược — logo, chữ, màu và tài sản thương hiệu nhất quán trên mọi điểm chạm.">Strategy‑led identity systems — logos, type, color, and assets that stay consistent across every surface.</p>
+        <ul><li data-vi="Thiết kế nhận diện">Identity Design</li><li data-vi="Design Token">Design Tokens</li><li data-vi="Tài sản thương hiệu">Brand Assets</li><li data-vi="Brand guideline">Style Guides</li></ul>
       </div>
       <div class="service-card" data-hover>
         <span class="service-num">03</span>
-        <h3>Motion &amp; Interaction</h3>
-        <p>Scroll‑driven storytelling, page transitions and micro‑motion that make products feel alive.</p>
-        <ul><li>Scroll Animation</li><li>Page Transitions</li><li>Cursor Interaction</li><li>Motion Systems</li></ul>
+        <h3 data-vi="Chuyển động &amp;amp; Tương tác">Motion &amp; Interaction</h3>
+        <p data-vi="Kể chuyện theo nhịp cuộn trang, chuyển cảnh và micro‑motion giúp sản phẩm sống động.">Scroll‑driven storytelling, page transitions and micro‑motion that make products feel alive.</p>
+        <ul><li data-vi="Animation theo cuộn">Scroll Animation</li><li data-vi="Chuyển trang">Page Transitions</li><li data-vi="Tương tác con trỏ">Cursor Interaction</li><li data-vi="Hệ thống motion">Motion Systems</li></ul>
       </div>
       <div class="service-card" data-hover>
         <span class="service-num">04</span>
-        <h3>Content &amp; Product Marketing</h3>
-        <p>Content strategy, launch messaging and social presence that turn a good product into one people actually talk about.</p>
-        <ul><li>Content Strategy</li><li>Product Marketing</li><li>Social Media</li><li>Launch Messaging</li></ul>
+        <h3 data-vi="Nội dung &amp;amp; Product Marketing">Content &amp; Product Marketing</h3>
+        <p data-vi="Chiến lược nội dung, thông điệp ra mắt và hiện diện mạng xã hội — biến một sản phẩm tốt thành sản phẩm được mọi người nhắc đến.">Content strategy, launch messaging and social presence that turn a good product into one people actually talk about.</p>
+        <ul><li data-vi="Chiến lược nội dung">Content Strategy</li><li data-vi="Product Marketing">Product Marketing</li><li data-vi="Mạng xã hội">Social Media</li><li data-vi="Thông điệp ra mắt">Launch Messaging</li></ul>
       </div>
     </div>
   </section>
@@ -478,10 +485,10 @@
        visitors who are just browsing, not submitting. -->
   <section class="testimonials" id="testimonials">
     <div class="section-head">
-      <span class="section-eyebrow reveal-word">© Kind Words — 04</span>
+      <span class="section-eyebrow reveal-word" data-vi="© Lời nhận xét — 04">© Kind Words — 04</span>
       <h2 class="section-title split-lines">
-        <span>Kind</span>
-        <span>words</span>
+        <span data-vi="Lời">Kind</span>
+        <span data-vi="nhận xét">words</span>
       </h2>
     </div>
 
@@ -500,12 +507,12 @@
 
     <div class="testimonials-cta">
       <div class="testimonials-cta-copy">
-        <h3 class="testimonials-cta-title reveal-word">Worked together?</h3>
-        <p class="testimonials-cta-sub reveal-word">Your recommendation would mean a lot.</p>
+        <h3 class="testimonials-cta-title reveal-word" data-vi="Từng làm việc cùng nhau?">Worked together?</h3>
+        <p class="testimonials-cta-sub reveal-word" data-vi="Lời giới thiệu của bạn rất có ý nghĩa với tôi.">Your recommendation would mean a lot.</p>
       </div>
-      <button type="button" class="testimonials-cta-btn" id="openTestimonialModal" data-hover>Leave a recommendation <i>&rarr;</i></button>
+      <button type="button" class="testimonials-cta-btn" id="openTestimonialModal" data-hover data-vi="Viết lời giới thiệu &lt;i&gt;&amp;rarr;&lt;/i&gt;">Leave a recommendation <i>&rarr;</i></button>
     </div>
-    <p class="testimonials-disclaimer reveal-word">Every recommendation is reviewed manually. Only approved messages are displayed publicly.</p>
+    <p class="testimonials-disclaimer reveal-word" data-vi="Mọi lời giới thiệu đều được đọc duyệt thủ công. Chỉ những lời đã duyệt mới được hiển thị công khai.">Every recommendation is reviewed manually. Only approved messages are displayed publicly.</p>
   </section>
 
   <!-- Recommendation modal — only ever reached by an explicit click, never
@@ -513,9 +520,9 @@
   <div class="testimonial-modal" id="testimonialModal" aria-hidden="true">
     <div class="testimonial-modal-backdrop" id="testimonialModalBackdrop"></div>
     <div class="testimonial-modal-panel" role="dialog" aria-modal="true" aria-labelledby="testimonialModalTitle">
-      <button type="button" class="testimonial-modal-close" id="testimonialModalClose" aria-label="Close" data-hover>&times;</button>
-      <h3 class="testimonial-modal-title" id="testimonialModalTitle">Leave a recommendation</h3>
-      <p class="testimonial-modal-sub">Thanks for taking the time — a few honest lines about working together helps more than you'd think.</p>
+      <button type="button" class="testimonial-modal-close" id="testimonialModalClose" aria-label="Close" data-vi-aria-label="Đóng" data-hover>&times;</button>
+      <h3 class="testimonial-modal-title" id="testimonialModalTitle" data-vi="Viết lời giới thiệu">Leave a recommendation</h3>
+      <p class="testimonial-modal-sub" data-vi="Cảm ơn bạn đã dành thời gian — vài dòng chân thật về quá trình làm việc cùng nhau giúp ích nhiều hơn bạn nghĩ.">Thanks for taking the time — a few honest lines about working together helps more than you'd think.</p>
 
       <!-- Powered by Formspree (https://formspree.io) — free tier is enough
            for this. Sign up, create a form, and replace YOUR_FORM_ID below
@@ -525,35 +532,35 @@
            to #testimonialsGrid above. -->
       <form class="testimonial-form" id="testimonialForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
         <div class="testimonial-form-row">
-          <input type="text" name="name" placeholder="Name" required>
-          <input type="text" name="company" placeholder="Company">
+          <input type="text" name="name" placeholder="Name" data-vi-placeholder="Họ tên" required>
+          <input type="text" name="company" placeholder="Company" data-vi-placeholder="Công ty">
         </div>
         <div class="testimonial-form-row">
-          <input type="text" name="role" placeholder="Role">
+          <input type="text" name="role" placeholder="Role" data-vi-placeholder="Vai trò">
           <select name="relationship">
-            <option value="" disabled selected>Worked with me as&hellip;</option>
-            <option value="manager">Manager</option>
-            <option value="designer">Designer</option>
-            <option value="developer">Developer</option>
-            <option value="founder">Founder</option>
-            <option value="client">Client</option>
-            <option value="stakeholder">Stakeholder</option>
+            <option value="" disabled selected data-vi="Làm việc cùng tôi với vai trò&amp;hellip;">Worked with me as&hellip;</option>
+            <option value="manager" data-vi="Quản lý">Manager</option>
+            <option value="designer" data-vi="Designer">Designer</option>
+            <option value="developer" data-vi="Developer">Developer</option>
+            <option value="founder" data-vi="Nhà sáng lập">Founder</option>
+            <option value="client" data-vi="Khách hàng">Client</option>
+            <option value="stakeholder" data-vi="Bên liên quan">Stakeholder</option>
           </select>
         </div>
-        <input type="text" name="linkedin" placeholder="LinkedIn profile (optional)">
-        <textarea name="message" placeholder="How was it working together? What stood out? Anything you'd like future clients or recruiters to know?" required rows="4"></textarea>
+        <input type="text" name="linkedin" placeholder="LinkedIn profile (optional)" data-vi-placeholder="Hồ sơ LinkedIn (không bắt buộc)">
+        <textarea name="message" placeholder="How was it working together? What stood out? Anything you'd like future clients or recruiters to know?" data-vi-placeholder="Làm việc cùng nhau thế nào? Điều gì nổi bật? Bạn muốn khách hàng hay nhà tuyển dụng sau này biết điều gì?" required rows="4"></textarea>
 
-        <div class="testimonial-star-input" id="testimonialStarInput" role="radiogroup" aria-label="Rating">
+        <div class="testimonial-star-input" id="testimonialStarInput" role="radiogroup" aria-label="Rating" data-vi-aria-label="Đánh giá">
           <input type="hidden" name="rating" id="testimonialRatingValue" value="5">
-          <button type="button" class="testimonial-star" data-value="1" aria-label="1 star" data-hover>★</button>
-          <button type="button" class="testimonial-star" data-value="2" aria-label="2 stars" data-hover>★</button>
-          <button type="button" class="testimonial-star" data-value="3" aria-label="3 stars" data-hover>★</button>
-          <button type="button" class="testimonial-star" data-value="4" aria-label="4 stars" data-hover>★</button>
-          <button type="button" class="testimonial-star" data-value="5" aria-label="5 stars" data-hover>★</button>
+          <button type="button" class="testimonial-star" data-value="1" aria-label="1 star" data-vi-aria-label="1 sao" data-hover>★</button>
+          <button type="button" class="testimonial-star" data-value="2" aria-label="2 stars" data-vi-aria-label="2 sao" data-hover>★</button>
+          <button type="button" class="testimonial-star" data-value="3" aria-label="3 stars" data-vi-aria-label="3 sao" data-hover>★</button>
+          <button type="button" class="testimonial-star" data-value="4" aria-label="4 stars" data-vi-aria-label="4 sao" data-hover>★</button>
+          <button type="button" class="testimonial-star" data-value="5" aria-label="5 stars" data-vi-aria-label="5 sao" data-hover>★</button>
         </div>
 
         <input type="hidden" name="_subject" value="New recommendation — Sonorathy portfolio">
-        <button type="submit" class="testimonial-form-submit">Submit</button>
+        <button type="submit" class="testimonial-form-submit" data-vi="Gửi">Submit</button>
         <p class="testimonial-form-status" id="testimonialFormStatus" role="status"></p>
       </form>
     </div>
@@ -562,54 +569,54 @@
   <!-- Toast confirmation — shown after a successful submit, in place of an
        inline status line, then dismisses itself. -->
   <div class="toast" id="testimonialToast" role="status" aria-live="polite">
-    <p><strong>Thank you.</strong> I&rsquo;ll read it personally before publishing it.</p>
+    <p data-vi="&lt;strong&gt;Cảm ơn bạn.&lt;/strong&gt; Tôi sẽ tự đọc trước khi đăng."><strong>Thank you.</strong> I&rsquo;ll read it personally before publishing it.</p>
   </div>
 
   <!-- FAQ -->
   <section class="faq" id="faq">
     <div class="section-head">
-      <span class="section-eyebrow reveal-word">© Good to Know — 05</span>
+      <span class="section-eyebrow reveal-word" data-vi="© Nên biết — 05">© Good to Know — 05</span>
       <h2 class="section-title split-lines">
-        <span>Frequently</span>
-        <span>asked questions</span>
+        <span data-vi="Câu hỏi">Frequently</span>
+        <span data-vi="thường gặp">asked questions</span>
       </h2>
     </div>
 
     <div class="faq-list">
       <div class="faq-item" data-hover>
         <button class="faq-q">
-          <span>What kind of projects do you take on?</span>
+          <span data-vi="Bạn nhận những loại dự án nào?">What kind of projects do you take on?</span>
           <span class="faq-icon">+</span>
         </button>
-        <div class="faq-a"><p>Web apps, product design systems, landing pages and brand identity — solo or alongside a small team.</p></div>
+        <div class="faq-a"><p data-vi="Web app, design system cho sản phẩm, landing page và nhận diện thương hiệu — làm một mình hoặc cùng một nhóm nhỏ.">Web apps, product design systems, landing pages and brand identity — solo or alongside a small team.</p></div>
       </div>
       <div class="faq-item" data-hover>
         <button class="faq-q">
-          <span>What's your typical process?</span>
+          <span data-vi="Quy trình làm việc thường thế nào?">What's your typical process?</span>
           <span class="faq-icon">+</span>
         </button>
-        <div class="faq-a"><p>Discovery → wireframes → visual design → prototype → dev handoff or full build, with review checkpoints at each stage.</p></div>
+        <div class="faq-a"><p data-vi="Khám phá → wireframe → thiết kế giao diện → prototype → bàn giao cho dev hoặc build hoàn chỉnh, có điểm duyệt ở mỗi giai đoạn.">Discovery → wireframes → visual design → prototype → dev handoff or full build, with review checkpoints at each stage.</p></div>
       </div>
       <div class="faq-item" data-hover>
         <button class="faq-q">
-          <span>How long does a project take?</span>
+          <span data-vi="Một dự án mất bao lâu?">How long does a project take?</span>
           <span class="faq-icon">+</span>
         </button>
-        <div class="faq-a"><p>Landing pages: 1–2 weeks. Full product design + build: 4–8 weeks depending on scope.</p></div>
+        <div class="faq-a"><p data-vi="Landing page: 1–2 tuần. Thiết kế và build trọn gói một sản phẩm: 4–8 tuần tuỳ phạm vi.">Landing pages: 1–2 weeks. Full product design + build: 4–8 weeks depending on scope.</p></div>
       </div>
       <div class="faq-item" data-hover>
         <button class="faq-q">
-          <span>Do you work with startups?</span>
+          <span data-vi="Bạn có làm việc với startup không?">Do you work with startups?</span>
           <span class="faq-icon">+</span>
         </button>
-        <div class="faq-a"><p>Yes — most of my recent work has been with early‑stage fintech, edtech and consumer‑social startups.</p></div>
+        <div class="faq-a"><p data-vi="Có — phần lớn dự án gần đây của tôi là với các startup giai đoạn đầu trong fintech, edtech và mạng xã hội tiêu dùng.">Yes — most of my recent work has been with early‑stage fintech, edtech and consumer‑social startups.</p></div>
       </div>
       <div class="faq-item" data-hover>
         <button class="faq-q">
-          <span>How can we get started?</span>
+          <span data-vi="Bắt đầu bằng cách nào?">How can we get started?</span>
           <span class="faq-icon">+</span>
         </button>
-        <div class="faq-a"><p>Reach out via the contact section — I usually reply within 1–2 business days with next steps.</p></div>
+        <div class="faq-a"><p data-vi="Liên hệ qua phần liên hệ bên dưới — tôi thường phản hồi trong 1–2 ngày làm việc kèm các bước tiếp theo.">Reach out via the contact section — I usually reply within 1–2 business days with next steps.</p></div>
       </div>
     </div>
   </section>
@@ -617,16 +624,16 @@
   <!-- BOOK A CALL -->
   <section class="book-call" id="book-a-call">
     <div class="book-call-inner">
-      <span class="section-eyebrow reveal-word">© Let&rsquo;s Talk — 06</span>
-      <h2 class="book-call-title reveal-lines">Prefer to just talk it through?</h2>
-      <p class="book-call-sub reveal-word">Book a short call and let&rsquo;s see if we&rsquo;re a fit — no pressure, no pitch deck required.</p>
+      <span class="section-eyebrow reveal-word" data-vi="© Trò chuyện — 06">© Let&rsquo;s Talk — 06</span>
+      <h2 class="book-call-title reveal-lines" data-vi="Muốn trao đổi trực tiếp?">Prefer to just talk it through?</h2>
+      <p class="book-call-sub reveal-word" data-vi="Đặt một cuộc gọi ngắn để xem chúng ta có hợp nhau không — không áp lực, không cần pitch deck.">Book a short call and let&rsquo;s see if we&rsquo;re a fit — no pressure, no pitch deck required.</p>
       <!-- NOTE (not visible to visitors): this URL is your private Google
            Calendar view — it requires sign-in and doesn't let anyone
            actually book a slot. Swap it for a public "Appointment schedule"
            link (Google Calendar → Settings → create one) or a Calendly
            link once you've set one up. -->
       <a href="https://calendar.google.com/calendar/u/2/r" class="book-call-btn" data-hover target="_blank" rel="noopener">
-        <span>Book a call</span><i>→</i>
+        <span data-vi="Đặt lịch gọi">Book a call</span><i>→</i>
       </a>
     </div>
   </section>
@@ -636,13 +643,13 @@
 <footer class="site-footer">
   <div class="footer-top">
     <span class="footer-logo">sonorathy<span class="dot">.</span></span>
-    <a href="#top" class="footer-back" data-hover data-magnetic>Back to top ↑</a>
+    <a href="#top" class="footer-back" data-hover data-magnetic data-vi="Lên đầu trang ↑">Back to top ↑</a>
   </div>
 
   <div class="footer-connect">
     <div class="footer-connect-top">
-      <h3 class="footer-connect-title reveal-word">Let&rsquo;s stay in touch.</h3>
-      <p class="footer-connect-sub reveal-word">Have a project in mind? Tell me about it — I typically respond within 1–2 business days.</p>
+      <h3 class="footer-connect-title reveal-word" data-vi="Giữ liên lạc nhé.">Let&rsquo;s stay in touch.</h3>
+      <p class="footer-connect-sub reveal-word" data-vi="Bạn đang có dự án? Kể tôi nghe — tôi thường phản hồi trong 1–2 ngày làm việc.">Have a project in mind? Tell me about it — I typically respond within 1–2 business days.</p>
         <!-- BUILD:CONTACT_EMAIL:START -->
       <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=maianhthyvo@gmail.com" class="footer-connect-email" data-hover data-magnetic target="_blank" rel="noopener">maianhthyvo@gmail.com</a>
         <!-- BUILD:CONTACT_EMAIL:END -->
@@ -658,14 +665,15 @@
   </div>
 
   <div class="footer-bottom">
-    <span>© 2026 Sonorathy — Product &amp; UI/UX Designer</span>
-    <span>Designed &amp; built with motion, by Sonorathy</span>
+    <span data-vi="© 2026 Sonorathy — Nhà thiết kế Product &amp;amp; UI/UX">© 2026 Sonorathy — Product &amp; UI/UX Designer</span>
+    <span data-vi="Thiết kế &amp;amp; xây dựng cùng chuyển động, bởi Sonorathy">Designed &amp; built with motion, by Sonorathy</span>
   </div>
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="i18n.js"></script>
 <script src="theme.js"></script>
 <script src="img-slots.js"></script>
 <script src="script.js"></script>
