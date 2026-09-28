@@ -18,6 +18,7 @@ Mở trình duyệt vào **http://localhost:4321**. Tắt admin bằng `Ctrl+C` 
 - **Nội dung case study**: các khối Đoạn văn / Chips / Số liệu / Bảng — thêm, sửa, đổi thứ tự, xoá.
 - **Ảnh / video**: kéo thả nhiều file cùng lúc. Ảnh lớn hơn 2400px tự được thu nhỏ thành JPG trước khi lưu vào `assets/work/<slug>/`. Mỗi ảnh có chú thích, alt, tuỳ chọn “Khung mobile”.
 - **Mật khẩu (NDA)**: đặt / đổi / gỡ mật khẩu cho từng project (giống GAMBLE).
+- **Tiếng Việt (EN / VI)**: công tắc ở đầu trình soạn project. Chế độ **VI** chỉ hiện các ô cần dịch, mỗi ô có bản tiếng Anh ở trên để đối chiếu; ô để trống thì web hiện tiếng Anh. Thêm/bớt dòng, đổi thứ tự, ảnh và cài đặt vẫn làm ở chế độ **EN** (dùng chung cho cả hai ngôn ngữ). Nhãn *Tiếng Việt: x/y* cho biết đã dịch bao nhiêu ô. Sửa chữ tiếng Anh ở ô đã có bản dịch thì admin nhắc cập nhật bên VI. Preview tự hiện đúng ngôn ngữ đang sửa.
 - **Preview** (cột phải): xem ngay trang chủ hoặc trang project, chuyển Desktop / Mobile.
 
 ## Lưu và publish

@@ -302,9 +302,14 @@ function input(obj, key, { type = 'text', rows, placeholder, onchange, counter }
     };
     n.addEventListener('input', upd); upd();
   }
-  n.addEventListener('input', () => { obj[key] = n.value; markDirty(); if (onchange) onchange(n.value); });
+  n.addEventListener('input', () => {
+    obj[key] = n.value; markDirty(); if (onchange) onchange(n.value);
+    // the English changed under an existing translation — say so once
+    if (obj.vi && obj.vi[key] && !viWarned.has(obj)) { viWarned.add(obj); toast('Trường này có bản tiếng Việt — sửa xong nhớ cập nhật ở chế độ VI'); }
+  });
   return cnt ? [n, cnt] : n;
 }
+const viWarned = new WeakSet();
 const field = (label, ...control) => el('label', {}, label, ...control);
 function toggle(label, obj, key, onchange) {
   const cb = el('input', { type: 'checkbox' });
@@ -415,6 +420,159 @@ function renderContacts(ed) {
     box));
 }
 
+/* ---------------- Vietnamese ----------------
+   The site is written in English; any field can carry a Vietnamese version
+   in a sibling "vi" object ({ title, tagline, … }) that tools/build.js
+   renders next to the English and the site's EN / VI switch swaps in.
+   The VI view edits only those translations — order, rows, images and
+   settings are shared and edited in the EN view. */
+state.lang = (() => { try { return localStorage.getItem('snrt-admin:lang') === 'vi' ? 'vi' : 'en'; } catch (e) { return 'en'; } })();
+function setLang(l) {
+  state.lang = l;
+  try { localStorage.setItem('snrt-admin:lang', l); } catch (e) {}
+  renderEditor(); setPreview($('#previewPage').value || 'index.html');
+}
+
+const viGet = (obj, key) => (obj && obj.vi && obj.vi[key] != null ? obj.vi[key] : '');
+const blank = (v) => v == null || v === '' || (Array.isArray(v) ? v.every(blank)
+  : typeof v === 'object' ? Object.values(v).every(blank) : false);
+// an empty value removes the key (and the vi object once nothing is left)
+function viSet(obj, key, value) {
+  if (blank(value)) {
+    if (obj.vi) { delete obj.vi[key]; if (!Object.keys(obj.vi).length) delete obj.vi; }
+  } else {
+    obj.vi = obj.vi || {}; obj.vi[key] = value;
+  }
+  markDirty(); updateViProgress();
+}
+
+// one Vietnamese input with the English original shown above it;
+// get/set default to obj.vi[key], or pass them for list / table cells
+function viField(label, en, { rows, get, set } = {}) {
+  const tag = rows ? 'textarea' : 'input';
+  const n = el(tag, { type: rows ? null : 'text', rows, placeholder: en ? 'Chưa dịch — để trống thì web hiện tiếng Anh' : '' });
+  n.value = get() || '';
+  const wrap = el('label', { class: 'vi-field' + (en && !n.value ? ' todo' : '') }, label,
+    en ? el('div', { class: 'en-ref' }, String(en)) : null, n);
+  n.addEventListener('input', () => { set(n.value); wrap.classList.toggle('todo', !!en && !n.value); });
+  return wrap;
+}
+const viOf = (obj, key, label, opts = {}) => viField(label, obj[key], Object.assign({
+  get: () => viGet(obj, key), set: (v) => viSet(obj, key, v) }, opts));
+// arrays that follow the English length: highlights, table columns
+function viArrayCell(obj, key, enArr, i) {
+  return {
+    get: () => (viGet(obj, key) || [])[i],
+    set: (v) => { const a = enArr.map((_, j) => (viGet(obj, key) || [])[j] || ''); a[i] = v; viSet(obj, key, a); },
+  };
+}
+
+// every translatable field of a project: [englishText, vietnameseText]
+function viPairs(p) {
+  const out = [];
+  const add = (o, k) => { if (o && o[k]) out.push([o[k], viGet(o, k)]); };
+  ['title', 'tagline', 'metaDescription', 'badge'].forEach((k) => add(p, k));
+  ['title', 'tag', 'role', 'problem', 'coverAlt'].forEach((k) => add(p.card, k));
+  (p.card.highlights || []).forEach((h, i) => h && out.push([h, (viGet(p.card, 'highlights') || [])[i]]));
+  (p.meta || []).forEach((m) => { add(m, 'label'); add(m, 'value'); });
+  (p.blocks || []).forEach((b) => {
+    ['heading', 'body', 'intro', 'note'].forEach((k) => add(b, k));
+    if (b.type === 'table') {
+      (b.columns || []).forEach((c, i) => c && out.push([c, (viGet(b, 'columns') || [])[i]]));
+      (b.rows || []).forEach((r, i) => r.forEach((c, j) => c && out.push([c, ((viGet(b, 'rows') || [])[i] || [])[j]])));
+    }
+    (b.items || []).forEach((it) => add(it, b.type === 'stats' ? 'label' : 'text'));
+  });
+  (p.shots || []).forEach((s) => { add(s, 'alt'); add(s, 'caption'); });
+  const secs = viGet(p, 'sections') || {};
+  [...new Set((p.shots || []).map((s) => s.section).filter(Boolean))].forEach((n) => out.push([n, secs[n]]));
+  return out;
+}
+function viProgressText(p) {
+  const pairs = viPairs(p);
+  const done = pairs.filter(([, v]) => v).length;
+  return `Tiếng Việt: ${done}/${pairs.length}`;
+}
+function updateViProgress() {
+  const pill = $('#viProgress'); const p = cur();
+  if (pill && p) pill.textContent = viProgressText(p);
+}
+
+function renderViEditor(ed, p) {
+  ed.append(el('p', { class: 'hint vi-intro' },
+    'Mỗi ô có bản tiếng Anh ở trên để đối chiếu. Ô để trống thì web hiện tiếng Anh ở chế độ VI. Muốn thêm/bớt dòng, đổi thứ tự hay ảnh thì chuyển về EN — cấu trúc dùng chung cho cả hai ngôn ngữ.'));
+
+  ed.append(card('Thông tin chung', true,
+    viOf(p, 'title', 'Tên project'),
+    p.badge ? viOf(p, 'badge', 'Nhãn nhỏ dưới tên') : null,
+    viOf(p, 'tagline', 'Tagline', { rows: 2 }),
+    viOf(p, 'metaDescription', 'Mô tả SEO', { rows: 2 })));
+
+  ed.append(card('Thông số', true, ...(p.meta || []).map((m) => el('div', { class: 'grid2' },
+    viOf(m, 'label', 'Tên'), viOf(m, 'value', 'Giá trị')))));
+
+  const hl = p.card.highlights || [];
+  ed.append(card('Thẻ ở trang chủ (Work)', true,
+    el('div', { class: 'grid2' }, viOf(p.card, 'title', 'Tên trên thẻ'), viOf(p.card, 'tag', 'Tag dưới tên')),
+    viOf(p.card, 'role', 'Vai trò (Role)'),
+    ...hl.map((h, i) => viField(`Highlight ${i + 1}`, h, viArrayCell(p.card, 'highlights', hl, i))),
+    viOf(p.card, 'problem', 'Problem', { rows: 4 }),
+    viOf(p.card, 'coverAlt', 'Mô tả ảnh cover (alt)')));
+
+  const blocks = el('div', { class: 'row-list' });
+  (p.blocks || []).forEach((b, bi) => {
+    const box = el('div', { class: 'block' }, el('div', { class: 'block-head' },
+      el('b', {}, `Khối ${bi + 1}`), el('span', { class: 'hint' }, BLOCK_TYPES.find(([t]) => t === b.type)?.[1] || b.type)));
+    box.append(viOf(b, 'heading', 'Tiêu đề khối'));
+    if (b.type === 'table') {
+      const cols = b.columns || []; const rows = b.rows || [];
+      if (b.intro) box.append(viOf(b, 'intro', 'Đoạn mở đầu', { rows: 2 }));
+      box.append(el('div', { class: 'grid2' }, ...cols.map((c, i) => viField(`Cột ${i + 1}`, c, viArrayCell(b, 'columns', cols, i)))));
+      rows.forEach((r, ri) => box.append(el('div', { class: 'vi-row' }, el('span', { class: 'hint' }, `Hàng ${ri + 1}`),
+        ...r.map((c, ci) => viField(cols[ci] || `Cột ${ci + 1}`, c, {
+          rows: String(c).length > 28 ? Math.min(6, Math.max(2, Math.ceil(String(c).length / 38))) : undefined,
+          get: () => ((viGet(b, 'rows') || [])[ri] || [])[ci],
+          set: (v) => {
+            const cur2 = viGet(b, 'rows') || [];
+            const grid = rows.map((row, i) => row.map((_, j) => (cur2[i] || [])[j] || ''));
+            grid[ri][ci] = v; viSet(b, 'rows', grid);
+          },
+        })))));
+      if (b.note) box.append(viOf(b, 'note', 'Ghi chú dưới bảng', { rows: 2 }));
+    } else if (b.type === 'chips' || b.type === 'stats') {
+      const k = b.type === 'stats' ? 'label' : 'text';
+      box.append(el('div', { class: 'grid2' }, ...(b.items || []).map((it, i) =>
+        viOf(it, k, b.type === 'stats' ? `${it.value || ''} — chú thích` : `Mục ${i + 1}`))));
+    } else {
+      box.append(viOf(b, 'body', 'Nội dung', { rows: Math.min(14, Math.max(4, Math.ceil(String(b.body || '').length / 90))) }));
+    }
+    blocks.append(box);
+  });
+  ed.append(card('Nội dung case study', true,
+    el('div', { class: 'md-help', html: 'Giữ nguyên cách viết như bản tiếng Anh: dòng trống = đoạn mới · <code>- </code> = gạch đầu dòng · <code>**chữ đậm**</code>' }),
+    blocks));
+
+  const names = [...new Set((p.shots || []).map((s) => s.section).filter(Boolean))];
+  if (names.length) {
+    ed.append(card('Tên section (breadcrumb)', false, el('div', { class: 'grid2' }, ...names.map((n) => viField(n, n, {
+      get: () => (viGet(p, 'sections') || {})[n],
+      set: (v) => viSet(p, 'sections', Object.assign({}, viGet(p, 'sections') || {}, { [n]: v })),
+    })))));
+  }
+
+  const shots = (p.shots || []).filter((s) => s.alt || s.caption);
+  if (shots.length) {
+    ed.append(card(`Mô tả ảnh (${shots.length})`, false, ...shots.map((s) => el('div', { class: 'vi-shot' },
+      thumb(s.src),
+      el('div', { class: 'row-list' },
+        s.alt ? viOf(s, 'alt', 'Alt') : null,
+        s.caption ? viOf(s, 'caption', 'Chú thích') : null)))));
+  }
+
+  ed.append(card('Tên tab năng lực (dùng chung mọi project)', false, el('div', { class: 'grid2' },
+    ...state.data.filters.map((f) => viOf(f, 'label', f.id)))));
+}
+
 /* ---------------- editor ---------------- */
 function renderEditor() {
   const ed = $('#editor');
@@ -432,7 +590,21 @@ function renderEditor() {
   ed.append(el('div', { class: 'editor-head' },
     el('h1', {}, p.title || '(chưa đặt tên)'),
     el('span', { class: 'pill' + (p.visible !== false ? ' on' : '') }, p.visible !== false ? 'Đang hiển thị' : 'Đang ẩn'),
-    p.passwordHash ? el('span', { class: 'pill on' }, '🔒 Có mật khẩu') : null));
+    p.passwordHash ? el('span', { class: 'pill on' }, '🔒 Có mật khẩu') : null,
+    el('span', { class: 'pill', id: 'viProgress', title: 'Số ô đã dịch / tổng số ô có chữ' }, viProgressText(p)),
+    el('div', { class: 'lang-switch', role: 'group', 'aria-label': 'Ngôn ngữ đang sửa' },
+      ...[['en', 'EN'], ['vi', 'VI']].map(([l, t]) => el('button', {
+        type: 'button', class: state.lang === l ? 'on' : '', 'aria-pressed': String(state.lang === l),
+        onclick: () => { if (state.lang !== l) setLang(l); },
+      }, t)))));
+
+  if (state.lang === 'vi') {
+    renderViEditor(ed, p);
+    const cardsVi = ed.querySelectorAll('details.card');
+    if (openState.length === cardsVi.length) cardsVi.forEach((d, i) => (d.open = openState[i]));
+    ed.scrollTop = scroll;
+    return;
+  }
 
   /* basics */
   const slugInput = el('input', { type: 'text' }); slugInput.value = p.slug;
@@ -621,7 +793,8 @@ function renderPreviewOptions() {
 }
 function setPreview(page) {
   $('#previewPage').value = page;
-  const url = '/site/' + page;
+  // preview in the language being edited
+  const url = '/site/' + page + (state.lang === 'vi' ? '?lang=vi' : '?lang=en');
   $('#previewFrame').src = url; $('#openPreview').href = url;
 }
 function reloadPreview() {
