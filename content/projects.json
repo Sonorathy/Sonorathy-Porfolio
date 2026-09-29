@@ -388,13 +388,35 @@
         },
         {
           "type": "image",
-          "src": "assets/work/jf-ds/02-in-numbers.jpg",
+          "src": "assets/work/jf-ds/02a-brand-switching.jpg",
           "caption": "",
-          "alt": "In numbers — 328 component sets, 2,817 variants, 1,265 variables, 6 brand modes",
+          "alt": "Brand switching — switch the brand, not the components",
           "mobile": false,
-          "section": "In numbers",
+          "section": "Brand switching",
           "vi": {
-            "alt": "Qua các con số — 328 component set, 2.817 variant, 1.265 biến, 6 brand mode"
+            "alt": "Chuyển thương hiệu — đổi thương hiệu, không đổi component"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/work/jf-ds/02b-brand-switching.gif",
+          "caption": "",
+          "alt": "Screen recording — one mode change on the 1.Brand collection re-themes four screens live in Figma",
+          "mobile": false,
+          "section": "Brand switching",
+          "vi": {
+            "alt": "Quay màn hình — đổi một mode trên collection 1.Brand, bốn màn đổi giao diện ngay trong Figma"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/work/jf-ds/02c-brand-switching-modes.jpg",
+          "caption": "",
+          "alt": "The same frame in six brand modes, category colours included",
+          "mobile": false,
+          "section": "Brand switching",
+          "vi": {
+            "alt": "Cùng một frame ở sáu brand mode, kể cả màu category"
           }
         },
         {
@@ -410,46 +432,24 @@
         },
         {
           "type": "image",
-          "src": "assets/work/jf-ds/04a-brand-switching.jpg",
+          "src": "assets/work/jf-ds/04-design-tokens.jpg",
           "caption": "",
-          "alt": "Brand switching — switch the brand, not the components",
+          "alt": "Design tokens — named for intent, scoped, and shipped with a web code name",
           "mobile": false,
-          "section": "Brand switching",
+          "section": "Design tokens",
           "vi": {
-            "alt": "Chuyển thương hiệu — đổi thương hiệu, không đổi component"
-          }
-        },
-        {
-          "type": "image",
-          "src": "assets/work/jf-ds/04b-brand-switching.gif",
-          "caption": "",
-          "alt": "Screen recording — one mode change on the 1.Brand collection re-themes four screens live in Figma",
-          "mobile": false,
-          "section": "Brand switching",
-          "vi": {
-            "alt": "Quay màn hình — một lần đổi mode trên collection 1.Brand làm đổi theme bốn màn hình ngay trong Figma"
-          }
-        },
-        {
-          "type": "image",
-          "src": "assets/work/jf-ds/04c-brand-switching-modes.jpg",
-          "caption": "",
-          "alt": "The same frame in six brand modes",
-          "mobile": false,
-          "section": "Brand switching",
-          "vi": {
-            "alt": "Cùng một frame trong sáu brand mode"
+            "alt": "Design token — đặt tên theo mục đích, có phạm vi, kèm tên biến CSS"
           }
         },
         {
           "type": "image",
           "src": "assets/work/jf-ds/05-properties.jpg",
           "caption": "",
-          "alt": "Component properties — variants, booleans, text and instance swaps",
+          "alt": "Component properties — variants, booleans, text, instance swaps and slots",
           "mobile": false,
           "section": "Properties",
           "vi": {
-            "alt": "Thuộc tính component — variant, boolean, text và instance swap"
+            "alt": "Thuộc tính component — variant, boolean, text, instance swap và slot"
           }
         },
         {
@@ -465,18 +465,29 @@
         },
         {
           "type": "image",
-          "src": "assets/work/jf-ds/07-coverage.jpg",
+          "src": "assets/work/jf-ds/07-documentation-governance.jpg",
+          "caption": "",
+          "alt": "Documentation & governance — one section per component, changes written to a ledger and checked by script",
+          "mobile": false,
+          "section": "Documentation & governance",
+          "vi": {
+            "alt": "Tài liệu & quản trị — mỗi component một section, mọi thay đổi ghi vào ledger và kiểm bằng script"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/work/jf-ds/08-coverage.jpg",
           "caption": "",
           "alt": "Coverage — foundations under product kits for chat, AI, commerce and platform",
           "mobile": false,
           "section": "Coverage",
           "vi": {
-            "alt": "Độ phủ — nền tảng bên dưới các kit sản phẩm cho chat, AI, thương mại và platform"
+            "alt": "Độ phủ — nền tảng chung dưới các kit chat, AI, thương mại và platform"
           }
         },
         {
           "type": "image",
-          "src": "assets/work/jf-ds/08-thanks.jpg",
+          "src": "assets/work/jf-ds/09-thanks.jpg",
           "caption": "",
           "alt": "Thank you",
           "mobile": false,
@@ -495,11 +506,12 @@
         "metaDescription": "Design System — một thư viện Figma phục vụ sáu sản phẩm trên sáu thương hiệu: 1.265 biến, 328 component set, bộ kit Chat & AI. Case study của Sonorathy.",
         "sections": {
           "Overview": "Tổng quan",
-          "In numbers": "Con số",
-          "Token architecture": "Kiến trúc token",
           "Brand switching": "Chuyển thương hiệu",
+          "Token architecture": "Kiến trúc token",
+          "Design tokens": "Design token",
           "Properties": "Thuộc tính",
           "Variant matrix": "Ma trận variant",
+          "Documentation & governance": "Tài liệu & quản trị",
           "Coverage": "Độ phủ",
           "Thanks": "Cảm ơn"
         }
